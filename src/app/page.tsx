@@ -278,22 +278,18 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* News Section */}
-        <section className="py-8 bg-white border-b">
+        {/* News Section - ニュース追加時に表示 */}
+        {/* <section className="py-8 bg-white border-b">
           <div className="container mx-auto px-4">
             <div className="flex items-center gap-4">
               <span className="text-[#ea5506] font-medium">News</span>
-              <span className="text-gray-400 text-sm">
-                {/* TODO: 実際のニュースデータ */}
-                2025/01/01
-              </span>
+              <span className="text-gray-400 text-sm">2025/01/01</span>
               <span className="text-gray-700 flex-1 truncate">
-                {/* TODO: 実際のニュースタイトル */}
-                コーポレートサイトを開設しました。
+                ニュースタイトル
               </span>
             </div>
           </div>
-        </section>
+        </section> */}
 
         {/* Success to Success Section */}
         <section className="py-20 lg:py-32">

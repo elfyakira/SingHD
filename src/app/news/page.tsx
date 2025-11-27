@@ -7,27 +7,8 @@ import Footer from '@/components/layout/Footer'
 import ContactCTA from '@/components/layout/ContactCTA'
 import LowPageHero from '@/components/LowPageHero'
 
-// TODO: 実際のニュースデータに置き換え
-const newsData = [
-  {
-    id: 1,
-    date: '2023.12.27',
-    category: 'ALL',
-    title: 'コーポレートサイトを開設しました。',
-  },
-  {
-    id: 2,
-    date: '2025.5.9',
-    category: 'おしらせ',
-    title: 'GOOD CAST社の子会社化について',
-  },
-  {
-    id: 3,
-    date: '2025.5.9',
-    category: 'おしらせ',
-    title: 'MIND WAY社の子会社化について',
-  },
-]
+// ニュースデータ（記事追加時はここに追加）
+const newsData: { id: number; date: string; category: string; title: string }[] = []
 
 const categories = ['ALL', 'おしらせ']
 
@@ -147,7 +128,7 @@ export default function NewsPage() {
               </div>
             ) : (
               <p className="text-center text-gray-500 py-8">
-                該当するニュースがありません。
+                現在ニュースはありません。
               </p>
             )}
           </div>
