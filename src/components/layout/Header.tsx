@@ -2,7 +2,6 @@
 
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
-import Image from 'next/image'
 import { Menu, X } from 'lucide-react'
 
 const navigation = [
@@ -34,44 +33,11 @@ export default function Header() {
         <div className="flex items-center justify-between h-20 lg:h-24">
           {/* Logo */}
           <Link href="/" className="flex-shrink-0">
-            {/* TODO: ロゴ画像に置き換え */}
-            <div className="flex items-center gap-2">
-              {/* ダイヤモンド型ロゴのプレースホルダー */}
-              <div className="w-16 h-16 relative">
-                <svg viewBox="0 0 100 100" className="w-full h-full">
-                  {/* 左上のダイヤ（白/グレー） */}
-                  <polygon
-                    points="25,50 50,25 50,50 25,75"
-                    fill="#e5e5e5"
-                    stroke="#d4d4d4"
-                    strokeWidth="1"
-                  />
-                  {/* 中央のダイヤ（薄いオレンジ/ベージュ） */}
-                  <polygon
-                    points="50,25 75,50 50,75 25,50"
-                    fill="#f5deb3"
-                    stroke="#deb887"
-                    strokeWidth="1"
-                  />
-                  {/* 右上のダイヤ（オレンジ） */}
-                  <polygon
-                    points="50,50 75,25 100,50 75,75"
-                    fill="#ea5506"
-                    stroke="#d14800"
-                    strokeWidth="1"
-                  />
-                </svg>
-              </div>
-              <div className="flex flex-col">
-                <span className="text-lg font-bold tracking-wider">
-                  {/* TODO: 会社名に置き換え */}
-                  ロゴ
-                </span>
-                <span className="text-[10px] tracking-widest text-gray-500">
-                  HOLDINGS
-                </span>
-              </div>
-            </div>
+            <img
+              src="/singhdlogo512.png"
+              alt="Singホールディングス"
+              className="h-20 md:h-24 w-auto"
+            />
           </Link>
 
           {/* Desktop Navigation */}

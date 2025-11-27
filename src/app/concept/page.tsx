@@ -120,39 +120,12 @@ export default function ConceptPage() {
             <div className="w-16 h-1 bg-[#ea5506] mx-auto mb-12" />
 
             {/* Logo */}
-            <div className="max-w-xs mx-auto">
-              {/* TODO: 実際のロゴ画像に置き換え */}
-              <div className="w-40 h-40 md:w-48 md:h-48 mx-auto mb-4">
-                <svg viewBox="0 0 100 100" className="w-full h-full">
-                  <polygon
-                    points="25,50 50,25 50,50 25,75"
-                    fill="#e5e5e5"
-                    stroke="#d4d4d4"
-                    strokeWidth="1"
-                  />
-                  <polygon
-                    points="50,25 75,50 50,75 25,50"
-                    fill="#f5deb3"
-                    stroke="#deb887"
-                    strokeWidth="1"
-                  />
-                  <polygon
-                    points="50,50 75,25 100,50 75,75"
-                    fill="#ea5506"
-                    stroke="#d14800"
-                    strokeWidth="1"
-                  />
-                </svg>
-              </div>
-              <div className="text-center">
-                <p className="text-2xl font-bold tracking-wider">
-                  {/* TODO: 会社名に置き換え */}
-                  ロゴ
-                </p>
-                <p className="text-sm tracking-widest text-gray-500">
-                  HOLDINGS
-                </p>
-              </div>
+            <div className="max-w-sm mx-auto">
+              <img
+                src="/singhdlogo512.png"
+                alt="Singホールディングス ロゴ"
+                className="w-64 h-64 md:w-80 md:h-80 mx-auto object-contain"
+              />
             </div>
           </div>
         </section>
