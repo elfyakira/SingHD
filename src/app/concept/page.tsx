@@ -27,6 +27,38 @@ export default function ConceptPage() {
           imageSrc="/img/concept/concept-hero.jpg"
         />
 
+        {/* Concept Section */}
+        <section id="concept-intro" className="py-16 md:py-20 bg-gray-50">
+          <div className="container mx-auto px-4">
+            <div className="text-center mb-12">
+              <h2 className="text-2xl font-medium text-gray-800 mb-4">
+                コンセプト
+              </h2>
+              <div className="w-16 h-1 bg-[#ea5506] mx-auto mb-6" />
+              <p className="text-xl md:text-2xl font-bold text-gray-800">
+                経営者の育成とバトンを繋ぐ
+              </p>
+            </div>
+
+            <div className="max-w-3xl mx-auto space-y-6 text-gray-700 leading-relaxed">
+              <p>
+                私は今までに多くの経営者の方とお会いしてきました。残念なことに立派な理念を掲げてるが行動をしていない経営者の多さに失望をしました。自らの欲を満たすことではなく、本当に実現したいことは何か？<br />
+                今の子供たちが、夢を見て叶えられる社会にしたい。<br />
+                様々な理由で選択肢を絞られるのではなく、その悩みすら周りの大人が協力して解決し続けたい。
+              </p>
+              <p>
+                そして、地域や企業の課題解決をしていきながら、生まれた利益を次の世代に還元し続ける。<br />
+                そういう大人の姿を見せることで、子供が大人を尊敬できる。<br />
+                そして次の世代が子供の為に行動し続ける。<br />
+                この行動をし続けることで、純粋だけれど大事な気持ちの輪を広げ続けます。
+              </p>
+              <p>
+                これは私1人では無理なので、同じ想いを持ち、還元に向けた行動をしてくれる仲間を増やすことで、この輪を広げ続けて、私が死んだ後もこの輪が次の世代に受け継がれるようにします。
+              </p>
+            </div>
+          </div>
+        </section>
+
         {/* MVV Section */}
         <section id="mvv" className="py-16 md:py-20">
           <div className="container mx-auto px-4">
