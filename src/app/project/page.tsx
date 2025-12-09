@@ -18,7 +18,7 @@ const groupCompanies = [
     name: '株式会社Sing',
     nameEn: 'Sing Inc.',
     logo: '/img/company/singlogo.png',
-    photo: '/img/company/singphoto.jpg',
+    photo: '/img/company/sing.png',
     description:
       '株式会社Singは、人財コンサルティングと採用支援を通じて、企業の成長と次世代リーダーの育成に貢献する会社です。企業の組織課題を解決し、最適な人財配置や育成戦略を提供することで、持続的な成長をサポートします。Singのサービスは、単なる採用代行ではなく、企業の未来を見据えた戦略的な人財支援を実現します。',
     businessContent:
@@ -38,7 +38,7 @@ const groupCompanies = [
     name: '株式会社フライトップ',
     nameEn: 'Flytop Inc.',
     logo: '/img/company/flytoplogo.png',
-    photo: '/img/company/flytopphoto.JPG',
+    photo: '/img/company/flytop.png',
     description:
       '株式会社フライトップは、愛知県を拠点に名古屋・尾張・三河・岐阜エリアで製造業に特化した人財派遣サービスを提供しています。製造業出身の経験を活かし、現場に即した最適な人財を企業に紹介。若手技術者の育成や即戦力の確保をサポートし、企業の成長と地域経済の発展に貢献します。地域密着で未経験者から技術職まで幅広く対応し、柔軟で安心のサポート体制を整えています。',
     businessContent: '労働者派遣事業、有料職業紹介事業',
@@ -53,7 +53,7 @@ const groupCompanies = [
     name: '株式会社ゆめスタ',
     nameEn: 'Yumesuta Inc.',
     logo: '/img/company/yumesutalogo.png',
-    photo: '/img/company/yumesutaimg.jpg',
+    photo: '/img/company/yumesuta.jpeg',
     description:
       '株式会社ゆめスタは、「夢をスタートして叶えるプロジェクト」として、若者と企業・地域をつなぎ、未来を創る支援を行う会社です。高校生向け就活情報誌や採用支援、企業ブランディング、地域や学校との連携を通じて、若者が「夢を見つけ」「挑戦できる」環境を創ります。ゆめスタは"夢もキャリアも、選択肢はひとつじゃない"という信念をもとに、"夢を持たない人"にも"夢を追う人"にも、仕事や成長のチャンスを丁寧に届け、次世代が笑顔で活躍できる社会の実現に貢献します。',
     businessContent:
@@ -71,7 +71,7 @@ const groupCompanies = [
     name: '株式会社Singメディア',
     nameEn: 'Sing Media Inc.',
     logo: '',
-    photo: '/img/company/media.JPG',
+    photo: '/img/company/media.png',
     description:
       '株式会社Singメディアは、月刊Singをはじめとするメディアコンテンツを通じて、企業のブランディングや採用活動を支援する会社です。企業の挑戦や価値を取材・編集し、紙・デジタル両面で発信。読者に企業の魅力を正確に伝えることで、採用力や認知向上を高め、企業成長に貢献します。Singメディアは、情報発信を通じて社会とビジネスの発展に寄与することを使命としています。',
     businessContent:

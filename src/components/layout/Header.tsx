@@ -5,10 +5,10 @@ import Link from 'next/link'
 import { Menu, X } from 'lucide-react'
 
 const navigation = [
-  { name: 'News', href: '/news' },
-  { name: 'Concept', href: '/concept' },
-  { name: 'Project', href: '/project' },
-  { name: 'Company', href: '/company' },
+  { name: '企業コンセプト', href: '/concept' },
+  { name: 'グループ会社', href: '/project' },
+  { name: '会社概要', href: '/company' },
+  { name: 'ニュース', href: '/news' },
 ]
 
 export default function Header() {
@@ -55,7 +55,7 @@ export default function Header() {
               href="/contact"
               className="bg-[#ea5506] text-white px-6 py-3 rounded-full text-sm font-medium hover:bg-[#d14800] transition-colors"
             >
-              CONTACT
+              お問い合わせ
             </Link>
           </nav>
 
@@ -96,7 +96,7 @@ export default function Header() {
             className="bg-[#ea5506] text-white px-6 py-4 rounded-full text-center font-medium hover:bg-[#d14800] transition-colors mt-4"
             onClick={() => setIsMobileMenuOpen(false)}
           >
-            CONTACT
+            お問い合わせ
           </Link>
         </nav>
       </div>
