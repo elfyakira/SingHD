@@ -332,7 +332,7 @@ export default function HomePage() {
                   <span className="border-b border-[#ea5506] pb-1">
                     Concept
                   </span>
-                  <span className="text-sm text-gray-500">企業コンセプトへ</span>
+                  <span className="text-sm text-gray-500">企業コンセプトを見る</span>
                   <span className="w-10 h-10 rounded-full border border-[#ea5506] flex items-center justify-center group-hover:bg-[#ea5506] group-hover:text-white transition-all">
                     <ArrowRight className="w-4 h-4" />
                   </span>
@@ -370,7 +370,7 @@ export default function HomePage() {
               href="/company"
               className="inline-flex items-center gap-3 border-2 border-white text-white px-8 py-3 rounded-full font-medium hover:bg-white hover:text-blue-900 transition-all"
             >
-              Company
+              会社概要を見る
               <ArrowRight className="w-4 h-4" />
             </Link>
           </div>
@@ -400,7 +400,7 @@ export default function HomePage() {
                   href="/project"
                   className="inline-flex items-center gap-4 text-[#22c55e] font-medium group"
                 >
-                  <span>READ MORE</span>
+                  <span>詳細を見る</span>
                   <span className="w-10 h-10 rounded-full border border-[#22c55e] flex items-center justify-center group-hover:bg-[#22c55e] group-hover:text-white transition-all">
                     <ArrowRight className="w-4 h-4" />
                   </span>
@@ -476,7 +476,7 @@ export default function HomePage() {
                   href="/company"
                   className="inline-flex items-center gap-4 text-[#22c55e] font-medium group"
                 >
-                  <span>READ MORE</span>
+                  <span>詳細を見る</span>
                   <span className="w-10 h-10 rounded-full border border-[#22c55e] flex items-center justify-center group-hover:bg-[#22c55e] group-hover:text-white transition-all">
                     <ArrowRight className="w-4 h-4" />
                   </span>
