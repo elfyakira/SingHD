@@ -152,8 +152,8 @@ export const siteConfig = {
 
   // Analytics
   analytics: {
-    googleAnalyticsId: '', // TODO: GA4 ID
-    googleSearchConsoleId: '', // TODO: Search Console認証
+    googleAnalyticsId: 'G-GR5S8NKFH3',
+    googleSearchConsoleId: '9TTYbM_ARjlyAu4Mo57TSafBV6RBnMKWuy4yPNhOypY',
     bingWebmasterId: '', // TODO: Bing認証
   },
 }

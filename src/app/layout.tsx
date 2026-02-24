@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import { Noto_Sans_JP } from 'next/font/google'
+import Script from 'next/script'
 import './globals.css'
 import { siteConfig } from '@/config/seo'
 
@@ -77,6 +78,22 @@ export default function RootLayout({
   return (
     <html lang="ja">
       <body className={`${notoSansJP.variable} font-sans antialiased`}>
+        {siteConfig.analytics.googleAnalyticsId && (
+          <>
+            <Script
+              src={`https://www.googletagmanager.com/gtag/js?id=${siteConfig.analytics.googleAnalyticsId}`}
+              strategy="afterInteractive"
+            />
+            <Script id="google-analytics" strategy="afterInteractive">
+              {`
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){dataLayer.push(arguments);}
+                gtag('js', new Date());
+                gtag('config', '${siteConfig.analytics.googleAnalyticsId}');
+              `}
+            </Script>
+          </>
+        )}
         {children}
       </body>
     </html>
