@@ -41,9 +41,9 @@ export default function LowPageHero({
         {/* 右側の斜めカット画像 */}
         {imageSrc && (
           <div
-            className="absolute top-0 right-0 h-full w-[40%] md:w-[38%] lg:w-[35%] overflow-hidden hidden md:block"
+            className="absolute top-8 md:top-12 lg:top-16 right-0 h-[calc(100%+40px)] md:h-[calc(100%+60px)] lg:h-[calc(100%+80px)] w-[40%] md:w-[38%] lg:w-[35%] overflow-hidden hidden md:block z-10"
             style={{
-              clipPath: 'polygon(20% 0, 100% 0, 100% 100%, 0% 100%)',
+              clipPath: 'polygon(30% 0, 100% 0, 100% 100%, 0 100%)',
             }}
           >
             <img
@@ -57,9 +57,9 @@ export default function LowPageHero({
         {/* 画像がない場合のプレースホルダー */}
         {!imageSrc && (
           <div
-            className="absolute top-0 right-0 h-full w-[40%] md:w-[38%] lg:w-[35%] overflow-hidden hidden md:block bg-gray-800"
+            className="absolute top-8 md:top-12 lg:top-16 right-0 h-[calc(100%+40px)] md:h-[calc(100%+60px)] lg:h-[calc(100%+80px)] w-[40%] md:w-[38%] lg:w-[35%] overflow-hidden hidden md:block bg-gray-800 z-10"
             style={{
-              clipPath: 'polygon(20% 0, 100% 0, 100% 100%, 0% 100%)',
+              clipPath: 'polygon(30% 0, 100% 0, 100% 100%, 0 100%)',
             }}
           >
             <div className="w-full h-full flex items-center justify-center text-gray-600 text-sm">

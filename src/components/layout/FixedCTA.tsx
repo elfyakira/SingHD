@@ -35,12 +35,12 @@ export default function FixedCTA() {
       >
         {/* ロゴ部分 */}
         <div className="w-10 h-10 rounded-full border border-[#1C2A44] flex items-center justify-center">
-          <span className="text-xs font-bold text-[#1C2A44]">{'{LOGO_ICON}'}</span>
+          <span className="text-xs font-bold text-[#1C2A44]">S</span>
         </div>
 
         {/* CTAテキスト */}
         <span className="text-sm font-medium text-foreground pr-2">
-          {'{FIXED_CTA_TEXT}'}
+          無料相談はこちら
         </span>
 
         {/* 矢印アイコン */}

@@ -4,13 +4,11 @@ import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import { Menu, X } from 'lucide-react'
 
-// ナビゲーション項目（HANDOFF準拠）
-// 文言は後でヒアリングシートで確定
 const navigation = [
-  { name: '{NAV_MIRAIKU}', href: '/miraiku' },
-  { name: '{NAV_COMPANY}', href: '/company' },
-  { name: '{NAV_PROJECT}', href: '/project' },
-  { name: '{NAV_NEWS}', href: '/news' },
+  { name: 'MIRAIKU', href: '/miraiku' },
+  { name: '会社概要', href: '/company' },
+  { name: 'グループ会社', href: '/project' },
+  { name: 'ニュース', href: '/news' },
 ]
 
 export default function Header() {
@@ -35,10 +33,11 @@ export default function Header() {
         <div className="flex items-center justify-between h-16 lg:h-20">
           {/* Logo */}
           <Link href="/" className="flex-shrink-0">
-            {/* ロゴ: 新規作成待ち - 現在は仮テキスト */}
-            <span className="text-xl font-bold tracking-wider text-[#1C2A44]">
-              {'{LOGO}'}
-            </span>
+            <img
+              src="/img/logo/logo.png"
+              alt="Sing Holdings"
+              className="h-16 lg:h-20 w-auto"
+            />
           </Link>
 
           {/* Desktop Navigation */}
@@ -47,12 +46,11 @@ export default function Header() {
               <Link
                 key={item.href}
                 href={item.href}
-                className="text-sm font-medium tracking-wider text-foreground hover:text-secondary transition-colors uppercase"
+                className="text-sm font-medium tracking-wider text-foreground hover:text-secondary transition-colors"
               >
                 {item.name}
               </Link>
             ))}
-            {/* Contact は右下固定CTAボタンに移動 */}
           </nav>
 
           {/* Mobile Menu Button */}
@@ -81,7 +79,7 @@ export default function Header() {
             <Link
               key={item.href}
               href={item.href}
-              className="text-lg font-medium text-foreground hover:text-secondary transition-colors py-2 border-b border-gray-100 uppercase tracking-wider"
+              className="text-lg font-medium text-foreground hover:text-secondary transition-colors py-2 border-b border-gray-100 tracking-wider"
               onClick={() => setIsMobileMenuOpen(false)}
             >
               {item.name}
@@ -92,7 +90,7 @@ export default function Header() {
             className="bg-primary text-white px-6 py-4 text-center font-medium hover:bg-primary-dark transition-colors mt-4"
             onClick={() => setIsMobileMenuOpen(false)}
           >
-            {'{CTA_BUTTON}'}
+            無料相談を予約する
           </Link>
         </nav>
       </div>

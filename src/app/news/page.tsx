@@ -4,7 +4,6 @@ import { useState } from 'react'
 import { Search } from 'lucide-react'
 import Header from '@/components/layout/Header'
 import Footer from '@/components/layout/Footer'
-import ContactCTA from '@/components/layout/ContactCTA'
 import LowPageHero from '@/components/LowPageHero'
 
 // ニュースデータ（記事追加時はここに追加）
@@ -37,105 +36,98 @@ export default function NewsPage() {
           imageSrc="/img/hero/business.jpg"
         />
 
-        {/* Content */}
-        <div className="container mx-auto px-4 py-12 md:py-16">
-          {/* Search */}
-          <div className="max-w-2xl mx-auto mb-8">
-            <p className="text-center text-gray-600 mb-4">フリーワード検索</p>
-            <div className="relative">
-              <input
-                type="text"
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
-                placeholder=""
-                className="w-full px-4 py-3 border border-gray-300 rounded-lg pr-12 focus:outline-none focus:border-[#ea5506]"
-              />
-              <button className="absolute right-0 top-0 bottom-0 px-4 bg-[#ea5506] text-white rounded-r-lg hover:bg-[#d14800] transition-colors">
-                <Search className="w-5 h-5" />
-              </button>
+        {/* ========================================
+            ニュース一覧セクション
+           ======================================== */}
+        <section className="py-20 lg:py-32 bg-white">
+          <div className="container mx-auto px-4 lg:px-8">
+            {/* セクションヘッダー */}
+            <div className="mb-12 lg:mb-16">
+              <div className="mb-4">
+                <span className="text-sm tracking-wider text-gray-500 uppercase">
+                  News & Topics
+                </span>
+              </div>
+              <h2 className="text-4xl md:text-5xl font-bold">
+                お知らせ
+              </h2>
             </div>
-          </div>
 
-          {/* Categories */}
-          <div className="flex justify-center gap-4 mb-12">
-            {categories.map((category) => (
-              <button
-                key={category}
-                onClick={() => setSelectedCategory(category)}
-                className={`px-6 py-2 rounded-full border transition-colors ${
-                  selectedCategory === category
-                    ? 'bg-[#ea5506] text-white border-[#ea5506]'
-                    : 'border-gray-300 text-gray-600 hover:border-[#ea5506]'
-                }`}
-              >
-                {category}
-              </button>
-            ))}
-          </div>
+            {/* 検索・フィルター */}
+            <div className="max-w-4xl mb-12">
+              {/* 検索 */}
+              <div className="mb-8">
+                <p className="text-sm text-gray-500 mb-3">フリーワード検索</p>
+                <div className="relative max-w-md">
+                  <input
+                    type="text"
+                    value={searchQuery}
+                    onChange={(e) => setSearchQuery(e.target.value)}
+                    placeholder="キーワードを入力"
+                    className="w-full px-4 py-3 border border-gray-300 pr-12 focus:outline-none focus:border-[#1C2A44] transition-colors"
+                  />
+                  <button className="absolute right-0 top-0 bottom-0 px-4 bg-[#1C2A44] text-white hover:bg-[#141E30] transition-colors">
+                    <Search className="w-5 h-5" />
+                  </button>
+                </div>
+              </div>
 
-          {/* News List */}
-          <div className="max-w-4xl mx-auto bg-gray-50 rounded-lg p-8">
-            {filteredNews.length > 0 ? (
-              <div className="space-y-6">
-                {filteredNews.map((news) => (
-                  <article
-                    key={news.id}
-                    className="flex flex-col md:flex-row items-start md:items-center gap-4 pb-6 border-b border-gray-200 last:border-0"
+              {/* カテゴリ */}
+              <div className="flex flex-wrap gap-3">
+                {categories.map((category) => (
+                  <button
+                    key={category}
+                    onClick={() => setSelectedCategory(category)}
+                    className={`px-6 py-2 border text-sm font-medium transition-colors ${
+                      selectedCategory === category
+                        ? 'bg-[#1C2A44] text-white border-[#1C2A44]'
+                        : 'border-gray-300 text-gray-600 hover:border-[#1C2A44] hover:text-[#1C2A44]'
+                    }`}
                   >
-                    {/* Logo placeholder */}
-                    <div className="w-24 h-16 bg-white rounded flex items-center justify-center flex-shrink-0">
-                      <div className="w-12 h-12">
-                        {/* TODO: ロゴ画像に置き換え */}
-                        <svg viewBox="0 0 100 100" className="w-full h-full">
-                          <polygon
-                            points="25,50 50,25 50,50 25,75"
-                            fill="#e5e5e5"
-                          />
-                          <polygon
-                            points="50,25 75,50 50,75 25,50"
-                            fill="#f5deb3"
-                          />
-                          <polygon
-                            points="50,50 75,25 100,50 75,75"
-                            fill="#ea5506"
-                          />
-                        </svg>
-                      </div>
-                    </div>
+                    {category}
+                  </button>
+                ))}
+              </div>
+            </div>
 
-                    {/* Content */}
-                    <div className="flex-1">
-                      <div className="flex items-center gap-3 mb-2">
+            {/* ニュース一覧 */}
+            <div className="max-w-4xl">
+              {filteredNews.length > 0 ? (
+                <div className="divide-y divide-gray-200 border-t border-gray-200">
+                  {filteredNews.map((news) => (
+                    <article
+                      key={news.id}
+                      className="py-6 flex flex-col md:flex-row md:items-center gap-4 group cursor-pointer"
+                    >
+                      {/* 日付・カテゴリ */}
+                      <div className="flex items-center gap-4 md:w-48 shrink-0">
                         <span className="text-gray-500 text-sm">
                           {news.date}
                         </span>
-                        <span
-                          className={`px-3 py-1 rounded-full text-xs ${
-                            news.category === 'ALL'
-                              ? 'bg-blue-100 text-blue-600 border border-blue-300'
-                              : 'bg-orange-50 text-[#ea5506] border border-[#ea5506]'
-                          }`}
-                        >
+                        <span className="px-3 py-1 bg-[#1C2A44] text-white text-xs">
                           {news.category}
                         </span>
                       </div>
-                      <h2 className="text-gray-800 font-medium hover:text-[#ea5506] transition-colors cursor-pointer">
+
+                      {/* タイトル */}
+                      <h3 className="text-gray-800 group-hover:text-[#0E7490] transition-colors">
                         {news.title}
-                      </h2>
-                    </div>
-                  </article>
-                ))}
-              </div>
-            ) : (
-              <p className="text-center text-gray-500 py-8">
-                現在ニュースはありません。
-              </p>
-            )}
+                      </h3>
+                    </article>
+                  ))}
+                </div>
+              ) : (
+                <div className="py-16 text-center bg-[#f5f5f5]">
+                  <p className="text-gray-500">
+                    現在ニュースはありません。
+                  </p>
+                </div>
+              )}
+            </div>
           </div>
-        </div>
+        </section>
       </main>
 
-      <ContactCTA />
       <Footer />
     </>
   )
