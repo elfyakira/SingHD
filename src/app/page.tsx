@@ -1,5 +1,6 @@
 'use client'
 
+import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import { ArrowRight } from 'lucide-react'
 import Header from '@/components/layout/Header'
@@ -16,83 +17,125 @@ import Footer from '@/components/layout/Footer'
  * 6. 無料相談CTA
  */
 export default function HomePage() {
+  const [scrollY, setScrollY] = useState(0)
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrollY(window.scrollY)
+    }
+    window.addEventListener('scroll', handleScroll, { passive: true })
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
+
   return (
     <>
       <Header />
 
       <main>
         {/* ========================================
-            1. ヒーローセクション
-            - 背景: ダーク（黒系）
-            - 大きなタイポグラフィ
-            - 斜めの切り替えデザイン
+            1. ヒーローセクション（GIG風デザイン）
            ======================================== */}
-        <section className="relative min-h-screen flex items-center overflow-hidden">
-          {/* 背景: 白黒の斜め切り替え */}
+        <section className="relative min-h-screen overflow-hidden">
+          {/* 背景: 左白、右黒の斜め分割（パララックス効果） */}
           <div className="absolute inset-0">
+            {/* 白背景（左側） */}
             <div className="absolute inset-0 bg-white" />
+            {/* 黒背景（右側・斜めカット） */}
             <div
-              className="absolute top-0 right-0 w-1/2 h-full bg-[#0A0A0A]"
+              className="absolute inset-0 bg-[#0A0A0A]"
               style={{
-                clipPath: 'polygon(20% 0, 100% 0, 100% 100%, 0% 100%)',
+                clipPath: `polygon(${55 - scrollY * 0.01}% 0, 100% 0, 100% 100%, ${35 - scrollY * 0.01}% 100%)`,
+                transition: 'clip-path 0.1s ease-out',
               }}
             />
-            {/* アクセントライン */}
+            {/* 金色の斜めライン（パララックス） */}
             <div
-              className="absolute top-[10%] right-[45%] w-px h-[80%] bg-[#C9A227] opacity-50"
+              className="absolute top-0 bottom-0 w-px bg-[#D4AF37]"
               style={{
-                transform: 'rotate(-15deg)',
+                left: '75%',
+                transform: `rotate(-15deg) translateY(${scrollY * 0.1}px)`,
+                transformOrigin: 'top',
+                height: '120%',
+                transition: 'transform 0.1s ease-out',
               }}
             />
           </div>
 
-          <div className="container mx-auto px-4 lg:px-8 relative z-10 pt-20">
-            <div className="grid lg:grid-cols-2 gap-12 items-center">
-              {/* 左: テキスト */}
-              <div className="space-y-6">
-                {/* メインコピー */}
-                <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight">
-                  {'{HERO_MAIN_COPY}'}
-                </h1>
-                {/* サブコピー */}
-                <p className="text-xl md:text-2xl text-gray-600">
-                  {'{HERO_SUB_COPY}'}
-                </p>
-                {/* CTA */}
-                <div className="pt-4">
-                  <Link
-                    href="/contact"
-                    className="inline-flex items-center gap-3 bg-[#1C2A44] text-white px-8 py-4 font-medium hover:bg-[#141E30] transition-colors"
-                  >
-                    {'{HERO_CTA_BUTTON}'}
-                    <ArrowRight className="w-5 h-5" />
-                  </Link>
-                </div>
-              </div>
+          {/* メインコンテンツ */}
+          <div className="relative z-10 min-h-screen flex flex-col justify-center pt-20">
+            {/* SING 文字マスク（パララックス効果） */}
+            <div className="container mx-auto px-4 lg:px-8">
+              <h1
+                className="text-[20vw] md:text-[18vw] lg:text-[15vw] font-bold leading-none tracking-tighter"
+                style={{
+                  backgroundImage: 'url(/img/hero/1.jpg)',
+                  backgroundSize: '120%',
+                  backgroundPosition: `center ${50 + scrollY * 0.05}%`,
+                  WebkitBackgroundClip: 'text',
+                  backgroundClip: 'text',
+                  color: 'transparent',
+                  transition: 'background-position 0.1s ease-out',
+                }}
+              >
+                SING
+              </h1>
+              {/* スローガン（SINGの下） */}
+              <p className="text-2xl md:text-3xl lg:text-4xl font-bold text-[#1C2A44] mt-4 whitespace-nowrap">
+                夢を、ビジネスに。
+              </p>
+            </div>
 
-              {/* 右: 画像エリア（斜め切り替えの黒部分） */}
-              <div className="relative">
-                {/* ヒーロー画像: 撮影後に差し替え */}
-                <div className="aspect-[4/3] bg-gray-800 rounded-lg overflow-hidden">
-                  <div className="w-full h-full flex items-center justify-center text-gray-500">
-                    {'{HERO_IMAGE}'}
-                  </div>
+            {/* 左下: 英語スローガン */}
+            <div className="absolute bottom-24 left-4 lg:left-8">
+              <div className="flex items-start gap-6">
+                <div className="space-y-1">
+                  <p className="text-sm md:text-base font-medium tracking-widest text-[#1C2A44]">
+                    Turn Your Vision
+                  </p>
+                  <p className="text-sm md:text-base font-medium tracking-widest text-[#1C2A44]">
+                    Into Business.
+                  </p>
+                </div>
+                <div className="w-px h-16 bg-[#1C2A44]" />
+                <div className="space-y-2">
+                  <p className="text-xs text-gray-500">
+                    起業という選択を、もっと現実的に。
+                  </p>
                 </div>
               </div>
             </div>
 
-            {/* スクロールインジケーター */}
-            <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2">
-              <span className="text-sm text-gray-400 tracking-wider">SCROLL</span>
-              <div className="w-px h-12 bg-gray-300" />
+            {/* 右下: CTA + ロゴ */}
+            <div className="absolute bottom-24 right-4 lg:right-8 flex items-center gap-6">
+              <img
+                src="/img/logo/logo-white.png"
+                alt="Sing Holdings"
+                className="h-10 w-auto hidden md:block"
+              />
+              <Link
+                href="/contact"
+                className="inline-flex items-center gap-3 bg-white text-[#0A0A0A] px-6 py-3 text-sm font-medium border border-white hover:bg-transparent hover:text-white transition-colors"
+              >
+                無料相談はこちら
+                <ArrowRight className="w-4 h-4" />
+              </Link>
+            </div>
+
+            {/* 右端: SCROLLインジケーター */}
+            <div className="absolute bottom-24 right-4 lg:right-8 hidden lg:flex flex-col items-center gap-2" style={{ right: '20px' }}>
+              <span
+                className="text-xs text-gray-400 tracking-widest"
+                style={{ writingMode: 'vertical-rl' }}
+              >
+                SCROLL
+              </span>
+              <div className="w-px h-12 bg-gray-500" />
             </div>
           </div>
         </section>
 
         {/* ========================================
             2. ミライク概要セクション
-            - サービス紹介
-            - 詳細ページへのリンク
            ======================================== */}
         <section className="py-20 lg:py-32 bg-white">
           <div className="container mx-auto px-4 lg:px-8">
@@ -100,39 +143,40 @@ export default function HomePage() {
               {/* 左: 画像 */}
               <div className="relative">
                 <div className="aspect-[4/3] bg-gray-100 rounded-lg overflow-hidden">
-                  <div className="w-full h-full flex items-center justify-center text-gray-400">
-                    {'{MIRAIKU_IMAGE}'}
-                  </div>
+                  <img
+                    src="/img/miraiku/miraiku-overview.jpg"
+                    alt="ミライク"
+                    className="w-full h-full object-cover"
+                    onError={(e) => {
+                      e.currentTarget.style.display = 'none'
+                    }}
+                  />
                 </div>
               </div>
 
               {/* 右: テキスト */}
               <div className="space-y-6">
-                {/* セクションラベル + アクセントライン */}
-                <div className="flex items-center gap-4">
-                  <span className="text-[#C9A227] text-2xl font-light">\</span>
+                <div className="mb-4">
                   <span className="text-sm tracking-wider text-gray-500 uppercase">
-                    {'{MIRAIKU_LABEL}'}
+                    起業支援プログラム
                   </span>
                 </div>
 
-                {/* 英語タイトル */}
                 <h2 className="text-4xl md:text-5xl font-bold tracking-tight">
-                  {'{MIRAIKU_TITLE_EN}'}
+                  MIRAIKU
                 </h2>
 
-                {/* 日本語説明 */}
                 <p className="text-lg text-gray-600 leading-relaxed">
-                  {'{MIRAIKU_DESCRIPTION}'}
+                  22〜35歳の起業志望者向け。事業設計から収益化まで伴走支援。
+                  本気で挑戦する人に、現実的な仕組みと環境を提供します。
                 </p>
 
-                {/* リンク */}
                 <Link
                   href="/miraiku"
                   className="inline-flex items-center gap-4 group"
                 >
                   <span className="text-[#1C2A44] font-medium border-b border-[#1C2A44] pb-1">
-                    {'{MIRAIKU_LINK_TEXT}'}
+                    詳細を見る
                   </span>
                   <span className="w-10 h-10 rounded-full border border-[#1C2A44] flex items-center justify-center group-hover:bg-[#1C2A44] group-hover:text-white transition-all">
                     <ArrowRight className="w-4 h-4" />
@@ -145,57 +189,78 @@ export default function HomePage() {
 
         {/* ========================================
             3. 選ばれる理由（3つのメリット）
-            - 3つに絞って表示
-            - 数字 + テキスト
            ======================================== */}
         <section className="py-20 lg:py-32 bg-[#f5f5f5]">
           <div className="container mx-auto px-4 lg:px-8">
             {/* セクションヘッダー */}
             <div className="text-center mb-16">
-              <div className="flex items-center justify-center gap-4 mb-4">
-                <span className="text-[#C9A227] text-3xl font-light">\</span>
+              <div className="mb-4">
                 <span className="text-sm tracking-wider text-gray-500 uppercase">
-                  {'{REASONS_LABEL}'}
+                  Why Us
                 </span>
               </div>
               <h2 className="text-4xl md:text-5xl font-bold">
-                {'{REASONS_TITLE}'}
+                選ばれる理由
               </h2>
             </div>
 
             {/* 3つのメリット */}
             <div className="grid md:grid-cols-3 gap-8">
-              {/* メリット1 */}
-              <div className="bg-white p-8 rounded-lg">
-                <span className="text-5xl font-bold text-[#0E7490]">01</span>
-                <h3 className="text-xl font-bold mt-4 mb-3">
-                  {'{REASON_1_TITLE}'}
-                </h3>
-                <p className="text-gray-600">
-                  {'{REASON_1_DESCRIPTION}'}
-                </p>
+              <div className="bg-white rounded-lg overflow-hidden">
+                <div className="aspect-[4/3] overflow-hidden">
+                  <img
+                    src="/img/top/why-us-1.jpg"
+                    alt="若い代表によるリアルな挑戦環境"
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                <div className="p-8">
+                  <span className="text-5xl font-bold text-[#0E7490]">01</span>
+                  <h3 className="text-xl font-bold mt-4 mb-3">
+                    若い代表によるリアルな挑戦環境
+                  </h3>
+                  <p className="text-gray-600">
+                    代表自身が20代で起業した経験を持ち、同じ目線でリアルな挑戦環境を提供します。
+                  </p>
+                </div>
               </div>
 
-              {/* メリット2 */}
-              <div className="bg-white p-8 rounded-lg">
-                <span className="text-5xl font-bold text-[#0E7490]">02</span>
-                <h3 className="text-xl font-bold mt-4 mb-3">
-                  {'{REASON_2_TITLE}'}
-                </h3>
-                <p className="text-gray-600">
-                  {'{REASON_2_DESCRIPTION}'}
-                </p>
+              <div className="bg-white rounded-lg overflow-hidden">
+                <div className="aspect-[4/3] overflow-hidden">
+                  <img
+                    src="/img/top/why-us-2.jpg"
+                    alt="実行基盤が整っている"
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                <div className="p-8">
+                  <span className="text-5xl font-bold text-[#0E7490]">02</span>
+                  <h3 className="text-xl font-bold mt-4 mb-3">
+                    実行基盤が整っている
+                  </h3>
+                  <p className="text-gray-600">
+                    営業支援、マーケティング、資金計画など、起業に必要な基盤をグループ全体でサポートします。
+                  </p>
+                </div>
               </div>
 
-              {/* メリット3 */}
-              <div className="bg-white p-8 rounded-lg">
-                <span className="text-5xl font-bold text-[#0E7490]">03</span>
-                <h3 className="text-xl font-bold mt-4 mb-3">
-                  {'{REASON_3_TITLE}'}
-                </h3>
-                <p className="text-gray-600">
-                  {'{REASON_3_DESCRIPTION}'}
-                </p>
+              <div className="bg-white rounded-lg overflow-hidden">
+                <div className="aspect-[4/3] overflow-hidden">
+                  <img
+                    src="/img/top/why-us-3.jpg"
+                    alt="伴走型支援"
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                <div className="p-8">
+                  <span className="text-5xl font-bold text-[#0E7490]">03</span>
+                  <h3 className="text-xl font-bold mt-4 mb-3">
+                    伴走型支援
+                  </h3>
+                  <p className="text-gray-600">
+                    コンサル型ではなく、一緒に走る伴走型。成功するまで諦めずにサポートし続けます。
+                  </p>
+                </div>
               </div>
             </div>
           </div>
@@ -203,76 +268,105 @@ export default function HomePage() {
 
         {/* ========================================
             4. 支援の流れセクション
-            - 4ステップ
-            - ステップ番号 + タイトル + 説明
            ======================================== */}
         <section className="py-20 lg:py-32 bg-white">
           <div className="container mx-auto px-4 lg:px-8">
             {/* セクションヘッダー */}
             <div className="text-center mb-16">
-              <div className="flex items-center justify-center gap-4 mb-4">
-                <span className="text-[#C9A227] text-3xl font-light">\</span>
+              <div className="mb-4">
                 <span className="text-sm tracking-wider text-gray-500 uppercase">
-                  {'{FLOW_LABEL}'}
+                  Flow
                 </span>
               </div>
               <h2 className="text-4xl md:text-5xl font-bold">
-                {'{FLOW_TITLE}'}
+                支援の流れ
               </h2>
             </div>
 
             {/* 4ステップ */}
             <div className="grid md:grid-cols-4 gap-6">
-              {/* Step 1 */}
-              <div className="text-center">
-                <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-[#1C2A44] text-white flex items-center justify-center text-xl font-bold">
-                  1
+              <div className="bg-white rounded-lg overflow-hidden shadow-sm">
+                <div className="aspect-[4/3] overflow-hidden">
+                  <img
+                    src="/img/top/flow-1.jpg"
+                    alt="無料相談"
+                    className="w-full h-full object-cover"
+                  />
                 </div>
-                <h3 className="text-lg font-bold mb-2">
-                  {'{FLOW_STEP_1_TITLE}'}
-                </h3>
-                <p className="text-sm text-gray-600">
-                  {'{FLOW_STEP_1_DESCRIPTION}'}
-                </p>
+                <div className="p-6 text-center">
+                  <div className="w-12 h-12 mx-auto mb-3 rounded-full bg-[#1C2A44] text-white flex items-center justify-center text-lg font-bold">
+                    1
+                  </div>
+                  <h3 className="text-lg font-bold mb-2">
+                    無料相談
+                  </h3>
+                  <p className="text-sm text-gray-600">
+                    まずは話を聞く
+                  </p>
+                </div>
               </div>
 
-              {/* Step 2 */}
-              <div className="text-center">
-                <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-[#1C2A44] text-white flex items-center justify-center text-xl font-bold">
-                  2
+              <div className="bg-white rounded-lg overflow-hidden shadow-sm">
+                <div className="aspect-[4/3] overflow-hidden">
+                  <img
+                    src="/img/top/flow-2.jpg"
+                    alt="事業設計・市場検証"
+                    className="w-full h-full object-cover"
+                  />
                 </div>
-                <h3 className="text-lg font-bold mb-2">
-                  {'{FLOW_STEP_2_TITLE}'}
-                </h3>
-                <p className="text-sm text-gray-600">
-                  {'{FLOW_STEP_2_DESCRIPTION}'}
-                </p>
+                <div className="p-6 text-center">
+                  <div className="w-12 h-12 mx-auto mb-3 rounded-full bg-[#1C2A44] text-white flex items-center justify-center text-lg font-bold">
+                    2
+                  </div>
+                  <h3 className="text-lg font-bold mb-2">
+                    事業設計・市場検証
+                  </h3>
+                  <p className="text-sm text-gray-600">
+                    アイデアを形にする
+                  </p>
+                </div>
               </div>
 
-              {/* Step 3 */}
-              <div className="text-center">
-                <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-[#1C2A44] text-white flex items-center justify-center text-xl font-bold">
-                  3
+              <div className="bg-white rounded-lg overflow-hidden shadow-sm">
+                <div className="aspect-[4/3] overflow-hidden">
+                  <img
+                    src="/img/top/flow-3.jpg"
+                    alt="収益モデル構築"
+                    className="w-full h-full object-cover"
+                  />
                 </div>
-                <h3 className="text-lg font-bold mb-2">
-                  {'{FLOW_STEP_3_TITLE}'}
-                </h3>
-                <p className="text-sm text-gray-600">
-                  {'{FLOW_STEP_3_DESCRIPTION}'}
-                </p>
+                <div className="p-6 text-center">
+                  <div className="w-12 h-12 mx-auto mb-3 rounded-full bg-[#1C2A44] text-white flex items-center justify-center text-lg font-bold">
+                    3
+                  </div>
+                  <h3 className="text-lg font-bold mb-2">
+                    収益モデル構築
+                  </h3>
+                  <p className="text-sm text-gray-600">
+                    稼ぐ仕組みを作る
+                  </p>
+                </div>
               </div>
 
-              {/* Step 4 */}
-              <div className="text-center">
-                <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-[#1C2A44] text-white flex items-center justify-center text-xl font-bold">
-                  4
+              <div className="bg-white rounded-lg overflow-hidden shadow-sm">
+                <div className="aspect-[4/3] overflow-hidden">
+                  <img
+                    src="/img/top/flow-4.jpg"
+                    alt="実行・伴走支援"
+                    className="w-full h-full object-cover"
+                  />
                 </div>
-                <h3 className="text-lg font-bold mb-2">
-                  {'{FLOW_STEP_4_TITLE}'}
-                </h3>
-                <p className="text-sm text-gray-600">
-                  {'{FLOW_STEP_4_DESCRIPTION}'}
-                </p>
+                <div className="p-6 text-center">
+                  <div className="w-12 h-12 mx-auto mb-3 rounded-full bg-[#1C2A44] text-white flex items-center justify-center text-lg font-bold">
+                    4
+                  </div>
+                  <h3 className="text-lg font-bold mb-2">
+                    実行・伴走支援
+                  </h3>
+                  <p className="text-sm text-gray-600">
+                    一緒に走る
+                  </p>
+                </div>
               </div>
             </div>
           </div>
@@ -280,40 +374,32 @@ export default function HomePage() {
 
         {/* ========================================
             5. 代表メッセージセクション
-            - 代表写真
-            - メッセージ
-            - 代表名・肩書
            ======================================== */}
         <section className="py-20 lg:py-32 bg-[#0A0A0A] text-white">
           <div className="container mx-auto px-4 lg:px-8">
             <div className="grid lg:grid-cols-2 gap-12 items-center">
               {/* 左: テキスト */}
               <div className="space-y-6">
-                {/* セクションラベル */}
-                <div className="flex items-center gap-4">
-                  <span className="text-[#C9A227] text-3xl font-light">\</span>
+                <div className="mb-4">
                   <span className="text-sm tracking-wider text-gray-400 uppercase">
-                    {'{MESSAGE_LABEL}'}
+                    Message
                   </span>
                 </div>
 
-                {/* タイトル */}
                 <h2 className="text-4xl md:text-5xl font-bold">
-                  {'{MESSAGE_TITLE}'}
+                  代表メッセージ
                 </h2>
 
-                {/* メッセージ本文 */}
                 <p className="text-lg text-gray-300 leading-relaxed">
-                  {'{MESSAGE_BODY}'}
+                  起業は才能ではなく、環境で決まる。挑戦する人が孤立しない社会をつくりたい。
                 </p>
 
-                {/* 代表名・肩書 */}
                 <div className="pt-4">
                   <p className="text-sm text-gray-400">
-                    {'{MESSAGE_POSITION}'}
+                    株式会社Singホールディングス 代表取締役
                   </p>
                   <p className="text-xl font-bold">
-                    {'{MESSAGE_NAME}'}
+                    笠本 慎二
                   </p>
                 </div>
               </div>
@@ -321,9 +407,14 @@ export default function HomePage() {
               {/* 右: 代表写真 */}
               <div className="relative">
                 <div className="aspect-[3/4] bg-gray-800 rounded-lg overflow-hidden">
-                  <div className="w-full h-full flex items-center justify-center text-gray-500">
-                    {'{MESSAGE_IMAGE}'}
-                  </div>
+                  <img
+                    src="/img/company/ceo.jpg"
+                    alt="代表取締役 笠本慎二"
+                    className="w-full h-full object-cover"
+                    onError={(e) => {
+                      e.currentTarget.style.display = 'none'
+                    }}
+                  />
                 </div>
               </div>
             </div>
@@ -332,36 +423,30 @@ export default function HomePage() {
 
         {/* ========================================
             6. 無料相談CTAセクション
-            - CTA
-            - 補足情報
            ======================================== */}
         <section className="py-20 lg:py-32 bg-white">
           <div className="container mx-auto px-4 lg:px-8">
             <div className="max-w-3xl mx-auto text-center">
-              {/* タイトル */}
               <h2 className="text-3xl md:text-4xl font-bold mb-4">
-                {'{CTA_TITLE}'}
+                まずは話を聞いてみませんか？
               </h2>
 
-              {/* サブテキスト */}
               <p className="text-gray-600 mb-8">
-                {'{CTA_SUBTITLE}'}
+                起業に関するお悩み、何でもお気軽にご相談ください。
               </p>
 
-              {/* CTAボタン */}
               <Link
                 href="/contact"
                 className="inline-flex items-center gap-3 bg-[#1C2A44] text-white px-10 py-5 text-lg font-medium hover:bg-[#141E30] transition-colors"
               >
-                {'{CTA_BUTTON}'}
+                無料相談を予約する
                 <ArrowRight className="w-5 h-5" />
               </Link>
 
-              {/* 補足情報 */}
               <div className="flex flex-wrap justify-center gap-6 mt-8 text-sm text-gray-500">
-                <span>{'{CTA_INFO_1}'}</span>
-                <span>{'{CTA_INFO_2}'}</span>
-                <span>{'{CTA_INFO_3}'}</span>
+                <span>オンライン・対面対応</span>
+                <span>60分</span>
+                <span>代表が直接対応</span>
               </div>
             </div>
           </div>

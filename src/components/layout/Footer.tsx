@@ -2,21 +2,19 @@
 
 import Link from 'next/link'
 
-// フッターリンク（HANDOFF準拠）
-// 文言は後でヒアリングシートで確定
 const footerLinks = {
   service: [
-    { name: '{FOOTER_MIRAIKU}', href: '/miraiku' },
+    { name: 'ミライク', href: '/miraiku' },
   ],
   corporate: [
-    { name: '{FOOTER_COMPANY}', href: '/company' },
-    { name: '{FOOTER_PROJECT}', href: '/project' },
-    { name: '{FOOTER_NEWS}', href: '/news' },
-    { name: '{FOOTER_CONTACT}', href: '/contact' },
+    { name: '会社概要', href: '/company' },
+    { name: 'グループ会社', href: '/project' },
+    { name: 'ニュース', href: '/news' },
+    { name: 'お問い合わせ', href: '/contact' },
   ],
-  legal: [
-    { name: '{FOOTER_PRIVACY}', href: '/privacy' },
-  ],
+  // legal: [
+  //   { name: 'プライバシーポリシー', href: '/privacy' },
+  // ],
 }
 
 export default function Footer() {
@@ -29,13 +27,16 @@ export default function Footer() {
           <div className="lg:col-span-5">
             {/* ロゴ */}
             <div className="mb-6">
-              <span className="text-2xl font-bold tracking-wider">
-                {'{LOGO}'}
-              </span>
+              <img
+                src="/img/logo/logo-white.png"
+                alt="Sing Holdings"
+                className="h-10 w-auto"
+              />
             </div>
             {/* 会社説明 */}
             <p className="text-gray-400 text-sm leading-relaxed">
-              {'{FOOTER_COMPANY_DESCRIPTION}'}
+              挑戦する人に、現実的な仕組みと環境を提供する。
+              起業が特別ではなく、選択肢の一つになる社会へ。
             </p>
           </div>
 
@@ -45,7 +46,7 @@ export default function Footer() {
               {/* Service */}
               <div>
                 <h3 className="text-sm font-medium tracking-wider mb-4 text-gray-300 uppercase">
-                  {'{FOOTER_SERVICE_LABEL}'}
+                  Service
                 </h3>
                 <ul className="space-y-3">
                   {footerLinks.service.map((link) => (
@@ -64,7 +65,7 @@ export default function Footer() {
               {/* Corporate */}
               <div>
                 <h3 className="text-sm font-medium tracking-wider mb-4 text-gray-300 uppercase">
-                  {'{FOOTER_CORPORATE_LABEL}'}
+                  Corporate
                 </h3>
                 <ul className="space-y-3">
                   {footerLinks.corporate.map((link) => (
@@ -80,10 +81,10 @@ export default function Footer() {
                 </ul>
               </div>
 
-              {/* Legal */}
-              <div>
+              {/* Legal - プライバシーポリシー準備後に有効化 */}
+              {/* <div>
                 <h3 className="text-sm font-medium tracking-wider mb-4 text-gray-300 uppercase">
-                  {'{FOOTER_LEGAL_LABEL}'}
+                  Legal
                 </h3>
                 <ul className="space-y-3">
                   {footerLinks.legal.map((link) => (
@@ -97,7 +98,7 @@ export default function Footer() {
                     </li>
                   ))}
                 </ul>
-              </div>
+              </div> */}
             </div>
           </div>
         </div>
@@ -105,15 +106,14 @@ export default function Footer() {
         {/* Divider */}
         <div className="border-t border-gray-800 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-            {/* SNS Icons */}
+            {/* SNS Icons - 後で追加 */}
             <div className="flex gap-4">
               {/* SNSアイコンは後で追加 */}
-              <span className="text-gray-500 text-sm">{'{SNS_ICONS}'}</span>
             </div>
 
             {/* Copyright */}
             <p className="text-gray-500 text-sm">
-              {'{FOOTER_COPYRIGHT}'}
+              &copy; {new Date().getFullYear()} Sing Holdings Inc. All Rights Reserved.
             </p>
           </div>
         </div>

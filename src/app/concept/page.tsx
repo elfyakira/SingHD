@@ -2,7 +2,6 @@
 
 import Header from '@/components/layout/Header'
 import Footer from '@/components/layout/Footer'
-import ContactCTA from '@/components/layout/ContactCTA'
 import LowPageHero from '@/components/LowPageHero'
 import StructuredData from '@/components/StructuredData'
 import { generateBreadcrumbSchema } from '@/lib/structured-data'
@@ -27,29 +26,35 @@ export default function ConceptPage() {
           imageSrc="/img/concept/concept-hero.jpg"
         />
 
-        {/* Concept Section */}
-        <section id="concept-intro" className="py-16 md:py-20 bg-gray-50">
-          <div className="container mx-auto px-4">
-            <div className="text-center mb-12">
-              <h2 className="text-2xl font-medium text-gray-800 mb-4">
-                コンセプト
-              </h2>
-              <div className="w-16 h-1 bg-[#ea5506] mx-auto mb-6" />
-              <p className="text-xl md:text-2xl font-bold text-gray-800">
+        {/* ========================================
+            コンセプトセクション
+           ======================================== */}
+        <section className="py-20 lg:py-32 bg-white">
+          <div className="container mx-auto px-4 lg:px-8">
+            {/* セクションヘッダー */}
+            <div className="text-center mb-12 lg:mb-16">
+              <div className="mb-4">
+                <span className="text-sm tracking-wider text-gray-500 uppercase">
+                  Concept
+                </span>
+              </div>
+              <h2 className="text-4xl md:text-5xl font-bold mb-6">
                 経営者の育成とバトンを繋ぐ
-              </p>
+              </h2>
             </div>
 
-            <div className="max-w-3xl mx-auto space-y-6 text-gray-700 leading-relaxed">
+            <div className="max-w-3xl mx-auto space-y-6 text-gray-600 leading-relaxed">
               <p>
-                私は今までに多くの経営者の方とお会いしてきました。残念なことに立派な理念を掲げてるが行動をしていない経営者の多さに失望をしました。自らの欲を満たすことではなく、本当に実現したいことは何か？<br />
-                今の子供たちが、夢を見て叶えられる社会にしたい。<br />
+                私は今までに多くの経営者の方とお会いしてきました。残念なことに立派な理念を掲げてるが行動をしていない経営者の多さに失望をしました。自らの欲を満たすことではなく、本当に実現したいことは何か？
+              </p>
+              <p>
+                今の子供たちが、夢を見て叶えられる社会にしたい。
                 様々な理由で選択肢を絞られるのではなく、その悩みすら周りの大人が協力して解決し続けたい。
               </p>
               <p>
-                そして、地域や企業の課題解決をしていきながら、生まれた利益を次の世代に還元し続ける。<br />
-                そういう大人の姿を見せることで、子供が大人を尊敬できる。<br />
-                そして次の世代が子供の為に行動し続ける。<br />
+                そして、地域や企業の課題解決をしていきながら、生まれた利益を次の世代に還元し続ける。
+                そういう大人の姿を見せることで、子供が大人を尊敬できる。
+                そして次の世代が子供の為に行動し続ける。
                 この行動をし続けることで、純粋だけれど大事な気持ちの輪を広げ続けます。
               </p>
               <p>
@@ -59,99 +64,112 @@ export default function ConceptPage() {
           </div>
         </section>
 
-        {/* MVV Section */}
-        <section id="mvv" className="py-16 md:py-20">
-          <div className="container mx-auto px-4">
-            <div className="text-center mb-12">
-              <h2 className="text-2xl font-medium text-gray-800 mb-4">
-                ミッション・ビジョン・バリュー
+        {/* ========================================
+            MVVセクション
+           ======================================== */}
+        <section className="py-20 lg:py-32 bg-[#f5f5f5]">
+          <div className="container mx-auto px-4 lg:px-8">
+            {/* セクションヘッダー */}
+            <div className="text-center mb-12 lg:mb-16">
+              <div className="mb-4">
+                <span className="text-sm tracking-wider text-gray-500 uppercase">
+                  Mission / Vision / Value
+                </span>
+              </div>
+              <h2 className="text-4xl md:text-5xl font-bold">
+                MVV
               </h2>
-              <div className="w-16 h-1 bg-[#ea5506] mx-auto" />
             </div>
 
-            {/* MVV Diagram */}
-            <div className="flex flex-col md:flex-row justify-center items-center gap-6 md:gap-8 mb-16">
-              <div className="w-36 h-36 md:w-48 md:h-48 rounded-full bg-gradient-to-br from-[#ea5506] to-[#f97316] flex flex-col items-center justify-center text-white">
-                <span className="text-xl font-bold italic">Mission</span>
-                <span className="text-sm">ミッション</span>
-              </div>
-              <div className="w-32 h-32 md:w-44 md:h-44 rounded-full bg-gradient-to-br from-[#f97316] to-[#fb923c] flex flex-col items-center justify-center text-white">
-                <span className="text-xl font-bold italic">Vision</span>
-                <span className="text-sm">ビジョン</span>
-              </div>
-              <div className="w-36 h-36 md:w-48 md:h-48 rounded-full bg-gradient-to-br from-[#fb923c] to-[#fdba74] flex flex-col items-center justify-center text-white">
-                <span className="text-xl font-bold italic">Value</span>
-                <span className="text-sm">バリュー</span>
-              </div>
-            </div>
-
-            {/* MVV Details */}
-            <div className="max-w-4xl mx-auto space-y-12">
+            {/* MVV Cards */}
+            <div className="max-w-4xl mx-auto space-y-8">
               {/* Mission */}
-              <div className="flex flex-col md:flex-row gap-6 md:gap-8 items-start">
-                <div className="w-20 h-20 md:w-24 md:h-24 rounded-full bg-[#ea5506] flex flex-col items-center justify-center text-white flex-shrink-0">
-                  <span className="text-base md:text-lg font-bold italic">Mission</span>
-                  <span className="text-xs">ミッション</span>
+              <div className="bg-white p-8 lg:p-10">
+                <div className="flex items-center gap-4 mb-4">
+                  <div className="w-16 h-16 bg-[#1C2A44] flex items-center justify-center text-white">
+                    <span className="text-lg font-bold">M</span>
+                  </div>
+                  <div>
+                    <span className="text-[#1C2A44] font-bold text-xl">Mission</span>
+                    <span className="text-gray-500 text-sm ml-2">ミッション</span>
+                  </div>
                 </div>
-                <p className="text-gray-700 leading-relaxed pt-0 md:pt-4">
-                  「日本の人と企業が挑戦と成長を続ける環境を整備し、次世代に確かな価値を残すことに貢献する。」
+                <p className="text-gray-700 leading-relaxed">
+                  挑戦する人に、現実的な仕組みと環境を提供する。
                 </p>
               </div>
 
               {/* Vision */}
-              <div className="flex flex-col md:flex-row gap-6 md:gap-8 items-start">
-                <div className="w-20 h-20 md:w-24 md:h-24 rounded-full bg-[#f97316] flex flex-col items-center justify-center text-white flex-shrink-0">
-                  <span className="text-base md:text-lg font-bold italic">Vision</span>
-                  <span className="text-xs">ビジョン</span>
+              <div className="bg-white p-8 lg:p-10">
+                <div className="flex items-center gap-4 mb-4">
+                  <div className="w-16 h-16 bg-[#0E7490] flex items-center justify-center text-white">
+                    <span className="text-lg font-bold">V</span>
+                  </div>
+                  <div>
+                    <span className="text-[#0E7490] font-bold text-xl">Vision</span>
+                    <span className="text-gray-500 text-sm ml-2">ビジョン</span>
+                  </div>
                 </div>
-                <p className="text-gray-700 leading-relaxed pt-0 md:pt-4">
-                  「社会に笑顔が溢れ誰もが自らの力を発揮できる社会の実現に貢献する。」
+                <p className="text-gray-700 leading-relaxed">
+                  起業が特別ではなく、選択肢の一つになる社会へ。
                 </p>
               </div>
 
               {/* Value */}
-              <div className="flex flex-col md:flex-row gap-6 md:gap-8 items-start">
-                <div className="w-20 h-20 md:w-24 md:h-24 rounded-full bg-[#fb923c] flex flex-col items-center justify-center text-white flex-shrink-0">
-                  <span className="text-base md:text-lg font-bold italic">Value</span>
-                  <span className="text-xs">バリュー</span>
+              <div className="bg-white p-8 lg:p-10">
+                <div className="flex items-center gap-4 mb-4">
+                  <div className="w-16 h-16 bg-[#34A853] flex items-center justify-center text-white">
+                    <span className="text-lg font-bold">V</span>
+                  </div>
+                  <div>
+                    <span className="text-[#34A853] font-bold text-xl">Value</span>
+                    <span className="text-gray-500 text-sm ml-2">バリュー</span>
+                  </div>
                 </div>
-                <div className="pt-0 md:pt-4">
-                  <ol className="space-y-3 text-gray-700 text-sm md:text-base">
-                    <li><strong>Professional（プロフェッショナル）</strong><br />誠実さと高い視座を持ち、成果に責任を持って行動する。</li>
-                    <li><strong>Challenge（挑戦）</strong><br />主体性を持ち、新しい価値を創るために積極的に挑戦する。</li>
-                    <li><strong>Enjoy（楽しむ）</strong><br />「頑張る」を楽しむに変え人生を笑って楽しむ。</li>
-                    <li><strong>Collaboration（協働）</strong><br />仲間・パートナーとのつながりを大切に、感謝と成長を循環させる。</li>
-                    <li><strong>Innovation（革新）</strong><br />現状に満足せず、常に改善し続け、新しい可能性を生み出す。</li>
-                  </ol>
-                </div>
+                <ul className="space-y-3 text-gray-700">
+                  <li><strong className="text-[#1C2A44]">Execution</strong> - 考えるより動く。行動で結果を出す。</li>
+                  <li><strong className="text-[#1C2A44]">Ownership</strong> - 自分ごととして責任を持ち、最後までやり抜く。</li>
+                  <li><strong className="text-[#1C2A44]">Speed</strong> - 素早く決断し、素早く実行する。</li>
+                  <li><strong className="text-[#1C2A44]">Credibility</strong> - 誠実に、約束を守り、信頼を積み重ねる。</li>
+                  <li><strong className="text-[#1C2A44]">Impact</strong> - 小さな成功より、大きな変化を生み出す。</li>
+                </ul>
               </div>
             </div>
           </div>
         </section>
 
-        {/* Slogan Section */}
-        <section id="slogan" className="py-16 md:py-20 bg-gray-50">
-          <div className="container mx-auto px-4 text-center">
-            <h2 className="text-2xl font-medium text-gray-800 mb-4">
-              スローガン
-            </h2>
-            <div className="w-16 h-1 bg-[#ea5506] mx-auto mb-12" />
-
+        {/* ========================================
+            スローガンセクション
+           ======================================== */}
+        <section className="py-20 lg:py-32 bg-[#0A0A0A] text-white">
+          <div className="container mx-auto px-4 lg:px-8 text-center">
+            <div className="mb-8">
+              <span className="text-sm tracking-wider text-gray-400 uppercase">
+                Slogan
+              </span>
+            </div>
             <p className="text-3xl md:text-4xl lg:text-5xl font-bold">
-              日本の明日を支え、バトンを繋ぐ
+              夢を、ビジネスに。
+            </p>
+            <p className="text-lg md:text-xl text-gray-400 mt-4">
+              Turn Your Vision Into Business.
             </p>
           </div>
         </section>
 
-        {/* Logo Section */}
-        <section id="logo" className="py-16 md:py-20">
-          <div className="container mx-auto px-4 text-center">
-            <h2 className="text-2xl font-medium text-gray-800 mb-4">
+        {/* ========================================
+            ロゴセクション
+           ======================================== */}
+        <section className="py-20 lg:py-32 bg-white">
+          <div className="container mx-auto px-4 lg:px-8 text-center">
+            <div className="mb-8">
+              <span className="text-sm tracking-wider text-gray-500 uppercase">
+                Logo
+              </span>
+            </div>
+            <h2 className="text-4xl md:text-5xl font-bold mb-12">
               ロゴマーク
             </h2>
-            <div className="w-16 h-1 bg-[#ea5506] mx-auto mb-12" />
-
-            {/* Logo */}
             <div className="max-w-sm mx-auto">
               <img
                 src="/singhdlogo512.png"
@@ -163,7 +181,6 @@ export default function ConceptPage() {
         </section>
       </main>
 
-      <ContactCTA />
       <Footer />
     </>
   )

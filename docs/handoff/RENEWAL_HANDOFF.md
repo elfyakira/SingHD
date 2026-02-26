@@ -2,7 +2,7 @@
 
 **プロジェクト**: HDHP リニューアル
 **最終更新**: 2026-02-26
-**ステータス**: Phase 1 準備中
+**ステータス**: Phase 6 画像生成準備中
 
 ---
 
@@ -439,16 +439,145 @@ npm run build  # ビルド
 
 ### 最新のステータス
 
-**現在のフェーズ**: Phase 4-5 進行中
-**次にやること**: 既存ページのデザイン・レイアウト刷新（下記順序で実施）
+**現在のフェーズ**: Phase 6 比較検証完了 → 修正対応待ち
+**次にやること**: 「未実装項目」の優先度高から対応
 
-**実施順序:**
-1. `company` - 会社概要 ← **次はここから**
-2. `project` - グループ会社
-3. `news` - ニュース
-4. `contact` - お問い合わせ
-5. `concept` - 削除または統合検討
-6. `ContactCTA.tsx` - CTAコンポーネント
+**直近の完了タスク（2026-02-26）**:
+- [x] 要件定義と現在の実装の比較検証
+- [x] 参照デザインとの比較検証
+- [x] 比較検証レポート作成（/docs/handoff/COMPARISON_REPORT.md）
+
+**以前の完了タスク**:
+- [x] ロゴ設定（Header/Footer）- 新ロゴ画像使用
+- [x] ファビコン設定（/src/app/favicon.ico）
+- [x] OGP画像設定（/public/og-image.png）
+- [x] PWAアイコン更新
+- [x] TOPヒーローをGIG風デザインに変更（斜め分割+SINGマスク+パララックス）
+- [x] 画像生成完了（miraiku-hero.jpg, miraiku-overview.jpg, hero/1.jpg）
+- [x] miraikuフォルダ作成（/public/img/miraiku/）
+- [x] プライバシーポリシーリンクをコメントアウト
+- [x] miraikuページのpt-20追加（ヘッダー見切れ修正）
+
+---
+
+## 🚨 次世代セッションタスク（必ず実行）
+
+### タスク1: 要件定義と現在の実装の比較検証
+
+**全ページを確認**して、以下の要件定義と比較し、実装済み/未実装をチェックする。
+
+#### チェック対象ページ
+- `/src/app/page.tsx` (TOP)
+- `/src/app/miraiku/page.tsx`
+- `/src/app/company/page.tsx`
+- `/src/app/project/page.tsx`
+- `/src/app/contact/page.tsx`
+- `/src/app/news/page.tsx`
+- `/src/app/concept/page.tsx`
+- `/src/components/layout/Header.tsx`
+- `/src/components/layout/Footer.tsx`
+- `/src/components/LowPageHero.tsx`
+- `/src/config/seo.ts`
+
+#### 確認すべき要件
+
+**カラー:**
+- 深藍 #1C2A44（メイン）
+- テックティール #0E7490（サブ）
+- 翡翠グリーン #34A853（アクセント）
+
+**メッセージング:**
+- スローガン: 「夢を、ビジネスに。」
+- 英語: 「Turn Your Vision Into Business.」
+- タグライン: 「起業という選択を、もっと現実的に。」
+- ミッション: 挑戦する人に、現実的な仕組みと環境を提供する。
+- ビジョン: 起業が特別ではなく、選択肢の一つになる社会へ。
+- バリュー: Execution, Ownership, Speed, Credibility, Impact
+
+**サービス「ミライク」:**
+- 対象: 22〜35歳、本気で挑戦する人
+- 支援内容6つ: 事業設計、収益モデル構築、法人設立支援、営業支援、マーケティング支援、資金計画サポート
+- 支援の流れ4ステップ: 無料相談→事業設計・市場検証→収益モデル構築→実行・伴走支援
+- 期間: 6ヶ月〜1年
+- 選ばれる理由5つ: 若い代表、実行基盤、伴走型支援、営業・マーケ支援強い、実践主義
+
+**グループ参画:**
+- 形態: 新規事業立ち上げ、経営幹部候補、事業責任者
+- メリット: 給与保証、資金バックアップ、営業基盤共有、経営ノウハウ提供
+
+**無料相談:**
+- オンライン・対面対応
+- 60分
+- 代表が直接対応
+- カレンダー予約導入（要検討）
+
+**代表メッセージ:**
+「起業は才能ではなく、環境で決まる。挑戦する人が孤立しない社会をつくりたい。」
+
+**FAQ 5つ:**
+- Q1: 未経験でも可能ですか？ → 可能ですが本気度は必要です。
+- Q2: 資金がありません → モデル設計から支援します。
+- Q3: 学生でも可能？ → 可能です。
+- Q4: 収益化までどれくらい？ → 事業により異なります。
+- Q5: 途中解約は可能？ → 契約条件を明示します。
+
+**SEOキーワード:**
+- 起業 支援
+- 20代 起業
+- 起業 相談 無料
+- 若手 起業家
+- 独立 サポート
+
+---
+
+### タスク2: 参照デザインとの比較検証
+
+**参照スクショ場所**: `C:\Users\tench\Downloads\LINE WORKS\HD\`
+
+#### 確認すべきスクショ
+| ファイル | 内容 |
+|---------|------|
+| `TOP-1〜8.png` | TOPページデザイン |
+| `page-1.png` | 下層ページヒーロー |
+| `Page-2〜5.png` | 下層ページコンテンツ |
+| `Page2-1〜7.png` | 別パターン下層ページ |
+| `Contact-1〜2.png` | お問い合わせページ |
+| `Header.png` | ヘッダー |
+| `Footer.png` | フッター |
+
+#### 確認すべきポイント
+1. セクション見出しの「\」マーク
+2. 各セクションでの画像使用箇所（参照で画像があるのに現状ないところ）
+3. レイアウト・余白
+4. ボタンスタイル
+5. 白黒の斜め分割
+6. ゴールド/黄色のアクセントライン
+
+---
+
+### タスク3: 出力形式
+
+以下の形式でレポートを作成し、HANDOFFの「未実装項目」セクションを更新する。
+
+```
+## 比較検証結果
+
+### 要件定義との差分
+| 要件 | 実装状況 | ファイル | 備考 |
+|------|---------|---------|------|
+
+### 参照デザインとの差分
+| デザイン要素 | 参照スクショ | 現状 | 対応必要 |
+|-------------|-------------|------|---------|
+
+### 画像使用状況
+| 参照デザインの画像箇所 | 現状 | 対応 |
+|---------------------|------|------|
+
+### 優先対応リスト
+1. ...
+2. ...
+```
 
 ### 完了した作業
 
@@ -466,6 +595,20 @@ npm run build  # ビルド
 - [x] ミライク詳細ページ作成（/miraiku）- 7セクション構成
 - [x] 文言ヒアリングシートにミライクページ用項目追加
 - [x] 必要画像リストにミライクページ用画像追加
+- [x] companyページ刷新（新デザイン適用）
+- [x] projectページ刷新（新デザイン適用）
+- [x] newsページ刷新（新デザイン適用）
+- [x] contactページ刷新（新デザイン適用）
+- [x] conceptページ刷新（新デザイン適用、削除判断保留）
+- [x] ContactCTA.tsx刷新（新デザイン適用）
+- [x] LowPageHero画像位置調整（下にずらし、z-index前面）
+- [x] miraikuページにimageSrc追加
+- [x] 斜め装飾削除（シンプルなセクション見出しに変更）
+- [x] TOPページ文言実装（HANDOFF記載内容）
+- [x] ミライクページ文言実装（HANDOFF記載内容）
+- [x] Header文言実装（ナビゲーション、ロゴ）
+- [x] Footer文言実装（リンク、MVV、コピーライト）
+- [x] 固定CTAボタン文言実装
 
 ### 作成・更新したファイル
 
@@ -482,50 +625,49 @@ npm run build  # ビルド
 - `src/components/layout/Footer.tsx` - ダーク背景デザイン（文言プレースホルダー）
 - `src/components/LowPageHero.tsx` - page-1.png準拠の新デザイン
 - `src/app/page.tsx` - TOPページ新デザイン枠組み（文言プレースホルダー）
+- `src/app/company/page.tsx` - 新デザイン適用（セクション見出し、カラー変更）
+- `src/app/project/page.tsx` - 新デザイン適用（セクション見出し、カラー変更）
+- `src/app/news/page.tsx` - 新デザイン適用（セクション見出し、カラー変更）
+- `src/app/contact/page.tsx` - 新デザイン適用（セクション見出し、カラー変更）
+- `src/app/concept/page.tsx` - 新デザイン適用（削除判断保留）
+- `src/components/layout/ContactCTA.tsx` - 新デザイン適用
 - `docs/handoff/CONTENT_HEARING_SHEET.txt` - ミライクページ用項目追加（11-17セクション）
 - `docs/handoff/REQUIRED_IMAGES_LIST.txt` - ミライクページ用画像追加
 
 ### 未実装項目（次セッションで対応）
 
+**詳細は `/docs/handoff/COMPARISON_REPORT.md` を参照**
+
 **優先度高:**
 
-#### 1. 既存ページのデザイン・レイアウト刷新
-**重要: カラー変更だけでなく、デザイン・レイアウト全体をpage系スクショに合わせる**
+#### 1. seo.ts 更新
+- スローガン: 「未来を変える挑戦に、力を。」→「夢を、ビジネスに。」
+- 英語: 「Shape the future.」→「Turn Your Vision Into Business.」
+- タグライン: →「起業という選択を、もっと現実的に。」
+- ミッション: →「挑戦する人に、現実的な仕組みと環境を提供する。」
+- ビジョン: →「起業が特別ではなく、選択肢の一つになる社会へ。」
+- バリュー: →「Execution, Ownership, Speed, Credibility, Impact」
+- defaultSeo.title/description: 起業支援向けに変更
 
-対象ファイル:
-- `src/app/company/page.tsx`
-- `src/app/project/page.tsx`
-- `src/app/news/page.tsx`
-- `src/app/contact/page.tsx`
-- `src/app/concept/page.tsx` → 削除または統合検討
-- `src/components/layout/ContactCTA.tsx`
+#### 2. TOPヒーローのスローガン修正
+- 「CHALLENGE YOUR DREAM.」→「夢を、ビジネスに。」
+- 「We support entrepreneurs...」→「Turn Your Vision Into Business.」
 
-**適用すべきデザイン要素（page系スクショ参照）:**
-- カラー: #ea5506 → #1C2A44（深藍）
-- セクション見出し: 「\」マーク + 英語ラベル + 日本語タイトル
-- 背景: 白黒のコントラスト、セクションごとに切り替え
-- タイポグラフィ: 大きな英語見出し、太字
-- 余白: たっぷり取る、クリーンな印象
-- ボタン: 角丸なしの四角形、深藍ベース
-- 装飾: ゴールドのアクセントライン（必要に応じて）
-
-**スクショ対応表:**
-| スクショ | 参照用途 |
-|---------|---------|
-| `page-1.png` | 下層ページヒーロー（実装済み） |
-| `Page-2.png` | セクションレイアウト例 |
-| `Page-3.png` | テーブル・リスト表示例 |
-| `Page-4.png` | 2カラムレイアウト例 |
-| `Page-5.png` | CTAセクション例 |
-| `Contact-1〜2.png` | お問い合わせページ |
+#### 3. conceptページの対応
+- MVVを要件定義に合わせて更新 OR 削除
+- 新ページ構成に含まれていないため削除検討
 
 **優先度中:**
 
-#### 2. seo.ts 更新
-- スローガン、MVV、メタデータをHANDOFF記載内容に更新
+#### 4. contactページタイトル変更
+- 「お問い合わせ」→「無料相談」
+
+#### 5. セクション見出しの「\」マーク追加（検討）
+- GIG風デザイン要素
 
 **保留:**
 - 無料相談ページのフォーム項目変更（現在Googleフォーム連携中のため保留）
+- カレンダー予約システム導入（システム選定必要）
 
 ### 未解決の課題
 
@@ -551,6 +693,7 @@ npm run build  # ビルド
 - `/docs/handoff/CLIENT_REQUIREMENTS_GDOC.txt` - クライアントヒアリングシート
 - `/docs/handoff/CONTENT_HEARING_SHEET.txt` - 文言ヒアリングシート
 - `/docs/handoff/REQUIRED_IMAGES_LIST.txt` - 必要画像リスト
+- `/docs/handoff/COMPARISON_REPORT.md` - 比較検証レポート（2026-02-26作成）
 - `/src/config/seo.ts` - SEO設定（要更新）
 
 ---
@@ -660,6 +803,92 @@ npm run build  # ビルド
 - スクショはデザインのみ参考（文言は混入させない）
 - 文言はHANDOFF記載内容またはヒアリングシートに従う
 - Header/Footerのページ構成もHANDOFF準拠
+
+---
+
+---
+
+## 🖼️ 画像生成タスク（Nanobanana使用）
+
+### 画像生成ツール
+
+**ツール**: Nanobanana (Gemini Image Generation)
+**場所**: `C:\Nanobanana\generate_image.py`
+
+**実行方法（Windows）**:
+```cmd
+cd C:\Nanobanana
+python generate_image.py "プロンプト" 出力ファイル名.png アスペクト比
+```
+
+**アスペクト比オプション**: `1:1`, `16:9`, `9:16`, `3:4`, `4:3`
+
+**例**:
+```cmd
+python generate_image.py "Professional business meeting scene, modern office, young Japanese entrepreneurs discussing, clean minimal style" C:\singhp\public\img\miraiku\miraiku-overview.jpg 16:9
+```
+
+---
+
+### 現在の画像状況
+
+#### 存在する画像（✓）
+
+| 画像パス | 使用箇所 |
+|---------|---------|
+| `/img/hero/1.jpg` | TOP（SING文字マスク） |
+| `/img/hero/business.jpg` | News ヒーロー |
+| `/img/hero/city.jpg` | Contact ヒーロー |
+| `/img/company/company-hero.jpg` | Company ヒーロー |
+| `/img/company/ceo.jpg` | TOP・Company（代表写真） |
+| `/img/concept/concept-hero.jpg` | Concept ヒーロー |
+| `/img/project/group-hero.jpg` | Project ヒーロー |
+| `/img/logo/logo.png` | Header・Footer |
+| `/img/logo/logo-vertical.png` | TOP CTA横 |
+
+#### 不足している画像（×）- 生成必要
+
+| 画像パス | 使用箇所 | 推奨サイズ | 生成プロンプト案 |
+|---------|---------|-----------|-----------------|
+| `/img/miraiku/miraiku-hero.jpg` | Miraiku ヒーロー | 16:9 | 起業支援、スタートアップ、モダンオフィス、若い起業家 |
+| `/img/miraiku/miraiku-overview.jpg` | TOP・Miraiku 概要 | 4:3 | ビジネスミーティング、メンタリング風景、相談シーン |
+
+---
+
+### 画像生成コマンド（コピペ用）
+
+**1. miraiku-hero.jpg**
+```cmd
+cd C:\Nanobanana
+python generate_image.py "Modern startup incubator space, young Japanese entrepreneur working with mentor, clean minimal aesthetic, professional lighting, warm atmosphere, business casual attire" C:\singhp\public\img\miraiku\miraiku-hero.jpg 16:9
+```
+
+**2. miraiku-overview.jpg**
+```cmd
+cd C:\Nanobanana
+python generate_image.py "Professional business consultation scene, young Japanese entrepreneur discussing with advisor, modern office interior, whiteboard with business plan, clean corporate style, natural lighting" C:\singhp\public\img\miraiku\miraiku-overview.jpg 4:3
+```
+
+---
+
+### 画像生成時の注意事項
+
+1. **スタイル**: クリーン、モダン、プロフェッショナル
+2. **トーン**: 明るく前向き、本気感
+3. **被写体**: 若い日本人（22-35歳イメージ）
+4. **背景**: モダンオフィス、清潔感
+5. **避けるべき**: 過度に華やか、カジュアルすぎる、暗い雰囲気
+
+---
+
+### TOPページヒーローのデザイン変更（完了）
+
+GIG風デザインに変更済み:
+- 斜め分割レイアウト（左白、右黒）
+- 「SING」の大きな文字に画像マスク（パララックス効果）
+- 左下にスローガン
+- 右下にCTAボタン
+- 金色の斜めライン装飾
 
 ---
 
