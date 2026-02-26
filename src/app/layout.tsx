@@ -3,6 +3,7 @@ import { Noto_Sans_JP } from 'next/font/google'
 import Script from 'next/script'
 import './globals.css'
 import { siteConfig } from '@/config/seo'
+import FixedCTA from '@/components/layout/FixedCTA'
 
 const notoSansJP = Noto_Sans_JP({
   variable: '--font-noto-sans-jp',
@@ -95,6 +96,7 @@ export default function RootLayout({
           </>
         )}
         {children}
+        <FixedCTA />
       </body>
     </html>
   )

@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>夢スターアカデミー（夢アカ）企業向けパンフレット</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap');
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Noto Sans JP', sans-serif;
+      background: #f5f5f5;
+      display: flex;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .pamphlet {
+      width: 210mm;
+      min-height: 297mm;
+      background: #ffffff;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+      padding: 14mm 12mm;
+      position: relative;
+    }
+
+    /* ヘッダー */
+    .header {
+      text-align: center;
+      margin-bottom: 10mm;
+      padding-bottom: 6mm;
+      border-bottom: 1px solid #e5e5e5;
+    }
+
+    .header-label {
+      font-size: 10px;
+      color: #888;
+      letter-spacing: 2px;
+      margin-bottom: 4px;
+    }
+
+    .main-title {
+      font-size: 26px;
+      font-weight: 900;
+      color: #1a1a1a;
+      margin-bottom: 6px;
+    }
+
+    .sub-title {
+      font-size: 12px;
+      color: #555;
+      font-weight: 500;
+    }
+
+    /* セクション */
+    .section {
+      margin-bottom: 7mm;
+    }
+
+    .section-title {
+      font-size: 13px;
+      font-weight: 700;
+      color: #1a1a1a;
+      margin-bottom: 5px;
+      padding-left: 10px;
+      border-left: 3px solid #ea5506;
+    }
+
+    /* Before/After */
+    .comparison {
+      display: grid;
+      grid-template-columns: 1fr 24px 1fr;
+      gap: 8px;
+      align-items: stretch;
+    }
+
+    .comparison-box {
+      padding: 12px;
+      border-radius: 6px;
+      font-size: 11px;
+    }
+
+    .before-box {
+      background: #f7f7f7;
+      border: 1px solid #ddd;
+    }
+
+    .after-box {
+      background: #fff8f5;
+      border: 1px solid #ea5506;
+    }
+
+    .box-label {
+      font-weight: 700;
+      font-size: 11px;
+      margin-bottom: 8px;
+      padding-bottom: 4px;
+      border-bottom: 1px solid #ddd;
+    }
+
+    .before-box .box-label {
+      color: #666;
+    }
+
+    .after-box .box-label {
+      color: #ea5506;
+    }
+
+    .comparison-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 6px;
+      margin-bottom: 5px;
+      line-height: 1.5;
+      font-size: 10px;
+    }
+
+    .comparison-item .mark {
+      flex-shrink: 0;
+      font-weight: 700;
+      width: 14px;
+    }
+
+    .before-box .mark {
+      color: #999;
+    }
+
+    .after-box .mark {
+      color: #ea5506;
+    }
+
+    .comparison-arrow {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      color: #ea5506;
+    }
+
+    /* フロー図 */
+    .flow-section {
+      background: #fafafa;
+      border-radius: 8px;
+      padding: 14px;
+      border: 1px solid #eee;
+    }
+
+    .flow-container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .flow-step {
+      flex: 1;
+      text-align: center;
+    }
+
+    .flow-step .step-num {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: #ea5506;
+      color: white;
+      font-size: 12px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 6px;
+    }
+
+    .flow-step .step-title {
+      font-size: 10px;
+      font-weight: 600;
+      color: #333;
+      line-height: 1.4;
+    }
+
+    .flow-arrow {
+      color: #ccc;
+      font-size: 14px;
+      padding: 0 4px;
+    }
+
+    .network-note {
+      margin-top: 10px;
+      padding: 8px 12px;
+      background: #fff;
+      border: 1px solid #ea5506;
+      border-radius: 4px;
+      font-size: 10px;
+      color: #333;
+      text-align: center;
+    }
+
+    /* 夢マガ流通 */
+    .magazine-flow {
+      background: #f9f9f9;
+      border-radius: 8px;
+      padding: 14px;
+      border: 1px solid #eee;
+    }
+
+    .magazine-label {
+      font-size: 11px;
+      font-weight: 600;
+      color: #555;
+      margin-bottom: 10px;
+      text-align: center;
+    }
+
+    .magazine-steps {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .magazine-step {
+      flex: 1;
+      text-align: center;
+      padding: 8px 4px;
+      background: white;
+      border-radius: 4px;
+      border: 1px solid #e5e5e5;
+    }
+
+    .magazine-step .num {
+      font-size: 9px;
+      color: #ea5506;
+      font-weight: 700;
+      margin-bottom: 2px;
+    }
+
+    .magazine-step p {
+      font-size: 9px;
+      color: #333;
+      line-height: 1.3;
+    }
+
+    .magazine-arrow {
+      color: #ccc;
+      font-size: 12px;
+      padding: 0 2px;
+    }
+
+    /* メリット */
+    .benefits {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+    }
+
+    .benefit-card {
+      background: #fff;
+      border-radius: 6px;
+      padding: 14px 10px;
+      text-align: center;
+      border: 1px solid #e5e5e5;
+    }
+
+    .benefit-num {
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background: #ea5506;
+      color: white;
+      font-size: 12px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 8px;
+    }
+
+    .benefit-title {
+      font-size: 11px;
+      font-weight: 700;
+      color: #1a1a1a;
+      margin-bottom: 6px;
+      line-height: 1.4;
+    }
+
+    .benefit-desc {
+      font-size: 9px;
+      color: #666;
+      line-height: 1.5;
+    }
+
+    /* 広報型インターンの理由 */
+    .reason-section {
+      background: #fafafa;
+      border-radius: 8px;
+      padding: 14px;
+      border: 1px solid #eee;
+    }
+
+    .reason-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+
+    .reason-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      background: white;
+      padding: 10px;
+      border-radius: 4px;
+      border: 1px solid #e5e5e5;
+    }
+
+    .reason-item .num {
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: #333;
+      color: white;
+      font-size: 10px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .reason-item .text {
+      font-size: 10px;
+      line-height: 1.5;
+      color: #333;
+    }
+
+    .reason-item .text strong {
+      color: #1a1a1a;
+      display: block;
+      margin-bottom: 2px;
+    }
+
+    /* 高校生メリット */
+    .student-section {
+      background: #f9f9f9;
+      border-radius: 8px;
+      padding: 14px;
+      border: 1px solid #eee;
+    }
+
+    .student-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 8px;
+    }
+
+    .student-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: white;
+      padding: 8px 10px;
+      border-radius: 4px;
+      border: 1px solid #e5e5e5;
+      font-size: 10px;
+      color: #333;
+    }
+
+    .student-item .bullet {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #ea5506;
+      flex-shrink: 0;
+    }
+
+    /* フッター */
+    .footer {
+      margin-top: 10mm;
+      padding-top: 8mm;
+      border-top: 1px solid #e5e5e5;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      align-items: center;
+    }
+
+    .footer-info h3 {
+      font-size: 11px;
+      font-weight: 700;
+      color: #1a1a1a;
+      margin-bottom: 6px;
+    }
+
+    .footer-info p {
+      font-size: 9px;
+      color: #666;
+      line-height: 1.6;
+    }
+
+    .footer-contact {
+      text-align: right;
+    }
+
+    .cta-button {
+      display: inline-block;
+      background: #ea5506;
+      color: white;
+      padding: 10px 24px;
+      border-radius: 4px;
+      font-size: 11px;
+      font-weight: 700;
+      text-decoration: none;
+      margin-bottom: 6px;
+    }
+
+    .contact-note {
+      font-size: 9px;
+      color: #888;
+    }
+
+    /* 印刷用 */
+    @media print {
+      body {
+        background: white;
+        padding: 0;
+      }
+
+      .pamphlet {
+        box-shadow: none;
+        width: 210mm;
+        min-height: 297mm;
+        padding: 12mm;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="pamphlet">
+    <!-- ヘッダー -->
+    <header class="header">
+      <p class="header-label">企業向けご案内</p>
+      <h1 class="main-title">夢スターアカデミー（夢アカ）</h1>
+      <p class="sub-title">高校生×企業の新しい出会いをデザインする広報型インターンシップ</p>
+    </header>
+
+    <!-- Before/After -->
+    <section class="section">
+      <h2 class="section-title">夢アカで変わること</h2>
+      <div class="comparison">
+        <div class="comparison-box before-box">
+          <div class="box-label">従来の課題</div>
+          <div class="comparison-item">
+            <span class="mark">-</span>
+            <span>学校内調整が複雑で実現困難</span>
+          </div>
+          <div class="comparison-item">
+            <span class="mark">-</span>
+            <span>教員負担・責任所在の問題</span>
+          </div>
+          <div class="comparison-item">
+            <span class="mark">-</span>
+            <span>製造・建設業での実務体験は困難</span>
+          </div>
+          <div class="comparison-item">
+            <span class="mark">-</span>
+            <span>単発で終わり関係が継続しない</span>
+          </div>
+        </div>
+        <div class="comparison-arrow">→</div>
+        <div class="comparison-box after-box">
+          <div class="box-label">夢アカ導入後</div>
+          <div class="comparison-item">
+            <span class="mark">+</span>
+            <span>学校外・長期休暇で制度負担なし</span>
+          </div>
+          <div class="comparison-item">
+            <span class="mark">+</span>
+            <span>コーディネーター配置で安心運営</span>
+          </div>
+          <div class="comparison-item">
+            <span class="mark">+</span>
+            <span>広報制作で安全に企業体験</span>
+          </div>
+          <div class="comparison-item">
+            <span class="mark">+</span>
+            <span>ネットワークで継続的な接点</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 全体構造 -->
+    <section class="section">
+      <h2 class="section-title">夢アカの仕組み</h2>
+      <div class="flow-section">
+        <div class="flow-container">
+          <div class="flow-step">
+            <div class="step-num">1</div>
+            <div class="step-title">企業<br>受入れ</div>
+          </div>
+          <span class="flow-arrow">→</span>
+          <div class="flow-step">
+            <div class="step-num">2</div>
+            <div class="step-title">高校生<br>参加</div>
+          </div>
+          <span class="flow-arrow">→</span>
+          <div class="flow-step">
+            <div class="step-num">3</div>
+            <div class="step-title">広報物<br>制作</div>
+          </div>
+          <span class="flow-arrow">→</span>
+          <div class="flow-step">
+            <div class="step-num">4</div>
+            <div class="step-title">夢マガ<br>掲載</div>
+          </div>
+          <span class="flow-arrow">→</span>
+          <div class="flow-step">
+            <div class="step-num">5</div>
+            <div class="step-title">認知拡大<br>採用土壌</div>
+          </div>
+        </div>
+        <div class="network-note">
+          サポートネットワーク参加により、企業同士・学生・コーディネーターが継続的に繋がります
+        </div>
+      </div>
+    </section>
+
+    <!-- 夢マガ流通 -->
+    <section class="section">
+      <h2 class="section-title">「夢マガ」の流通</h2>
+      <div class="magazine-flow">
+        <div class="magazine-label">制作から届くまでの流れ</div>
+        <div class="magazine-steps">
+          <div class="magazine-step">
+            <div class="num">01</div>
+            <p>高校生が<br>取材・制作</p>
+          </div>
+          <span class="magazine-arrow">→</span>
+          <div class="magazine-step">
+            <div class="num">02</div>
+            <p>編集・<br>デザイン</p>
+          </div>
+          <span class="magazine-arrow">→</span>
+          <div class="magazine-step">
+            <div class="num">03</div>
+            <p>学校へ<br>配布</p>
+          </div>
+          <span class="magazine-arrow">→</span>
+          <div class="magazine-step">
+            <div class="num">04</div>
+            <p>地域へ<br>配布</p>
+          </div>
+          <span class="magazine-arrow">→</span>
+          <div class="magazine-step">
+            <div class="num">05</div>
+            <p>Web<br>公開</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 企業メリット -->
+    <section class="section">
+      <h2 class="section-title">企業様の3つのメリット</h2>
+      <div class="benefits">
+        <div class="benefit-card">
+          <div class="benefit-num">1</div>
+          <div class="benefit-title">広報制作物が<br>手に入る</div>
+          <div class="benefit-desc">高校生目線で自社の魅力を再発見。新鮮な視点の広報素材が成果物として残ります</div>
+        </div>
+        <div class="benefit-card">
+          <div class="benefit-num">2</div>
+          <div class="benefit-title">認知と採用<br>ブランディング</div>
+          <div class="benefit-desc">夢マガ掲載で地域の高校生・保護者へリーチ。将来の採用につながる土壌を形成</div>
+        </div>
+        <div class="benefit-card">
+          <div class="benefit-num">3</div>
+          <div class="benefit-title">継続的な<br>ネットワーク</div>
+          <div class="benefit-desc">サポートネットワーク参加で他企業の知見共有、コーディネーターによる継続サポート</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 広報型インターンの理由 -->
+    <section class="section">
+      <h2 class="section-title">なぜ「広報型」インターンなのか</h2>
+      <div class="reason-section">
+        <div class="reason-grid">
+          <div class="reason-item">
+            <span class="num">1</span>
+            <div class="text">
+              <strong>安全に体験できる</strong>
+              製造・建設現場での実務は難しくても、取材・制作なら安全に企業を知れる
+            </div>
+          </div>
+          <div class="reason-item">
+            <span class="num">2</span>
+            <div class="text">
+              <strong>成果物が残る</strong>
+              体験で終わらず、形に残る制作物がナレッジとして蓄積される
+            </div>
+          </div>
+          <div class="reason-item">
+            <span class="num">3</span>
+            <div class="text">
+              <strong>新鮮な視点を獲得</strong>
+              社内では気づかない魅力を高校生目線で言語化・可視化できる
+            </div>
+          </div>
+          <div class="reason-item">
+            <span class="num">4</span>
+            <div class="text">
+              <strong>相互の愛着が生まれる</strong>
+              企業も高校生も制作を通じて関係性と愛着が形成される
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 高校生メリット -->
+    <section class="section">
+      <h2 class="section-title">高校生にとってのメリット</h2>
+      <div class="student-section">
+        <div class="student-grid">
+          <div class="student-item">
+            <span class="bullet"></span>
+            <span>総合型選抜で話せる実績になる</span>
+          </div>
+          <div class="student-item">
+            <span class="bullet"></span>
+            <span>社会との接点・視野が広がる</span>
+          </div>
+          <div class="student-item">
+            <span class="bullet"></span>
+            <span>学力では測れない強みを証明</span>
+          </div>
+          <div class="student-item">
+            <span class="bullet"></span>
+            <span>「本物の経験」として自信になる</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- フッター -->
+    <footer class="footer">
+      <div class="footer-info">
+        <h3>夢スターアカデミー運営</h3>
+        <p>
+          実施時期：夏季休暇期間を中心に実施<br>
+          運営体制：コーディネーター常駐でサポート<br>
+          参加条件：サポートネットワークへの加入
+        </p>
+      </div>
+      <div class="footer-contact">
+        <a href="#" class="cta-button">お問い合わせ・参加申込</a>
+        <p class="contact-note">詳細はコーディネーターまでお気軽にご相談ください</p>
+      </div>
+    </footer>
+  </div>
+</body>
+</html>

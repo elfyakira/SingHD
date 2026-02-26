@@ -4,11 +4,13 @@ import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import { Menu, X } from 'lucide-react'
 
+// ナビゲーション項目（HANDOFF準拠）
+// 文言は後でヒアリングシートで確定
 const navigation = [
-  { name: '企業コンセプト', href: '/concept' },
-  { name: 'グループ会社', href: '/project' },
-  { name: '会社概要', href: '/company' },
-  { name: 'ニュース', href: '/news' },
+  { name: '{NAV_MIRAIKU}', href: '/miraiku' },
+  { name: '{NAV_COMPANY}', href: '/company' },
+  { name: '{NAV_PROJECT}', href: '/project' },
+  { name: '{NAV_NEWS}', href: '/news' },
 ]
 
 export default function Header() {
@@ -26,37 +28,31 @@ export default function Header() {
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled ? 'bg-white shadow-md' : 'bg-transparent'
+        isScrolled ? 'bg-white shadow-sm' : 'bg-white'
       }`}
     >
-      <div className="container mx-auto px-4">
-        <div className="flex items-center justify-between h-20 lg:h-24">
+      <div className="container mx-auto px-4 lg:px-8">
+        <div className="flex items-center justify-between h-16 lg:h-20">
           {/* Logo */}
           <Link href="/" className="flex-shrink-0">
-            <img
-              src="/singhdlogo512.png"
-              alt="Singホールディングス"
-              className="h-20 md:h-24 w-auto"
-            />
+            {/* ロゴ: 新規作成待ち - 現在は仮テキスト */}
+            <span className="text-xl font-bold tracking-wider text-[#1C2A44]">
+              {'{LOGO}'}
+            </span>
           </Link>
 
           {/* Desktop Navigation */}
-          <nav className="hidden lg:flex items-center gap-8">
+          <nav className="hidden lg:flex items-center gap-10">
             {navigation.map((item) => (
               <Link
-                key={item.name}
+                key={item.href}
                 href={item.href}
-                className="text-sm font-medium text-gray-700 hover:text-[#ea5506] transition-colors"
+                className="text-sm font-medium tracking-wider text-foreground hover:text-secondary transition-colors uppercase"
               >
                 {item.name}
               </Link>
             ))}
-            <Link
-              href="/contact"
-              className="bg-[#ea5506] text-white px-6 py-3 rounded-full text-sm font-medium hover:bg-[#d14800] transition-colors"
-            >
-              お問い合わせ
-            </Link>
+            {/* Contact は右下固定CTAボタンに移動 */}
           </nav>
 
           {/* Mobile Menu Button */}
@@ -66,9 +62,9 @@ export default function Header() {
             aria-label="メニューを開く"
           >
             {isMobileMenuOpen ? (
-              <X className="w-6 h-6" />
+              <X className="w-6 h-6 text-foreground" />
             ) : (
-              <Menu className="w-6 h-6" />
+              <Menu className="w-6 h-6 text-foreground" />
             )}
           </button>
         </div>
@@ -76,16 +72,16 @@ export default function Header() {
 
       {/* Mobile Navigation */}
       <div
-        className={`lg:hidden fixed inset-0 top-20 bg-white transition-transform duration-300 ${
+        className={`lg:hidden fixed inset-0 top-16 bg-white transition-transform duration-300 ${
           isMobileMenuOpen ? 'translate-x-0' : 'translate-x-full'
         }`}
       >
         <nav className="flex flex-col p-8 gap-6">
           {navigation.map((item) => (
             <Link
-              key={item.name}
+              key={item.href}
               href={item.href}
-              className="text-lg font-medium text-gray-700 hover:text-[#ea5506] transition-colors py-2 border-b border-gray-100"
+              className="text-lg font-medium text-foreground hover:text-secondary transition-colors py-2 border-b border-gray-100 uppercase tracking-wider"
               onClick={() => setIsMobileMenuOpen(false)}
             >
               {item.name}
@@ -93,10 +89,10 @@ export default function Header() {
           ))}
           <Link
             href="/contact"
-            className="bg-[#ea5506] text-white px-6 py-4 rounded-full text-center font-medium hover:bg-[#d14800] transition-colors mt-4"
+            className="bg-primary text-white px-6 py-4 text-center font-medium hover:bg-primary-dark transition-colors mt-4"
             onClick={() => setIsMobileMenuOpen(false)}
           >
-            お問い合わせ
+            {'{CTA_BUTTON}'}
           </Link>
         </nav>
       </div>

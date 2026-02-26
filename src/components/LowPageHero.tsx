@@ -1,145 +1,82 @@
 'use client'
 
-import { useEffect, useState } from 'react'
-
 interface LowPageHeroProps {
-  titleEn: string
-  titleJa: string
-  imageSrc: string
-  imageAlt?: string
+  titleEn: string        // 英語タイトル（大きく表示）
+  titleJa: string        // 日本語サブタイトル
+  imageSrc?: string      // 右側の画像（オプション）
+  imageAlt?: string      // 画像のalt
 }
 
+/**
+ * 各ページ共通のヒーローセクション
+ * デザイン: page-1.png 参照
+ * - ダーク背景 + 大きな英語タイトル + 日本語サブ
+ * - 右側に斜めカットの画像
+ * - 左下にグレーの斜め装飾
+ */
 export default function LowPageHero({
   titleEn,
   titleJa,
   imageSrc,
   imageAlt = '',
 }: LowPageHeroProps) {
-  const [scrollY, setScrollY] = useState(0)
-  const [isLoaded, setIsLoaded] = useState(false)
-
-  useEffect(() => {
-    setIsLoaded(true)
-
-    const handleScroll = () => {
-      setScrollY(window.scrollY)
-    }
-
-    window.addEventListener('scroll', handleScroll, { passive: true })
-    return () => window.removeEventListener('scroll', handleScroll)
-  }, [])
-
   return (
-    <section className="relative overflow-hidden bg-white">
-      {/* Desktop Layout */}
-      <div className="hidden md:block relative min-h-[400px] lg:min-h-[450px]">
-        {/* Title Area */}
-        <div className="container mx-auto px-4 py-16 lg:py-24 relative z-10">
-          <div className="max-w-xl">
-            <h1>
-              <span
-                className={`block text-6xl lg:text-8xl font-bold italic text-gray-900 tracking-tight transition-all duration-700 ${
-                  isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-                }`}
-              >
-                {titleEn}
-              </span>
-              <span
-                className={`block mt-4 text-lg lg:text-xl text-gray-600 transition-all duration-700 delay-200 ${
-                  isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-                }`}
-              >
-                {titleJa}
-              </span>
-            </h1>
-          </div>
-        </div>
-
-        {/* Hero Image with SVG Mask (Desktop) */}
-        <div className="absolute top-0 right-0 w-2/3 h-full pointer-events-none">
-          {/* SVG Mask Definition */}
-          <svg className="absolute" width="0" height="0" aria-hidden="true">
-            <defs>
-              <clipPath id="heroClipPath" clipPathUnits="objectBoundingBox">
-                <path d="M0 1C0.14 0.47 0.51 0.02 1 0V1Z" />
-              </clipPath>
-            </defs>
-          </svg>
-
-          {/* Masked Image Container */}
-          <div
-            className={`absolute inset-0 overflow-hidden transition-opacity duration-1000 delay-300 ${
-              isLoaded ? 'opacity-100' : 'opacity-0'
-            }`}
-            style={{
-              clipPath: 'url(#heroClipPath)',
-              WebkitClipPath: 'url(#heroClipPath)',
-            }}
-          >
-            <img
-              src={imageSrc}
-              alt={imageAlt}
-              className="w-full h-full object-cover transition-transform duration-500 ease-out"
-              style={{
-                transform: `translate3d(0, ${scrollY * 0.1}px, 0) scale(1.2)`,
-              }}
-            />
-          </div>
-        </div>
-      </div>
-
-      {/* Mobile Layout */}
-      <div className="md:hidden">
-        {/* Title Area */}
-        <div className="container mx-auto px-4 pt-8 pb-6">
-          <h1>
-            <span
-              className={`block text-4xl sm:text-5xl font-bold italic text-gray-900 tracking-tight transition-all duration-700 ${
-                isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-              }`}
-            >
+    <section className="relative">
+      {/* ダーク背景エリア */}
+      <div className="relative bg-[#0A0A0A] min-h-[200px] md:min-h-[280px] lg:min-h-[320px]">
+        {/* テキストコンテンツ */}
+        <div className="container mx-auto px-4 lg:px-8 py-10 md:py-14 lg:py-16">
+          <div className="max-w-3xl">
+            {/* 英語タイトル */}
+            <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold text-white tracking-tight uppercase">
               {titleEn}
-            </span>
-            <span
-              className={`block mt-2 text-base text-gray-600 transition-all duration-700 delay-200 ${
-                isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-              }`}
-            >
+            </h1>
+            {/* 日本語サブタイトル */}
+            <p className="text-sm md:text-base text-gray-400 mt-2 md:mt-3 tracking-wider">
               {titleJa}
-            </span>
-          </h1>
+            </p>
+          </div>
         </div>
 
-        {/* Hero Image (Mobile - Full Width with curve) */}
-        <div className="relative w-full h-48 sm:h-64 overflow-hidden">
-          {/* SVG Mask for Mobile */}
-          <svg className="absolute" width="0" height="0" aria-hidden="true">
-            <defs>
-              <clipPath id="heroClipPathMobile" clipPathUnits="objectBoundingBox">
-                <path d="M0 0.15C0.3 0 0.7 0 1 0.15V1H0Z" />
-              </clipPath>
-            </defs>
-          </svg>
-
+        {/* 右側の斜めカット画像 */}
+        {imageSrc && (
           <div
-            className={`absolute inset-0 transition-opacity duration-1000 delay-300 ${
-              isLoaded ? 'opacity-100' : 'opacity-0'
-            }`}
+            className="absolute top-0 right-0 h-full w-[40%] md:w-[38%] lg:w-[35%] overflow-hidden hidden md:block"
             style={{
-              clipPath: 'url(#heroClipPathMobile)',
-              WebkitClipPath: 'url(#heroClipPathMobile)',
+              clipPath: 'polygon(20% 0, 100% 0, 100% 100%, 0% 100%)',
             }}
           >
             <img
               src={imageSrc}
               alt={imageAlt}
               className="w-full h-full object-cover"
-              style={{
-                transform: 'scale(1.1)',
-              }}
             />
           </div>
-        </div>
+        )}
+
+        {/* 画像がない場合のプレースホルダー */}
+        {!imageSrc && (
+          <div
+            className="absolute top-0 right-0 h-full w-[40%] md:w-[38%] lg:w-[35%] overflow-hidden hidden md:block bg-gray-800"
+            style={{
+              clipPath: 'polygon(20% 0, 100% 0, 100% 100%, 0% 100%)',
+            }}
+          >
+            <div className="w-full h-full flex items-center justify-center text-gray-600 text-sm">
+              {'{IMAGE}'}
+            </div>
+          </div>
+        )}
+      </div>
+
+      {/* 左下のグレー斜め装飾 */}
+      <div className="relative h-6 md:h-10 bg-white">
+        <div
+          className="absolute -top-12 md:-top-16 left-0 w-[250px] md:w-[350px] lg:w-[400px] h-[60px] md:h-[80px] bg-gray-100"
+          style={{
+            clipPath: 'polygon(0 0, 100% 100%, 0 100%)',
+          }}
+        />
       </div>
     </section>
   )
