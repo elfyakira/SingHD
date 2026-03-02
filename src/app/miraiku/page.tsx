@@ -5,6 +5,11 @@ import { ArrowRight, Check, ChevronDown } from 'lucide-react'
 import Header from '@/components/layout/Header'
 import Footer from '@/components/layout/Footer'
 import { useState, useEffect } from 'react'
+import FadeInUp from '@/components/animations/FadeInUp'
+import StaggerContainer from '@/components/animations/StaggerContainer'
+import SectionTitleEntrance from '@/components/animations/SectionTitleEntrance'
+import HeroBackground from '@/components/animations/HeroBackground'
+import TypingText from '@/components/animations/TypingText'
 
 type FormStep = 'input' | 'confirm' | 'complete'
 
@@ -17,17 +22,6 @@ interface ContactFormData {
   privacy: boolean
 }
 
-const GOOGLE_FORM_ACTION_URL =
-  'https://docs.google.com/forms/d/e/1FAIpQLScaJrsbCOxXPF-jmSvLVH2LW8yzOb1XLzbbAG3-yjF8VatsZg/formResponse'
-
-const FORM_ENTRIES = {
-  companyName: 'entry.1304991620',
-  name: 'entry.1470871904',
-  email: 'entry.1874230916',
-  phone: 'entry.823910168',
-  message: 'entry.652054077',
-  privacy: 'entry.914752406',
-}
 
 /**
  * ミライク詳細ページ（TRIGGER風リデザイン・ネイビーベース）
@@ -158,24 +152,23 @@ export default function MiraikuPage() {
     return Object.keys(newErrors).length === 0
   }
 
-  const submitToGoogleForm = async () => {
-    const formBody = new URLSearchParams()
-    formBody.append(FORM_ENTRIES.companyName, formData.companyName)
-    formBody.append(FORM_ENTRIES.name, formData.name)
-    formBody.append(FORM_ENTRIES.email, formData.email)
-    formBody.append(FORM_ENTRIES.phone, formData.phone)
-    formBody.append(FORM_ENTRIES.message, formData.message)
-    formBody.append(FORM_ENTRIES.privacy, '選択肢 1')
+  const submitForm = async () => {
     try {
-      await fetch(GOOGLE_FORM_ACTION_URL, {
+      const res = await fetch('/api/contact', {
         method: 'POST',
-        mode: 'no-cors',
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: formBody.toString(),
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          companyName: formData.companyName,
+          name: formData.name,
+          email: formData.email,
+          phone: formData.phone,
+          message: formData.message,
+        }),
       })
-      return true
-    } catch {
-      return true
+      return res.ok
+    } catch (error) {
+      console.error('Form submission error:', error)
+      return false
     }
   }
 
@@ -185,7 +178,7 @@ export default function MiraikuPage() {
       if (validateForm()) setFormStep('confirm')
     } else if (formStep === 'confirm') {
       setIsSubmitting(true)
-      const success = await submitToGoogleForm()
+      const success = await submitForm()
       setIsSubmitting(false)
       if (success) setFormStep('complete')
     }
@@ -250,7 +243,7 @@ export default function MiraikuPage() {
           </div>
 
           {/* テキスト（右下寄せ） */}
-          <div className="w-full relative z-10 pb-40 lg:pb-44 px-8 lg:px-16 flex justify-end">
+          <HeroBackground className="w-full relative z-10 pb-40 lg:pb-44 px-8 lg:px-16 flex justify-end" duration={1200} delay={300}>
             <div className="max-w-2xl">
               <h1 className="text-3xl md:text-4xl lg:text-[2.8rem] xl:text-5xl font-bold leading-[1.7]">
                 挑戦する意志に、
@@ -270,7 +263,7 @@ export default function MiraikuPage() {
                 <span className="text-sm text-gray-400">ミライク</span>
               </div>
             </div>
-          </div>
+          </HeroBackground>
 
           {/* スクロールインジケーター */}
           <div className="absolute bottom-24 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-2">
@@ -302,7 +295,7 @@ export default function MiraikuPage() {
 
           <div className="container mx-auto px-4 lg:px-8 relative z-10">
             {/* セクションヘッダー */}
-            <div className="mb-12 flex items-center gap-6">
+            <SectionTitleEntrance direction="left" className="mb-12 flex items-center gap-6">
               <h2
                 className="text-3xl md:text-4xl font-light tracking-[0.15em] whitespace-nowrap"
                 style={{ fontFamily: "'Times New Roman', 'YuMincho', 'Yu Mincho', serif" }}
@@ -311,10 +304,10 @@ export default function MiraikuPage() {
                 <span className="text-gray-500 ml-3 text-xl md:text-2xl tracking-wider">Pickup</span>
               </h2>
               <div className="flex-1 h-px bg-white/20" />
-            </div>
+            </SectionTitleEntrance>
 
             {/* 4カラム インタビューカード */}
-            <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
+            <StaggerContainer staggerDelay={150} className="grid grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
               {partnerData.map((partner) => (
                 <Link
                   key={partner.nameEn}
@@ -354,7 +347,7 @@ export default function MiraikuPage() {
                   </p>
                 </Link>
               ))}
-            </div>
+            </StaggerContainer>
           </div>
         </section>
 
@@ -364,35 +357,47 @@ export default function MiraikuPage() {
         <section className="py-20 lg:py-28 bg-[#FAFAFA]">
           <div className="container mx-auto px-4 lg:px-8">
             <div className="max-w-2xl mx-auto text-center">
-              <h2
-                className="text-4xl md:text-5xl font-light tracking-[0.2em] mb-1"
-                style={{ fontFamily: "'Times New Roman', 'YuMincho', 'Yu Mincho', serif" }}
-              >
-                ABOUT
-              </h2>
-              <p className="text-[11px] text-gray-400 tracking-[0.15em] mb-16">
-                ミライクについて
-              </p>
+              <SectionTitleEntrance direction="scale">
+                <h2
+                  className="text-4xl md:text-5xl font-light tracking-[0.2em] mb-1"
+                  style={{ fontFamily: "'Times New Roman', 'YuMincho', 'Yu Mincho', serif" }}
+                >
+                  ABOUT
+                </h2>
+                <p className="text-[11px] text-gray-400 tracking-[0.15em] mb-16">
+                  ミライクについて
+                </p>
+              </SectionTitleEntrance>
 
-              <p className="text-lg md:text-xl font-bold text-[#1C2A44] mb-14">
-                夢を、ビジネスに。
-              </p>
+              <TypingText
+                text="夢を、ビジネスに。"
+                className="text-lg md:text-xl font-bold text-[#1C2A44] mb-14"
+                delay={300}
+              />
 
-              <p className="text-gray-600 leading-[2.2] text-sm md:text-base">
-                ミライクは、起業を志す人のための実践型支援プログラムです。「いつか挑戦したい」ではなく、"今、動き出す"ための環境を整えます。
-              </p>
+              <FadeInUp delay={0.1}>
+                <p className="text-gray-600 leading-[2.2] text-sm md:text-base">
+                  ミライクは、起業を志す人のための実践型支援プログラムです。「いつか挑戦したい」ではなく、"今、動き出す"ための環境を整えます。
+                </p>
+              </FadeInUp>
 
-              <p className="text-gray-600 leading-[2.2] text-sm md:text-base mt-8">
-                アイデアだけでは、事業は続かない。情熱だけでも、利益は生まれない。だから私たちは、事業設計から収益モデル構築、営業支援まで、実行フェーズに寄り添います。
-              </p>
+              <FadeInUp delay={0.2}>
+                <p className="text-gray-600 leading-[2.2] text-sm md:text-base mt-8">
+                  アイデアだけでは、事業は続かない。情熱だけでも、利益は生まれない。だから私たちは、事業設計から収益モデル構築、営業支援まで、実行フェーズに寄り添います。
+                </p>
+              </FadeInUp>
 
-              <p className="text-gray-600 leading-[2.2] text-sm md:text-base mt-8">
-                起業は、才能ではなく仕組みで決まる。
-              </p>
+              <FadeInUp delay={0.3}>
+                <p className="text-gray-600 leading-[2.2] text-sm md:text-base mt-8">
+                  起業は、才能ではなく仕組みで決まる。
+                </p>
+              </FadeInUp>
 
-              <p className="text-gray-400 leading-[2.2] text-sm md:text-base mt-8">
-                ミライクは、挑戦を現実に変えるための伴走者です。
-              </p>
+              <FadeInUp delay={0.4}>
+                <p className="text-gray-400 leading-[2.2] text-sm md:text-base mt-8">
+                  ミライクは、挑戦を現実に変えるための伴走者です。
+                </p>
+              </FadeInUp>
             </div>
           </div>
         </section>
@@ -411,7 +416,7 @@ export default function MiraikuPage() {
           />
           <div className="container mx-auto px-4 lg:px-8 relative z-10">
             {/* セクションヘッダー */}
-            <div className="text-center mb-16">
+            <SectionTitleEntrance direction="scale" className="text-center mb-16">
               <h2
                 className="text-4xl md:text-5xl font-light tracking-[0.2em] mb-1"
                 style={{ fontFamily: "'Times New Roman', 'YuMincho', 'Yu Mincho', serif" }}
@@ -421,10 +426,10 @@ export default function MiraikuPage() {
               <p className="text-xs text-gray-400 tracking-wider">
                 SingHDのスタートアップフォローの特徴
               </p>
-            </div>
+            </SectionTitleEntrance>
 
             {/* 3カラム カード（ボーダー付き・ダーク） */}
-            <div className="grid md:grid-cols-3 gap-6 lg:gap-8 max-w-5xl mx-auto">
+            <StaggerContainer staggerDelay={200} className="grid md:grid-cols-3 gap-6 lg:gap-8 max-w-5xl mx-auto">
               {pillarData.map((pillar) => (
                 <div
                   key={pillar.number}
@@ -441,7 +446,7 @@ export default function MiraikuPage() {
                   </p>
                 </div>
               ))}
-            </div>
+            </StaggerContainer>
           </div>
         </section>
 
@@ -470,17 +475,17 @@ export default function MiraikuPage() {
           />
           <div className="container mx-auto px-4 lg:px-8 relative z-10">
             {/* セクションヘッダー */}
-            <div className="mb-12">
+            <SectionTitleEntrance direction="left" className="mb-12">
               <h2 className="text-3xl md:text-4xl font-light tracking-[0.15em] mb-2">
                 INTERVIEWS
               </h2>
               <p className="text-xs text-gray-400 tracking-wider">
                 インタビュー一覧
               </p>
-            </div>
+            </SectionTitleEntrance>
 
             {/* 4カラム */}
-            <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
+            <StaggerContainer staggerDelay={150} className="grid grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
               {partnerData.map((partner) => (
                 <Link
                   key={partner.nameEn + '-grid'}
@@ -518,7 +523,7 @@ export default function MiraikuPage() {
                   </p>
                 </Link>
               ))}
-            </div>
+            </StaggerContainer>
           </div>
         </section>
 
@@ -572,7 +577,7 @@ export default function MiraikuPage() {
 
           <div className="container mx-auto px-4 lg:px-8 relative z-10">
             {/* セクションヘッダー */}
-            <div className="text-center mb-12">
+            <SectionTitleEntrance direction="scale" className="text-center mb-12">
               <h2
                 className="text-3xl md:text-4xl font-light tracking-[0.15em] mb-2"
                 style={{ fontFamily: "'Times New Roman', 'YuMincho', 'Yu Mincho', serif" }}
@@ -587,7 +592,7 @@ export default function MiraikuPage() {
                 <br />
                 お問い合わせ後、1営業日以内にメールもしくはお電話いたします。
               </p>
-            </div>
+            </SectionTitleEntrance>
 
             {/* ステップインジケーター */}
             <div className="max-w-2xl mx-auto mb-12">

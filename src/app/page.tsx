@@ -5,6 +5,9 @@ import Link from 'next/link'
 import { ArrowRight } from 'lucide-react'
 import Header from '@/components/layout/Header'
 import Footer from '@/components/layout/Footer'
+import FadeInUp from '@/components/animations/FadeInUp'
+import StaggerContainer from '@/components/animations/StaggerContainer'
+import SectionTitleEntrance from '@/components/animations/SectionTitleEntrance'
 
 /**
  * TOPページ
@@ -141,48 +144,52 @@ export default function HomePage() {
           <div className="container mx-auto px-4 lg:px-8">
             <div className="grid lg:grid-cols-2 gap-12 items-center">
               {/* 左: 画像 */}
-              <div className="relative">
-                <div className="aspect-[4/3] bg-gray-100 rounded-lg overflow-hidden">
-                  <img
-                    src="/img/miraiku/miraiku-overview.jpg"
-                    alt="ミライク"
-                    className="w-full h-full object-cover"
-                    onError={(e) => {
-                      e.currentTarget.style.display = 'none'
-                    }}
-                  />
+              <FadeInUp>
+                <div className="relative">
+                  <div className="aspect-[4/3] bg-gray-100 rounded-lg overflow-hidden">
+                    <img
+                      src="/img/miraiku/miraiku-overview.jpg"
+                      alt="ミライク"
+                      className="w-full h-full object-cover"
+                      onError={(e) => {
+                        e.currentTarget.style.display = 'none'
+                      }}
+                    />
+                  </div>
                 </div>
-              </div>
+              </FadeInUp>
 
               {/* 右: テキスト */}
-              <div className="space-y-6">
-                <div className="mb-4">
-                  <span className="text-sm tracking-wider text-gray-500 uppercase">
-                    起業支援プログラム
-                  </span>
+              <FadeInUp delay={200}>
+                <div className="space-y-6">
+                  <div className="mb-4">
+                    <span className="text-sm tracking-wider text-gray-500 uppercase">
+                      起業支援プログラム
+                    </span>
+                  </div>
+
+                  <h2 className="text-4xl md:text-5xl font-bold tracking-tight">
+                    MIRAIKU
+                  </h2>
+
+                  <p className="text-lg text-gray-600 leading-relaxed">
+                    22〜35歳の起業志望者向け。事業設計から収益化まで伴走支援。
+                    本気で挑戦する人に、現実的な仕組みと環境を提供します。
+                  </p>
+
+                  <Link
+                    href="/miraiku"
+                    className="inline-flex items-center gap-4 group"
+                  >
+                    <span className="text-[#1C2A44] font-medium border-b border-[#1C2A44] pb-1">
+                      詳細を見る
+                    </span>
+                    <span className="w-10 h-10 rounded-full border border-[#1C2A44] flex items-center justify-center group-hover:bg-[#1C2A44] group-hover:text-white transition-all">
+                      <ArrowRight className="w-4 h-4" />
+                    </span>
+                  </Link>
                 </div>
-
-                <h2 className="text-4xl md:text-5xl font-bold tracking-tight">
-                  MIRAIKU
-                </h2>
-
-                <p className="text-lg text-gray-600 leading-relaxed">
-                  22〜35歳の起業志望者向け。事業設計から収益化まで伴走支援。
-                  本気で挑戦する人に、現実的な仕組みと環境を提供します。
-                </p>
-
-                <Link
-                  href="/miraiku"
-                  className="inline-flex items-center gap-4 group"
-                >
-                  <span className="text-[#1C2A44] font-medium border-b border-[#1C2A44] pb-1">
-                    詳細を見る
-                  </span>
-                  <span className="w-10 h-10 rounded-full border border-[#1C2A44] flex items-center justify-center group-hover:bg-[#1C2A44] group-hover:text-white transition-all">
-                    <ArrowRight className="w-4 h-4" />
-                  </span>
-                </Link>
-              </div>
+              </FadeInUp>
             </div>
           </div>
         </section>
@@ -193,7 +200,7 @@ export default function HomePage() {
         <section className="py-20 lg:py-32 bg-[#f5f5f5]">
           <div className="container mx-auto px-4 lg:px-8">
             {/* セクションヘッダー */}
-            <div className="text-center mb-16">
+            <SectionTitleEntrance direction="scale" className="text-center mb-16">
               <div className="mb-4">
                 <span className="text-sm tracking-wider text-gray-500 uppercase">
                   Why Us
@@ -202,10 +209,10 @@ export default function HomePage() {
               <h2 className="text-4xl md:text-5xl font-bold">
                 選ばれる理由
               </h2>
-            </div>
+            </SectionTitleEntrance>
 
             {/* 3つのメリット */}
-            <div className="grid md:grid-cols-3 gap-8">
+            <StaggerContainer staggerDelay={200} className="grid md:grid-cols-3 gap-8">
               <div className="bg-white rounded-lg overflow-hidden">
                 <div className="aspect-[4/3] overflow-hidden">
                   <img
@@ -262,7 +269,7 @@ export default function HomePage() {
                   </p>
                 </div>
               </div>
-            </div>
+            </StaggerContainer>
           </div>
         </section>
 
@@ -272,7 +279,7 @@ export default function HomePage() {
         <section className="py-20 lg:py-32 bg-white">
           <div className="container mx-auto px-4 lg:px-8">
             {/* セクションヘッダー */}
-            <div className="text-center mb-16">
+            <SectionTitleEntrance direction="left" className="text-center mb-16">
               <div className="mb-4">
                 <span className="text-sm tracking-wider text-gray-500 uppercase">
                   Flow
@@ -281,10 +288,10 @@ export default function HomePage() {
               <h2 className="text-4xl md:text-5xl font-bold">
                 支援の流れ
               </h2>
-            </div>
+            </SectionTitleEntrance>
 
             {/* 4ステップ */}
-            <div className="grid md:grid-cols-4 gap-6">
+            <StaggerContainer staggerDelay={150} className="grid md:grid-cols-4 gap-6">
               <div className="bg-white rounded-lg overflow-hidden shadow-sm">
                 <div className="aspect-[4/3] overflow-hidden">
                   <img
@@ -368,7 +375,7 @@ export default function HomePage() {
                   </p>
                 </div>
               </div>
-            </div>
+            </StaggerContainer>
           </div>
         </section>
 
@@ -379,54 +386,58 @@ export default function HomePage() {
           <div className="container mx-auto px-4 lg:px-8">
             <div className="grid lg:grid-cols-2 gap-12 items-center">
               {/* 左: テキスト */}
-              <div className="space-y-6">
-                <div className="mb-4">
-                  <span className="text-sm tracking-wider text-gray-400 uppercase">
-                    Message
-                  </span>
-                </div>
+              <FadeInUp>
+                <div className="space-y-6">
+                  <div className="mb-4">
+                    <span className="text-sm tracking-wider text-gray-400 uppercase">
+                      Message
+                    </span>
+                  </div>
 
-                <h2 className="text-4xl md:text-5xl font-bold">
-                  代表メッセージ
-                </h2>
+                  <h2 className="text-4xl md:text-5xl font-bold">
+                    代表メッセージ
+                  </h2>
 
-                <p className="text-lg text-gray-300 leading-relaxed">
-                  起業は才能ではなく、環境で決まる。挑戦する人が孤立しない社会をつくりたい。
-                </p>
-
-                <div className="pt-4">
-                  <p className="text-sm text-gray-400">
-                    株式会社Singホールディングス 代表取締役
+                  <p className="text-lg text-gray-300 leading-relaxed">
+                    起業は才能ではなく、環境で決まる。挑戦する人が孤立しない社会をつくりたい。
                   </p>
-                  <p className="text-xl font-bold">
-                    笠本 慎二
-                  </p>
-                </div>
 
-                <div className="pt-2">
-                  <Link
-                    href="/company"
-                    className="inline-flex items-center gap-2 px-6 py-3 border border-white text-white rounded-lg hover:bg-white hover:text-black transition-colors duration-300"
-                  >
-                    会社概要へ
-                    <ArrowRight className="w-4 h-4" />
-                  </Link>
+                  <div className="pt-4">
+                    <p className="text-sm text-gray-400">
+                      株式会社Singホールディングス 代表取締役
+                    </p>
+                    <p className="text-xl font-bold">
+                      笠本 慎二
+                    </p>
+                  </div>
+
+                  <div className="pt-2">
+                    <Link
+                      href="/company"
+                      className="inline-flex items-center gap-2 px-6 py-3 border border-white text-white rounded-lg hover:bg-white hover:text-black transition-colors duration-300"
+                    >
+                      会社概要へ
+                      <ArrowRight className="w-4 h-4" />
+                    </Link>
+                  </div>
                 </div>
-              </div>
+              </FadeInUp>
 
               {/* 右: 代表写真 */}
-              <div className="relative">
-                <div className="aspect-[3/4] bg-gray-800 rounded-lg overflow-hidden">
-                  <img
-                    src="/img/company/ceo.jpg"
-                    alt="代表取締役 笠本慎二"
-                    className="w-full h-full object-cover"
-                    onError={(e) => {
-                      e.currentTarget.style.display = 'none'
-                    }}
-                  />
+              <FadeInUp delay={200}>
+                <div className="relative">
+                  <div className="aspect-[3/4] bg-gray-800 rounded-lg overflow-hidden">
+                    <img
+                      src="/img/company/ceo.jpg"
+                      alt="代表取締役 笠本慎二"
+                      className="w-full h-full object-cover"
+                      onError={(e) => {
+                        e.currentTarget.style.display = 'none'
+                      }}
+                    />
+                  </div>
                 </div>
-              </div>
+              </FadeInUp>
             </div>
           </div>
         </section>
@@ -436,7 +447,7 @@ export default function HomePage() {
            ======================================== */}
         <section className="py-20 lg:py-32 bg-white">
           <div className="container mx-auto px-4 lg:px-8">
-            <div className="max-w-3xl mx-auto text-center">
+            <FadeInUp className="max-w-3xl mx-auto text-center">
               <h2 className="text-3xl md:text-4xl font-bold mb-4">
                 まずは話を聞いてみませんか？
               </h2>
@@ -458,7 +469,7 @@ export default function HomePage() {
                 <span>60分</span>
                 <span>代表が直接対応</span>
               </div>
-            </div>
+            </FadeInUp>
           </div>
         </section>
       </main>

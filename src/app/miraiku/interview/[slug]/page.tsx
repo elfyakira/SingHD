@@ -10,6 +10,10 @@ import {
   getInterviewBySlug,
   getOtherInterviews,
 } from '@/data/interviews'
+import FadeInUp from '@/components/animations/FadeInUp'
+import StaggerContainer from '@/components/animations/StaggerContainer'
+import SectionTitleEntrance from '@/components/animations/SectionTitleEntrance'
+import HeroBackground from '@/components/animations/HeroBackground'
 
 /** 画像コンポーネント（読込失敗時にプレースホルダー表示） */
 function InterviewImage({
@@ -105,7 +109,7 @@ export default function InterviewDetailPage() {
           <div className="absolute bottom-[15%] left-[50%] w-px h-36 bg-[#0E7490]/20 rotate-[-30deg] hidden lg:block" />
 
           {/* テキスト（左寄せ） */}
-          <div className="container mx-auto px-4 lg:px-8 relative z-10 pb-16 lg:pb-24">
+          <HeroBackground className="container mx-auto px-4 lg:px-8 relative z-10 pb-16 lg:pb-24" duration={1200} delay={200}>
             <div className="max-w-3xl">
               {interview.subtitle && (
                 <p
@@ -152,7 +156,7 @@ export default function InterviewDetailPage() {
                 </p>
               </div>
             </div>
-          </div>
+          </HeroBackground>
 
           {/* 下部ライン */}
           <div className="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-[#0E7490]/40 via-[#0E7490]/10 to-transparent" />
@@ -173,8 +177,8 @@ export default function InterviewDetailPage() {
           <div className="container mx-auto px-4 lg:px-8 relative z-10">
             <div className="max-w-4xl mx-auto">
               {/* 概要ヘッダー */}
-              <div className="mb-16">
-                <div className="flex items-baseline gap-3 mb-6">
+              <FadeInUp className="mb-16">
+                <SectionTitleEntrance direction="left" className="flex items-baseline gap-3 mb-6">
                   <h2
                     className="text-2xl md:text-3xl font-light tracking-wider"
                     style={{
@@ -187,11 +191,11 @@ export default function InterviewDetailPage() {
                   <span className="text-xs text-gray-500 tracking-wider uppercase">
                     About
                   </span>
-                </div>
+                </SectionTitleEntrance>
                 <p className="text-sm md:text-base text-gray-300 leading-[2]">
                   {interview.overview}
                 </p>
-              </div>
+              </FadeInUp>
 
               {/* チャプター & Q&A */}
               {interview.chapters.map((chapter, chapterIdx) => {
@@ -202,7 +206,7 @@ export default function InterviewDetailPage() {
                 return (
                   <div key={chapter.number} className="mb-20 last:mb-0">
                     {/* チャプターヘッダー */}
-                    <div className="flex items-start gap-6 mb-12 border-t border-white/10 pt-8">
+                    <FadeInUp className="flex items-start gap-6 mb-12 border-t border-white/10 pt-8">
                       <div>
                         <p className="text-xs text-[#0E7490] tracking-[0.2em] font-bold">
                           MIRAIKU
@@ -217,7 +221,7 @@ export default function InterviewDetailPage() {
                       >
                         {chapter.title}
                       </h3>
-                    </div>
+                    </FadeInUp>
 
                     {/* Q&A */}
                     {chapter.questions.map((qa, qaIdx) => {
@@ -232,7 +236,7 @@ export default function InterviewDetailPage() {
                       const showLeft = hasImage && (flipSide ? isRightSlot : isLeftSlot)
 
                       return (
-                        <div key={qaIdx}>
+                        <FadeInUp key={qaIdx}>
                           <div className="mb-12">
                             {showRight ? (
                               /* テキスト左 + 写真右 */
@@ -304,7 +308,7 @@ export default function InterviewDetailPage() {
                               />
                             </div>
                           )}
-                        </div>
+                        </FadeInUp>
                       )
                     })}
 
@@ -337,8 +341,8 @@ export default function InterviewDetailPage() {
           <div className="absolute inset-0 bg-black/80" />
 
           <div className="container mx-auto px-4 lg:px-8 relative z-10">
-            <div className="max-w-3xl mx-auto">
-              <div className="flex items-baseline gap-3 mb-10">
+            <FadeInUp className="max-w-3xl mx-auto">
+              <SectionTitleEntrance direction="left" className="flex items-baseline gap-3 mb-10">
                 <h2
                   className="text-xl md:text-2xl font-light tracking-wider"
                   style={{ fontFamily: "'Times New Roman', 'YuMincho', 'Yu Mincho', serif" }}
@@ -348,13 +352,13 @@ export default function InterviewDetailPage() {
                 <span className="text-xs text-gray-500 tracking-wider uppercase">
                   Message
                 </span>
-              </div>
+              </SectionTitleEntrance>
               <div className="text-sm md:text-base text-gray-300 leading-[2.2] space-y-4">
                 {interview.message.split('\n\n').map((para, i) => (
                   <p key={i}>{para}</p>
                 ))}
               </div>
-            </div>
+            </FadeInUp>
           </div>
         </section>
 
@@ -365,7 +369,7 @@ export default function InterviewDetailPage() {
           <div className="container mx-auto px-4 lg:px-8">
             <div className="max-w-4xl mx-auto">
               {/* プロフィールヘッダー */}
-              <div className="mb-8">
+              <SectionTitleEntrance direction="left" className="mb-8">
                 <p className="text-xs text-gray-400 tracking-[0.2em] uppercase">
                   Profile
                 </p>
@@ -378,9 +382,9 @@ export default function InterviewDetailPage() {
                 >
                   プロフィール
                 </h2>
-              </div>
+              </SectionTitleEntrance>
 
-              <div className="lg:grid lg:grid-cols-[240px_1fr] gap-10">
+              <FadeInUp className="lg:grid lg:grid-cols-[240px_1fr] gap-10">
                 {/* 左: 写真 */}
                 <div className="mb-6 lg:mb-0 max-w-[240px]">
                   <div className={`aspect-square rounded overflow-hidden bg-[#0A1020] relative`}>
@@ -416,7 +420,7 @@ export default function InterviewDetailPage() {
                     {interview.profile}
                   </p>
                 </div>
-              </div>
+              </FadeInUp>
 
               {/* 企業情報 */}
               {interview.companyInfo && (
@@ -508,7 +512,7 @@ export default function InterviewDetailPage() {
           />
           <div className="container mx-auto px-4 lg:px-8 relative z-10">
             {/* 関連インタビュー PICKUP */}
-            <div className="mb-10">
+            <SectionTitleEntrance direction="left" className="mb-10">
               <div className="flex items-baseline gap-3">
                 <h2
                   className="text-xl md:text-2xl font-light tracking-wider"
@@ -523,9 +527,9 @@ export default function InterviewDetailPage() {
                   Pickup
                 </span>
               </div>
-            </div>
+            </SectionTitleEntrance>
 
-            <div className="grid grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+            <StaggerContainer staggerDelay={150} className="grid grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
               {related.map((r) => (
                 <Link
                   key={r.slug}
@@ -556,7 +560,7 @@ export default function InterviewDetailPage() {
                   </p>
                 </Link>
               ))}
-            </div>
+            </StaggerContainer>
 
             {/* ミライクページへ戻る */}
             <div className="text-center mt-16">

@@ -22,19 +22,6 @@ interface FormData {
   privacy: boolean
 }
 
-// GoogleフォームのエントリーID
-const GOOGLE_FORM_ACTION_URL =
-  'https://docs.google.com/forms/d/e/1FAIpQLScaJrsbCOxXPF-jmSvLVH2LW8yzOb1XLzbbAG3-yjF8VatsZg/formResponse'
-
-const FORM_ENTRIES = {
-  companyName: 'entry.1304991620',
-  name: 'entry.1470871904',
-  email: 'entry.1874230916',
-  phone: 'entry.823910168',
-  message: 'entry.652054077',
-  privacy: 'entry.914752406',
-}
-
 export default function ContactPage() {
   const [step, setStep] = useState<FormStep>('input')
   const [isSubmitting, setIsSubmitting] = useState(false)
@@ -84,28 +71,23 @@ export default function ContactPage() {
     return Object.keys(newErrors).length === 0
   }
 
-  const submitToGoogleForm = async () => {
-    const formBody = new URLSearchParams()
-    formBody.append(FORM_ENTRIES.companyName, formData.companyName)
-    formBody.append(FORM_ENTRIES.name, formData.name)
-    formBody.append(FORM_ENTRIES.email, formData.email)
-    formBody.append(FORM_ENTRIES.phone, formData.phone)
-    formBody.append(FORM_ENTRIES.message, formData.message)
-    formBody.append(FORM_ENTRIES.privacy, '選択肢 1')
-
+  const submitForm = async () => {
     try {
-      await fetch(GOOGLE_FORM_ACTION_URL, {
+      const res = await fetch('/api/contact', {
         method: 'POST',
-        mode: 'no-cors',
-        headers: {
-          'Content-Type': 'application/x-www-form-urlencoded',
-        },
-        body: formBody.toString(),
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          companyName: formData.companyName,
+          name: formData.name,
+          email: formData.email,
+          phone: formData.phone,
+          message: formData.message,
+        }),
       })
-      return true
+      return res.ok
     } catch (error) {
       console.error('Form submission error:', error)
-      return true // no-corsモードではエラーが取得できないため、常にtrueを返す
+      return false
     }
   }
 
@@ -118,7 +100,7 @@ export default function ContactPage() {
       }
     } else if (step === 'confirm') {
       setIsSubmitting(true)
-      const success = await submitToGoogleForm()
+      const success = await submitForm()
       setIsSubmitting(false)
       if (success) {
         setStep('complete')
