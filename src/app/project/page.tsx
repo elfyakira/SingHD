@@ -5,6 +5,8 @@ import Header from '@/components/layout/Header'
 import Footer from '@/components/layout/Footer'
 import LowPageHero from '@/components/LowPageHero'
 import StructuredData from '@/components/StructuredData'
+import FadeInUp from '@/components/animations/FadeInUp'
+import SectionTitleEntrance from '@/components/animations/SectionTitleEntrance'
 import { generateBreadcrumbSchema } from '@/lib/structured-data'
 import { siteConfig } from '@/config/seo'
 
@@ -102,7 +104,7 @@ export default function ProjectPage() {
         <section className="py-20 lg:py-32 bg-white">
           <div className="container mx-auto px-4 lg:px-8">
             {/* セクションヘッダー */}
-            <div className="text-center mb-12 lg:mb-16">
+            <SectionTitleEntrance direction="scale" className="text-center mb-12 lg:mb-16">
               <div className="mb-4">
                 <span className="text-sm tracking-wider text-gray-500 uppercase">
                   Group Companies
@@ -115,7 +117,7 @@ export default function ProjectPage() {
                 確かな未来図を描く「ホールディングス」。
                 各グループ会社が専門性を活かし、シナジーを生み出しています。
               </p>
-            </div>
+            </SectionTitleEntrance>
           </div>
         </section>
 
@@ -129,7 +131,7 @@ export default function ProjectPage() {
           >
             <div className="container mx-auto px-4 lg:px-8">
               {/* セクションヘッダー */}
-              <div className="mb-12 lg:mb-16">
+              <SectionTitleEntrance direction={index % 2 === 0 ? 'left' : 'right'} className="mb-12 lg:mb-16">
                 <div className="mb-4">
                   <span className="text-sm tracking-wider text-gray-500 uppercase">
                     {company.categoryEn}
@@ -138,12 +140,12 @@ export default function ProjectPage() {
                 <p className="text-lg text-gray-600">
                   {company.category}
                 </p>
-              </div>
+              </SectionTitleEntrance>
 
               {/* コンテンツ */}
               <div className={`grid lg:grid-cols-2 gap-12 lg:gap-16 items-start ${index % 2 === 1 ? 'lg:flex-row-reverse' : ''}`}>
                 {/* 会社情報 */}
-                <div className={`space-y-6 ${index % 2 === 1 ? 'lg:order-2' : ''}`}>
+                <FadeInUp className={`space-y-6 ${index % 2 === 1 ? 'lg:order-2' : ''}`}>
                   {/* ロゴ / 会社名 */}
                   <div className="h-16 md:h-20 flex items-center">
                     {company.logo ? (
@@ -246,10 +248,10 @@ export default function ProjectPage() {
                       </div>
                     </div>
                   </div>
-                </div>
+                </FadeInUp>
 
                 {/* 画像 */}
-                <div className={`relative ${index % 2 === 1 ? 'lg:order-1' : ''}`}>
+                <FadeInUp delay={200} className={`relative ${index % 2 === 1 ? 'lg:order-1' : ''}`}>
                   <div className="aspect-[4/3] overflow-hidden bg-gray-100">
                     {company.photo ? (
                       <img
@@ -265,7 +267,7 @@ export default function ProjectPage() {
                       </div>
                     )}
                   </div>
-                </div>
+                </FadeInUp>
               </div>
             </div>
           </section>
