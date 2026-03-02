@@ -9,6 +9,7 @@ const navigation = [
   { name: '会社概要', href: '/company' },
   { name: 'グループ会社', href: '/project' },
   { name: 'ニュース', href: '/news' },
+  { name: 'お問い合わせ', href: '/contact' },
 ]
 
 export default function Header() {

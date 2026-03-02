@@ -126,12 +126,12 @@ export const siteConfig = {
     },
     {
       id: 'singmedia',
-      name: '株式会社Singメディア',
-      nameEn: 'Sing Media Inc.',
+      name: '株式会社Sing.nexT',
+      nameEn: 'Sing.nexT Inc.',
       category: 'media',
       categoryJa: '企業ブランディング事業',
       description:
-        '株式会社Singメディアは、月刊Singをはじめとするメディアコンテンツを通じて、企業のブランディングや採用活動を支援する会社です。',
+        '株式会社Sing.nexTは、月刊Singをはじめとするメディアコンテンツを通じて、企業のブランディングや採用活動を支援する会社です。',
       businessContent:
         '月刊Singの企画・発行、コンテンツ制作・編集、企業ブランディング支援、採用支援サービス',
       website: '',
@@ -203,7 +203,7 @@ export const pageSeo = {
   project: {
     title: 'グループ会社紹介',
     description:
-      'Singホールディングスのグループ会社（株式会社Sing、株式会社フライトップ、株式会社ゆめスタ、株式会社Singメディア）をご紹介します。',
+      'Singホールディングスのグループ会社（株式会社Sing、株式会社フライトップ、株式会社ゆめスタ、株式会社Sing.nexT）をご紹介します。',
   },
   company: {
     title: '会社概要',

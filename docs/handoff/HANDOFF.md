@@ -1,395 +1,297 @@
 # Singホールディングス HP - 引き継ぎドキュメント
 
-**最終更新: 2026-02-24**
+**最終更新: 2026-03-03（セッション2）**
 
 ---
 
-## 🚀 リニューアル計画（2026年2月〜）
+## 現在のサイト状況
 
-### コンセプト転換
-**旧**: ホールディングス企業の紹介サイト
-**新**: **起業家志望者を集客するサイト**
+起業家志望者向けサイトとして大幅リニューアル済み。MIRAIKUページをTRIGGER風インタビューサイトとして再構築完了。
 
-### ターゲット
-- **メイン**: 20-30代の若手起業家志望者
-- **ペルソナ**: 独立・起業を目指すが、一人では不安。サポートを受けながらチャレンジしたい人
-
-### 提供価値（バリュープロポジション）
-1. **起業支援・インキュベーション**: 事業立ち上げの伴走支援、メンタリング
-2. **グループ会社での新規事業立ち上げ**: Singグループ内で新事業を一緒に作る
-
-### コンバージョン
-- **メインCTA**: 無料相談・面談予約
-- **ゴール**: 起業家志望者からの問い合わせ増加
+### デザインテーマ
+- **ベースカラー**: ネイビー (`#1C2A44`, `#141E30`, `#0D1520`)
+- **アクセント**: ティール (`#0E7490`)
+- **参考サイト**: TRIGGER（業界トップリーダーのインタビューサイト）- 黒ベースをネイビーベースに変換
+- **見出しスタイル**: 英字セリフ体（Times New Roman / 游明朝）+ 小さい日本語サブテキスト
+- **背景パターン**: 方眼グリッド（UNIQUE POINTS, INTERVIEWS）、幾何学斜線パターン（PICKUP）
+- **明朝体の適用範囲**: インタビュー詳細ページ全体（ヒーローのタグライン・サブタイトル・名前、チャプタータイトル、メッセージ見出し、プロフィール名前、関連インタビューカード）
 
 ---
 
-### デザイン方針
+## 今回のセッション（03-03 セッション2）で実施した作業
 
-| 項目 | 変更内容 |
-|------|----------|
-| **トーン** | 親しみやすい・カジュアル（気軽に相談できる雰囲気） |
-| **カラー** | ブルー系に変更（信頼感・安心感）|
-| **現在** | オレンジ `#ea5506` → **ブルー系** `#2563eb` など |
-| **スローガン** | 起業・独立を応援系に変更 |
-| **現在** | 「未来を変える挑戦に、力を。」 |
-| **候補例** | 「あなたの『やりたい』をカタチに」「一緒に、はじめよう」等 |
+### 1. インタビュー詳細ページのフォント・レイアウト変更
 
----
+#### 明朝体（セリフ体）の適用 (`src/app/miraiku/interview/[slug]/page.tsx`)
+- ヒーローセクション: タグライン（h1）、サブタイトル、名前を明朝体に
+- チャプタータイトル（h3）: `font-bold` → `font-light` + 明朝体
+- メッセージセクション見出し: `font-bold` → `font-light` + 明朝体
+- プロフィール名前: `font-bold` → `font-medium` + 明朝体
+- 関連インタビュー: タグライン・名前に明朝体
 
-### ページ構成（再構成予定）
+#### ヒーローセクション拡大
+- テキスト幅: `max-w-xl`(576px) → `max-w-3xl`(768px)
+- タグライン: `text-3xl/4xl/5xl` → `text-4xl/5xl/6xl`
+- サブタイトル: `text-sm` → `text-base/lg`、トラッキング広め
+- 名前: `text-xl` → `text-2xl`
+- 英名: `text-xs` → `text-sm`
+- 余白全体を拡大（pb-16→pb-24、mb・pt等も増加）
 
-**現在の6ページ**:
-- TOP / News / Concept / Project / Company / Contact
+#### タグライン改行ロジック
+- `。`（句点）区切り → `、`（読点）区切りに変更
 
-**新構成案**:
-| ページ | 目的 |
-|--------|------|
-| **TOP** | 起業家志望者向けメインLP。CTA明確化 |
-| **起業支援** | サービス内容・支援の流れ・メリット |
-| **先輩の声** | 実際に起業した人のストーリー（将来的に追加） |
-| **グループ会社** | 参画先の紹介（現Projectページを改修） |
-| **会社概要** | Singホールディングスについて（現Companyページ） |
-| **無料相談** | お問い合わせフォーム（CTAを「無料相談」に変更） |
-| News | 必要に応じて残す |
+### 2. MIRAIKUページ ヒーローセクション変更 (`src/app/miraiku/page.tsx`)
 
----
+#### スライドショー画像変更
+- `miraiku-hero.jpg`, `miraiku-overview.jpg` を**削除**（パートナー4名の写真のみに）
+- 各画像にオブジェクト形式で `position`, `scale` を個別指定可能に
+- 屋宜さんは横長画像 `yagi-wide.jpg` を使用
 
-### 実装タスク一覧
-
-#### Phase 1: 基盤変更
-- [ ] カラーパレット変更（ブルー系）
-- [ ] スローガン・キャッチコピー変更
-- [ ] seo.ts のメタデータ更新
-- [ ] Header/Footer のCTA文言変更
-
-#### Phase 2: TOPページ改修
-- [ ] ヒーローセクション: 起業家向けメッセージに変更
-- [ ] 価値提案セクション追加: 「Singで起業する3つのメリット」等
-- [ ] CTAセクション強化: 無料相談への誘導
-- [ ] 不要セクションの削除/改修
-
-#### Phase 3: 新ページ追加
-- [ ] 起業支援ページ作成
-- [ ] 先輩の声ページ作成（コンテンツ準備後）
-
-#### Phase 4: 既存ページ改修
-- [ ] Projectページ → グループ会社参画先として改修
-- [ ] Contactページ → 無料相談フォームに改修
-- [ ] Companyページ → 会社概要として維持
-
-#### Phase 5: 仕上げ
-- [ ] 画像差し替え（起業家向けイメージ）
-- [ ] OGP画像更新
-- [ ] SEO最終調整
-- [ ] ビルドテスト・デプロイ
-
----
-
-### グループ会社の扱い
-**方針**: そのまま残す
-- 現在の4社（Sing、フライトップ、ゆめスタ、Singメディア）の紹介は維持
-- 「参画できる事業の例」として見せ方を調整
-
----
-
-## 1. プロジェクト概要
-
-### 1.1 基本情報
-| 項目 | 内容 |
-|------|------|
-| プロジェクト名 | Singホールディングス コーポレートサイト |
-| プロジェクトパス | `/mnt/c/singhp` (Windows: `C:\singhp`) |
-| 技術スタック | Next.js 16, React 19, TypeScript, Tailwind CSS 4 |
-| Node.js | 推奨 v20以上 |
-| 本番URL（予定） | https://sing-holdings.co.jp |
-
-### 1.2 開発コマンド
-```bash
-npm run dev    # 開発サーバー起動（localhost:3000）
-npm run build  # 本番ビルド
-npm run start  # 本番サーバー起動
-npm run lint   # ESLint実行
-```
-
----
-
-## 2. 現在の完了状況
-
-### 2.1 完了済み
-- [x] Next.js 16 + React 19 + Tailwind CSS 4 セットアップ
-- [x] SEO/LLMO基盤（メタデータ、構造化データ、sitemap、robots.txt、ai.txt）
-- [x] 共通コンポーネント（Header、Footer、ContactCTA）
-- [x] 全6ページ実装（TOP、News、Concept、Project、Company、Contact）
-- [x] ワークナビHD風アニメーション（TOPヒーロー、Companyヒーロー）
-- [x] グループ会社4社のデータ反映
-- [x] Google Analytics 4 / Search Console 設定
-- [x] PWA対応（site.webmanifest）
-
-### 2.2 未完了・要確認
-- [ ] ファビコン（favicon.ico未設置）
-- [ ] 一部のグループ会社URL（Singメディアのwebsite空）
-- [ ] 電話番号・FAX・メールアドレス（seo.tsでTODO）
-- [ ] Newsページの実データ（現在ダミー）
-- [ ] 最終ビルドテスト・本番デプロイ
-
----
-
-## 3. ディレクトリ構造
-
-```
-/mnt/c/singhp/
-├── docs/handoff/
-│   ├── HANDOFF.md           # この引き継ぎドキュメント
-│   └── TECHNICAL_NOTES.md   # 技術詳細
-├── public/
-│   ├── ai.txt               # AIクローラー向け情報
-│   ├── og-image.jpg         # OGP画像
-│   ├── site.webmanifest     # PWA設定
-│   ├── singhdlogo192.png    # PWAアイコン
-│   ├── singhdlogo512.png    # PWAアイコン
-│   └── img/
-│       ├── hero/            # TOPヒーロー画像（1.jpg, 2.jpg, 3.jpg）
-│       ├── company/         # 会社関連画像・ロゴ
-│       ├── concept/         # コンセプトページ画像
-│       ├── project/         # プロジェクトページ画像
-│       └── logo/            # 共通ロゴ
-├── src/
-│   ├── app/
-│   │   ├── layout.tsx       # ルートレイアウト（メタデータ、GA4）
-│   │   ├── page.tsx         # TOPページ
-│   │   ├── globals.css      # グローバルCSS・アニメーション
-│   │   ├── sitemap.ts       # 動的サイトマップ
-│   │   ├── robots.txt/route.ts
-│   │   ├── news/page.tsx
-│   │   ├── concept/page.tsx
-│   │   ├── project/page.tsx
-│   │   ├── company/page.tsx
-│   │   └── contact/page.tsx
-│   ├── components/
-│   │   ├── layout/
-│   │   │   ├── Header.tsx
-│   │   │   ├── Footer.tsx
-│   │   │   └── ContactCTA.tsx
-│   │   ├── LowPageHero.tsx      # 下層ページ共通ヒーロー
-│   │   └── StructuredData.tsx   # JSON-LD構造化データ
-│   ├── config/
-│   │   └── seo.ts           # ★ SEO・会社情報・グループ会社データ
-│   └── lib/
-│       └── structured-data.ts
-├── SEO_INFO_REQUIRED.md     # 必要情報チェックリスト
-└── package.json
-```
-
----
-
-## 4. 変更作業ガイド
-
-### 4.1 デザイン変更
-
-#### カラーパレット
-現在のカラー設定（`globals.css`で定義）:
-```css
-:root {
-  --color-primary: #ea5506;     /* オレンジ（メイン） */
-  --color-secondary: #22c55e;   /* グリーン */
-  --color-accent-blue: #3b82f6; /* ブルー */
-}
-```
-
-**変更方法**: `src/app/globals.css` のCSS変数を編集
-
-#### フォント
-現在: Noto Sans JP（`layout.tsx`で設定）
-
-**変更方法**: `src/app/layout.tsx` の `next/font/google` インポートを変更
-
-#### ヒーローアニメーション
-- TOPページ: `src/app/page.tsx` 内の `SLIDE_DURATION` 等の定数
-- Companyページ: `src/app/company/page.tsx` 内のSVGマスク・パララックス
-
-#### レイアウト・余白
-- セクション間隔: `globals.css` の `.section` クラス
-- コンテナ幅: `--container-max-width: 1280px`
-
----
-
-### 4.2 文言・メタデータ変更
-
-#### 一括管理ファイル: `src/config/seo.ts`
-
-このファイルで以下を一括管理:
-
-| 項目 | 設定場所 |
-|------|----------|
-| サイト名・URL | `siteName`, `siteUrl` |
-| 会社情報 | `company` オブジェクト |
-| スローガン | `slogan.ja`, `slogan.en`, `slogan.tagline` |
-| ミッション・ビジョン・バリュー | `mvv` オブジェクト |
-| グループ会社 | `groupCompanies` 配列 |
-| 役員情報 | `executives` 配列 |
-| SEOタイトル・説明 | `defaultSeo`, `pageSeo` |
-| Analytics ID | `analytics` オブジェクト |
-
-#### 現在の主要文言
-
-**スローガン**:
-- 日本語: `未来を変える挑戦に、力を。`
-- 英語: `Shape the future.`
-- タグライン: `日本の明日を支え、バトンを繋ぐ`
-
-**MVV**:
-- Mission: `日本の人と企業が挑戦と成長を続ける環境を整備し、次世代に確かな価値を残すことに貢献する。`
-- Vision: `社会に笑顔が溢れ誰もが自らの力を発揮できる社会の実現に貢献する。`
-- Values: Professional, Challenge, Enjoy, Collaboration, Innovation
-
----
-
-### 4.3 サービス内容・グループ会社変更
-
-`src/config/seo.ts` の `groupCompanies` 配列を編集:
-
-```typescript
-groupCompanies: [
-  {
-    id: 'sing',
-    name: '株式会社Sing',
-    nameEn: 'Sing Inc.',
-    category: 'consulting',
-    categoryJa: '企業コンサルティング業',
-    description: '説明文...',
-    businessContent: '事業内容...',
-    website: 'https://...',
-    sns: { instagram: 'https://...' },
-  },
-  // 他のグループ会社...
+```js
+const heroImages = [
+  { src: '/img/miraiku/yagi-wide.jpg', position: 'center center', scale: 1 },
+  { src: '/img/miraiku/partner-shimishun.jpg', position: 'center center', scale: 1 },
+  { src: '/img/miraiku/partner-daiki.jpg', position: 'center center', scale: 1 },
+  { src: '/img/miraiku/partner-shion.jpg', position: 'center 20%', scale: 1 },
 ]
 ```
 
-**現在のグループ会社（4社）**:
-1. 株式会社Sing - 企業コンサルティング業
-2. 株式会社フライトップ - 人財コンサルティング業
-3. 株式会社ゆめスタ - 企業ブランディング事業
-4. 株式会社Singメディア - 企業ブランディング事業
+#### テキスト位置
+- `flex items-center` → `flex items-end` に変更（下寄せ）
+- **未完了: テキストを右下に配置する作業が残っている**。現状は中央下。ユーザーは右下配置を希望している。`container mx-auto` の制約でml-autoだけでは右に寄らない問題がある。**次セッションで対応必要**。
 
----
+#### カード画像のobject-position
+- `partnerData` に `imagePosition` フィールド追加
+- 屋宜・飯田: `center 20%` で顔見切れ対策
 
-### 4.4 画像変更
+### 3. Interview型の拡張 (`src/data/interviews.ts`)
 
-| 用途 | 保存先 | 推奨サイズ |
-|------|--------|-----------|
-| TOPヒーロー | `/public/img/hero/1.jpg, 2.jpg, 3.jpg` | 1920x1080以上 |
-| 会社ページヒーロー | `/public/img/company/company-hero.jpg` | 1920x1080以上 |
-| コンセプトヒーロー | `/public/img/concept/concept-hero.jpg` | 1920x1080以上 |
-| プロジェクトヒーロー | `/public/img/project/group-hero.jpg` | 1920x1080以上 |
-| 代表写真 | `/public/img/company/ceo.jpg` | 600x800程度 |
-| グループ会社ロゴ | `/public/img/company/[会社名]logo.png` | 透過PNG推奨 |
-| ヘッダーロゴ | `/public/img/logo/logo-black.png` | 高さ40px程度 |
-| OGP画像 | `/public/og-image.jpg` | 1200x630px |
-
----
-
-## 5. ページ別詳細
-
-### 5.1 TOPページ (`src/app/page.tsx`)
-
-**セクション構成**:
-1. Hero - 3枚のスライド + スローガン + スター装飾
-2. News - 最新ニュース1件表示
-3. Success to Success - コンセプト導線
-4. Company - 青いぼかし背景 + 会社概要導線
-5. Project - グループ会社導線（緑の円装飾）
-6. CEO Message - 代表挨拶導線
-
-**アニメーション定数**:
 ```typescript
-const SLIDE_DURATION = 5800    // スライド切り替え間隔（ms）
-const STAR_START_DELAY = 1800  // スター表示開始
-const STAR_INTERVAL = 300      // スター表示間隔
+export interface Interview {
+  slug: string
+  name: string
+  subtitle?: string
+  nameEn: string
+  image: string          // カード/TOP用（partner-*.jpg）
+  portraitImage?: string  // インタビュー詳細ヒーロー用
+  portraitPosition?: string // ヒーローのobject-position
+  profileImage?: string   // プロフィールセクション用
+  profilePosition?: string // プロフィールのobject-position
+  wideImage?: string      // チャプター間ワイド画像用
+  tagline: string
+  // ...以下略
+}
 ```
 
-### 5.2 Newsページ (`src/app/news/page.tsx`)
-- 検索・カテゴリフィルター機能
-- ニュースデータはハードコード（将来的にCMS連携予定）
+### 4. Q&A画像のフォールバック廃止・バランス配置
 
-### 5.3 Conceptページ (`src/app/concept/page.tsx`)
-- MVV表示
-- スローガン表示
-- 理念セクション
+#### フォールバック廃止
+- `qa.image || interview.image` → `qa.image` がない場合はテキストのみ表示（画像なし）
+- `showRight` / `showLeft` は `!!qa.image` の場合のみ有効化
 
-### 5.4 Projectページ (`src/app/project/page.tsx`)
-- グループ会社一覧（seo.tsからデータ取得）
-- 各社ロゴ・説明・事業内容・リンク表示
+#### Q&A画像の全ページバランス配置
+各チャプターに均等に画像を分散（前半集中を解消）:
 
-### 5.5 Companyページ (`src/app/company/page.tsx`)
-- SVGマスク + パララックスヒーロー
-- サイドナビゲーション（スクロール連動）
-- 代表挨拶
-- 会社概要テーブル + Google Map
-- ※役員紹介・組織図セクションはコメントアウト中
+| 人物 | ch01 | ch02 | ch03 | ch04 |
+|------|------|------|------|------|
+| 屋宜 | qa-1 | qa-2 | qa-3 | qa-4 |
+| 清水 | qa-1 | qa-3 | - | qa-2 |
+| 大輝 | qa-1 | - | qa-2 | - |
+| 飯田 | qa-1 | - | - | qa-2 |
 
-### 5.6 Contactページ (`src/app/contact/page.tsx`)
-- 3ステップフォーム（入力→確認→完了）
-- バリデーション実装済み
-- ※送信処理は未実装（API Routes/外部サービス連携必要）
+### 5. 画像の全面入れ替え
+
+#### 画像ソース（新バージョン）
+`C:\Users\tench\Downloads\サイト用画像-20260302T154140Z-1-001\サイト用画像\`
+
+#### 現在の画像配置状況（全配置済み）
+
+**渡邉 大輝（daiki）** - ナンバリング画像①〜⑥:
+
+| 配置先ファイル | ソース | 内容 |
+|--------------|--------|------|
+| partner-daiki.jpg | ⑥ (縦) | 正面笑顔・額縁背景 |
+| daiki-portrait.jpg | ② (横data/縦表示) | 腕組み・木目背景 |
+| daiki-profile.jpg | ④ (横data/縦表示) | 見上げ・木目背景 |
+| daiki-wide.jpg | ⑤ (横) | PC作業・都市景色 |
+| daiki-qa-1.jpg | ① (横) | 手振り語り |
+| daiki-qa-2.jpg | ③ (横) | ホワイトボード説明 |
+
+**清水 駿之介（shimishun）** - 提出用 縦/横:
+
+| 配置先ファイル | ソース | 内容 |
+|--------------|--------|------|
+| partner-shimishun.jpg | 縦/1 | ベージュスーツ正面 |
+| shimishun-portrait.jpg | 縦/2 | 屋外・緑背景 |
+| shimishun-profile.jpg | 縦/3 | 椅子・額縁背景 |
+| shimishun-wide.jpg | 横/4 | 屋外フェンス・横顔 |
+| shimishun-qa-1.jpg | 横/1 | 黄色ソファ・語り |
+| shimishun-qa-2.jpg | 横/2 | ソファ・手振り |
+| shimishun-qa-3.jpg | 横/3 | デスク・PC作業 |
+
+**屋宜 勝正（yagi）** - 縦/横フォルダ:
+
+| 配置先ファイル | ソース | 内容 |
+|--------------|--------|------|
+| partner-yagi.jpg | 縦/IMG_7916 | 腕組み正面（ブラインド背景） |
+| yagi-portrait.jpg | 縦/IMG_7925 | - |
+| yagi-profile.jpg | 縦/IMG_7899 | PC作業中 |
+| yagi-wide.jpg | 横/IMG_7923 | ネイビーベスト・横顔（黄色ソファ） |
+| yagi-qa-1〜5.jpg | 横/IMG_7898,7901,7909,7912,7914 | 各横画像 |
+
+**飯田 思遠（shion）** - ナンバリング画像①〜⑥:
+ソース: `C:\Users\tench\Downloads\飯田先生-20260302T161414Z-1-001\飯田先生\`
+
+| 配置先ファイル | ソース | 内容 |
+|--------------|--------|------|
+| partner-shion.jpg | DSC_8918（旧） | 笑顔・白T全身（**ナンバリングではなく旧画像のまま**） |
+| shion-portrait.jpg | ② (縦) | 手組み・柱横（窓背景） |
+| shion-profile.jpg | ⑥ (縦) | バストアップ正面（ぼかし背景）**※現在未使用** |
+| shion-profile-original.jpg | DSC_8918（旧）| **※現在未使用（partner-shion.jpgと同じ）** |
+| shion-wide.jpg | ③ (横) | 全身・廊下中央（引き） |
+| shion-qa-1.jpg | ④ (縦) | 手組み・手すり横（街景色） |
+| shion-qa-2.jpg | ⑤ (横) | 全身・白Tスーツ（廊下引き） |
+
+### 6. 各人物の画像参照設定（interviews.ts）
+
+| 人物 | image (カード) | portraitImage (ヒーロー) | profileImage (プロフィール) | wideImage |
+|------|-------------|-------------------|---------------------|-----------|
+| 屋宜 | partner-yagi.jpg | yagi-portrait.jpg | **partner-yagi.jpg** | yagi-wide.jpg |
+| 清水 | partner-shimishun.jpg | **partner-shimishun.jpg** | **partner-shimishun.jpg** | shimishun-wide.jpg |
+| 大輝 | partner-daiki.jpg | **partner-daiki.jpg** | **daiki-portrait.jpg** | daiki-wide.jpg |
+| 飯田 | partner-shion.jpg | shion-portrait.jpg (pos: center 20%) | **partner-shion.jpg** (pos: center 20%) | shion-wide.jpg |
+
+**注意**: 清水・大輝はヒーローとカードが同じ画像。プロフィールもカードと同じ画像を共用しているケースあり。
+
+### 7. Sing.nexT会社情報更新 (`src/app/project/page.tsx`)
+- `id`: `media` → `singnext`
+- `category`: `企業ブランディング事業` → `人財コンサルティング・採用支援事業`
+- `categoryEn`: `Media` → `Human Resources`
+- `description`: メディア事業 → 人財コンサルティング・採用支援の説明に全面差し替え
+- `businessContent`: `人財コンサルティング、採用支援、組織課題解決支援、人材育成・研修支援`
 
 ---
 
-## 6. 技術的な注意点
+## 残作業・TODO
 
-### 6.1 Next.js 16 + React 19
-- App Router使用
-- Server Components デフォルト
-- クライアントコンポーネントは `'use client'` 宣言必要
+### 最優先（次セッションで対応）
 
-### 6.2 Tailwind CSS 4
-- `@tailwindcss/postcss` 使用
-- CSS変数ベースのカスタマイズ
+#### MIRAIKUヒーローのテキスト位置
+- [ ] **テキストブロックを右下に配置する**（現状は中央下）
+- ユーザーの意図: テキストが画面の右下エリアに配置される
+- 問題: `container mx-auto` + `lg:ml-auto` では中央の右寄り止まり
+- 対応案: containerを外してabsolute/flexで右下に直接配置する等のアプローチを検討
 
-### 6.3 SEO/LLMO対策
-- 各ページでメタデータ設定（`export const metadata`）
-- 構造化データ（JSON-LD）出力
-- `ai.txt` でAIクローラー向け情報提供
-- サイトマップ自動生成
+#### 屋宜さんの画像問題
+- [ ] Q&A画像（qa-1〜5）がすべて同じ撮影セッション（ブラインド背景）でプロフィールと似ている。素材不足の可能性あり、クライアントに相談
 
-### 6.4 Analytics
-- Google Analytics 4: `G-GR5S8NKFH3`
-- Google Search Console: 認証済み
+### コメントアウト中セクション（新バージョン作成待ち）
+- [ ] SUPPORT（支援内容）- 新デザインで再実装
+- [ ] FLOW（支援の流れ）- 新デザインで再実装
+- [ ] グループ参画 - 新デザインで再実装
+- [ ] FAQ - 新デザインで再実装
 
----
+### 機能・コンテンツ
+- [ ] ABOUTセクションの「夢を、ビジネスに。」テキスト - クライアント確認
+- [ ] スタートアップフォロー3本柱の内容 - 最終確認
+- [ ] MIRAIKUヒーローのキャッチコピー最終確認
+- [ ] メニュー構成の見直し（後日対応予定）
 
-## 7. 今後の作業予定
-
-※詳細は冒頭の「🚀 リニューアル計画」を参照
-
-### 直近の作業（Phase 1）
-1. カラーパレット変更（オレンジ→ブルー系）
-2. スローガン・キャッチコピー決定＆反映
-3. Header/Footer/CTAの文言変更
-
-### 次の作業（Phase 2-3）
-1. TOPページの大幅改修
-2. 起業支援ページの新規作成
-3. 既存ページの改修
-
-### 保留タスク
-- ファビコン設定
-- Newsページ実データ
-- コンタクトフォーム送信処理
+### 技術的TODO
+- [ ] ファビコン未設置
+- [ ] Newsページの実データ
+- [x] ~~Contactフォーム送信処理~~ → Googleフォーム連携実装済み
+- [ ] OGP画像更新
+- [ ] 最終ビルドテスト・デプロイ
+- [x] ~~Sing.nexTのロゴ画像配置~~ → 完了
+- [x] ~~飯田先生の画像配置~~ → ナンバリング画像で配置済み
+- [x] ~~Q&A画像のフォールバック問題~~ → テキストのみ表示に修正済み
+- [x] ~~画像重複問題~~ → portraitImage/profileImage/wideImage分離済み
 
 ---
 
-## 8. 連絡事項
+## インタビュー詳細ページ仕様
 
+### ルート・ファイル
+- **ルート**: `/miraiku/interview/[slug]`
+- **ファイル**: `src/app/miraiku/interview/[slug]/page.tsx`
+- **データ**: `src/data/interviews.ts`
+
+### ページ構成（TRIGGER準拠）:
+| セクション | 内容 | 画像参照 |
+|-----------|------|---------|
+| ヒーロー | タグライン(左) + ポートレート(右) + サブタイトル + 名前 | `portraitImage` (+ `portraitPosition`) |
+| インタビュー概要 | 導入文 + チャプター番号付きQ&A | `qa.image`（ある場合のみ） |
+| ワイド画像 | チャプター01→02間 | `wideImage` |
+| メッセージ | ダーク背景パララックス + 起業家へのメッセージ | `image`（パララックスBG） |
+| プロフィール | 写真 + 経歴 + 企業情報テーブル | `profileImage` (+ `profilePosition`) |
+| 関連インタビュー | 方眼背景 + PICKUPカード | 各人の `image` |
+
+### 画像配置ロジック:
+- `qa.image` がある場合のみ画像レイアウト（right/left）を適用
+- `qa.image` がない場合はテキストのみ（フォールバックなし）
+- 奇数チャプター: 2問目=右画像, 4問目=左画像
+- 偶数チャプター: 2問目=左画像, 4問目=右画像
+- チャプター01→02の間のみ横長ワイド画像
+
+### インタビューデータ（4名分）
+
+| slug | 名前 | 会社 | 役職 |
+|------|------|------|------|
+| `yagi` | 屋宜 勝正 | 株式会社フライトップ | 代表取締役 |
+| `shimishun` | 清水 駿之介 | 株式会社Sing | 代表取締役会長 |
+| `daiki` | 渡邉 大輝 | 株式会社Sing.nexT | 代表取締役社長 |
+| `shion` | 飯田 思遠 | 株式会社ゆめスタ | 代表取締役 |
+
+各インタビューは4チャプター構成（起業前 → Singとの出会い → 起業後の変化 → これからの想い）
+
+---
+
+## Googleフォーム連携
+
+| 項目 | エントリーID |
+|------|------------|
+| 会社名 | `entry.1304991620` |
+| お名前 | `entry.1470871904` |
+| メールアドレス | `entry.1874230916` |
+| 電話番号 | `entry.823910168` |
+| お問い合わせ内容 | `entry.652054077` |
+| プライバシーポリシー | `entry.914752406` |
+
+**送信先URL**: `https://docs.google.com/forms/d/e/1FAIpQLScaJrsbCOxXPF-jmSvLVH2LW8yzOb1XLzbbAG3-yjF8VatsZg/formResponse`
+
+使用箇所: `/contact` ページ、`/miraiku` ページ（CTAセクション）
+
+---
+
+## グループ会社一覧（最新）
+
+| 会社名 | 代表 | 事業 |
+|--------|------|------|
+| 株式会社Singホールディングス | 笠本 慎二 | グループ経営管理 |
+| 株式会社Sing | 清水 駿之介 | 企業コンサルティング |
+| 株式会社フライトップ | 屋宜 勝正 | 人財コンサルティング |
+| 株式会社ゆめスタ | 飯田 思遠 | 教育事業 |
+| 株式会社Sing.nexT | 渡邉 大輝 | 人財コンサルティング・採用支援 |
+
+---
+
+## 技術情報
+
+| 項目 | 内容 |
+|------|------|
+| フレームワーク | Next.js 16, React 19, TypeScript |
+| CSS | Tailwind CSS 4 |
+| Node.js | v20以上推奨 |
+| 開発サーバー | `npm run dev` (localhost:3000) |
+| プロジェクトパス | `/mnt/c/singhd` |
+
+### デザイン参考
+- **TRIGGER**: 業界トップリーダーのインタビューサイト（黒ベース→ネイビーに変換）
+- **JETRO スタートアップ**: カード型レイアウト参考
+
+### 連絡事項
 - ユーザーは日本語でコミュニケーション
+- ビルドチェックは指示がない限り不要
 - 不要な変更はしない（指示されたことのみ実装）
-- ビルドは指示がない限り毎回実行しない
-- **新方針**: 起業家志望者向けサイトへのリニューアル中
-
-### 参考サイト
-- デザイン参考: ワークナビホールディングス（https://worknavi-hd.com/）
-- 起業支援系サイトも参考に
-
----
-
-*このドキュメントは起業家志望者向けサイトへのリニューアル作業の引き継ぎ用に作成されました。*
+- テキストサイズや位置の変更時、他の要素（サイズ等）を勝手に変えない

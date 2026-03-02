@@ -402,6 +402,16 @@ export default function HomePage() {
                     笠本 慎二
                   </p>
                 </div>
+
+                <div className="pt-2">
+                  <Link
+                    href="/company"
+                    className="inline-flex items-center gap-2 px-6 py-3 border border-white text-white rounded-lg hover:bg-white hover:text-black transition-colors duration-300"
+                  >
+                    会社概要へ
+                    <ArrowRight className="w-4 h-4" />
+                  </Link>
+                </div>
               </div>
 
               {/* 右: 代表写真 */}
