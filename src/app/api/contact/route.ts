@@ -140,9 +140,9 @@ ${escapeHtml(message)}
     })
 
     if (error) {
-      console.error('Resend error:', error)
+      console.error('Resend error:', JSON.stringify(error))
       return NextResponse.json(
-        { error: 'メール送信に失敗しました' },
+        { error: 'メール送信に失敗しました', detail: error.message },
         { status: 500 }
       )
     }
