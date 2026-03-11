@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
-import { ArrowRight } from 'lucide-react'
+import { ArrowRight, Check } from 'lucide-react'
 import Header from '@/components/layout/Header'
 import Footer from '@/components/layout/Footer'
 import FadeInUp from '@/components/animations/FadeInUp'
@@ -66,7 +66,7 @@ export default function HomePage() {
 
           {/* メインコンテンツ */}
           <div className="relative z-10 min-h-screen flex flex-col justify-center pt-20">
-            {/* SING 文字マスク（パララックス効果） */}
+            {/* Sing 文字マスク（パララックス効果） */}
             <div className="container mx-auto px-4 lg:px-8">
               <h1
                 className="text-[20vw] md:text-[18vw] lg:text-[15vw] font-bold leading-none tracking-tighter"
@@ -80,7 +80,7 @@ export default function HomePage() {
                   transition: 'background-position 0.1s ease-out',
                 }}
               >
-                SING
+                Sing
               </h1>
               {/* スローガン（SINGの下） */}
               <p className="text-2xl md:text-3xl lg:text-4xl font-bold text-[#1C2A44] mt-4 whitespace-nowrap">
@@ -172,17 +172,41 @@ export default function HomePage() {
                     MIRAIKU
                   </h2>
 
-                  <p className="text-lg text-gray-600 leading-relaxed">
-                    22〜35歳の起業志望者向け。事業設計から収益化まで伴走支援。
-                    本気で挑戦する人に、現実的な仕組みと環境を提供します。
+                  <p className="text-sm text-gray-500 mb-2">
+                    未来＋make（つくる）
                   </p>
+
+                  <p className="text-lg text-gray-600 leading-relaxed">
+                    「起業する」のではなく、&ldquo;未来を創る側&rdquo;になる。
+                  </p>
+
+                  <ul className="mt-4 space-y-2 text-gray-600">
+                    <li className="flex items-start gap-2">
+                      <Check className="w-5 h-5 text-[#0E7490] mt-0.5 flex-shrink-0" />
+                      <span>稼ぐための起業じゃない</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <Check className="w-5 h-5 text-[#0E7490] mt-0.5 flex-shrink-0" />
+                      <span>承認欲求のための起業でもない</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <Check className="w-5 h-5 text-[#0E7490] mt-0.5 flex-shrink-0" />
+                      <span>社会を変える側に回る起業</span>
+                    </li>
+                  </ul>
+
+                  <div className="mt-6">
+                    <p className="text-sm text-gray-500 mb-4">
+                      事業設計から収益化まで伴走支援。本気で挑戦する人に、現実的な仕組みと環境を提供します。
+                    </p>
+                  </div>
 
                   <Link
                     href="/miraiku"
                     className="inline-flex items-center gap-4 group"
                   >
                     <span className="text-[#1C2A44] font-medium border-b border-[#1C2A44] pb-1">
-                      詳細を見る
+                      ミライクとは
                     </span>
                     <span className="w-10 h-10 rounded-full border border-[#1C2A44] flex items-center justify-center group-hover:bg-[#1C2A44] group-hover:text-white transition-all">
                       <ArrowRight className="w-4 h-4" />
@@ -227,7 +251,7 @@ export default function HomePage() {
                     若い代表によるリアルな挑戦環境
                   </h3>
                   <p className="text-gray-600">
-                    代表自身が20代で起業した経験を持ち、同じ目線でリアルな挑戦環境を提供します。
+                    代表自身が20代で経営に携わった経験を持ち、同じ目線でリアルな挑戦環境を提供します。
                   </p>
                 </div>
               </div>
