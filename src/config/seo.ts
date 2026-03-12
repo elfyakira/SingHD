@@ -4,7 +4,7 @@ export const siteConfig = {
   // 基本情報
   siteName: '株式会社Singホールディングス',
   siteNameEn: 'Sing Holdings Inc.',
-  siteUrl: 'https://sing-holdings.co.jp', // TODO: 本番URL確定後に変更
+  siteUrl: 'https://hd.jp-sing.com',
 
   // 会社情報
   company: {
