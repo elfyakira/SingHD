@@ -4,6 +4,7 @@ import Script from 'next/script'
 import './globals.css'
 import { siteConfig } from '@/config/seo'
 import FixedCTA from '@/components/layout/FixedCTA'
+import { generateOrganizationSchema, generateWebSiteSchema, generateLocalBusinessSchema } from '@/lib/structured-data'
 
 const notoSansJP = Noto_Sans_JP({
   variable: '--font-noto-sans-jp',
@@ -78,6 +79,16 @@ export default function RootLayout({
   return (
     <html lang="ja">
       <body className={`${notoSansJP.variable} font-sans antialiased`}>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify([
+              generateOrganizationSchema(),
+              generateWebSiteSchema(),
+              generateLocalBusinessSchema(),
+            ]),
+          }}
+        />
         {siteConfig.analytics.googleAnalyticsId && (
           <>
             <Script
