@@ -8,6 +8,12 @@ import Footer from '@/components/layout/Footer'
 import FadeInUp from '@/components/animations/FadeInUp'
 import StaggerContainer from '@/components/animations/StaggerContainer'
 import SectionTitleEntrance from '@/components/animations/SectionTitleEntrance'
+import StructuredData from '@/components/StructuredData'
+import {
+  generateOrganizationSchema,
+  generateWebSiteSchema,
+  generateLocalBusinessSchema,
+} from '@/lib/structured-data'
 
 /**
  * TOPページ
@@ -30,8 +36,15 @@ export default function HomePage() {
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
+  const schemas = [
+    generateOrganizationSchema(),
+    generateWebSiteSchema(),
+    generateLocalBusinessSchema(),
+  ]
+
   return (
     <>
+      <StructuredData data={schemas} />
       <Header />
 
       <main>

@@ -1,8 +1,16 @@
 import { MetadataRoute } from 'next'
 import { siteConfig } from '@/config/seo'
+import { interviews } from '@/data/interviews'
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = siteConfig.siteUrl || 'https://example.com'
+  const baseUrl = siteConfig.siteUrl
+
+  const interviewPages: MetadataRoute.Sitemap = interviews.map((interview) => ({
+    url: `${baseUrl}/miraiku/interview/${interview.slug}`,
+    lastModified: new Date(),
+    changeFrequency: 'monthly',
+    priority: 0.6,
+  }))
 
   return [
     {
@@ -10,6 +18,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: new Date(),
       changeFrequency: 'monthly',
       priority: 1,
+    },
+    {
+      url: `${baseUrl}/miraiku`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.9,
     },
     {
       url: `${baseUrl}/news`,
@@ -41,5 +55,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'yearly',
       priority: 0.6,
     },
+    ...interviewPages,
   ]
 }

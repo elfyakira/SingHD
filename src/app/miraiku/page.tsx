@@ -10,6 +10,13 @@ import StaggerContainer from '@/components/animations/StaggerContainer'
 import SectionTitleEntrance from '@/components/animations/SectionTitleEntrance'
 import HeroBackground from '@/components/animations/HeroBackground'
 import TypingText from '@/components/animations/TypingText'
+import StructuredData from '@/components/StructuredData'
+import {
+  generateBreadcrumbSchema,
+  generateFAQSchema,
+  generateServiceSchema,
+} from '@/lib/structured-data'
+import { siteConfig } from '@/config/seo'
 
 type FormStep = 'input' | 'confirm' | 'complete'
 
@@ -216,8 +223,18 @@ export default function MiraikuPage() {
     },
   ]
 
+  const schemas = [
+    generateBreadcrumbSchema([
+      { name: 'ホーム', url: siteConfig.siteUrl },
+      { name: 'ミライク', url: `${siteConfig.siteUrl}/miraiku` },
+    ]),
+    generateServiceSchema(),
+    generateFAQSchema(faqData),
+  ]
+
   return (
     <>
+      <StructuredData data={schemas} />
       <Header />
 
       <main className="pt-20">

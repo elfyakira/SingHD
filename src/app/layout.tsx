@@ -67,7 +67,9 @@ export const metadata: Metadata = {
   },
   manifest: '/site.webmanifest',
   verification: {
-    google: siteConfig.analytics.googleSearchConsoleId,
+    ...(siteConfig.analytics.googleSearchConsoleId
+      ? { google: siteConfig.analytics.googleSearchConsoleId }
+      : {}),
   },
 }
 

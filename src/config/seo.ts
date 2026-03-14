@@ -4,7 +4,7 @@ export const siteConfig = {
   // 基本情報
   siteName: '株式会社Singホールディングス',
   siteNameEn: 'Sing Holdings Inc.',
-  siteUrl: 'https://sing-holdings.co.jp', // TODO: 本番URL確定後に変更
+  siteUrl: 'https://hd.jp-sing.com',
 
   // 会社情報
   company: {
@@ -16,10 +16,10 @@ export const siteConfig = {
     capital: '300万円',
     postalCode: '486-0918',
     address: '愛知県春日井市如意申町７丁目15−５ アーバンハイツ春日井 302号',
-    phone: '', // TODO: 電話番号
-    fax: '', // TODO: FAX番号
-    email: '', // TODO: メールアドレス
-    businessHours: '', // TODO: 営業時間
+    phone: '0568-50-2799',
+    fax: '',
+    email: 'info@jp-sing.com',
+    businessHours: '平日 9:00〜18:00',
     access: '勝川駅より車で8分',
   },
 
@@ -153,8 +153,8 @@ export const siteConfig = {
   // Analytics
   analytics: {
     googleAnalyticsId: 'G-GR5S8NKFH3',
-    googleSearchConsoleId: '9TTYbM_ARjlyAu4Mo57TSafBV6RBnMKWuy4yPNhOypY',
-    bingWebmasterId: '', // TODO: Bing認証
+    googleSearchConsoleId: '',
+    bingWebmasterId: '',
   },
 }
 

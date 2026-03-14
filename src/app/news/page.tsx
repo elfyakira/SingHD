@@ -5,6 +5,9 @@ import { Search } from 'lucide-react'
 import Header from '@/components/layout/Header'
 import Footer from '@/components/layout/Footer'
 import LowPageHero from '@/components/LowPageHero'
+import StructuredData from '@/components/StructuredData'
+import { generateBreadcrumbSchema } from '@/lib/structured-data'
+import { siteConfig } from '@/config/seo'
 
 // ニュースデータ（記事追加時はここに追加）
 const newsData: { id: number; date: string; category: string; title: string }[] = []
@@ -24,8 +27,14 @@ export default function NewsPage() {
     return matchesSearch && matchesCategory
   })
 
+  const breadcrumbSchema = generateBreadcrumbSchema([
+    { name: 'ホーム', url: siteConfig.siteUrl },
+    { name: 'ニュース', url: `${siteConfig.siteUrl}/news` },
+  ])
+
   return (
     <>
+      <StructuredData data={breadcrumbSchema} />
       <Header />
 
       <main className="pt-20">
