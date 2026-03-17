@@ -151,6 +151,30 @@ public/img/recruit/
 - レイヤー的に浮いていても違和感のない要素（雲・鳥）を動かす
 - 海の波も動かしたいが難易度が高いため優先度は下げる
 
+#### 1.6. 冒険マップ背景のループ動画化（Kling検証中）
+冒険マップイラストをAI動画生成（Kling）でループアニメ化する試み。開始フレームと終了フレームに同じ画像を使い、完全ループを目指す。
+
+**Klingプロンプト:**
+```
+Seamless loop animation. The camera is completely static, no camera movement at all.
+
+The sea area gently waves back and forth in a slow, rhythmic motion like calm ocean tides. The waves rise and fall smoothly in a continuous cycle.
+
+The sea monster floats on the water surface, bobbing up and down gently in sync with the wave rhythm.
+
+Thin volcanic smoke rises slowly from the volcano, drifting upward and dissipating naturally in a continuous loop. Very subtle and atmospheric.
+
+The lava around the volcano area glows and pulses very quietly, a faint slow throb of orange light. Not dramatic, just a subtle living warmth.
+
+The throne area at the bottom center has a very slight, gentle glow that softly breathes - the radiance slowly brightens and dims in a calm cycle. Almost imperceptible.
+
+Everything else in the image remains completely still. No movement in land, buildings, trees, mountains, text, or any other elements. All movements are natural, subtle, and atmospheric.
+
+The animation must loop perfectly - the final frame must match the first frame exactly.
+```
+
+成功すれば背景を動画に差し替え、CSSアニメーション（雲・鳥）と組み合わせる。
+
 #### 2. ユーザー体験の設計
 - 現在14ページに分かれているが、**多すぎて「一体なに！？」となる**
 - ページ構成自体を見直し、ユーザーが迷わず・飽きず・引き込まれる導線にする
