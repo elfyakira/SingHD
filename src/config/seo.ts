@@ -234,6 +234,11 @@ export const pageSeo = {
     description:
       '株式会社Singホールディングスへのお問い合わせはこちら。採用、サービス、その他ご質問などお気軽にご連絡ください。',
   },
+  katsuyaku: {
+    title: '人が辞めない会社には、理由がある。｜ カツヤク - 組織活性化プロジェクト',
+    description:
+      '離職率22%→9%。採用・定着・戦力化を現場で一緒につくる組織活性化プロジェクト「カツヤク」。中小企業の人財・組織課題を、現場伴走型で解決します。無料相談受付中。',
+  },
 }
 
 export type SiteConfig = typeof siteConfig
