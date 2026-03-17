@@ -1,12 +1,12 @@
 # Singホールディングス HP - 引き継ぎドキュメント
 
-**最終更新: 2026-03-03（セッション3）**
+**最終更新: 2026-03-17（セッション6）**
 
 ---
 
 ## 現在のサイト状況
 
-起業家志望者向けサイトとして大幅リニューアル済み。MIRAIKUページをTRIGGER風インタビューサイトとして再構築完了。アニメーション導入途中。
+起業家志望者向けサイトとして大幅リニューアル済み。MIRAIKUページをTRIGGER風インタビューサイトとして再構築完了。アニメーション導入途中。カツヤクLP（組織活性化プロジェクト）を新規作成・デプロイ済み。
 
 ### デザインテーマ
 - **ベースカラー**: ネイビー (`#1C2A44`, `#141E30`, `#0D1520`)
@@ -18,7 +18,86 @@
 
 ---
 
-## 今回のセッション（03-03 セッション3）で実施した作業
+## セッション4〜6（03-03〜03-17）で実施した作業
+
+### セッション4〜5: HP修正・SEO強化・ニュースシステム
+
+1. **HP修正**（コミット: a60fe8e）
+   - 「22〜35歳」年齢制限を削除 → ミライクの説明（未来＋make）とキャッチコピーに差替
+   - 「代表自身が20代で起業」→「20代で経営に携わった経験を持ち」
+   - 会長（清水駿之介 / shimishun）のインタビュー内容を全面差替
+   - ヒーローテキスト SING → Sing
+
+2. **各種修正**
+   - Resend初期化を遅延してビルドエラー解消（cecc60d）
+   - favicon-16x16.png 404解消・Resendエラー詳細をレスポンスに追加（afc15cf）
+   - siteUrlを本番ドメイン hd.jp-sing.com に修正（bbdc4af）
+
+3. **SEO強化**（300aa5f）
+   - ターゲットキーワード最適化・構造化データ・ページ別メタデータ
+
+4. **Markdownベースのニュースシステム構築**（未コミット）
+   - `content/news/` にMDファイルを置くだけで記事追加
+   - `src/lib/news.ts` — getAllNews(), getNewsBySlug(), getAllSlugs()
+   - `src/components/news/NewsListClient.tsx` — 検索・フィルターUI
+   - `src/app/news/[slug]/page.tsx` — 詳細ページ（静的生成）
+
+### セッション6: カツヤクLP新規作成
+
+**コミット: 1f0369d** / **本番URL: https://hd.jp-sing.com/katsuyaku**
+
+組織活性化プロジェクト「カツヤク」のランディングページを新規作成。ヘッダー・フッター・FixedCTA非表示のLP専用レイアウト。
+
+#### LP構成（9セクション）
+
+| # | セクション | コンポーネント | 特徴 |
+|---|-----------|-------------|------|
+| 1 | ファーストビュー | `HeroSection.tsx` | フルスクリーン、アニメーション付き、スクロールCTA |
+| 2 | 課題提起 | `ProblemSection.tsx` | 5つの悩み、番号付きリスト |
+| 3 | 解決策 | `SolutionSection.tsx` | ベネフィット3つ、左右交互レイアウト |
+| 4 | 特徴・強み | `FeaturesSection.tsx` | 3ブロック各異なるレイアウト（ダーク/白/ウォームグレー背景）、比較表 |
+| 5 | 実績・数字 | `StatsSection.tsx` | カウントアップアニメーション、Before/After数値 |
+| 6 | お客様の声 | `TestimonialsSection.tsx` | Before/After形式、3業種 |
+| 7 | 料金 | `PricingSection.tsx` | カスタマイズ型（要相談） |
+| 8 | FAQ | `FaqSection.tsx` | アコーディオン7問 |
+| 9 | 最終CTA＋フォーム | `ContactSection.tsx` | 入力→確認→完了の3ステップ、`/api/contact` 再利用 |
+
+#### ファイル構成
+```
+src/app/katsuyaku/
+  layout.tsx             ← LP専用レイアウト（Header/Footer/FixedCTA非表示）
+  page.tsx               ← 9セクション組み立て（Server Component）
+
+src/components/katsuyaku/
+  HeroSection.tsx        ← 'use client' - スクロールCTA、入場アニメーション
+  ProblemSection.tsx     ← Server Component - FadeInUpで各項目表示
+  SolutionSection.tsx    ← 'use client' - ベネフィット3つ＋CTA
+  FeaturesSection.tsx    ← Server Component - 強み3つ（各異なるレイアウト）
+  StatsSection.tsx       ← 'use client' - カウントアップアニメーション
+  TestimonialsSection.tsx← Server Component - Before/After形式
+  PricingSection.tsx     ← Server Component - 料金説明
+  FaqSection.tsx         ← 'use client' - アコーディオン開閉
+  ContactSection.tsx     ← 'use client' - 3ステップフォーム
+```
+
+#### デザイン仕様
+- **CTAカラー**: テラコッタオレンジ `#C85A3D`（globals.cssに `--color-cta` として追加）
+- **ウォーム背景**: `#F7F5F2`（`--color-warm-bg`）
+- **CTA配置**: 4箇所（FV、解決策後、実績後、最終フォーム）
+- **セクション間のリズム**: 各セクション異なるレイアウト・背景色で変化をつける
+- **アニメーション**: FadeInUp（既存）、カウントアップ（新規）、アコーディオン
+
+#### 写真素材（未配置・要対応）
+`/public/img/katsuyaku/` に以下を配置する必要あり:
+- `hero.jpg` — FVキービジュアル（現場で対話している写真）
+- `benefit-01.jpg` — 1対1ヒアリング場面
+- `benefit-02.jpg` — グループディスカッション場面
+- `benefit-03.jpg` — 現場リーダーがチームに説明している場面
+- OG画像（1200×630px）も別途必要
+
+---
+
+## セッション3（03-03）で実施した作業
 
 ### 1. MIRAIKUヒーローテキストを右下に配置
 
@@ -103,17 +182,24 @@ tokiwaリポジトリ (`/tmp/tokiwa`) のアニメーションを参考に、以
 
 ## 残作業・TODO
 
-### 最優先（次セッションで対応）
+### カツヤクLP関連
+- [ ] **写真素材の配置** — `/public/img/katsuyaku/` に hero.jpg, benefit-01〜03.jpg を配置
+- [ ] **OG画像作成** — カツヤクLP専用（1200×630px）
+- [ ] **Facebook/Instagram広告とのメッセージマッチ確認**
 
-#### アニメーション関連（未完了）
-- [ ] **`titleScaleUp` のバウンスをシンプルなスライドに変更する**（ユーザーがバウンスは好みではないと明言）。`globals.css` の `@keyframes titleScaleUp` を修正。`titleFromLeft` / `titleFromRight` も同様にバウンス感を抑える方が良い
-- [ ] **company/projectページにもアニメーション追加**（miraiku, page.tsx, interview詳細と同じパターンで）
-- [ ] **ビルドエラーの確認**（セッション中にdev serverでエラーが出ていた。閉じタグミスの可能性）。`npm run dev` で確認してから作業すること
+### ニュースシステム（未コミット）
+- [ ] ニュースシステムをコミット＆プッシュ＆デプロイ
+- [ ] `content/news/` に `.gitkeep` または実際の記事を追加
 
-#### 屋宜さんの画像問題
-- [ ] Q&A画像（qa-1〜5）がすべて同じ撮影セッション（ブラインド背景）でプロフィールと似ている。素材不足の可能性あり、クライアントに相談
+### インフラ・メール
+- [ ] **Resendドメイン認証**（`jp-sing.com`）— ユーザー側のDNS設定が必要。現在 `/api/contact` が500エラーを返す
+- [ ] api/contactの `detail` フィールドは本番安定後に削除検討
 
-### コメントアウト中セクション（新バージョン作成待ち）
+### アニメーション関連（未完了）
+- [ ] **`titleScaleUp` のバウンスをシンプルなスライドに変更する**（ユーザーがバウンスは好みではないと明言）
+- [ ] **company/projectページにもアニメーション追加**
+
+### コメントアウト中セクション（MIRAIKUページ・新バージョン作成待ち）
 - [ ] SUPPORT（支援内容）- 新デザインで再実装
 - [ ] FLOW（支援の流れ）- 新デザインで再実装
 - [ ] グループ参画 - 新デザインで再実装
@@ -124,13 +210,15 @@ tokiwaリポジトリ (`/tmp/tokiwa`) のアニメーションを参考に、以
 - [ ] スタートアップフォロー3本柱の内容 - 最終確認
 - [ ] MIRAIKUヒーローのキャッチコピー最終確認
 - [ ] メニュー構成の見直し（後日対応予定）
+- [ ] 屋宜さんのQ&A画像 — 素材不足の可能性あり、クライアントに相談
 
 ### 技術的TODO
-- [ ] ファビコン未設置
-- [ ] Newsページの実データ
-- [x] ~~Contactフォーム送信処理~~ → Googleフォーム連携実装済み
-- [ ] OGP画像更新
-- [ ] 最終ビルドテスト・デプロイ
+- [x] ~~ファビコン~~ → favicon.ico設置済み、favicon-16x16.png参照削除済み
+- [ ] Newsページの実データ（MDニュースシステム構築済み、コミット待ち）
+- [x] ~~Contactフォーム送信処理~~ → Resend API実装済み（ドメイン認証待ち）
+- [ ] OGP画像更新（サイト全体 + カツヤクLP）
+- [x] ~~SEO強化~~ → ターゲットキーワード最適化・構造化データ・ページ別メタデータ追加済み
+- [x] ~~siteUrl修正~~ → hd.jp-sing.com に修正済み
 - [x] ~~Sing.nexTのロゴ画像配置~~ → 完了
 - [x] ~~飯田先生の画像配置~~ → ナンバリング画像で配置済み
 - [x] ~~Q&A画像のフォールバック問題~~ → テキストのみ表示に修正済み
