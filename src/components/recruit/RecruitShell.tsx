@@ -1,6 +1,7 @@
 'use client'
 
 import { useEffect, useRef } from 'react'
+import RecruitFixedMenu from './RecruitFixedMenu'
 
 export default function RecruitShell({ children }: { children: React.ReactNode }) {
   const imgRef = useRef<HTMLImageElement>(null)
@@ -43,7 +44,7 @@ export default function RecruitShell({ children }: { children: React.ReactNode }
 
   return (
     <div className="relative">
-      <div className="fixed inset-0 z-0 overflow-hidden pointer-events-none">
+      <div className="fixed inset-0 z-0 overflow-hidden pointer-events-none pt-14 lg:pt-0">
         <img
           ref={imgRef}
           src="/img/recruit/adventure-map.png"
@@ -54,9 +55,10 @@ export default function RecruitShell({ children }: { children: React.ReactNode }
           style={{ transition: 'transform 0.15s ease-out' }}
         />
       </div>
-      <div className="relative z-10">
+      <div className="relative z-10 pb-12 lg:pb-0">
         {children}
       </div>
+      <RecruitFixedMenu />
     </div>
   )
 }
