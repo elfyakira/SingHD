@@ -121,275 +121,269 @@ const timelineEvents = [
   },
 ]
 
+const serifStyle = { fontFamily: "'Times New Roman', 'Yu Mincho', serif" }
+
+function getLevelNumber(level: string): string {
+  return level.replace('LEVEL ', '')
+}
+
 export default function IidaStoryPage() {
   return (
     <div className="min-h-screen bg-white text-[#1C2A44]">
       <RecruitHeader />
 
-      {/* ===== Chapter Header ===== */}
-      <section className="pt-32 pb-20 lg:pt-44 lg:pb-32 px-4 bg-[#2563EB]">
-        <div className="max-w-3xl mx-auto text-center">
+      {/* ===== Hero Section ===== */}
+      <section className="relative min-h-[70vh] flex items-center justify-center overflow-hidden">
+        <div className="absolute inset-0">
+          <img
+            src="/img/recruit/stories/iida-journey.png"
+            alt=""
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#1C2A44] via-[#1C2A44]/70 to-[#1C2A44]/40" />
+        </div>
+        <div className="relative text-center px-4 py-32">
           <FadeInUp>
             <p className="text-xs tracking-[0.4em] uppercase text-white/70 mb-6">
               CHAPTER 11
             </p>
           </FadeInUp>
-
           <FadeInUp delay={200}>
             <h1
               className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6"
-              style={{ fontFamily: "'Times New Roman', 'Yu Mincho', serif" }}
+              style={serifStyle}
             >
               CHALLENGER STORY
             </h1>
           </FadeInUp>
-
           <FadeInUp delay={300}>
-            <div className="w-16 h-px bg-white/60 mx-auto mb-6" />
+            <div className="w-16 h-1 bg-white rounded-full mx-auto mb-6" />
           </FadeInUp>
-
           <FadeInUp delay={400}>
-            <p className="text-lg md:text-xl text-white/90">
+            <p
+              className="text-xl md:text-2xl text-[#F59E0B] font-bold leading-relaxed"
+              style={serifStyle}
+            >
               自分の意思で未来を選び続ける
             </p>
           </FadeInUp>
         </div>
       </section>
 
-      {/* ===== Portrait ===== */}
-      <section className="py-12 px-4 bg-[#FAFAF5]">
-        <div className="max-w-4xl mx-auto flex flex-col md:flex-row items-center gap-8">
-          <div className="w-48 md:w-56 flex-shrink-0">
-            <img src="/img/recruit/stories/iida-portrait.png" alt="飯田思遠" className="w-full h-auto rounded-2xl" />
-          </div>
-          <div>
-            <p className="text-xs tracking-[0.3em] uppercase text-[#2563EB] mb-2">株式会社ゆめスタ 代表取締役</p>
-            <h2 className="text-2xl md:text-3xl font-bold text-[#1C2A44] mb-4" style={{ fontFamily: "'Times New Roman', 'Yu Mincho', serif" }}>飯田 思遠</h2>
-            <p className="text-gray-600 leading-relaxed text-sm md:text-base">自分の意思で未来を選び続ける</p>
-          </div>
-        </div>
-        <div className="mt-8 max-w-4xl mx-auto overflow-hidden rounded-2xl">
-          <img src="/img/recruit/stories/iida-journey.png" alt="飯田思遠の冒険" className="w-full h-auto" />
-        </div>
-      </section>
-
-      {/* ===== Profile Section ===== */}
-      <section className="py-16 lg:py-24 px-4 bg-[#FAFAF5]">
-        <div className="max-w-3xl mx-auto text-center">
+      {/* ===== Profile Card ===== */}
+      <section className="py-16 px-4 bg-[#FAFAF5]">
+        <div className="max-w-3xl mx-auto">
           <FadeInUp>
-            <div className="inline-block border-2 border-[#2563EB]/20 rounded-2xl bg-white px-8 py-6 md:px-12 md:py-8 shadow-sm">
-              <p className="text-xs tracking-[0.3em] uppercase text-[#2563EB] mb-4">
-                CHALLENGER
-              </p>
-              <h2
-                className="text-2xl md:text-3xl lg:text-4xl font-bold text-[#1C2A44] mb-3"
-                style={{ fontFamily: "'Times New Roman', 'Yu Mincho', serif" }}
-              >
-                飯田 思遠
-              </h2>
-              <div className="w-12 h-px bg-[#2563EB] mx-auto mb-3" />
-              <p className="text-sm text-gray-600">
-                株式会社ゆめスタ 代表取締役
-              </p>
+            <div className="flex flex-col md:flex-row items-center gap-8 bg-white rounded-2xl p-8 shadow-lg border border-gray-100">
+              <div className="w-36 h-36 md:w-44 md:h-44 rounded-full overflow-hidden flex-shrink-0 border-4 border-[#2563EB]/20">
+                <img
+                  src="/img/recruit/stories/iida-portrait.png"
+                  alt="飯田思遠"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              <div className="text-center md:text-left">
+                <p className="text-xs tracking-[0.3em] uppercase text-[#2563EB] mb-2">
+                  株式会社ゆめスタ 代表取締役
+                </p>
+                <h2
+                  className="text-2xl md:text-3xl font-bold text-[#1C2A44] mb-2"
+                  style={serifStyle}
+                >
+                  飯田 思遠
+                </h2>
+                <p className="text-gray-600 leading-relaxed text-sm md:text-base">
+                  自分の意思で未来を選び続ける
+                </p>
+              </div>
             </div>
           </FadeInUp>
         </div>
       </section>
 
-      {/* ===== RPG Timeline ===== */}
+      {/* ===== Story Timeline (Zigzag) ===== */}
       <section className="py-20 lg:py-32 px-4 bg-white">
-        <div className="max-w-3xl mx-auto">
-          <div className="relative">
-            {/* Vertical timeline line */}
-            <div className="absolute left-6 md:left-8 top-0 bottom-0 w-px bg-gradient-to-b from-[#2563EB]/60 via-[#2563EB]/30 to-[#2563EB]/60" />
-
-            <div className="space-y-16 md:space-y-20">
-              {timelineEvents.map((event, index) => (
-                <FadeInUp key={index} delay={index < 3 ? index * 100 : 0}>
-                  <div className="relative pl-16 md:pl-20">
-                    {/* Level badge */}
-                    <div className="absolute left-0 top-0 w-12 h-12 md:w-16 md:h-16 bg-white border-2 border-[#2563EB] rounded-xl flex items-center justify-center z-10 shadow-sm">
-                      <span className="text-[10px] md:text-xs font-bold text-[#2563EB] text-center leading-tight">
-                        {event.level.split(' ')[0]}
-                        <br />
-                        {event.level.split(' ')[1]}
-                      </span>
-                    </div>
-
-                    {/* Content */}
-                    <div className="pt-1">
-                      <h3
-                        className="text-lg md:text-xl font-bold text-[#1C2A44] mb-4"
-                        style={{
-                          fontFamily: "'Times New Roman', 'Yu Mincho', serif",
-                        }}
-                      >
-                        {event.title}
-                      </h3>
-
-                      {event.paragraphs.map((p, pi) => (
-                        <p
-                          key={pi}
-                          className="text-gray-700 leading-loose text-sm md:text-base mb-2"
-                        >
-                          {p}
-                        </p>
-                      ))}
-
-                      {event.quote && (
-                        <p
-                          className="text-lg md:text-xl font-bold text-[#2563EB] my-4"
-                          style={{
-                            fontFamily:
-                              "'Times New Roman', 'Yu Mincho', serif",
-                          }}
-                        >
-                          {event.quote}
-                        </p>
-                      )}
-
-                      {event.closing && (
-                        <p className="text-gray-700 leading-loose text-sm md:text-base">
-                          {event.closing}
-                        </p>
-                      )}
-                    </div>
+        <div className="max-w-5xl mx-auto space-y-16 md:space-y-20">
+          {timelineEvents.map((event, index) => (
+            <FadeInUp key={index} delay={index < 4 ? index * 80 : 0}>
+              <div
+                className={`flex flex-col ${
+                  index % 2 === 0 ? 'lg:flex-row' : 'lg:flex-row-reverse'
+                } gap-8 lg:gap-12 items-center`}
+              >
+                {/* Level Badge */}
+                <div className="flex-shrink-0">
+                  <div className="w-24 h-24 md:w-28 md:h-28 rounded-2xl bg-[#2563EB] flex flex-col items-center justify-center shadow-lg">
+                    <span className="text-white/60 text-[10px] tracking-wider uppercase">
+                      LEVEL
+                    </span>
+                    <span
+                      className="text-white text-3xl md:text-4xl font-bold"
+                      style={serifStyle}
+                    >
+                      {getLevelNumber(event.level)}
+                    </span>
                   </div>
-                </FadeInUp>
-              ))}
-            </div>
-          </div>
+                </div>
+
+                {/* Content */}
+                <div className="flex-1 max-w-2xl">
+                  <h3
+                    className="text-xl md:text-2xl font-bold text-[#1C2A44] mb-4"
+                    style={serifStyle}
+                  >
+                    {event.title}
+                  </h3>
+                  {event.paragraphs.map((p, pi) => (
+                    <p
+                      key={pi}
+                      className="text-gray-600 leading-loose text-sm md:text-base mb-2"
+                    >
+                      {p}
+                    </p>
+                  ))}
+                  {event.quote && (
+                    <div className="border-l-4 border-[#2563EB] pl-5 py-2 my-4">
+                      <p
+                        className="text-lg md:text-xl font-bold text-[#2563EB] leading-relaxed"
+                        style={serifStyle}
+                      >
+                        {event.quote}
+                      </p>
+                    </div>
+                  )}
+                  {event.closing && (
+                    <p className="text-gray-600 leading-loose text-sm md:text-base">
+                      {event.closing}
+                    </p>
+                  )}
+                </div>
+              </div>
+            </FadeInUp>
+          ))}
         </div>
       </section>
 
       {/* ===== FINAL QUEST ===== */}
-      <section className="py-20 lg:py-32 px-4 bg-[#FAFAF5]">
-        <div className="max-w-3xl mx-auto">
+      <section className="py-20 lg:py-32 px-4 bg-[#2563EB]">
+        <div className="max-w-3xl mx-auto text-center">
           <FadeInUp>
-            <div className="relative pl-16 md:pl-20 mb-16">
-              {/* Vertical line connector */}
-              <div className="absolute left-6 md:left-8 top-0 h-full w-px bg-[#2563EB]/30" />
-
-              {/* Final Quest badge */}
-              <div className="absolute left-0 top-0 w-12 h-12 md:w-16 md:h-16 bg-[#2563EB] rounded-xl flex items-center justify-center z-10 shadow-sm">
-                <span className="text-[8px] md:text-[10px] font-bold text-white text-center leading-tight">
-                  FINAL
-                  <br />
-                  QUEST
-                </span>
-              </div>
-
-              <div className="pt-1">
-                <h3
-                  className="text-xl md:text-2xl font-bold text-[#1C2A44] mb-6"
-                  style={{
-                    fontFamily: "'Times New Roman', 'Yu Mincho', serif",
-                  }}
-                >
-                  創りたい未来
-                </h3>
-
-                <p className="text-gray-700 leading-loose text-sm md:text-base mb-4">
-                  飯田が目指すのは会社を大きくすることだけではない。
-                </p>
-
-                <p
-                  className="text-xl md:text-2xl font-bold text-[#2563EB] my-6"
-                  style={{
-                    fontFamily: "'Times New Roman', 'Yu Mincho', serif",
-                  }}
-                >
-                  「新しい文化を創ること。」
-                </p>
-
-                <p className="text-gray-700 leading-loose text-sm md:text-base mb-6">
-                  全ての人が教育者の視点を持ち主体的に行動する社会。
-                  <br />
-                  そして実現したい未来がある。
-                </p>
-
-                <p
-                  className="text-xl md:text-2xl font-bold text-[#2563EB] my-6"
-                  style={{
-                    fontFamily: "'Times New Roman', 'Yu Mincho', serif",
-                  }}
-                >
-                  「自分の意思で未来を選び続けられる社会。」
-                </p>
-
-                <p className="text-gray-700 leading-loose text-sm md:text-base">
-                  親や周囲の価値観ではなく自分で問いを立て自分で決め自分で行動する。
-                  <br />
-                  そんな人を増やしていきたい。
-                </p>
-              </div>
+            <div className="inline-flex items-center gap-3 bg-white/10 rounded-full px-6 py-2 mb-8">
+              <span className="text-[#F59E0B] text-xs tracking-[0.3em] uppercase font-bold">
+                FINAL QUEST
+              </span>
             </div>
+          </FadeInUp>
+
+          <FadeInUp delay={100}>
+            <h3
+              className="text-2xl md:text-3xl font-bold text-white mb-8"
+              style={serifStyle}
+            >
+              創りたい未来
+            </h3>
+          </FadeInUp>
+
+          <FadeInUp delay={200}>
+            <p className="text-white/80 leading-loose text-sm md:text-base mb-6">
+              飯田が目指すのは会社を大きくすることだけではない。
+            </p>
+          </FadeInUp>
+
+          <FadeInUp delay={300}>
+            <p
+              className="text-2xl md:text-3xl font-bold text-[#F59E0B] leading-relaxed mb-6"
+              style={serifStyle}
+            >
+              「新しい文化を創ること。」
+            </p>
+          </FadeInUp>
+
+          <FadeInUp delay={400}>
+            <p className="text-white/80 leading-loose text-sm md:text-base mb-6">
+              全ての人が教育者の視点を持ち主体的に行動する社会。
+              <br />
+              そして実現したい未来がある。
+            </p>
+          </FadeInUp>
+
+          <FadeInUp delay={500}>
+            <p
+              className="text-xl md:text-2xl font-bold text-white leading-relaxed mb-6"
+              style={serifStyle}
+            >
+              「自分の意思で未来を選び続けられる社会。」
+            </p>
+          </FadeInUp>
+
+          <FadeInUp delay={600}>
+            <p className="text-white/80 leading-loose text-sm md:text-base">
+              親や周囲の価値観ではなく自分で問いを立て自分で決め自分で行動する。
+              <br />
+              そんな人を増やしていきたい。
+            </p>
           </FadeInUp>
         </div>
       </section>
 
       {/* ===== MESSAGE ===== */}
-      <section className="py-20 lg:py-32 px-4 bg-white">
+      <section className="py-20 lg:py-32 px-4 bg-[#1C2A44]">
         <div className="max-w-3xl mx-auto">
           <FadeInUp>
             <div className="text-center mb-12">
-              <p className="text-xs tracking-[0.3em] uppercase text-[#2563EB] mb-4">
+              <p className="text-xs tracking-[0.3em] uppercase text-white/50 mb-4">
                 MESSAGE
               </p>
               <h2
-                className="text-2xl md:text-3xl font-bold text-[#1C2A44] mb-4"
-                style={{
-                  fontFamily: "'Times New Roman', 'Yu Mincho', serif",
-                }}
+                className="text-2xl md:text-3xl font-bold text-white mb-4"
+                style={serifStyle}
               >
                 これから挑戦する人へ
               </h2>
-              <div className="w-16 h-px bg-[#2563EB] mx-auto" />
+              <div className="w-16 h-1 bg-[#F59E0B] rounded-full mx-auto" />
             </div>
           </FadeInUp>
 
           <FadeInUp delay={100}>
-            <div className="border-l-4 border-[#2563EB] pl-6 md:pl-8 py-4 space-y-6">
-              <p className="text-gray-700 leading-loose text-sm md:text-base">
+            <div className="space-y-6">
+              <p className="text-white/80 leading-loose text-sm md:text-base">
                 覚悟は100％じゃなくていい。
               </p>
 
-              <p
-                className="text-xl md:text-2xl font-bold text-[#2563EB]"
-                style={{
-                  fontFamily: "'Times New Roman', 'Yu Mincho', serif",
-                }}
-              >
-                「8割でいい。」
-              </p>
+              <div className="border-l-4 border-[#F59E0B] pl-6 py-2 my-6 bg-white/5 rounded-r-lg">
+                <p
+                  className="text-xl md:text-2xl font-bold text-white leading-relaxed"
+                  style={serifStyle}
+                >
+                  「8割でいい。」
+                </p>
+              </div>
 
-              <p className="text-gray-700 leading-loose text-sm md:text-base">
+              <p className="text-white/80 leading-loose text-sm md:text-base">
                 残りの2割は仲間と環境が埋めてくれる。
               </p>
 
-              <p className="text-gray-700 leading-loose text-sm md:text-base">
+              <p className="text-white/80 leading-loose text-sm md:text-base">
                 大事なのは
-                <span className="text-[#1C2A44] font-bold">
+                <span className="text-white font-bold">
                   「自分の軸を言語化すること。」
                 </span>
               </p>
 
-              <p className="text-gray-700 leading-loose text-sm md:text-base">
+              <p className="text-white/80 leading-loose text-sm md:text-base">
                 なぜやるのか。何のためにやるのか。
                 <br />
                 それが見えたらあとは動くだけ。
               </p>
 
               <p
-                className="text-xl md:text-2xl font-bold text-[#2563EB]"
-                style={{
-                  fontFamily: "'Times New Roman', 'Yu Mincho', serif",
-                }}
+                className="text-xl md:text-2xl font-bold text-[#F59E0B] py-2"
+                style={serifStyle}
               >
                 「この社会を変えたい」
               </p>
 
-              <p className="text-gray-700 leading-loose text-sm md:text-base">
+              <p className="text-white/80 leading-loose text-sm md:text-base">
                 その想いを夢で終わらせないでほしい。
                 <br />
                 自分の意思で未来を選び続けてほしい。

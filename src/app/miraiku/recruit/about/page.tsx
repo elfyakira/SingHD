@@ -152,8 +152,11 @@ export default function AboutPage() {
       <RecruitHeader />
 
       {/* ===== Chapter Header ===== */}
-      <section className="pt-32 pb-20 lg:pt-40 lg:pb-32 px-4 bg-[#2563EB]">
-        <div className="max-w-3xl mx-auto text-center">
+      <section className="relative pt-32 pb-20 lg:pt-40 lg:pb-32 px-4 bg-[#2563EB] overflow-hidden">
+        <div className="absolute inset-0">
+          <img src="/img/recruit/top/hero-party.png" alt="" className="w-full h-full object-cover opacity-20" />
+        </div>
+        <div className="relative max-w-3xl mx-auto text-center">
           <FadeInUp>
             <h1
               className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 text-white"

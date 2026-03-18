@@ -110,15 +110,22 @@ export default function WatanabeStoryPage() {
     <div className="min-h-screen bg-white text-[#1C2A44]">
       <RecruitHeader />
 
-      {/* ===== Chapter Header ===== */}
-      <section className="pt-32 pb-20 lg:pt-44 lg:pb-32 px-4 bg-[#2563EB]">
-        <div className="max-w-3xl mx-auto text-center">
+      {/* ===== Hero Section ===== */}
+      <section className="relative min-h-[70vh] flex items-center justify-center overflow-hidden">
+        <div className="absolute inset-0">
+          <img
+            src="/img/recruit/stories/watanabe-journey.png"
+            alt=""
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#1C2A44] via-[#1C2A44]/70 to-[#1C2A44]/40" />
+        </div>
+        <div className="relative text-center px-4 py-32">
           <FadeInUp>
             <p className="text-xs tracking-[0.4em] uppercase text-white/70 mb-6">
               CHAPTER 11
             </p>
           </FadeInUp>
-
           <FadeInUp delay={200}>
             <h1
               className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6"
@@ -127,11 +134,9 @@ export default function WatanabeStoryPage() {
               CHALLENGER STORY
             </h1>
           </FadeInUp>
-
           <FadeInUp delay={300}>
             <div className="w-16 h-1 bg-white rounded-full mx-auto mb-6" />
           </FadeInUp>
-
           <FadeInUp delay={400}>
             <p
               className="text-xl md:text-2xl text-[#F59E0B] font-bold leading-relaxed"
@@ -143,190 +148,201 @@ export default function WatanabeStoryPage() {
         </div>
       </section>
 
-      {/* ===== Portrait ===== */}
-      <section className="py-12 px-4 bg-[#FAFAF5]">
-        <div className="max-w-4xl mx-auto flex flex-col md:flex-row items-center gap-8">
-          <div className="w-48 md:w-56 flex-shrink-0">
-            <img src="/img/recruit/stories/watanabe-portrait.png" alt="渡邉大輝" className="w-full h-auto rounded-2xl" />
-          </div>
-          <div>
-            <p className="text-xs tracking-[0.3em] uppercase text-[#2563EB] mb-2">株式会社Sing.nexT 代表取締役</p>
-            <h2 className="text-2xl md:text-3xl font-bold text-[#1C2A44] mb-4" style={{ fontFamily: "'Times New Roman', 'Yu Mincho', serif" }}>渡邉 大輝</h2>
-            <p className="text-gray-600 leading-relaxed text-sm md:text-base">覚悟が固まるのを待つ人生は、もうやめた。</p>
-          </div>
-        </div>
-        <div className="mt-8 max-w-4xl mx-auto overflow-hidden rounded-2xl">
-          <img src="/img/recruit/stories/watanabe-journey.png" alt="渡邉大輝の冒険" className="w-full h-auto" />
-        </div>
-      </section>
-
-      {/* ===== Profile ===== */}
+      {/* ===== Profile Card ===== */}
       <section className="py-16 px-4 bg-[#FAFAF5]">
-        <div className="max-w-3xl mx-auto text-center">
+        <div className="max-w-3xl mx-auto">
           <FadeInUp>
-            <div className="inline-block border-2 border-[#2563EB]/20 rounded-2xl bg-white px-8 py-6 shadow-sm">
-              <p
-                className="text-2xl md:text-3xl font-bold text-[#1C2A44] mb-2"
-                style={serifStyle}
-              >
-                渡邉 大輝
-              </p>
-              <p className="text-gray-600 text-sm">
-                株式会社Sing.nexT 代表取締役
-              </p>
+            <div className="flex flex-col md:flex-row items-center gap-8 bg-white rounded-2xl p-8 shadow-lg border border-gray-100">
+              <div className="w-36 h-36 md:w-44 md:h-44 rounded-full overflow-hidden flex-shrink-0 border-4 border-[#2563EB]/20">
+                <img
+                  src="/img/recruit/stories/watanabe-portrait.png"
+                  alt="渡邉大輝"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              <div className="text-center md:text-left">
+                <p className="text-xs tracking-[0.3em] uppercase text-[#2563EB] mb-2">
+                  株式会社Sing.nexT 代表取締役
+                </p>
+                <h2
+                  className="text-2xl md:text-3xl font-bold text-[#1C2A44] mb-2"
+                  style={serifStyle}
+                >
+                  渡邉 大輝
+                </h2>
+                <p className="text-gray-600 leading-relaxed text-sm md:text-base">
+                  覚悟が固まるのを待つ人生は、もうやめた。
+                </p>
+              </div>
             </div>
           </FadeInUp>
         </div>
       </section>
 
-      {/* ===== Story Timeline ===== */}
+      {/* ===== Story Timeline (Zigzag) ===== */}
       <section className="py-20 lg:py-32 px-4 bg-white">
-        <div className="max-w-3xl mx-auto">
-          <div className="relative">
-            {/* Vertical timeline line - blue gradient */}
-            <div className="absolute left-6 md:left-8 top-0 bottom-0 w-px bg-gradient-to-b from-[#2563EB] via-[#2563EB]/50 to-[#2563EB]/20" />
-
-            <div className="space-y-12 md:space-y-16">
-              {storyLevels.map((section, index) => (
-                <FadeInUp key={section.level} delay={index * 60}>
-                  <div className="flex gap-6 md:gap-10 relative">
-                    {/* Level badge */}
-                    <div className="flex-shrink-0 relative z-10">
-                      <div className="w-12 h-12 md:w-16 md:h-16 rounded-full bg-[#2563EB] flex items-center justify-center shadow-md">
-                        <span className="text-white text-xs md:text-sm font-bold">
-                          {getLevelNumber(section.level)}
-                        </span>
-                      </div>
-                    </div>
-
-                    {/* Content */}
-                    <div className="flex-1 pt-1">
-                      <p className="text-[#2563EB] text-xs tracking-[0.2em] font-bold mb-2">
-                        {section.level}
-                      </p>
-                      <h3
-                        className="text-xl md:text-2xl font-bold text-[#1C2A44] mb-4"
-                        style={serifStyle}
-                      >
-                        {section.title}
-                      </h3>
-                      <p className="text-gray-600 leading-loose text-sm md:text-base mb-4">
-                        {section.content}
-                      </p>
-                      {section.quote && (
-                        <p
-                          className="text-xl md:text-2xl font-bold text-[#2563EB] leading-relaxed mb-2"
-                          style={serifStyle}
-                        >
-                          {section.quote}
-                        </p>
-                      )}
-                      {section.afterQuote && (
-                        <p className="text-gray-600 leading-loose text-sm md:text-base">
-                          {section.afterQuote}
-                        </p>
-                      )}
-                    </div>
-                  </div>
-                </FadeInUp>
-              ))}
-
-              {/* ===== FINAL QUEST ===== */}
-              <FadeInUp delay={storyLevels.length * 60}>
-                <div className="flex gap-6 md:gap-10 relative">
-                  {/* Level badge - special styling */}
-                  <div className="flex-shrink-0 relative z-10">
-                    <div className="w-12 h-12 md:w-16 md:h-16 rounded-full bg-[#2563EB] border-2 border-[#F59E0B] flex items-center justify-center shadow-lg">
-                      <span className="text-white text-[10px] md:text-xs font-bold">
-                        FINAL
-                      </span>
-                    </div>
-                  </div>
-
-                  {/* Content */}
-                  <div className="flex-1 pt-1">
-                    <p className="text-[#2563EB] text-xs tracking-[0.2em] font-bold mb-2">
-                      {finalQuest.level}
-                    </p>
-                    <h3
-                      className="text-xl md:text-2xl font-bold text-[#1C2A44] mb-4"
+        <div className="max-w-5xl mx-auto space-y-16 md:space-y-20">
+          {storyLevels.map((section, index) => (
+            <FadeInUp key={section.level} delay={index < 4 ? index * 80 : 0}>
+              <div
+                className={`flex flex-col ${
+                  index % 2 === 0 ? 'lg:flex-row' : 'lg:flex-row-reverse'
+                } gap-8 lg:gap-12 items-center`}
+              >
+                {/* Level Badge */}
+                <div className="flex-shrink-0">
+                  <div className="w-24 h-24 md:w-28 md:h-28 rounded-2xl bg-[#2563EB] flex flex-col items-center justify-center shadow-lg">
+                    <span className="text-white/60 text-[10px] tracking-wider uppercase">
+                      LEVEL
+                    </span>
+                    <span
+                      className="text-white text-3xl md:text-4xl font-bold"
                       style={serifStyle}
                     >
-                      {finalQuest.title}
-                    </h3>
-                    <p className="text-gray-600 leading-loose text-sm md:text-base mb-4">
-                      {finalQuest.content}
-                    </p>
-                    <p
-                      className="text-2xl md:text-3xl font-bold text-[#2563EB] leading-relaxed mb-4"
-                      style={serifStyle}
-                    >
-                      {finalQuest.quote}
-                    </p>
-                    <p className="text-gray-600 leading-loose text-sm md:text-base mb-4">
-                      {finalQuest.afterQuote}
-                    </p>
-                    <p
-                      className="text-xl md:text-2xl font-bold text-[#2563EB] leading-relaxed mb-4"
-                      style={serifStyle}
-                    >
-                      {finalQuest.secondQuote}
-                    </p>
-                    <p className="text-gray-600 leading-loose text-sm md:text-base">
-                      {finalQuest.closing}
-                    </p>
+                      {getLevelNumber(section.level)}
+                    </span>
                   </div>
                 </div>
-              </FadeInUp>
+
+                {/* Content */}
+                <div className="flex-1 max-w-2xl">
+                  <h3
+                    className="text-xl md:text-2xl font-bold text-[#1C2A44] mb-4"
+                    style={serifStyle}
+                  >
+                    {section.title}
+                  </h3>
+                  <p className="text-gray-600 leading-loose text-sm md:text-base mb-4">
+                    {section.content}
+                  </p>
+                  {section.quote && (
+                    <div className="border-l-4 border-[#2563EB] pl-5 py-2 my-4">
+                      <p
+                        className="text-lg md:text-xl font-bold text-[#2563EB] leading-relaxed"
+                        style={serifStyle}
+                      >
+                        {section.quote}
+                      </p>
+                    </div>
+                  )}
+                  {section.afterQuote && (
+                    <p className="text-gray-600 leading-loose text-sm md:text-base">
+                      {section.afterQuote}
+                    </p>
+                  )}
+                </div>
+              </div>
+            </FadeInUp>
+          ))}
+        </div>
+      </section>
+
+      {/* ===== FINAL QUEST ===== */}
+      <section className="py-20 lg:py-32 px-4 bg-[#2563EB]">
+        <div className="max-w-3xl mx-auto text-center">
+          <FadeInUp>
+            <div className="inline-flex items-center gap-3 bg-white/10 rounded-full px-6 py-2 mb-8">
+              <span className="text-[#F59E0B] text-xs tracking-[0.3em] uppercase font-bold">
+                FINAL QUEST
+              </span>
             </div>
-          </div>
+          </FadeInUp>
+
+          <FadeInUp delay={100}>
+            <h3
+              className="text-2xl md:text-3xl font-bold text-white mb-8"
+              style={serifStyle}
+            >
+              {finalQuest.title}
+            </h3>
+          </FadeInUp>
+
+          <FadeInUp delay={200}>
+            <p className="text-white/80 leading-loose text-sm md:text-base mb-8">
+              {finalQuest.content}
+            </p>
+          </FadeInUp>
+
+          <FadeInUp delay={300}>
+            <p
+              className="text-2xl md:text-3xl font-bold text-[#F59E0B] leading-relaxed mb-8"
+              style={serifStyle}
+            >
+              {finalQuest.quote}
+            </p>
+          </FadeInUp>
+
+          <FadeInUp delay={400}>
+            <p className="text-white/80 leading-loose text-sm md:text-base mb-8">
+              {finalQuest.afterQuote}
+            </p>
+          </FadeInUp>
+
+          <FadeInUp delay={500}>
+            <p
+              className="text-xl md:text-2xl font-bold text-white leading-relaxed mb-8"
+              style={serifStyle}
+            >
+              {finalQuest.secondQuote}
+            </p>
+          </FadeInUp>
+
+          <FadeInUp delay={600}>
+            <p className="text-white/80 leading-loose text-sm md:text-base">
+              {finalQuest.closing}
+            </p>
+          </FadeInUp>
         </div>
       </section>
 
       {/* ===== MESSAGE ===== */}
-      <section className="py-20 lg:py-32 px-4 bg-[#FAFAF5]">
+      <section className="py-20 lg:py-32 px-4 bg-[#1C2A44]">
         <div className="max-w-3xl mx-auto">
           <FadeInUp>
-            <div className="bg-white border-l-4 border-[#2563EB] border-2 border-[#2563EB]/20 rounded-2xl p-8 md:p-12 lg:p-16 shadow-sm">
-              <p className="text-xs tracking-[0.3em] uppercase text-[#2563EB] mb-8 text-center">
+            <div className="text-center mb-12">
+              <p className="text-xs tracking-[0.3em] uppercase text-white/50 mb-4">
                 MESSAGE
               </p>
               <h3
-                className="text-2xl md:text-3xl font-bold text-[#1C2A44] mb-8 text-center"
+                className="text-2xl md:text-3xl font-bold text-white mb-4"
                 style={serifStyle}
               >
                 これから挑戦する人へ
               </h3>
-              <div className="w-16 h-1 bg-[#2563EB] rounded-full mx-auto mb-10" />
+              <div className="w-16 h-1 bg-[#F59E0B] rounded-full mx-auto" />
+            </div>
+          </FadeInUp>
 
-              <div className="space-y-6 text-gray-700 leading-loose text-sm md:text-base">
-                <p>
-                  覚悟が固まるのを待っていたら一生動けない。
-                </p>
-                <p>
-                  100％じゃなくていい。
-                </p>
+          <FadeInUp delay={100}>
+            <div className="space-y-6">
+              <p className="text-white/80 leading-loose text-sm md:text-base">
+                覚悟が固まるのを待っていたら一生動けない。
+              </p>
+              <p className="text-white/80 leading-loose text-sm md:text-base">
+                100％じゃなくていい。
+              </p>
+              <div className="border-l-4 border-[#F59E0B] pl-6 py-2 my-6 bg-white/5 rounded-r-lg">
                 <p
-                  className="text-xl md:text-2xl font-bold text-[#2563EB] py-2"
+                  className="text-xl md:text-2xl font-bold text-white leading-relaxed"
                   style={serifStyle}
                 >
                   「一人じゃない」そう思える場所を見つけたら
                   <br />
                   そこが始まりだ。
                 </p>
-                <p>
-                  起業は復讐でも証明でもない。
-                </p>
-                <p
-                  className="text-xl md:text-2xl font-bold text-[#1C2A44] py-2"
-                  style={serifStyle}
-                >
-                  「選択だ。」
-                </p>
-                <p>
-                  環境に左右されない生き方を自分の手で選んでほしい。
-                </p>
               </div>
+              <p className="text-white/80 leading-loose text-sm md:text-base">
+                起業は復讐でも証明でもない。
+              </p>
+              <p
+                className="text-xl md:text-2xl font-bold text-[#F59E0B] py-2"
+                style={serifStyle}
+              >
+                「選択だ。」
+              </p>
+              <p className="text-white/80 leading-loose text-sm md:text-base">
+                環境に左右されない生き方を自分の手で選んでほしい。
+              </p>
             </div>
           </FadeInUp>
         </div>

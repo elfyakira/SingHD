@@ -118,8 +118,11 @@ export default function DiagnosisPage() {
       <RecruitHeader />
 
       {/* ===== Chapter Header ===== */}
-      <section className="pt-32 pb-20 lg:pt-44 lg:pb-32 px-4 bg-[#2563EB]">
-        <div className="max-w-3xl mx-auto text-center">
+      <section className="relative pt-32 pb-20 lg:pt-44 lg:pb-32 px-4 bg-[#2563EB] overflow-hidden">
+        <div className="absolute inset-0">
+          <img src="/img/recruit/oath/oath-circle.png" alt="" className="w-full h-full object-cover opacity-15" />
+        </div>
+        <div className="relative max-w-3xl mx-auto text-center">
           <FadeInUp delay={200}>
             <h1
               className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6"
