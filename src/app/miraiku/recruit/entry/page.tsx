@@ -129,7 +129,7 @@ export default function EntryPage() {
       {/* ============================================================ */}
 
       {/* ===== Opening Message ===== */}
-      <section className="py-20 lg:py-32 px-4 bg-[#FAFAF5]">
+      <section id="message" className="py-20 lg:py-32 px-4 bg-[#FAFAF5]">
         <div className="max-w-3xl mx-auto">
           <FadeInUp>
             <p className="text-gray-700 leading-[2.2] text-base md:text-lg mb-10">
@@ -445,7 +445,7 @@ export default function EntryPage() {
       {/* ============================================================ */}
 
       {/* ===== Job Details Table ===== */}
-      <section className="py-20 lg:py-32 px-4 bg-[#FAFAF5]">
+      <section id="jobs" className="py-20 lg:py-32 px-4 bg-[#FAFAF5]">
         <div className="max-w-3xl mx-auto">
           <FadeInUp>
             <div className="flex items-center gap-4 mb-12">

@@ -75,7 +75,7 @@ export default function RecruitTopPage() {
 
           <FadeInUp delay={600}>
             <Link
-              href="/miraiku/recruit/brand-story"
+              href="/miraiku/recruit/about#brand-story"
               className="inline-block bg-[#F59E0B] text-white px-8 py-4 text-sm tracking-wider rounded-full font-bold hover:bg-[#D97706] transition-all duration-300"
             >
               あなたの冒険をSingホールディングスで。
@@ -242,13 +242,13 @@ export default function RecruitTopPage() {
           <FadeInUp delay={200}>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <Link
-                href="/miraiku/recruit/brand-story"
+                href="/miraiku/recruit/about#brand-story"
                 className="inline-block border-2 border-[#2563EB] text-[#2563EB] px-8 py-4 text-sm tracking-wider rounded-full font-bold hover:bg-[#2563EB]/5 transition-all duration-300 w-full sm:w-auto"
               >
                 最初から読む
               </Link>
               <Link
-                href="/miraiku/recruit/jobs"
+                href="/miraiku/recruit/entry"
                 className="inline-block bg-[#F59E0B] text-white px-8 py-4 text-sm tracking-wider font-bold rounded-full hover:bg-[#D97706] transition-all duration-300 w-full sm:w-auto"
               >
                 募集要項を見る

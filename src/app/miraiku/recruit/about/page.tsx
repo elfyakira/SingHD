@@ -180,7 +180,7 @@ export default function AboutPage() {
       {/* ============================================================= */}
 
       {/* Section Label */}
-      <section className="py-12 px-4 bg-white">
+      <section id="brand-story" className="py-12 px-4 bg-white">
         <div className="max-w-3xl mx-auto text-center">
           <FadeInUp>
             <p className="text-xs tracking-[0.4em] uppercase text-[#2563EB] mb-2">
@@ -524,7 +524,7 @@ export default function AboutPage() {
       {/* ============================================================= */}
 
       {/* Section Label */}
-      <section className="py-12 px-4 bg-white">
+      <section id="founder" className="py-12 px-4 bg-white">
         <div className="max-w-3xl mx-auto text-center">
           <FadeInUp>
             <p className="text-xs tracking-[0.4em] uppercase text-[#2563EB] mb-2">
@@ -596,7 +596,7 @@ export default function AboutPage() {
       {/* ============================================================= */}
 
       {/* Section Label */}
-      <section className="py-12 px-4 bg-white">
+      <section id="letter" className="py-12 px-4 bg-white">
         <div className="max-w-3xl mx-auto text-center">
           <FadeInUp>
             <p className="text-xs tracking-[0.4em] uppercase text-[#2563EB] mb-2">
@@ -958,7 +958,7 @@ export default function AboutPage() {
       {/* ============================================================= */}
 
       {/* Section Label */}
-      <section className="py-12 px-4 bg-white">
+      <section id="sing-name" className="py-12 px-4 bg-white">
         <div className="max-w-3xl mx-auto text-center">
           <FadeInUp>
             <p className="text-xs tracking-[0.4em] uppercase text-[#2563EB] mb-2">
@@ -1168,7 +1168,7 @@ export default function AboutPage() {
       {/* ============================================================= */}
 
       {/* Section Label */}
-      <section className="py-12 px-4 bg-white">
+      <section id="mission" className="py-12 px-4 bg-white">
         <div className="max-w-3xl mx-auto text-center">
           <FadeInUp>
             <p className="text-xs tracking-[0.4em] uppercase text-[#2563EB] mb-2">
