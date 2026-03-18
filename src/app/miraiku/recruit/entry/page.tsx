@@ -124,6 +124,15 @@ export default function EntryPage() {
         </div>
       </section>
 
+      {/* ===== Hero Image ===== */}
+      <section className="bg-[#FAFAF5]">
+        <div className="max-w-4xl mx-auto">
+          <FadeInUp>
+            <img src="/img/recruit/entry/open-door.png" alt="冒険の入口" className="w-full h-auto" />
+          </FadeInUp>
+        </div>
+      </section>
+
       {/* ============================================================ */}
       {/* ===== LAST MESSAGE Content (from message/page.tsx) ========= */}
       {/* ============================================================ */}
@@ -560,6 +569,15 @@ export default function EntryPage() {
                 エントリーする
               </Link>
             </div>
+          </FadeInUp>
+        </div>
+      </section>
+
+      {/* ===== Party Welcome ===== */}
+      <section className="py-12 px-4 bg-[#FAFAF5]">
+        <div className="max-w-3xl mx-auto overflow-hidden rounded-2xl">
+          <FadeInUp>
+            <img src="/img/recruit/entry/party-welcome.png" alt="仲間の歓迎" className="w-full h-auto" />
           </FadeInUp>
         </div>
       </section>

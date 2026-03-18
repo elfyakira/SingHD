@@ -9,6 +9,7 @@ const levels = [
   {
     level: 1,
     title: '冒険のはじまり',
+    image: '/img/recruit/adventure-map/level-1.png',
     description:
       '社会人としての第一歩。最初はわからないことばかり。不安もあるかもしれません。でも大丈夫です。仲間と共に学びながら、少しずつ経験値を積んでいきます。',
     skills: ['社会人としての基礎', '仕事の進め方', 'チームで働く姿勢'],
@@ -16,6 +17,7 @@ const levels = [
   {
     level: 10,
     title: '最初の壁',
+    image: '/img/recruit/adventure-map/level-10.png',
     description:
       '仕事に慣れてきた頃、最初の大きな壁に出会います。思うように成果が出ない。失敗してしまう。自分に自信が持てない。多くの人がここで悩みます。でも、この壁を越えることであなたは大きく成長します。仲間と共に考え、挑戦を続けることで次のステージへ進みます。',
     skills: null,
@@ -23,6 +25,7 @@ const levels = [
   {
     level: 20,
     title: '自分の武器を見つける',
+    image: '/img/recruit/adventure-map/level-20.png',
     description:
       '少しずつ経験を積む中で、自分の強みが見えてきます。考える力。コミュニケーション力。提案力。課題解決力。人それぞれ得意な武器があります。その武器を磨くことであなたはチームの中で大きな力を発揮していきます。',
     skills: ['考える力', 'コミュニケーション力', '提案力', '課題解決力'],
@@ -30,6 +33,7 @@ const levels = [
   {
     level: 30,
     title: '仲間を導く',
+    image: '/img/recruit/adventure-map/level-30.png',
     description:
       'ここまで来ると後輩ができたりチームの中で頼られる存在になっていきます。自分の成長だけでなく仲間の成長を支える。それが次のレベルです。人を導く経験はあなた自身をさらに強くします。',
     skills: null,
@@ -37,6 +41,7 @@ const levels = [
   {
     level: 50,
     title: 'チームで挑む',
+    image: '/img/recruit/adventure-map/level-50.png',
     description:
       '一人の力には限界があります。しかしチームには無限の可能性があります。それぞれの強みを活かし、弱みを補いながらチームとして成果を出す。ここであなたはリーダーとしての力を身につけていきます。',
     skills: null,
@@ -44,6 +49,7 @@ const levels = [
   {
     level: 100,
     title: '人生の主人公になる',
+    image: '/img/recruit/adventure-map/level-100.png',
     description:
       'ここまで来たあなたはもう以前の自分ではありません。多くの経験を積み、多くの壁を越え、多くの仲間と出会ってきました。気づいた時には自分の人生を自分の意思で切り開ける人になっているはずです。',
     skills: null,
@@ -144,7 +150,12 @@ export default function AdventureMapPage() {
                     </div>
 
                     {/* Card content */}
-                    <div className="bg-white border-2 border-[#2563EB]/20 rounded-2xl p-6 md:p-8">
+                    <div className="bg-white border-2 border-[#2563EB]/20 rounded-2xl overflow-hidden">
+                      <div className="flex flex-col md:flex-row">
+                      <div className="md:w-40 lg:w-48 flex-shrink-0 bg-gradient-to-b md:bg-gradient-to-r from-[#2563EB]/5 to-transparent p-4 flex items-center justify-center">
+                        <img src={item.image} alt={item.title} className="w-24 h-24 md:w-32 md:h-32 object-contain" />
+                      </div>
+                      <div className="p-6 md:p-8 flex-1">
                       <p
                         className="text-2xl md:text-3xl font-bold text-[#2563EB] mb-2"
                         style={{ fontFamily: "'Times New Roman', 'Yu Mincho', serif" }}
@@ -171,6 +182,8 @@ export default function AdventureMapPage() {
                           ))}
                         </div>
                       )}
+                      </div>
+                      </div>
                     </div>
                   </div>
                 </FadeInUp>

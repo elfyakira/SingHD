@@ -39,6 +39,15 @@ export default function LastBossPage() {
         </div>
       </section>
 
+      {/* ===== Boss Visual ===== */}
+      <section className="bg-[#0a0a1a]">
+        <div className="max-w-5xl mx-auto">
+          <FadeInUp>
+            <img src="/img/recruit/last-boss/boss-reveal.png" alt="ラスボス" className="w-full h-auto" />
+          </FadeInUp>
+        </div>
+      </section>
+
       {/* ===== Opening Section ===== */}
       <section className="py-20 lg:py-32 px-4 bg-[#FAFAF5]">
         <div className="max-w-3xl mx-auto">
@@ -352,6 +361,12 @@ export default function LastBossPage() {
               <br />
               この社会そのものに潜む「挑戦が減り続ける空気」です。
             </p>
+          </FadeInUp>
+
+          <FadeInUp delay={500}>
+            <div className="mt-12 max-w-3xl mx-auto overflow-hidden rounded-2xl">
+              <img src="/img/recruit/last-boss/heroes-stand.png" alt="立ち向かう仲間たち" className="w-full h-auto" />
+            </div>
           </FadeInUp>
         </div>
       </section>

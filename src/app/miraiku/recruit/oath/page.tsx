@@ -8,36 +8,42 @@ const oaths = [
   {
     number: '01',
     title: '主人公として生きる',
+    image: '/img/recruit/oath/oath-01.png',
     description:
       '自分の人生の主人公は自分です。環境のせいにしない。誰かのせいにもしない。自分の人生は自分の意思で切り開く。',
   },
   {
     number: '02',
     title: '挑戦から逃げない',
+    image: '/img/recruit/oath/oath-02.png',
     description:
       '成長には挑戦が必要です。失敗を恐れるより挑戦しないことを恐れよう。挑戦する人だけが次のステージへ進める。',
   },
   {
     number: '03',
     title: '仲間を大切にする',
+    image: '/img/recruit/oath/oath-03.png',
     description:
       'RPGの主人公は一人では冒険を続けられません。仲間がいるから困難を越えられる。互いに支え合い互いに高め合う。それがSingのチームです。',
   },
   {
     number: '04',
     title: '学び続ける',
+    image: '/img/recruit/oath/oath-04.png',
     description:
       '人生のレベルアップは学びの積み重ねです。昨日の自分より今日の自分。今日の自分より明日の自分。成長を止めない人が未来を変えていく。',
   },
   {
     number: '05',
     title: '誇れる仕事をする',
+    image: '/img/recruit/oath/oath-05.png',
     description:
       '子供たちは大人の背中を見ています。だから私たちは胸を張って語れる仕事人の役に立つ仕事を大切にします。',
   },
   {
     number: '06',
     title: '人の可能性を信じる',
+    image: '/img/recruit/oath/oath-06.png',
     description:
       '人は誰でも成長できる。誰でも人生を変えることができる。私たちはその可能性を信じ続けます。',
   },
@@ -104,13 +110,27 @@ export default function OathPage() {
         </div>
       </section>
 
+      {/* ===== Oath Visual ===== */}
+      <section className="py-8 px-4 bg-white">
+        <div className="max-w-2xl mx-auto">
+          <FadeInUp>
+            <img src="/img/recruit/oath/oath-circle.png" alt="冒険者の誓い" className="w-full h-auto rounded-2xl" />
+          </FadeInUp>
+        </div>
+      </section>
+
       {/* ===== 6 Oaths ===== */}
       <section className="py-20 lg:py-32 px-4 bg-white">
         <div className="max-w-3xl mx-auto">
           <div className="space-y-0">
             {oaths.map((oath, index) => (
               <FadeInUp key={oath.number} delay={index * 100}>
-                <div className="flex gap-6 md:gap-10 py-10 border-b border-gray-200 first:pt-0 last:border-b-0">
+                <div className="py-10 border-b border-gray-200 first:pt-0 last:border-b-0">
+                  <div className="flex gap-6 md:gap-10">
+                  {/* Image */}
+                  <div className="flex-shrink-0 hidden md:block">
+                    <img src={oath.image} alt={oath.title} className="w-20 h-20 lg:w-24 lg:h-24 object-contain rounded-xl" />
+                  </div>
                   {/* Large translucent blue number */}
                   <div className="flex-shrink-0">
                     <span
@@ -132,6 +152,7 @@ export default function OathPage() {
                     <p className="text-gray-600 leading-relaxed text-sm md:text-base">
                       {oath.description}
                     </p>
+                  </div>
                   </div>
                 </div>
               </FadeInUp>

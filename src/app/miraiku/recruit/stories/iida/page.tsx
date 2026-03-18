@@ -156,6 +156,23 @@ export default function IidaStoryPage() {
         </div>
       </section>
 
+      {/* ===== Portrait ===== */}
+      <section className="py-12 px-4 bg-[#FAFAF5]">
+        <div className="max-w-4xl mx-auto flex flex-col md:flex-row items-center gap-8">
+          <div className="w-48 md:w-56 flex-shrink-0">
+            <img src="/img/recruit/stories/iida-portrait.png" alt="飯田思遠" className="w-full h-auto rounded-2xl" />
+          </div>
+          <div>
+            <p className="text-xs tracking-[0.3em] uppercase text-[#2563EB] mb-2">株式会社ゆめスタ 代表取締役</p>
+            <h2 className="text-2xl md:text-3xl font-bold text-[#1C2A44] mb-4" style={{ fontFamily: "'Times New Roman', 'Yu Mincho', serif" }}>飯田 思遠</h2>
+            <p className="text-gray-600 leading-relaxed text-sm md:text-base">自分の意思で未来を選び続ける</p>
+          </div>
+        </div>
+        <div className="mt-8 max-w-4xl mx-auto overflow-hidden rounded-2xl">
+          <img src="/img/recruit/stories/iida-journey.png" alt="飯田思遠の冒険" className="w-full h-auto" />
+        </div>
+      </section>
+
       {/* ===== Profile Section ===== */}
       <section className="py-16 lg:py-24 px-4 bg-[#FAFAF5]">
         <div className="max-w-3xl mx-auto text-center">

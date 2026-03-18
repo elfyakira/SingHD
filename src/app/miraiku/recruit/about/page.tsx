@@ -196,6 +196,13 @@ export default function AboutPage() {
         </div>
       </section>
 
+      {/* Brand Story Image */}
+      <section className="px-4 bg-white">
+        <div className="max-w-4xl mx-auto overflow-hidden rounded-2xl">
+          <img src="/img/recruit/about/brand-story.png" alt="冒険の始まり" className="w-full h-auto" />
+        </div>
+      </section>
+
       {/* Brand Story - Main Story Text */}
       <section className="py-20 lg:py-32 px-4 bg-white">
         <div className="max-w-3xl mx-auto">
@@ -400,6 +407,10 @@ export default function AboutPage() {
             </div>
           </FadeInUp>
 
+          <div className="mb-12 max-w-4xl mx-auto overflow-hidden rounded-2xl">
+            <img src="/img/recruit/about/three-reasons.png" alt="3つの理由" className="w-full h-auto" />
+          </div>
+
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <FadeInUp delay={100}>
               <div className="border-2 border-[#2563EB]/20 rounded-2xl p-8 h-full bg-white">
@@ -540,6 +551,13 @@ export default function AboutPage() {
         </div>
       </section>
 
+      {/* Founder Story Image */}
+      <section className="px-4 bg-white">
+        <div className="max-w-4xl mx-auto overflow-hidden rounded-2xl">
+          <img src="/img/recruit/about/founder-journey.png" alt="創業の旅" className="w-full h-auto" />
+        </div>
+      </section>
+
       {/* Founder Story - Timeline */}
       <section className="py-20 lg:py-32 px-4 bg-white">
         <div className="max-w-3xl mx-auto">
@@ -615,6 +633,10 @@ export default function AboutPage() {
       {/* Letter - Main Content */}
       <section className="py-20 lg:py-32 px-4 bg-white">
         <div className="max-w-3xl mx-auto">
+          <div className="mb-8 max-w-md mx-auto">
+            <img src="/img/recruit/about/letter.png" alt="手紙" className="w-full h-auto rounded-2xl" />
+          </div>
+
           <FadeInUp>
             <div className="bg-[#FAFAF5] border-2 border-[#2563EB]/20 rounded-2xl p-8 md:p-12 lg:p-16">
               <div className="border-l-4 border-[#2563EB] pl-6 md:pl-8">
@@ -974,6 +996,13 @@ export default function AboutPage() {
         </div>
       </section>
 
+      {/* Sing Name Image */}
+      <section className="px-4 bg-white">
+        <div className="max-w-4xl mx-auto overflow-hidden rounded-2xl">
+          <img src="/img/recruit/about/sing-meaning.png" alt="Singの意味" className="w-full h-auto" />
+        </div>
+      </section>
+
       {/* Sing Name - Main Story */}
       <section className="py-20 lg:py-32 px-4 bg-[#FAFAF5]">
         <div className="max-w-3xl mx-auto">
@@ -1200,6 +1229,12 @@ export default function AboutPage() {
             >
               人生を、歌え。
             </p>
+          </FadeInUp>
+
+          <FadeInUp delay={250}>
+            <div className="mt-8 mb-8 max-w-3xl mx-auto overflow-hidden rounded-2xl">
+              <img src="/img/recruit/about/mission.png" alt="ミッション" className="w-full h-auto" />
+            </div>
           </FadeInUp>
 
           <FadeInUp delay={300}>

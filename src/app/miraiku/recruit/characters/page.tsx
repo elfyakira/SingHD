@@ -12,6 +12,7 @@ const rpgTypes = [
   {
     number: 'TYPE 01',
     name: '勇者タイプ',
+    image: '/img/recruit/characters/hero-type.png',
     subtitle: '未来に向かって挑戦できる人',
     description:
       '勇者は、最初から強いわけではありません。それでも一歩踏み出す勇気がある。失敗してももう一度立ち上がる。そんな挑戦する姿勢が周囲に勇気を与えます。私たちが求めているのは完璧な人ではありません。挑戦する人です。',
@@ -19,6 +20,7 @@ const rpgTypes = [
   {
     number: 'TYPE 02',
     name: '戦士タイプ',
+    image: '/img/recruit/characters/warrior-type.png',
     subtitle: '圧倒的にやり抜く人',
     description:
       '戦士は、チームの最前線で戦います。壁があっても逃げない。困難があっても諦めない。地道な努力を積み重ね、確実に前へ進む。その姿は、チームに大きな安心感を与えます。やり抜く力は、最大の武器です。',
@@ -26,6 +28,7 @@ const rpgTypes = [
   {
     number: 'TYPE 03',
     name: '賢者タイプ',
+    image: '/img/recruit/characters/sage-type.png',
     subtitle: '考え続ける人',
     description:
       '世の中の課題は、力だけでは解決できません。どうすれば良くなるのか。どうすればもっと価値を生めるのか。考え続ける人がチームを次のステージへ導きます。知識や思考は組織を強くします。考えることを楽しめる人を私たちは歓迎します。',
@@ -33,6 +36,7 @@ const rpgTypes = [
   {
     number: 'TYPE 04',
     name: '僧侶タイプ',
+    image: '/img/recruit/characters/priest-type.png',
     subtitle: '仲間を支えられる人',
     description:
       'RPGのパーティーには必ず仲間を支える存在がいます。仲間の挑戦を応援する。困っている人を助ける。チームを強くするのはこうした支え合いです。誰かの成功を自分の喜びにできる人。そんな人は組織にとって欠かせない存在です。',
@@ -253,7 +257,11 @@ export default function CharactersPage() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
             {rpgTypes.map((type, index) => (
               <FadeInUp key={type.number} delay={index * 100}>
-                <div className="border-l-4 border-[#2563EB] bg-white border-2 border-[#2563EB]/20 rounded-2xl p-6 md:p-8 h-full shadow-sm">
+                <div className="border-l-4 border-[#2563EB] bg-white border-2 border-[#2563EB]/20 rounded-2xl overflow-hidden h-full shadow-sm">
+                  <div className="p-4 bg-gradient-to-b from-[#2563EB]/5 to-transparent flex justify-center">
+                    <img src={type.image} alt={type.name} className="w-28 h-36 object-contain" />
+                  </div>
+                  <div className="p-6 md:p-8">
                   <p
                     className="text-[#2563EB] text-xs tracking-[0.3em] font-bold mb-3"
                   >
@@ -269,6 +277,7 @@ export default function CharactersPage() {
                   <p className="text-gray-600 leading-relaxed text-sm">
                     {type.description}
                   </p>
+                  </div>
                 </div>
               </FadeInUp>
             ))}
