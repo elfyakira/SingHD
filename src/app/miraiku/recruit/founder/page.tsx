@@ -3,7 +3,6 @@
 import Link from 'next/link'
 import RecruitHeader from '@/components/recruit/RecruitHeader'
 import RecruitCTA from '@/components/recruit/RecruitCTA'
-import ChapterNav from '@/components/recruit/ChapterNav'
 import FadeInUp from '@/components/animations/FadeInUp'
 
 interface TimelineMilestone {
@@ -191,7 +190,6 @@ export default function FounderPage() {
         </div>
       </section>
 
-      <ChapterNav currentId="founder" />
       <RecruitCTA />
     </div>
   )

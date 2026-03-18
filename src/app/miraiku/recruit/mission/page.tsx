@@ -2,7 +2,6 @@
 
 import RecruitHeader from '@/components/recruit/RecruitHeader'
 import RecruitCTA from '@/components/recruit/RecruitCTA'
-import ChapterNav from '@/components/recruit/ChapterNav'
 import FadeInUp from '@/components/animations/FadeInUp'
 
 const values = [
@@ -280,7 +279,6 @@ export default function MissionPage() {
         </div>
       </section>
 
-      <ChapterNav currentId="mission" />
       <RecruitCTA />
     </div>
   )

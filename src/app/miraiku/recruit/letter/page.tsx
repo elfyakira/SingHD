@@ -3,7 +3,6 @@
 import Link from 'next/link'
 import RecruitHeader from '@/components/recruit/RecruitHeader'
 import RecruitCTA from '@/components/recruit/RecruitCTA'
-import ChapterNav from '@/components/recruit/ChapterNav'
 import FadeInUp from '@/components/animations/FadeInUp'
 
 export default function LetterPage() {
@@ -390,7 +389,6 @@ export default function LetterPage() {
         </div>
       </section>
 
-      <ChapterNav currentId="letter" />
       <RecruitCTA />
     </div>
   )

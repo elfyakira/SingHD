@@ -4,7 +4,6 @@ import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import RecruitHeader from '@/components/recruit/RecruitHeader'
 import RecruitCTA from '@/components/recruit/RecruitCTA'
-import ChapterNav from '@/components/recruit/ChapterNav'
 import FadeInUp from '@/components/animations/FadeInUp'
 import { recruitChapters } from '@/data/recruit-chapters'
 
@@ -259,7 +258,6 @@ export default function RecruitTopPage() {
         </div>
       </section>
 
-      <ChapterNav currentId="top" />
       <RecruitCTA />
     </div>
   )

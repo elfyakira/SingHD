@@ -2,7 +2,6 @@
 
 import RecruitHeader from '@/components/recruit/RecruitHeader'
 import RecruitCTA from '@/components/recruit/RecruitCTA'
-import ChapterNav from '@/components/recruit/ChapterNav'
 import FadeInUp from '@/components/animations/FadeInUp'
 
 const oaths = [
@@ -193,7 +192,6 @@ export default function OathPage() {
         </div>
       </section>
 
-      <ChapterNav currentId="oath" />
       <RecruitCTA />
     </div>
   )

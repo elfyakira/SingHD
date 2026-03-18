@@ -2,7 +2,6 @@
 
 import RecruitHeader from '@/components/recruit/RecruitHeader'
 import RecruitCTA from '@/components/recruit/RecruitCTA'
-import ChapterNav from '@/components/recruit/ChapterNav'
 import FadeInUp from '@/components/animations/FadeInUp'
 
 export default function LastBossPage() {
@@ -423,7 +422,6 @@ export default function LastBossPage() {
         </div>
       </section>
 
-      <ChapterNav currentId="last-boss" />
       <RecruitCTA />
     </div>
   )

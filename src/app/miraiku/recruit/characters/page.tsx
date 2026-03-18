@@ -3,7 +3,6 @@
 import { useState } from 'react'
 import RecruitHeader from '@/components/recruit/RecruitHeader'
 import RecruitCTA from '@/components/recruit/RecruitCTA'
-import ChapterNav from '@/components/recruit/ChapterNav'
 import FadeInUp from '@/components/animations/FadeInUp'
 import Link from 'next/link'
 
@@ -621,7 +620,6 @@ export default function CharactersPage() {
         </div>
       </section>
 
-      <ChapterNav currentId="characters" />
       <RecruitCTA />
     </div>
   )

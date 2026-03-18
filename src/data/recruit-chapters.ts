@@ -16,7 +16,7 @@ export const recruitChapters: RecruitChapter[] = [
   { id: 'mission', number: '⑥', title: '企業理念', titleEn: 'MISSION & VISION', href: '/miraiku/recruit/mission', phase: 'empathy' },
   { id: 'last-boss', number: '⑦', title: 'ラスボス', titleEn: 'LAST BOSS', href: '/miraiku/recruit/last-boss', phase: 'growth' },
   { id: 'adventure-map', number: '⑧', title: '冒険マップ', titleEn: 'ADVENTURE MAP', href: '/miraiku/recruit/adventure-map', phase: 'growth' },
-  { id: 'characters', number: '⑨', title: '求める人物', titleEn: 'WHO WE NEED', href: '/miraiku/recruit/characters', phase: 'growth' },
+  { id: 'characters', number: '⑨', title: '求める人物', titleEn: 'WHO WE ARE LOOKING FOR', href: '/miraiku/recruit/characters', phase: 'growth' },
   { id: 'oath', number: '⑩', title: '冒険者の誓い', titleEn: "ADVENTURER'S OATH", href: '/miraiku/recruit/oath', phase: 'growth' },
   { id: 'story-watanabe', number: '⑪', title: '渡邉大輝の物語', titleEn: 'CHALLENGER STORY', href: '/miraiku/recruit/stories/watanabe', phase: 'growth' },
   { id: 'story-iida', number: '⑪', title: '飯田思遠の物語', titleEn: 'CHALLENGER STORY', href: '/miraiku/recruit/stories/iida', phase: 'growth' },

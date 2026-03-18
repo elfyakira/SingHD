@@ -2,7 +2,6 @@
 
 import RecruitHeader from '@/components/recruit/RecruitHeader'
 import RecruitCTA from '@/components/recruit/RecruitCTA'
-import ChapterNav from '@/components/recruit/ChapterNav'
 import FadeInUp from '@/components/animations/FadeInUp'
 
 const storyLevels = [
@@ -316,7 +315,6 @@ export default function WatanabeStoryPage() {
         </div>
       </section>
 
-      <ChapterNav currentId="story-watanabe" />
       <RecruitCTA />
     </div>
   )

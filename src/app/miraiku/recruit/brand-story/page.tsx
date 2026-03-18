@@ -3,7 +3,6 @@
 import Link from 'next/link'
 import RecruitHeader from '@/components/recruit/RecruitHeader'
 import RecruitCTA from '@/components/recruit/RecruitCTA'
-import ChapterNav from '@/components/recruit/ChapterNav'
 import FadeInUp from '@/components/animations/FadeInUp'
 
 export default function BrandStoryPage() {
@@ -372,7 +371,6 @@ export default function BrandStoryPage() {
         </div>
       </section>
 
-      <ChapterNav currentId="brand-story" />
       <RecruitCTA />
     </div>
   )
