@@ -5,7 +5,7 @@ export const siteConfig = {
   siteName: '株式会社Singホールディングス',
   siteNameEn: 'Sing Holdings Inc.',
   siteNameShort: 'SingHD',
-  alternateNames: ['SingHD', '株式会社SingHD', 'Sing Holdings', 'Singホールディングス'],
+  alternateNames: ['SingHD', 'Singhd', 'SINGHD', '株式会社SingHD', 'Sing Holdings', 'Singホールディングス', 'シングホールディングス'],
   siteUrl: 'https://hd.jp-sing.com',
 
   // 会社情報
@@ -42,8 +42,10 @@ export const siteConfig = {
     keywords: [
       '株式会社Singホールディングス',
       'SingHD',
+      'Singhd',
       '株式会社SingHD',
       'Singホールディングス',
+      'シングホールディングス',
       'ミライク',
       'ミライク 愛知',
       'ミライク 名古屋',
