@@ -10,8 +10,11 @@ export default function LastBossPage() {
       <RecruitHeader />
 
       {/* ===== Chapter Header ===== */}
-      <section className="pt-32 pb-20 lg:pt-44 lg:pb-32 px-4 bg-[#2563EB]">
-        <div className="max-w-3xl mx-auto text-center">
+      <section className="relative pt-32 pb-20 lg:pt-44 lg:pb-32 px-4 bg-[#2563EB] overflow-hidden">
+        <div className="absolute inset-0">
+          <img src="/img/recruit/last-boss/boss-reveal.png" alt="" className="w-full h-full object-cover opacity-15" />
+        </div>
+        <div className="relative max-w-3xl mx-auto text-center">
           <FadeInUp>
             <p className="text-xs tracking-[0.4em] uppercase text-white/70 mb-6">
               CHAPTER 07

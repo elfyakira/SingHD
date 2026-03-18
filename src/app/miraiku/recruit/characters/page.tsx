@@ -1,6 +1,3 @@
-'use client'
-
-import { useState } from 'react'
 import RecruitHeader from '@/components/recruit/RecruitHeader'
 import RecruitCTA from '@/components/recruit/RecruitCTA'
 import FadeInUp from '@/components/animations/FadeInUp'
@@ -12,7 +9,7 @@ const rpgTypes = [
   {
     number: 'TYPE 01',
     name: '勇者タイプ',
-    image: '/img/recruit/characters/hero-type.png',
+    image: '/img/recruit/characters/hero-type.jpg',
     subtitle: '未来に向かって挑戦できる人',
     description:
       '勇者は、最初から強いわけではありません。それでも一歩踏み出す勇気がある。失敗してももう一度立ち上がる。そんな挑戦する姿勢が周囲に勇気を与えます。私たちが求めているのは完璧な人ではありません。挑戦する人です。',
@@ -20,7 +17,7 @@ const rpgTypes = [
   {
     number: 'TYPE 02',
     name: '戦士タイプ',
-    image: '/img/recruit/characters/warrior-type.png',
+    image: '/img/recruit/characters/warrior-type.jpg',
     subtitle: '圧倒的にやり抜く人',
     description:
       '戦士は、チームの最前線で戦います。壁があっても逃げない。困難があっても諦めない。地道な努力を積み重ね、確実に前へ進む。その姿は、チームに大きな安心感を与えます。やり抜く力は、最大の武器です。',
@@ -28,7 +25,7 @@ const rpgTypes = [
   {
     number: 'TYPE 03',
     name: '賢者タイプ',
-    image: '/img/recruit/characters/sage-type.png',
+    image: '/img/recruit/characters/sage-type.jpg',
     subtitle: '考え続ける人',
     description:
       '世の中の課題は、力だけでは解決できません。どうすれば良くなるのか。どうすればもっと価値を生めるのか。考え続ける人がチームを次のステージへ導きます。知識や思考は組織を強くします。考えることを楽しめる人を私たちは歓迎します。',
@@ -36,79 +33,13 @@ const rpgTypes = [
   {
     number: 'TYPE 04',
     name: '僧侶タイプ',
-    image: '/img/recruit/characters/priest-type.png',
+    image: '/img/recruit/characters/priest-type.jpg',
     subtitle: '仲間を支えられる人',
     description:
       'RPGのパーティーには必ず仲間を支える存在がいます。仲間の挑戦を応援する。困っている人を助ける。チームを強くするのはこうした支え合いです。誰かの成功を自分の喜びにできる人。そんな人は組織にとって欠かせない存在です。',
   },
 ]
 
-const questions = [
-  {
-    question: '新しいことに挑戦するとき、あなたはどちらに近い？',
-    choices: [
-      { label: 'A', text: 'とにかくやってみる' },
-      { label: 'B', text: 'まずは情報を集める' },
-      { label: 'C', text: '仲間と相談して決める' },
-    ],
-  },
-  {
-    question: 'チームで何かをするときのあなたは？',
-    choices: [
-      { label: 'A', text: '先頭に立って進める' },
-      { label: 'B', text: '仕組みを作って支える' },
-      { label: 'C', text: '周りを見ながら調整する' },
-    ],
-  },
-  {
-    question: '困難にぶつかったときどうする？',
-    choices: [
-      { label: 'A', text: '突破口を探して挑む' },
-      { label: 'B', text: '原因を分析する' },
-      { label: 'C', text: '仲間と一緒に乗り越える' },
-    ],
-  },
-  {
-    question: '将来について一番近い考えは？',
-    choices: [
-      { label: 'A', text: '自分で何かを生み出したい' },
-      { label: 'B', text: '社会を良くする仕組みを作りたい' },
-      { label: 'C', text: '人の可能性を広げたい' },
-    ],
-  },
-  {
-    question: 'あなたが一番ワクワクするのは？',
-    choices: [
-      { label: 'A', text: 'まだ誰もやっていない挑戦' },
-      { label: 'B', text: '新しいアイデアや戦略' },
-      { label: 'C', text: '人が成長する瞬間' },
-    ],
-  },
-]
-
-const quizResults: Record<string, { type: string; headline: string; description: string; fit: string }> = {
-  A: {
-    type: '起業家タイプ',
-    headline: 'あなたは世界を切り開くプレイヤー。',
-    description:
-      '新しいことに挑戦することにワクワクするタイプです。リスクよりも可能性を見ています。',
-    fit: 'Singでは起業・事業開発・新規プロジェクトで力を発揮できます。',
-  },
-  B: {
-    type: '戦略家タイプ',
-    headline: 'あなたは未来を設計するプレイヤー。',
-    description:
-      '物事の本質を見て仕組みを作ることが得意です。分析力や構造理解が強み。',
-    fit: 'Singではマーケティング・事業設計・戦略分野で活躍できます。',
-  },
-  C: {
-    type: 'リーダータイプ',
-    headline: 'あなたは仲間を導くプレイヤー。',
-    description:
-      '人の強みを引き出しチームを前に進める力があります。人の成長を見ることがあなたの喜びです。',
-    fit: 'Singでは組織づくり・教育・マネジメントで力を発揮できます。',
-  },
-}
 
 const levels = [
   {
@@ -175,34 +106,6 @@ const lastBossQuests = [
 /* ─── Component ─── */
 
 export default function CharactersPage() {
-  const [answers, setAnswers] = useState<(string | null)[]>(Array(questions.length).fill(null))
-  const [showResult, setShowResult] = useState(false)
-
-  const handleAnswer = (qIndex: number, choice: string) => {
-    const newAnswers = [...answers]
-    newAnswers[qIndex] = choice
-    setAnswers(newAnswers)
-  }
-
-  const allAnswered = answers.every((a) => a !== null)
-
-  const getResult = () => {
-    const counts: Record<string, number> = { A: 0, B: 0, C: 0 }
-    answers.forEach((a) => {
-      if (a) counts[a]++
-    })
-    if (counts.A >= counts.B && counts.A >= counts.C) return 'A'
-    if (counts.B >= counts.A && counts.B >= counts.C) return 'B'
-    return 'C'
-  }
-
-  const handleShowResult = () => {
-    setShowResult(true)
-  }
-
-  const resultKey = getResult()
-  const result = quizResults[resultKey]
-
   const serifStyle = { fontFamily: "'Times New Roman', 'Yu Mincho', serif" }
 
   return (
@@ -210,8 +113,11 @@ export default function CharactersPage() {
       <RecruitHeader />
 
       {/* ===== Chapter Header ===== */}
-      <section className="pt-32 pb-20 lg:pt-44 lg:pb-32 px-4 bg-[#2563EB]">
-        <div className="max-w-3xl mx-auto text-center">
+      <section className="relative pt-32 pb-20 lg:pt-44 lg:pb-32 px-4 bg-[#2563EB] overflow-hidden">
+        <div className="absolute inset-0">
+          <img src="/img/recruit/top/hero-party.png" alt="" className="w-full h-full object-cover opacity-15" />
+        </div>
+        <div className="relative max-w-3xl mx-auto text-center">
           <FadeInUp>
             <p className="text-xs tracking-[0.4em] uppercase text-white/70 mb-6">
               CHAPTER 09
@@ -303,111 +209,36 @@ export default function CharactersPage() {
         </div>
       </section>
 
-      {/* ===== Sub-section 2: 冒険診断 (Interactive Quiz) ===== */}
+      {/* ===== Sub-section 2: 冒険診断へ誘導 ===== */}
       <section className="py-20 lg:py-32 px-4 bg-white">
-        <div className="max-w-3xl mx-auto">
+        <div className="max-w-3xl mx-auto text-center">
           <FadeInUp>
-            <div className="text-center mb-16">
-              <p className="text-xs tracking-[0.3em] uppercase text-gray-500 mb-4">
-                Adventure Diagnosis
-              </p>
-              <h2
-                className="text-3xl md:text-4xl font-bold text-[#1C2A44] mb-4"
-                style={serifStyle}
-              >
-                冒険診断
-              </h2>
-              <p className="text-[#2563EB] text-lg mb-4">あなたのプレイヤータイプ</p>
-              <div className="w-16 h-1 bg-[#2563EB] rounded-full mx-auto mb-8" />
-              <p className="text-gray-700 leading-loose text-sm md:text-base">
-                人生というゲームにはさまざまなプレイヤーがいます。
-                <br />
-                5つの質問に答えて、あなたのタイプを診断してみましょう。
-              </p>
-            </div>
+            <p className="text-xs tracking-[0.3em] uppercase text-gray-500 mb-4">
+              Adventure Diagnosis
+            </p>
+            <h2
+              className="text-3xl md:text-4xl font-bold text-[#1C2A44] mb-4"
+              style={serifStyle}
+            >
+              冒険診断
+            </h2>
+            <p className="text-[#2563EB] text-lg mb-4">あなたのプレイヤータイプ</p>
+            <div className="w-16 h-1 bg-[#2563EB] rounded-full mx-auto mb-8" />
+            <p className="text-gray-700 leading-loose text-sm md:text-base mb-12">
+              あなたは勇者？戦士？賢者？僧侶？
+              <br />
+              5つの質問であなたのタイプを診断します。
+            </p>
           </FadeInUp>
-
-          <div className="space-y-10">
-            {questions.map((q, qIndex) => (
-              <FadeInUp key={qIndex} delay={qIndex * 80}>
-                <div className="bg-[#FAFAF5] border-2 border-[#2563EB]/20 rounded-2xl p-6 md:p-8">
-                  <p className="text-[#2563EB] text-xs tracking-[0.3em] font-bold mb-3">
-                    Q{qIndex + 1}
-                  </p>
-                  <p className="text-[#1C2A44] font-bold text-lg mb-6">{q.question}</p>
-                  <div className="space-y-3">
-                    {q.choices.map((choice) => {
-                      const isSelected = answers[qIndex] === choice.label
-                      return (
-                        <button
-                          key={choice.label}
-                          onClick={() => handleAnswer(qIndex, choice.label)}
-                          className={`w-full text-left px-5 py-4 border-2 rounded-xl transition-all duration-200 ${
-                            isSelected
-                              ? 'border-[#F59E0B] bg-[#F59E0B]/10 text-[#1C2A44]'
-                              : 'border-gray-200 hover:border-[#2563EB]/40 text-gray-700 hover:text-[#1C2A44] bg-white'
-                          }`}
-                        >
-                          <span
-                            className={`inline-block w-8 font-bold ${
-                              isSelected ? 'text-[#F59E0B]' : 'text-gray-400'
-                            }`}
-                          >
-                            {choice.label}.
-                          </span>
-                          {choice.text}
-                        </button>
-                      )
-                    })}
-                  </div>
-                </div>
-              </FadeInUp>
-            ))}
-          </div>
-
-          {/* Result Button */}
-          {allAnswered && !showResult && (
-            <FadeInUp>
-              <div className="mt-12 text-center">
-                <button
-                  onClick={handleShowResult}
-                  className="inline-block bg-[#F59E0B] text-white px-10 py-4 font-bold tracking-wider rounded-full hover:bg-[#D97706] transition-colors text-lg"
-                >
-                  診断結果を見る
-                </button>
-              </div>
-            </FadeInUp>
-          )}
-
-          {/* Quiz Result */}
-          {showResult && (
-            <FadeInUp>
-              <div className="mt-12 border-2 border-[#2563EB] bg-white rounded-2xl p-8 md:p-12 text-center shadow-lg">
-                <p className="text-xs tracking-[0.3em] uppercase text-gray-500 mb-4">
-                  YOUR TYPE
-                </p>
-                <h3
-                  className="text-3xl md:text-4xl font-bold text-[#2563EB] mb-4"
-                  style={serifStyle}
-                >
-                  {result.type}
-                </h3>
-                <div className="w-16 h-1 bg-[#2563EB] rounded-full mx-auto mb-6" />
-                <p
-                  className="text-xl md:text-2xl font-bold text-[#1C2A44] mb-6"
-                  style={serifStyle}
-                >
-                  {result.headline}
-                </p>
-                <p className="text-gray-700 leading-relaxed text-sm md:text-base mb-6 max-w-xl mx-auto">
-                  {result.description}
-                </p>
-                <p className="text-[#2563EB] font-bold text-sm md:text-base">
-                  {result.fit}
-                </p>
-              </div>
-            </FadeInUp>
-          )}
+          <FadeInUp delay={200}>
+            <Link
+              href="/miraiku/recruit/diagnosis"
+              className="inline-flex items-center gap-3 bg-[#F59E0B] text-white px-10 py-4 font-bold tracking-wider rounded-full hover:bg-[#D97706] transition-colors text-lg"
+            >
+              <span>▶</span>
+              <span>冒険診断をはじめる</span>
+            </Link>
+          </FadeInUp>
         </div>
       </section>
 
@@ -622,7 +453,7 @@ export default function CharactersPage() {
                 href="/miraiku/recruit/entry"
                 className="inline-block bg-[#F59E0B] text-white px-10 py-4 font-bold tracking-wider rounded-full hover:bg-[#D97706] transition-colors text-lg"
               >
-                冒険に参加する（エントリー）
+                ▶ 冒険に参加する
               </Link>
             </div>
           </FadeInUp>

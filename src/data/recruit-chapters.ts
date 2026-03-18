@@ -13,7 +13,7 @@ export const recruitChapters: RecruitChapter[] = [
   { id: 'founder', number: '③', title: '創業ストーリー', titleEn: 'FOUNDER STORY', href: '/miraiku/recruit/about#founder', phase: 'empathy' },
   { id: 'letter', number: '④', title: '子供への手紙', titleEn: 'LETTER', href: '/miraiku/recruit/about#letter', phase: 'empathy' },
   { id: 'sing-name', number: '⑤', title: 'Singという名前', titleEn: 'OUR NAME', href: '/miraiku/recruit/about#sing-name', phase: 'empathy' },
-  { id: 'mission', number: '⑥', title: '企業理念', titleEn: 'MISSION & VISION', href: '/miraiku/recruit/about#mission', phase: 'empathy' },
+  { id: 'mission', number: '⑥', title: '企業理念', titleEn: 'MISSION & VISION', href: '/miraiku/recruit/mission', phase: 'empathy' },
   { id: 'last-boss', number: '⑦', title: 'ラスボス', titleEn: 'LAST BOSS', href: '/miraiku/recruit/last-boss', phase: 'growth' },
   { id: 'adventure-map', number: '⑧', title: '冒険マップ', titleEn: 'ADVENTURE MAP', href: '/miraiku/recruit/adventure-map', phase: 'growth' },
   { id: 'characters', number: '⑨', title: '求める人物', titleEn: 'WHO WE ARE LOOKING FOR', href: '/miraiku/recruit/characters', phase: 'growth' },

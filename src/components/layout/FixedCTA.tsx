@@ -1,6 +1,7 @@
 'use client'
 
 import { useState, useEffect } from 'react'
+import { usePathname } from 'next/navigation'
 import Link from 'next/link'
 import { ArrowRight } from 'lucide-react'
 
@@ -12,16 +13,21 @@ import { ArrowRight } from 'lucide-react'
  */
 export default function FixedCTA() {
   const [isVisible, setIsVisible] = useState(false)
+  const pathname = usePathname()
+
+  // 採用ページ配下では非表示（専用CTAがある）
+  const isRecruit = pathname.startsWith('/miraiku/recruit')
 
   useEffect(() => {
     const handleScroll = () => {
-      // 300px以上スクロールしたら表示
       setIsVisible(window.scrollY > 300)
     }
 
     window.addEventListener('scroll', handleScroll)
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
+
+  if (isRecruit) return null
 
   return (
     <div

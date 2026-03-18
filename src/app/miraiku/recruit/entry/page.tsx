@@ -100,9 +100,16 @@ export default function EntryPage() {
     <div className="min-h-screen bg-white text-[#1C2A44]">
       <RecruitHeader />
 
-      {/* ===== Chapter Header ===== */}
-      <section className="pt-32 pb-20 lg:pt-44 lg:pb-32 px-4 bg-[#2563EB]">
-        <div className="max-w-3xl mx-auto text-center">
+      {/* ===== Chapter Header + Hero Image ===== */}
+      <section className="relative pt-32 pb-20 lg:pt-44 lg:pb-32 px-4 bg-[#2563EB] overflow-hidden">
+        <div className="absolute inset-0">
+          <img
+            src="/img/recruit/entry/open-door.jpg"
+            alt=""
+            className="w-full h-full object-cover opacity-20"
+          />
+        </div>
+        <div className="relative max-w-3xl mx-auto text-center">
           <FadeInUp delay={200}>
             <h1
               className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6"
@@ -120,15 +127,6 @@ export default function EntryPage() {
             <p className="text-lg md:text-xl text-white/90">
               未来の仲間へ
             </p>
-          </FadeInUp>
-        </div>
-      </section>
-
-      {/* ===== Hero Image ===== */}
-      <section className="bg-[#FAFAF5]">
-        <div className="max-w-4xl mx-auto">
-          <FadeInUp>
-            <img src="/img/recruit/entry/open-door.png" alt="冒険の入口" className="w-full h-auto" />
           </FadeInUp>
         </div>
       </section>
@@ -566,7 +564,7 @@ export default function EntryPage() {
                 href="/contact"
                 className="inline-block bg-[#F59E0B] text-white px-12 py-5 text-lg font-bold tracking-wider rounded-full hover:bg-[#D97706] transition-colors shadow-md"
               >
-                エントリーする
+                ▶ 冒険に参加する
               </Link>
             </div>
           </FadeInUp>

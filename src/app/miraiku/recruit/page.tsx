@@ -36,6 +36,20 @@ const chapterDescriptions: Record<string, string> = {
   jobs: 'あなたの冒険を始めよう',
 }
 
+const cardImages: Record<string, string> = {
+  'brand-story': '/img/recruit/about/brand-story.png',
+  founder: '/img/recruit/about/founder-journey.png',
+  letter: '/img/recruit/about/letter.png',
+  'sing-name': '/img/recruit/about/sing-meaning.png',
+  mission: '/img/recruit/about/mission.jpg',
+  'last-boss': '/img/recruit/last-boss/boss-reveal.png',
+  'adventure-map': '/img/recruit/adventure-map/level-1.png',
+  characters: '/img/recruit/top/hero-party.png',
+  oath: '/img/recruit/oath/oath-circle.jpg',
+  message: '/img/recruit/entry/party-welcome.png',
+  jobs: '/img/recruit/entry/open-door.jpg',
+}
+
 const phaseConfig = [
   { phase: 'hook' as const, number: '01', label: '物語のはじまり', color: '#EF4444' },
   { phase: 'empathy' as const, number: '02', label: 'なぜ冒険するのか', color: '#F59E0B' },
@@ -50,6 +64,7 @@ const challengerStories = [
     role: '代表取締役',
     tagline: '覚悟が固まるのを待つ人生は、もうやめた。',
     href: '/miraiku/recruit/stories/watanabe',
+    image: '/img/recruit/stories/watanabe-portrait.png',
   },
   {
     name: '飯田 思遠',
@@ -57,6 +72,7 @@ const challengerStories = [
     role: '代表取締役',
     tagline: '自分の意思で未来を選び続ける',
     href: '/miraiku/recruit/stories/iida',
+    image: '/img/recruit/stories/iida-portrait.png',
   },
 ]
 
@@ -85,19 +101,12 @@ export default function RecruitTopPage() {
       <div className="max-w-2xl mx-auto">
         <Link href={c.href} className="group block">
           <div className="bg-white/90 backdrop-blur-sm rounded-xl overflow-hidden border border-white/20 hover:shadow-lg hover:shadow-white/5 transition-all duration-300">
-            {/* 画像 — /img/recruit/chapters/{id}.jpg */}
-            <div
-              className="aspect-[16/5] relative"
-              style={{
-                background: `linear-gradient(135deg, ${color}18, ${color}08)`,
-              }}
-            >
-              <span
-                className="absolute bottom-2 right-3 text-4xl font-black opacity-[0.06]"
-                style={{ color }}
-              >
-                {c.number}
-              </span>
+            <div className="aspect-[16/5] relative overflow-hidden">
+              <img
+                src={cardImages[c.id]}
+                alt={mapTitles[c.id] || c.title}
+                className="absolute inset-0 w-full h-full object-cover"
+              />
             </div>
             <div className="px-5 py-4">
               <div className="flex items-center gap-2 mb-1">
@@ -127,19 +136,12 @@ export default function RecruitTopPage() {
     return (
       <Link href={c.href} className="group">
         <div className="aspect-square bg-white/90 backdrop-blur-sm rounded-xl overflow-hidden border border-white/20 hover:shadow-lg hover:shadow-white/5 transition-all duration-300 flex flex-col">
-          {/* 画像 — /img/recruit/chapters/{id}.jpg */}
-          <div
-            className="flex-1 relative"
-            style={{
-              background: `linear-gradient(135deg, ${color}18, ${color}08)`,
-            }}
-          >
-            <span
-              className="absolute bottom-3 right-4 text-4xl font-black opacity-[0.06]"
-              style={{ color }}
-            >
-              {c.number}
-            </span>
+          <div className="flex-1 relative overflow-hidden">
+            <img
+              src={cardImages[c.id]}
+              alt={mapTitles[c.id] || c.title}
+              className="absolute inset-0 w-full h-full object-cover"
+            />
           </div>
           <div className="p-4">
             <p className="text-sm font-bold text-[#1C2A44] group-hover:text-[#2563EB] transition-colors">
@@ -158,8 +160,12 @@ export default function RecruitTopPage() {
   const storyCard = (story: (typeof challengerStories)[number]) => (
     <Link href={story.href} className="group">
       <div className="aspect-square bg-white/95 backdrop-blur-sm rounded-xl overflow-hidden border-2 border-[#2563EB]/20 hover:border-[#2563EB]/40 hover:shadow-lg hover:shadow-[#2563EB]/10 transition-all duration-300 flex flex-col">
-        {/* 人物写真 — /img/recruit/stories/{name}.jpg */}
-        <div className="flex-1 relative bg-gradient-to-br from-[#2563EB]/12 to-[#10B981]/08">
+        <div className="flex-1 relative overflow-hidden">
+          <img
+            src={story.image}
+            alt={story.name}
+            className="absolute inset-0 w-full h-full object-cover"
+          />
           <div className="absolute top-3 left-4">
             <span className="text-[10px] tracking-widest text-[#2563EB] font-bold bg-white/80 backdrop-blur-sm px-2 py-1 rounded">
               CHALLENGER STORY
@@ -545,7 +551,7 @@ export default function RecruitTopPage() {
                 href="/miraiku/recruit/entry"
                 className="inline-block bg-[#F59E0B] text-white px-8 py-4 text-sm tracking-wider font-bold rounded-full hover:bg-[#D97706] transition-all duration-300 w-full sm:w-auto"
               >
-                冒険に参加する（エントリー）
+                ▶ 冒険に参加する
               </Link>
               <Link
                 href="/miraiku/recruit/about#brand-story"

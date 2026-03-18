@@ -57,8 +57,11 @@ export default function OathPage() {
       <RecruitHeader />
 
       {/* ===== Chapter Header ===== */}
-      <section className="pt-32 pb-20 lg:pt-44 lg:pb-32 px-4 bg-[#2563EB]">
-        <div className="max-w-3xl mx-auto text-center">
+      <section className="relative pt-32 pb-20 lg:pt-44 lg:pb-32 px-4 bg-[#2563EB] overflow-hidden">
+        <div className="absolute inset-0">
+          <img src="/img/recruit/oath/oath-circle.jpg" alt="" className="w-full h-full object-cover opacity-15" />
+        </div>
+        <div className="relative max-w-3xl mx-auto text-center">
           <FadeInUp>
             <p className="text-xs tracking-[0.4em] uppercase text-white/70 mb-6">
               CHAPTER 10
@@ -114,7 +117,7 @@ export default function OathPage() {
       <section className="py-8 px-4 bg-white">
         <div className="max-w-2xl mx-auto">
           <FadeInUp>
-            <img src="/img/recruit/oath/oath-circle.png" alt="冒険者の誓い" className="w-full h-auto rounded-2xl" />
+            <img src="/img/recruit/oath/oath-circle.jpg" alt="冒険者の誓い" className="w-full h-auto rounded-2xl" />
           </FadeInUp>
         </div>
       </section>

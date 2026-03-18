@@ -41,7 +41,7 @@ const levels = [
   {
     level: 50,
     title: 'チームで挑む',
-    image: '/img/recruit/adventure-map/level-50.png',
+    image: '/img/recruit/adventure-map/level-50.jpg',
     description:
       '一人の力には限界があります。しかしチームには無限の可能性があります。それぞれの強みを活かし、弱みを補いながらチームとして成果を出す。ここであなたはリーダーとしての力を身につけていきます。',
     skills: null,
@@ -49,7 +49,7 @@ const levels = [
   {
     level: 100,
     title: '人生の主人公になる',
-    image: '/img/recruit/adventure-map/level-100.png',
+    image: '/img/recruit/adventure-map/level-100.jpg',
     description:
       'ここまで来たあなたはもう以前の自分ではありません。多くの経験を積み、多くの壁を越え、多くの仲間と出会ってきました。気づいた時には自分の人生を自分の意思で切り開ける人になっているはずです。',
     skills: null,
@@ -62,8 +62,11 @@ export default function AdventureMapPage() {
       <RecruitHeader />
 
       {/* ===== Chapter Header ===== */}
-      <section className="pt-32 pb-20 lg:pt-44 lg:pb-32 px-4 bg-[#2563EB]">
-        <div className="max-w-3xl mx-auto text-center">
+      <section className="relative pt-32 pb-20 lg:pt-44 lg:pb-32 px-4 bg-[#2563EB] overflow-hidden">
+        <div className="absolute inset-0">
+          <img src="/img/recruit/adventure-map/level-1.png" alt="" className="w-full h-full object-cover opacity-15" />
+        </div>
+        <div className="relative max-w-3xl mx-auto text-center">
           <FadeInUp>
             <p className="text-xs tracking-[0.4em] uppercase text-white/70 mb-6">
               CHAPTER 08
