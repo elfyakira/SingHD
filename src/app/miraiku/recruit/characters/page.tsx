@@ -88,21 +88,21 @@ const quizResults: Record<string, { type: string; headline: string; description:
     type: '起業家タイプ',
     headline: 'あなたは世界を切り開くプレイヤー。',
     description:
-      'まだ誰も歩いたことのない道を自ら切り拓き、新しい価値を生み出すことに喜びを感じるタイプです。リスクを恐れず行動し、失敗すら糧にして前に進む力を持っています。',
+      '新しいことに挑戦することにワクワクするタイプです。リスクよりも可能性を見ています。',
     fit: 'Singでは起業・事業開発・新規プロジェクトで力を発揮できます。',
   },
   B: {
     type: '戦略家タイプ',
     headline: 'あなたは未来を設計するプレイヤー。',
     description:
-      '物事の本質を見抜き、最適な道筋を描くことに長けたタイプです。情報を集め、分析し、論理的に最善の戦略を組み立てる力があります。チームの頭脳として欠かせない存在です。',
+      '物事の本質を見て仕組みを作ることが得意です。分析力や構造理解が強み。',
     fit: 'Singではマーケティング・事業設計・戦略分野で活躍できます。',
   },
   C: {
     type: 'リーダータイプ',
     headline: 'あなたは仲間を導くプレイヤー。',
     description:
-      '人の気持ちに寄り添い、チーム全体を最高の状態に導くことができるタイプです。一人ひとりの強みを引き出し、組織としての力を最大化する才能を持っています。',
+      '人の強みを引き出しチームを前に進める力があります。人の成長を見ることがあなたの喜びです。',
     fit: 'Singでは組織づくり・教育・マネジメントで力を発揮できます。',
   },
 }
@@ -220,7 +220,7 @@ export default function CharactersPage() {
               className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6"
               style={serifStyle}
             >
-              WHO WE NEED
+              WHO WE ARE LOOKING FOR
             </h1>
           </FadeInUp>
 

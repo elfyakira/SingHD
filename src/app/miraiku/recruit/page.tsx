@@ -142,16 +142,6 @@ export default function RecruitTopPage() {
           </FadeInUp>
 
           <FadeInUp delay={200}>
-            <p className="text-gray-700 leading-loose text-sm md:text-base mb-8">
-              誰かに決められたルートを歩くのではなく、
-              <br />
-              自分の意思で選び、自分の足で進む。
-              <br />
-              そんな生き方をしている人は、どれくらいいるでしょうか。
-            </p>
-          </FadeInUp>
-
-          <FadeInUp delay={300}>
             <p className="text-gray-700 leading-loose text-sm md:text-base mb-12">
               Singホールディングスは
               <br />

@@ -46,49 +46,71 @@ export default function BrandStoryPage() {
         <div className="max-w-3xl mx-auto">
           <FadeInUp>
             <p className="text-gray-700 leading-loose text-sm md:text-base mb-10">
-              人生は、ゲームに例えるとRPGのようなものかもしれません。
+              人生は、ゲームに例えると
+              <br />
+              とてもよくできたRPGのようなものだと思っています。
             </p>
           </FadeInUp>
 
           <FadeInUp delay={100}>
             <p className="text-gray-700 leading-loose text-sm md:text-base mb-10">
-              敵に出会い、経験値を得る。
+              何も持たない状態から始まり、
               <br />
-              装備を整え、レベルを上げる。
+              敵と戦いながら経験を積み、
               <br />
-              仲間と出会い、時に別れながら、
+              お金を貯めて装備を整え、
               <br />
-              自分だけの物語を紡いでいく。
+              少しずつ強くなっていく。
+              <br />
+              経験値を積み重ねてレベルを上げ、
+              <br />
+              自分自身を成長させながら
+              <br />
+              最終目的へと進んでいく。
+              <br />
+              まるでRPGの主人公のように。
             </p>
           </FadeInUp>
 
           <FadeInUp delay={100}>
             <p className="text-gray-700 leading-loose text-sm md:text-base mb-10">
-              でも、人生もRPGもただ「ラスボスを倒すこと」だけが目的ではありません。
+              でも、人生もRPGも
+              <br />
+              ただ「ラスボスを倒すこと」だけが目的ではありません。
+              <br />
+              その道の途中には
+              <br />
+              たくさんの物語があります。
+              <br />
+              かけがえのない仲間との出会い。
+              <br />
+              思いがけないチャンス。
+              <br />
+              時には信じられない裏切り。
             </p>
           </FadeInUp>
 
           <FadeInUp delay={100}>
             <p className="text-gray-700 leading-loose text-sm md:text-base mb-10">
-              道中で出会う仲間との絆。
+              そして、
               <br />
-              見知らぬ街で触れる新しい価値観。
+              どうしても乗り越えられないと思えるほどの
               <br />
-              何度も倒れて、それでも立ち上がった先に見える景色。
+              高い壁。
+              <br />
+              しかし不思議なことに、
+              <br />
+              人はその壁を乗り越えた時、
+              <br />
+              確実に成長しています。
             </p>
           </FadeInUp>
 
           <FadeInUp delay={100}>
             <p className="text-gray-700 leading-loose text-sm md:text-base mb-10">
-              旅の途中で得たものこそが、
+              ここで少しだけ、
               <br />
-              あなたの物語を、唯一無二のものにしてくれるのです。
-            </p>
-          </FadeInUp>
-
-          <FadeInUp delay={100}>
-            <p className="text-gray-700 leading-loose text-sm md:text-base mb-10">
-              でも、ふと立ち止まって考えてみてください。
+              自分自身に問いかけてみてください。
             </p>
           </FadeInUp>
 
@@ -103,47 +125,101 @@ export default function BrandStoryPage() {
 
           <FadeInUp delay={100}>
             <p className="text-gray-700 leading-loose text-sm md:text-base mb-10">
-              誰かが描いたシナリオを、ただなぞっているだけじゃないか。
+              本当はもっと挑戦できる。
               <br />
-              「安定」という名の村から、一歩も外に出ていないんじゃないか。
+              本当はもっと成長できる。
               <br />
-              本当はもっと先に進みたいのに、怖くて動けなくなっていないか。
+              そんな可能性があるのに、
+              <br />
+              どこかで目を逸らしてしまっていないだろうか。
             </p>
           </FadeInUp>
 
           <FadeInUp delay={100}>
             <p className="text-gray-700 leading-loose text-sm md:text-base mb-10">
-              RPGの主人公は途中で逃げません。
+              でも、RPGの主人公は
               <br />
-              強い敵にも、理不尽な壁にも、正面からぶつかっていく。
+              途中で逃げません。
               <br />
-              それは「強い」からではありません。
+              諦めません。
               <br />
-              「諦めない」と決めたからです。
+              なぜなら、
+              <br />
+              彼が諦めたら
+              <br />
+              多くの人が困り、悲しむからです。
             </p>
           </FadeInUp>
 
           <FadeInUp delay={100}>
             <p className="text-gray-700 leading-loose text-sm md:text-base mb-10">
-              Singホールディングスは、
+              主人公は、
               <br />
-              そんなふうに自分の物語を本気で生きようとする人が集まる場所です。
+              自分のためだけに戦っているわけではありません。
+              <br />
+              仲間のため。
+              <br />
+              村の人のため。
+              <br />
+              世界のため。
+              <br />
+              誰かのために戦っている。
             </p>
           </FadeInUp>
 
           <FadeInUp delay={100}>
             <p className="text-gray-700 leading-loose text-sm md:text-base mb-10">
-              完璧じゃなくていい。
+              私たちは思っています。
               <br />
-              まだ何者でもなくていい。
+              仕事も、人生も、
               <br />
-              ただ、「このままで終わりたくない」と思っているなら。
+              本質は同じだと。
+              <br />
+              誰かのために挑戦する人がいるから
+              <br />
+              社会は前に進む。
+              <br />
+              誰かが諦めないから
+              <br />
+              未来は変わる。
+            </p>
+          </FadeInUp>
+
+          <FadeInUp delay={100}>
+            <p className="text-gray-700 leading-loose text-sm md:text-base mb-10">
+              だから私たちは、
+              <br />
+              ただ仕事をするだけの会社ではなく
+              <br />
+              「人生の主人公として挑戦する人」が集まる場所でありたい。
+            </p>
+          </FadeInUp>
+
+          <FadeInUp delay={100}>
+            <p className="text-gray-700 leading-loose text-sm md:text-base mb-10">
+              失敗することもあるでしょう。
+              <br />
+              壁にぶつかることもあるでしょう。
+              <br />
+              でも、そのすべてが
+              <br />
+              あなたのレベルを上げていく。
             </p>
           </FadeInUp>
 
           <FadeInUp delay={100}>
             <p className="text-gray-700 leading-loose text-sm md:text-base">
-              その気持ちこそが、冒険の始まりです。
+              人生は一度しかありません。
+              <br />
+              だからこそ、
+              <br />
+              ただ時間を過ごすのではなく
+              <br />
+              自分の物語を、自分の手でつくる。
+              <br />
+              私たちは、
+              <br />
+              そんな仲間と出会えることを楽しみにしています。
             </p>
           </FadeInUp>
         </div>
@@ -179,10 +255,7 @@ export default function BrandStoryPage() {
                   学びを得られる環境がある
                 </h3>
                 <p className="text-gray-600 text-sm leading-loose">
-                  RPGでも、経験値を得られるフィールドに出なければレベルは上がりません。
-                  Singには、挑戦する人を支える研修制度や、成長を後押しするプロジェクトが豊富にあります。
-                  日々の業務そのものが「経験値を積める冒険」になる。
-                  そんな環境が、ここにはあります。
+                  人生のレベルを上げるのは経験と学びです。新しい挑戦。失敗からの気づき。仲間との議論。そのすべてがあなたの経験値になります。Singでは、ただ仕事をこなすのではなく「成長すること」そのものを大切にしています。昨日よりも今日、今日よりも明日。少しずつでも自分のレベルが上がっている。そんな実感を持てる環境があります。
                 </p>
               </div>
             </FadeInUp>
@@ -196,11 +269,7 @@ export default function BrandStoryPage() {
                   一緒に寄り添ってくれる仲間がいる
                 </h3>
                 <p className="text-gray-600 text-sm leading-loose">
-                  RPGの主人公が一人では冒険を続けられないように、
-                  仕事もひとりでは乗り越えられない壁があります。
-                  Singには「一人にさせない」カルチャーがあります。
-                  困ったときに手を差し伸べてくれる先輩、一緒に悩んでくれる同期。
-                  あなたの冒険を、一緒に歩いてくれる仲間がいます。
+                  RPGの主人公は、一人では冒険を続けられません。苦しい時、迷った時、立ち止まりそうな時。隣に仲間がいるから前に進める。Singには、同じ方向を向いて挑戦する仲間がいます。競い合うだけではなく、支え合う関係。一人で戦わせない。それが私たちの文化です。
                 </p>
               </div>
             </FadeInUp>
@@ -214,11 +283,7 @@ export default function BrandStoryPage() {
                   違っても良い。短所を補う仲間がいる
                 </h3>
                 <p className="text-gray-600 text-sm leading-loose">
-                  RPGのパーティには、戦士も魔法使いも回復役もいます。
-                  全員が同じ能力を持つ必要はありません。
-                  Singでは、あなたの「得意」を活かし、「苦手」は仲間が補ってくれます。
-                  違いがあるからこそ、チームは強くなれる。
-                  あなたのままで、ここでは輝けます。
+                  人にはそれぞれ、得意なことと苦手なことがあります。完璧な人はいません。でも、違う人が集まることでチームは強くなる。誰かの弱さを誰かの強さが支える。それが仲間です。Singは、同じ人を集める会社ではありません。違うからこそ、強いチームになる。そう信じています。
                 </p>
               </div>
             </FadeInUp>
@@ -241,29 +306,60 @@ export default function BrandStoryPage() {
 
           <FadeInUp delay={100}>
             <p className="text-gray-700 leading-loose text-sm md:text-base mb-10">
-              ゲームの中では、何度だってやり直せます。
+              人生は、たった一度しかありません。
               <br />
-              でも、人生はたった一度きりです。
+              その人生を、ただ過ごして終わるのか。
+              <br />
+              それとも、自分の物語として生きるのか。
             </p>
           </FadeInUp>
 
           <FadeInUp delay={200}>
             <p className="text-gray-700 leading-loose text-sm md:text-base mb-10">
-              「あの時、踏み出しておけばよかった。」
+              もしあなたが
               <br />
-              そう後悔する前に、今、一歩を踏み出してみませんか。
+              「もっと成長したい」
+              <br />
+              「もっと挑戦したい」
+              <br />
+              「自分の可能性を試したい」
+              <br />
+              そう思っているなら。
+              <br />
+              その気持ちは
+              <br />
+              あなたの中にある
+              <br />
+              主人公の証拠です。
             </p>
           </FadeInUp>
 
           <FadeInUp delay={300}>
             <p className="text-gray-700 leading-loose text-sm md:text-base mb-10">
-              あなたの物語を、ここから始めましょう。
+              株式会社Singは
               <br />
-              Singホールディングスで、あなただけの冒険が待っています。
+              あなたの物語が始まる場所です。
+              <br />
+              ここで出会う仲間と、
+              <br />
+              ここで積み重ねる経験が、
+              <br />
+              きっとあなたの人生を
+              <br />
+              かけがえのない物語に変えていく。
             </p>
           </FadeInUp>
 
           <FadeInUp delay={400}>
+            <p
+              className="text-[#1C2A44] text-lg md:text-xl leading-loose mb-12 font-bold"
+              style={{ fontFamily: "'Times New Roman', 'Yu Mincho', serif" }}
+            >
+              さあ、次はあなたの番です。
+            </p>
+          </FadeInUp>
+
+          <FadeInUp delay={500}>
             <div className="text-center mt-16">
               <Link
                 href="/miraiku/recruit/founder"

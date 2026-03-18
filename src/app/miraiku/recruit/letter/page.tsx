@@ -48,39 +48,58 @@ export default function LetterPage() {
             <div className="bg-[#FAFAF5] border-2 border-[#2563EB]/20 rounded-2xl p-8 md:p-12 lg:p-16">
               <div className="border-l-4 border-[#2563EB] pl-6 md:pl-8">
                 <FadeInUp delay={100}>
-                  <p
-                    className="text-[#1C2A44] text-lg md:text-xl font-bold leading-loose mb-10"
-                    style={{
-                      fontFamily: "'Times New Roman', 'Yu Mincho', serif",
-                    }}
-                  >
-                    君たちへ
+                  <p className="text-gray-700 leading-[2] text-sm md:text-base mb-8">
+                    君たちが大きくなって、
+                    <br />
+                    もしこの文章を読むことがあったら
+                    <br />
+                    少しだけ聞いてほしい。
                   </p>
                 </FadeInUp>
 
                 <FadeInUp delay={200}>
                   <p className="text-gray-700 leading-[2] text-sm md:text-base mb-8">
-                    君たちが大きくなったとき、
+                    お父さんは、
                     <br />
-                    この手紙を読んでくれているでしょうか。
+                    最初から立派な大人だったわけじゃない。
+                    <br />
+                    学生の頃は
+                    <br />
+                    やりたいこともなかった。
+                    <br />
+                    学校に行く意味も
+                    <br />
+                    よく分からなかった。
+                    <br />
+                    ただ時間を消化して
+                    <br />
+                    毎日を過ごしていた。
                   </p>
                 </FadeInUp>
 
                 <FadeInUp delay={200}>
                   <p className="text-gray-700 leading-[2] text-sm md:text-base mb-8">
-                    パパはね、君たちが生まれてきてくれた日のことを
+                    今思えば、
                     <br />
-                    今でもはっきりと覚えています。
+                    人生を大切に使っていたとは
+                    <br />
+                    言えない時間だったと思う。
                   </p>
                 </FadeInUp>
 
                 <FadeInUp delay={200}>
                   <p className="text-gray-700 leading-[2] text-sm md:text-base mb-8">
-                    小さな手で、パパの指をぎゅっと握ってくれたあの瞬間。
+                    社会人になってからも
                     <br />
-                    「この子のために、何かを残したい。」
+                    最初は同じだった。
                     <br />
-                    そう思いました。
+                    働く理由は
+                    <br />
+                    ただお金を稼ぐため。
+                    <br />
+                    決められたレールの上を
+                    <br />
+                    歩いていただけだった。
                   </p>
                 </FadeInUp>
 
@@ -90,39 +109,51 @@ export default function LetterPage() {
 
                 <FadeInUp delay={200}>
                   <p className="text-gray-700 leading-[2] text-sm md:text-base mb-8">
-                    パパは昔、特に何もない普通の人間でした。
+                    でもね、
                     <br />
-                    夢もなく、目標もなく、ただなんとなく毎日を過ごしていた。
+                    人生には不思議な瞬間がある。
+                    <br />
+                    自分が逃げたくなった時、
+                    <br />
+                    立ち止まりそうになった時、
+                    <br />
+                    「もう一度やらなきゃ」
+                    <br />
+                    そう思わせてくれる
+                    <br />
+                    存在に出会う瞬間がある。
                   </p>
                 </FadeInUp>
 
                 <FadeInUp delay={200}>
                   <p className="text-gray-700 leading-[2] text-sm md:text-base mb-8">
-                    でも、君たちが生まれてきてくれたことで、変わりました。
+                    お父さんにとって
+                    <br />
+                    それが君たちだった。
                   </p>
                 </FadeInUp>
 
                 <FadeInUp delay={200}>
                   <p className="text-gray-700 leading-[2] text-sm md:text-base mb-8">
-                    「この子たちが大人になったとき、
+                    君たちが生まれた時、
                     <br />
-                    胸を張って生きられる社会を作りたい。」
-                  </p>
-                </FadeInUp>
-
-                <FadeInUp delay={200}>
-                  <p className="text-gray-700 leading-[2] text-sm md:text-base mb-8">
-                    「大人って楽しそうだな」
+                    ふと思ったんだ。
                     <br />
-                    「早く大人になりたいな」
+                    この子たちが
                     <br />
-                    そう思ってもらえるような社会にしたい。
-                  </p>
-                </FadeInUp>
-
-                <FadeInUp delay={200}>
-                  <p className="text-gray-700 leading-[2] text-sm md:text-base mb-8">
-                    それがパパの、この会社を作った理由です。
+                    大人になった時、
+                    <br />
+                    「やりたいことがある」
+                    <br />
+                    そう思ったら
+                    <br />
+                    それを喜んで選べる人生であってほしい。
+                    <br />
+                    諦める人生じゃなくて、
+                    <br />
+                    挑戦できる人生であってほしい。
+                    <br />
+                    そう思った。
                   </p>
                 </FadeInUp>
 
@@ -132,36 +163,109 @@ export default function LetterPage() {
 
                 <FadeInUp delay={200}>
                   <p className="text-gray-700 leading-[2] text-sm md:text-base mb-8">
-                    君たちがこの手紙を読んでいるころ、
+                    でも、
                     <br />
-                    パパはまだ走り続けているかもしれません。
+                    世の中を見ていると
+                    <br />
+                    それができない子供たちが
+                    <br />
+                    たくさんいることに気づいた。
+                    <br />
+                    家庭環境や
+                    <br />
+                    経済的な理由で
+                    <br />
+                    夢を持つ前に
+                    <br />
+                    諦めてしまう子供たち。
+                    <br />
+                    本当は
+                    <br />
+                    もっと可能性があるのに。
                   </p>
                 </FadeInUp>
 
                 <FadeInUp delay={200}>
                   <p className="text-gray-700 leading-[2] text-sm md:text-base mb-8">
-                    もしかしたら、つまずいて転んでいるかもしれません。
+                    その時に思った。
                     <br />
-                    でも、きっと立ち上がって、また前を向いているはずです。
+                    自分の子供だけが
+                    <br />
+                    幸せになればいいのか。
+                    <br />
+                    そうじゃない。
+                    <br />
+                    今を生きている大人が
+                    <br />
+                    未来の子供たちのために
+                    <br />
+                    何かをしなければいけない。
                   </p>
                 </FadeInUp>
 
                 <FadeInUp delay={200}>
                   <p className="text-gray-700 leading-[2] text-sm md:text-base mb-8">
-                    なぜなら、君たちがいるから。
+                    だからお父さんは
                     <br />
-                    君たちの未来を、少しでも明るくしたいから。
+                    この会社を作った。
+                    <br />
+                    大きなことは
+                    <br />
+                    まだできないかもしれない。
+                    <br />
+                    でも、
+                    <br />
+                    胸を張って生きる大人
+                    <br />
+                    挑戦する大人
+                    <br />
+                    人のために動く大人
+                    <br />
+                    そんな人たちを
+                    <br />
+                    一人でも増やしたいと思った。
                   </p>
                 </FadeInUp>
 
                 <FadeInUp delay={200}>
-                  <p
-                    className="text-[#1C2A44] text-base md:text-lg leading-[2] mb-8"
-                    style={{
-                      fontFamily: "'Times New Roman', 'Yu Mincho', serif",
-                    }}
-                  >
-                    君たちへ伝えたいことは、たったひとつです。
+                  <div className="w-12 h-px bg-gray-300 my-12" />
+                </FadeInUp>
+
+                <FadeInUp delay={200}>
+                  <p className="text-gray-700 leading-[2] text-sm md:text-base mb-8">
+                    もし君たちが
+                    <br />
+                    大人になった時、
+                    <br />
+                    お父さんの背中を見て
+                    <br />
+                    「大人ってかっこいいな」
+                    <br />
+                    そう思ってくれたら
+                    <br />
+                    それだけで嬉しい。
+                  </p>
+                </FadeInUp>
+
+                <FadeInUp delay={200}>
+                  <p className="text-gray-700 leading-[2] text-sm md:text-base mb-8">
+                    人生は一度しかない。
+                    <br />
+                    だから
+                    <br />
+                    誰かに言われた人生じゃなく
+                    <br />
+                    自分が選んだ人生を生きてほしい。
+                  </p>
+                </FadeInUp>
+
+                <FadeInUp delay={200}>
+                  <p className="text-gray-700 leading-[2] text-sm md:text-base mb-8">
+                    そしてもし
+                    <br />
+                    君たちが迷った時は
+                    <br />
+                    これだけ覚えていてほしい。
                   </p>
                 </FadeInUp>
 
@@ -172,39 +276,39 @@ export default function LetterPage() {
                       fontFamily: "'Times New Roman', 'Yu Mincho', serif",
                     }}
                   >
-                    自分の人生を、自分で歌ってほしい。
+                    人は何度でも立ち上がれる。
                   </p>
                 </FadeInUp>
 
                 <FadeInUp delay={200}>
                   <p className="text-gray-700 leading-[2] text-sm md:text-base mb-8">
-                    誰かに決められた道ではなく、
+                    お父さんも
                     <br />
-                    自分が選んだ道を歩いてほしい。
+                    何度も失敗して
+                    <br />
+                    何度も悩んできた。
+                    <br />
+                    でもその度に
+                    <br />
+                    また立ち上がってきた。
                   </p>
                 </FadeInUp>
 
                 <FadeInUp delay={200}>
                   <p className="text-gray-700 leading-[2] text-sm md:text-base mb-8">
-                    たとえ失敗しても、遠回りしても、
+                    だから君たちも
                     <br />
-                    「自分で選んだ」と胸を張れる人生を歩んでほしい。
+                    きっと大丈夫だ。
                   </p>
                 </FadeInUp>
 
                 <FadeInUp delay={200}>
-                  <p className="text-gray-700 leading-[2] text-sm md:text-base mb-8">
-                    パパは、そんな君たちのことを
+                  <p className="text-gray-700 leading-[2] text-sm md:text-base">
+                    いつか君たちが
                     <br />
-                    いつだって応援しています。
-                  </p>
-                </FadeInUp>
-
-                <FadeInUp delay={200}>
-                  <p className="text-gray-500 text-sm leading-[2] mt-12 text-right">
-                    大好きな君たちへ
+                    自分の人生を胸を張って歩いている姿を
                     <br />
-                    パパより
+                    楽しみにしています。
                   </p>
                 </FadeInUp>
               </div>
@@ -230,46 +334,50 @@ export default function LetterPage() {
 
           <FadeInUp delay={100}>
             <p className="text-gray-700 leading-[2] text-sm md:text-base mb-8">
-              この手紙は、私の子供たちに宛てたものです。
+              この手紙は
               <br />
-              でも、今これを読んでいるあなたにも、伝えたいことがあります。
+              子供たちに向けて書いたものですが、
+              <br />
+              実は
+              <br />
+              未来の仲間に向けた手紙でもあります。
             </p>
           </FadeInUp>
 
           <FadeInUp delay={200}>
             <p className="text-gray-700 leading-[2] text-sm md:text-base mb-8">
-              私がこの会社を作ったのは、
+              もしあなたが
               <br />
-              子供たちに「大人って楽しそうだな」と思ってもらえる社会を作りたかったから。
+              胸を張って生きたい
+              <br />
+              挑戦する人生を歩みたい
+              <br />
+              誰かの未来を良くしたい
+              <br />
+              そう思うなら
             </p>
           </FadeInUp>
 
           <FadeInUp delay={300}>
             <p className="text-gray-700 leading-[2] text-sm md:text-base mb-8">
-              そのためには、まず大人である私たち自身が
+              私たちは
               <br />
-              本気で人生を楽しみ、本気で挑戦し続けなければなりません。
+              同じ冒険をしている仲間かもしれません。
             </p>
           </FadeInUp>
 
           <FadeInUp delay={400}>
-            <p className="text-gray-700 leading-[2] text-sm md:text-base mb-8">
-              あなたがもし、「自分の人生をもっと本気で生きたい」と思っているなら。
-              <br />
-              「子供たちに誇れるような大人になりたい」と思っているなら。
-            </p>
-          </FadeInUp>
-
-          <FadeInUp delay={500}>
             <p
               className="text-[#1C2A44] text-base md:text-lg leading-[2] mb-12"
               style={{ fontFamily: "'Times New Roman', 'Yu Mincho', serif" }}
             >
-              この冒険を、一緒に歩みませんか。
+              この物語の続きは、
+              <br />
+              あなたと一緒に作っていきたい。
             </p>
           </FadeInUp>
 
-          <FadeInUp delay={600}>
+          <FadeInUp delay={500}>
             <div className="text-center">
               <Link
                 href="/miraiku/recruit/sing-name"

@@ -96,43 +96,33 @@ export default function LastBossPage() {
 
           <FadeInUp delay={100}>
             <p className="text-gray-700 leading-loose text-sm md:text-base mb-8">
-              かつて日本には挑戦する大人がたくさんいました。
+              昔の日本には
               <br />
-              新しい事業を起こす人。
+              もっと多くの挑戦がありました。
               <br />
-              海外に飛び出す人。
+              新しい会社を作る人。
               <br />
-              未知の分野に飛び込む人。
+              新しい仕事に挑戦する人。
+              <br />
+              自分の人生を自分で決める人。
             </p>
           </FadeInUp>
 
           <FadeInUp delay={100}>
             <p className="text-gray-700 leading-loose text-sm md:text-base mb-8">
-              でも今どうでしょうか。
+              しかし今
               <br />
-              「安定した仕事に就きなさい」
+              安定を選ぶ人が増え
               <br />
-              「リスクは取らない方がいい」
+              挑戦する人は減っています。
               <br />
-              「失敗したらどうするの」
-            </p>
-          </FadeInUp>
-
-          <FadeInUp delay={100}>
-            <p className="text-gray-700 leading-loose text-sm md:text-base mb-8">
-              そんな言葉が当たり前のように飛び交う社会になりました。
+              それは
               <br />
-              挑戦することがリスクとして語られ
+              個人の問題ではありません。
               <br />
-              現状維持が正解とされる空気が広がっています。
-            </p>
-          </FadeInUp>
-
-          <FadeInUp delay={100}>
-            <p className="text-gray-700 leading-loose text-sm md:text-base">
-              その結果、多くの人が本当にやりたいことを封じ込め
+              社会の構造が
               <br />
-              「まあこれでいいか」と自分の人生を妥協するようになりました。
+              そうさせているのです。
             </p>
           </FadeInUp>
         </div>
@@ -230,37 +220,39 @@ export default function LastBossPage() {
 
           <FadeInUp delay={100}>
             <p className="text-gray-700 leading-loose text-sm md:text-base mb-8">
-              政治家が変えてくれるのを待ちますか？
+              では、この状況を
               <br />
-              大企業が解決してくれるのを待ちますか？
+              誰が変えるのでしょうか。
               <br />
-              誰かがやってくれるのを待ちますか？
-            </p>
-          </FadeInUp>
-
-          <FadeInUp delay={100}>
-            <p className="text-gray-700 leading-loose text-sm md:text-base mb-8">
-              私たちはそう思いません。
+              政治でしょうか。
               <br />
-              社会を変えるのは一人ひとりの行動です。
+              制度でしょうか。
               <br />
-              一人の人間が挑戦する姿が
+              もちろんそれも必要です。
               <br />
-              周りの人に勇気を与え
+              しかし歴史を振り返れば
               <br />
-              その連鎖が社会を変えていく。
+              社会を変えてきたのは
+              <br />
+              いつの時代も
+              <br />
+              挑戦する人たちでした。
             </p>
           </FadeInUp>
 
           <FadeInUp delay={100}>
             <p className="text-gray-700 leading-loose text-sm md:text-base">
-              だから私たちは自ら行動します。
+              新しい会社を作る人。
               <br />
-              誰かが変えてくれるのを待つのではなく
+              新しい仕事を生み出す人。
               <br />
-              自分たちの手でこの社会を変えていく。
+              誰もやっていないことに
               <br />
-              それがSingの存在意義です。
+              踏み出す人。
+              <br />
+              その一歩が
+              <br />
+              社会を変えてきました。
             </p>
           </FadeInUp>
         </div>
@@ -283,33 +275,35 @@ export default function LastBossPage() {
 
           <FadeInUp delay={100}>
             <p className="text-gray-700 leading-loose text-sm md:text-base mb-8">
-              Singは「人生を歌える社会をつくる」ことを掲げています。
+              私たちがやっているのは
               <br />
-              それは理想論ではありません。
+              単なる事業ではありません。
               <br />
-              私たちが日々の仕事を通じて実現していく現実です。
+              挑戦できる社会を作ること。
             </p>
           </FadeInUp>
 
           <FadeInUp delay={100}>
             <p className="text-gray-700 leading-loose text-sm md:text-base mb-8">
-              ミライクという事業を通じて
+              若者が
               <br />
-              子どもたちに挑戦の場を届ける。
+              夢を語れる社会。
               <br />
-              働く大人たちが誇りを持てる仕事をつくる。
+              子どもたちが
               <br />
-              挑戦する人が応援される社会をつくる。
+              選択肢を持てる社会。
+              <br />
+              大人が
+              <br />
+              胸を張って生きられる社会。
             </p>
           </FadeInUp>
 
           <FadeInUp delay={100}>
             <p className="text-gray-700 leading-loose text-sm md:text-base">
-              一つひとつは小さな一歩かもしれません。
+              その社会を
               <br />
-              でもその一歩が積み重なれば
-              <br />
-              必ず社会は変わると信じています。
+              本気で作ろうとしています。
             </p>
           </FadeInUp>
         </div>
