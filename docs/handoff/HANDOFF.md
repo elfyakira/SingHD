@@ -145,6 +145,33 @@ Phase 04 — 冒険に出る
 - [ ] エントリーページのべた塗、レイアウト、ビジュ改善
 - [ ] 応募までの導線をもっと近くに（伝えたいことを伝えつつ、コンバージョンしやすいようにする）
 
+#### URL構造の変更（/miraiku/recruit → /recruit）
+- [ ] `/miraiku/recruit/` → `/recruit/` にURL階層を短縮する
+- **理由**: URLの深度が深くなるだけでメリットがない。miraikuは社内ブランド区分であって訪問者には無関係
+- **⚠ 作業するセッションは必ず自分でも影響範囲を自分でしっかりと確認すること。一括で修正するとどこか壊れる可能性があるため、事前の調査・操作、プロジェクト「全体」の影響をしっかりと把握しておくこと**
+- **影響範囲（合計102箇所・14ファイル）**:
+
+| カテゴリ | ファイル | 箇所数 | 内容 |
+|---------|--------|-------|------|
+| ディレクトリ移動 | `src/app/miraiku/recruit/` | — | フォルダごと `src/app/recruit/` に移動（12ページ分） |
+| データ | `src/data/recruit-chapters.ts` | 14 | 全chapterのhrefリンク |
+| ヘッダー | `src/components/recruit/RecruitHeader.tsx` | 21 | デスクトップ+モバイルの全ナビリンク |
+| CTA | `src/components/recruit/RecruitCTA.tsx` | 1 | フロートボタンのhref |
+| 固定メニュー | `src/components/recruit/RecruitFixedMenu.tsx` | 2 | メニュー3,4のhref |
+| 共通CTA | `src/components/layout/FixedCTA.tsx` | 1 | `pathname.startsWith()` のパス判定 |
+| レイアウト | `src/app/miraiku/recruit/layout.tsx` | 1 | canonical URL |
+| TOPページ | `src/app/miraiku/recruit/page.tsx` | 6 | CTA・ストーリーカード等のhref |
+| 冒険診断 | `src/app/miraiku/recruit/diagnosis/page.tsx` | 2 | シェアURL（本番ドメイン含む）+ CTA href |
+| About | `src/app/miraiku/recruit/about/page.tsx` | 1 | mission誘導リンク |
+| characters | `src/app/miraiku/recruit/characters/page.tsx` | 2 | 診断誘導・CTA href |
+| adventure-map | `src/app/miraiku/recruit/adventure-map/page.tsx` | 1 | CTA href |
+| mission | `src/app/miraiku/recruit/mission/page.tsx` | 1 | CTA href |
+| HANDOFF | `docs/handoff/HANDOFF.md` | 35 | ドキュメント内のURL参照 |
+| SEO手順書 | `docs/インデックス登録リクエスト手順書.md` | 14 | Google Search Console登録URL |
+
+- **追加で必要な作業**:
+  - OGP・canonical URLの更新確認
+
 #### 全体設計
 - [ ] 全体的に「読み物」要素が強いので、それをいかに導線通りに読ませていくか、「半教材の視点」。そしてそこにレベルアップの要素、読めば読むほどレベルが上がってるような感覚になる仕掛け
 - [ ] 各CHAPTER間の導線、カスタマージャーニー改善
