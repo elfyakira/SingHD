@@ -49,7 +49,7 @@ export default function RecruitTopPage() {
       <RecruitHeader />
 
       {/* ===== Full-screen Hero ===== */}
-      <section className="relative h-screen flex items-center justify-center overflow-hidden bg-gray-800/50">
+      <section className="relative h-screen flex items-center justify-center overflow-hidden bg-gray-800/60">
         <div className="relative z-10 text-center px-4">
           <FadeInUp>
             <p className="text-xs tracking-[0.4em] uppercase text-white/70 mb-8">
