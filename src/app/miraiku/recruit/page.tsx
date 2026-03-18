@@ -7,27 +7,57 @@ import RecruitCTA from '@/components/recruit/RecruitCTA'
 import FadeInUp from '@/components/animations/FadeInUp'
 import { recruitChapters } from '@/data/recruit-chapters'
 
+// 冒険の地図上で表示するタイトル（ターゲット目線）
+const mapTitles: Record<string, string> = {
+  'brand-story': '人生というRPG',
+  founder: 'この会社を作った理由',
+  letter: '子供たちへの手紙',
+  'sing-name': 'Singという名前',
+  mission: '私たちの目指す世界',
+  'last-boss': 'ラスボス',
+  'adventure-map': '冒険マップ',
+  characters: '冒険者タイプ',
+  oath: '冒険者の誓い',
+  message: '未来の仲間へ',
+  jobs: '冒険への参加方法',
+}
+
 const chapterDescriptions: Record<string, string> = {
   'brand-story': '人生は、ゲームに似ている。',
-  founder: '私がこの冒険を始めた理由',
+  founder: '社長はなぜこの会社を作ったのか',
   letter: '君たちが大きくなって...',
   'sing-name': 'なぜこの会社は「Sing」なのか',
   mission: '人生を歌える社会をつくる',
   'last-boss': '挑戦が減り続ける社会',
   'adventure-map': 'あなたのレベルアップの旅',
-  characters: 'RPGタイプ採用',
+  characters: 'あなたはどのタイプ？',
   oath: 'Singで働く仲間の約束',
-  'story-watanabe': '挑戦者のリアルな成長',
-  'story-iida': '挑戦者のリアルな成長',
   message: '社長から未来の仲間へ',
   jobs: 'あなたの冒険を始めよう',
 }
 
 const phaseConfig = [
-  { phase: 'hook' as const, label: 'CHAPTER 1-2', sublabel: '感情を動かす' },
-  { phase: 'empathy' as const, label: 'CHAPTER 3-6', sublabel: '共感' },
-  { phase: 'growth' as const, label: 'CHAPTER 7-10', sublabel: '成長イメージ' },
-  { phase: 'apply' as const, label: 'CHAPTER 11-13', sublabel: '応募' },
+  { phase: 'hook' as const, number: '01', label: '物語のはじまり', color: '#EF4444' },
+  { phase: 'empathy' as const, number: '02', label: 'なぜ冒険するのか', color: '#F59E0B' },
+  { phase: 'growth' as const, number: '03', label: '冒険の世界', color: '#10B981' },
+  { phase: 'apply' as const, number: '04', label: '冒険に出る', color: '#2563EB' },
+]
+
+const challengerStories = [
+  {
+    name: '渡邉 大輝',
+    company: '株式会社Sing.nexT',
+    role: '代表取締役',
+    tagline: '覚悟が固まるのを待つ人生は、もうやめた。',
+    href: '/miraiku/recruit/stories/watanabe',
+  },
+  {
+    name: '飯田 思遠',
+    company: '株式会社ゆめスタ',
+    role: '代表取締役',
+    tagline: '自分の意思で未来を選び続ける',
+    href: '/miraiku/recruit/stories/iida',
+  },
 ]
 
 export default function RecruitTopPage() {
@@ -41,7 +71,193 @@ export default function RecruitTopPage() {
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
-  const chaptersWithoutTop = recruitChapters.filter((c) => c.id !== 'top')
+  const allChapters = recruitChapters.filter(
+    (c) => c.id !== 'top' && c.id !== 'story-watanabe' && c.id !== 'story-iida'
+  )
+  const ch = (id: string) => allChapters.find((c) => c.id === id)!
+
+  /* ---- カード描画ヘルパー ---- */
+
+  // 横長カード（中央揃え・左右余白あり・パノラミック）
+  const wideCard = (id: string, color: string) => {
+    const c = ch(id)
+    return (
+      <div className="max-w-2xl mx-auto">
+        <Link href={c.href} className="group block">
+          <div className="bg-white/90 backdrop-blur-sm rounded-xl overflow-hidden border border-white/20 hover:shadow-lg hover:shadow-white/5 transition-all duration-300">
+            {/* 画像 — /img/recruit/chapters/{id}.jpg */}
+            <div
+              className="aspect-[16/5] relative"
+              style={{
+                background: `linear-gradient(135deg, ${color}18, ${color}08)`,
+              }}
+            >
+              <span
+                className="absolute bottom-2 right-3 text-4xl font-black opacity-[0.06]"
+                style={{ color }}
+              >
+                {c.number}
+              </span>
+            </div>
+            <div className="px-5 py-4">
+              <div className="flex items-center gap-2 mb-1">
+                <span className="text-xs font-bold" style={{ color }}>
+                  {c.number}
+                </span>
+                <span className="text-[10px] tracking-widest text-gray-400">
+                  {c.titleEn}
+                </span>
+              </div>
+              <p className="text-sm font-bold text-[#1C2A44] group-hover:text-[#2563EB] transition-colors">
+                {mapTitles[c.id] || c.title}
+              </p>
+              <p className="text-xs text-gray-500 mt-1 leading-relaxed">
+                {chapterDescriptions[c.id] || ''}
+              </p>
+            </div>
+          </div>
+        </Link>
+      </div>
+    )
+  }
+
+  // 正方形カード（カード自体が正方形）
+  const squareCard = (id: string, color: string) => {
+    const c = ch(id)
+    return (
+      <Link href={c.href} className="group">
+        <div className="aspect-square bg-white/90 backdrop-blur-sm rounded-xl overflow-hidden border border-white/20 hover:shadow-lg hover:shadow-white/5 transition-all duration-300 flex flex-col">
+          {/* 画像 — /img/recruit/chapters/{id}.jpg */}
+          <div
+            className="flex-1 relative"
+            style={{
+              background: `linear-gradient(135deg, ${color}18, ${color}08)`,
+            }}
+          >
+            <span
+              className="absolute bottom-3 right-4 text-4xl font-black opacity-[0.06]"
+              style={{ color }}
+            >
+              {c.number}
+            </span>
+          </div>
+          <div className="p-4">
+            <p className="text-sm font-bold text-[#1C2A44] group-hover:text-[#2563EB] transition-colors">
+              {mapTitles[c.id] || c.title}
+            </p>
+            <p className="text-xs text-gray-500 mt-1">
+              {chapterDescriptions[c.id] || ''}
+            </p>
+          </div>
+        </div>
+      </Link>
+    )
+  }
+
+  // 挑戦者ストーリーカード（正方形）
+  const storyCard = (story: (typeof challengerStories)[number]) => (
+    <Link href={story.href} className="group">
+      <div className="aspect-square bg-white/95 backdrop-blur-sm rounded-xl overflow-hidden border-2 border-[#2563EB]/20 hover:border-[#2563EB]/40 hover:shadow-lg hover:shadow-[#2563EB]/10 transition-all duration-300 flex flex-col">
+        {/* 人物写真 — /img/recruit/stories/{name}.jpg */}
+        <div className="flex-1 relative bg-gradient-to-br from-[#2563EB]/12 to-[#10B981]/08">
+          <div className="absolute top-3 left-4">
+            <span className="text-[10px] tracking-widest text-[#2563EB] font-bold bg-white/80 backdrop-blur-sm px-2 py-1 rounded">
+              CHALLENGER STORY
+            </span>
+          </div>
+        </div>
+        <div className="p-4">
+          <p className="text-base font-bold text-[#1C2A44] group-hover:text-[#2563EB] transition-colors">
+            {story.name}
+          </p>
+          <p className="text-xs text-gray-500 mt-0.5">
+            {story.company} {story.role}
+          </p>
+          <p
+            className="text-sm text-[#1C2A44] mt-3"
+            style={{ fontFamily: "'Yu Mincho', serif" }}
+          >
+            「{story.tagline}」
+          </p>
+          <div className="flex items-center gap-2 mt-4">
+            <span className="text-[10px] text-gray-400 flex-shrink-0">
+              LEVEL 1
+            </span>
+            <div className="flex-1 h-1.5 bg-gray-200 rounded-full overflow-hidden">
+              <div className="h-full w-4/5 bg-gradient-to-r from-[#2563EB] to-[#10B981] rounded-full" />
+            </div>
+            <span className="text-[10px] text-[#10B981] font-bold flex-shrink-0">
+              LEVEL 80+
+            </span>
+          </div>
+        </div>
+      </div>
+    </Link>
+  )
+
+  // フェーズマイルストーン
+  const milestone = (pc: (typeof phaseConfig)[number]) => (
+    <div className="flex justify-center relative z-10">
+      <div
+        className="flex items-center gap-4 px-6 py-3 rounded-2xl border"
+        style={{
+          backgroundColor: `${pc.color}40`,
+          borderColor: `${pc.color}40`,
+        }}
+      >
+        <div
+          className="w-11 h-11 rounded-full flex items-center justify-center text-white text-xs font-bold flex-shrink-0"
+          style={{
+            backgroundColor: pc.color,
+            boxShadow: `0 0 24px ${pc.color}50`,
+          }}
+        >
+          {pc.number}
+        </div>
+        <div>
+          <p
+            className="text-[10px] tracking-[0.3em] uppercase font-bold"
+            style={{ color: pc.color }}
+          >
+            PHASE {pc.number}
+          </p>
+          <p className="text-sm font-bold text-white">{pc.label}</p>
+        </div>
+      </div>
+    </div>
+  )
+
+  // フェーズ間コネクター
+  const connector = (_fromColor: string, toColor: string) => (
+    <div className="flex justify-center py-8">
+      <div
+        className="w-0.5 h-16"
+        style={{ backgroundColor: `${toColor}40` }}
+      />
+    </div>
+  )
+
+  // フェーズ内コネクター（単色）
+  const line = (color: string) => (
+    <div className="flex justify-center py-6">
+      <div
+        className="w-0.5 h-12"
+        style={{ backgroundColor: `${color}40` }}
+      />
+    </div>
+  )
+
+  // セクションタイトル
+  const sectionTitle = (text: string) => (
+    <div className="text-center pt-6">
+      <p
+        className="text-lg font-bold text-white"
+        style={{ fontFamily: "'Times New Roman', 'Yu Mincho', serif" }}
+      >
+        {text}
+      </p>
+    </div>
+  )
 
   return (
     <div className="min-h-screen text-[#1C2A44]">
@@ -162,17 +378,23 @@ export default function RecruitTopPage() {
         </div>
       </section>
 
-      {/* ===== Chapter Map ===== */}
-      <section className="py-20 lg:py-32 px-4 bg-gray-800/50">
+      {/* ===== Adventure Map ===== */}
+      <section
+        id="adventure-map"
+        className="py-20 lg:py-32 px-4 bg-gray-800/50"
+      >
         <div className="max-w-5xl mx-auto">
+          {/* Section Header */}
           <FadeInUp>
-            <div className="text-center mb-16">
-              <p className="text-xs tracking-[0.4em] uppercase text-gray-500 mb-4">
+            <div className="text-center mb-20">
+              <p className="text-xs tracking-[0.4em] uppercase text-gray-300 mb-4">
                 Adventure Map
               </p>
               <h2
-                className="text-3xl md:text-4xl font-bold text-[#1C2A44] mb-4"
-                style={{ fontFamily: "'Times New Roman', 'Yu Mincho', serif" }}
+                className="text-3xl md:text-4xl font-bold text-white mb-4"
+                style={{
+                  fontFamily: "'Times New Roman', 'Yu Mincho', serif",
+                }}
               >
                 冒険の地図
               </h2>
@@ -180,49 +402,124 @@ export default function RecruitTopPage() {
             </div>
           </FadeInUp>
 
-          <div className="space-y-16">
-            {phaseConfig.map((pc, phaseIdx) => {
-              const chapters = chaptersWithoutTop.filter(
-                (c) => c.phase === pc.phase
-              )
-              if (chapters.length === 0) return null
-              return (
-                <FadeInUp key={pc.phase} delay={phaseIdx * 100}>
-                  <div>
-                    <div className="flex items-center gap-4 mb-6">
-                      <span className="text-[10px] tracking-[0.3em] uppercase text-[#2563EB]">
-                        {pc.label}
-                      </span>
-                      <div className="flex-1 h-px bg-gray-200" />
-                    </div>
+          {/* Map — コネクター方式（ラインがボックスを通らない） */}
+          <div>
+            {/* START */}
+            <FadeInUp>
+              <div className="flex justify-center">
+                <div className="flex items-center gap-3 bg-white/10 border border-white/10 px-6 py-3 rounded-full">
+                  <span className="text-white text-xs">▶</span>
+                  <span className="text-xs font-bold text-white tracking-[0.2em]">
+                    START
+                  </span>
+                </div>
+              </div>
+            </FadeInUp>
 
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-                      {chapters.map((chapter) => (
-                        <Link
-                          key={chapter.id}
-                          href={chapter.href}
-                          className="group block border-2 border-[#2563EB]/20 p-5 hover:border-[#2563EB] transition-all duration-300 bg-white rounded-2xl"
-                        >
-                          <div className="flex items-start gap-3">
-                            <span className="text-[#2563EB] text-lg font-bold flex-shrink-0">
-                              {chapter.number}
-                            </span>
-                            <div>
-                              <p className="text-[#1C2A44] text-sm font-bold group-hover:text-[#2563EB] transition-colors">
-                                {chapter.title}
-                              </p>
-                              <p className="text-gray-500 text-xs mt-2 leading-relaxed">
-                                {chapterDescriptions[chapter.id] || ''}
-                              </p>
-                            </div>
-                          </div>
-                        </Link>
-                      ))}
+            {connector('#FFFFFF', phaseConfig[0].color)}
+
+            {/* ===== Phase 01 — 物語のはじまり ===== */}
+            <FadeInUp>
+              <div>
+                {milestone(phaseConfig[0])}
+                {line(phaseConfig[0].color)}
+                <div className="relative">
+                  <div className="absolute left-1/2 top-0 bottom-0 w-0.5 -translate-x-px" style={{ backgroundColor: `${phaseConfig[0].color}40` }} />
+                  {wideCard('brand-story', phaseConfig[0].color)}
+                </div>
+              </div>
+            </FadeInUp>
+
+            {connector(phaseConfig[0].color, phaseConfig[1].color)}
+
+            {/* ===== Phase 02 — なぜ冒険するのか ===== */}
+            <FadeInUp delay={120}>
+              <div>
+                {milestone(phaseConfig[1])}
+                {line(phaseConfig[1].color)}
+                <div className="relative">
+                  <div className="absolute left-1/2 top-0 bottom-0 w-0.5 -translate-x-px" style={{ backgroundColor: `${phaseConfig[1].color}40` }} />
+                  <div className="space-y-20">
+                    {wideCard('founder', phaseConfig[1].color)}
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                      {squareCard('mission', phaseConfig[1].color)}
+                      {squareCard('sing-name', phaseConfig[1].color)}
                     </div>
+                    {wideCard('letter', phaseConfig[1].color)}
                   </div>
-                </FadeInUp>
-              )
-            })}
+                </div>
+              </div>
+            </FadeInUp>
+
+            {connector(phaseConfig[1].color, phaseConfig[2].color)}
+
+            {/* ===== Phase 03 — 冒険の世界 ===== */}
+            <FadeInUp delay={240}>
+              <div>
+                {milestone(phaseConfig[2])}
+                {line(phaseConfig[2].color)}
+                <div className="relative">
+                  <div className="absolute left-1/2 top-0 bottom-0 w-0.5 -translate-x-px" style={{ backgroundColor: `${phaseConfig[2].color}40` }} />
+                  <div className="space-y-20">
+                    {wideCard('adventure-map', phaseConfig[2].color)}
+                    {wideCard('oath', phaseConfig[2].color)}
+                    {wideCard('characters', phaseConfig[2].color)}
+                    <div className="text-center pt-6">
+                      <p className="text-[10px] tracking-[0.3em] uppercase text-gray-400 mb-2">
+                        Challenger Story
+                      </p>
+                      <div className="flex items-center justify-center gap-4">
+                        <div className="w-12 h-px bg-white/20" />
+                        <p
+                          className="text-lg font-bold text-white"
+                          style={{ fontFamily: "'Times New Roman', 'Yu Mincho', serif" }}
+                        >
+                          挑戦者のストーリー
+                        </p>
+                        <div className="w-12 h-px bg-white/20" />
+                      </div>
+                    </div>
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                      {storyCard(challengerStories[0])}
+                      {storyCard(challengerStories[1])}
+                    </div>
+                    <div className="text-center pt-6">
+                      <p className="text-[10px] tracking-[0.3em] uppercase text-gray-400 mb-2">
+                        Last Boss
+                      </p>
+                      <div className="flex items-center justify-center gap-4">
+                        <div className="w-12 h-px bg-white/20" />
+                        <p
+                          className="text-lg font-bold text-white"
+                          style={{ fontFamily: "'Times New Roman', 'Yu Mincho', serif" }}
+                        >
+                          私たちが挑む最大の敵
+                        </p>
+                        <div className="w-12 h-px bg-white/20" />
+                      </div>
+                    </div>
+                    {wideCard('last-boss', phaseConfig[2].color)}
+                  </div>
+                </div>
+              </div>
+            </FadeInUp>
+
+            {connector(phaseConfig[2].color, phaseConfig[3].color)}
+
+            {/* ===== Phase 04 — 冒険に出る ===== */}
+            <FadeInUp delay={360}>
+              <div>
+                {milestone(phaseConfig[3])}
+                {line(phaseConfig[3].color)}
+                <div className="relative">
+                  <div className="absolute left-1/2 top-0 bottom-0 w-0.5 -translate-x-px" style={{ backgroundColor: `${phaseConfig[3].color}40` }} />
+                  <div className="space-y-20">
+                    {wideCard('message', phaseConfig[3].color)}
+                    {wideCard('jobs', phaseConfig[3].color)}
+                  </div>
+                </div>
+              </div>
+            </FadeInUp>
           </div>
         </div>
       </section>
@@ -232,28 +529,40 @@ export default function RecruitTopPage() {
         <div className="max-w-3xl mx-auto text-center">
           <FadeInUp>
             <h2
-              className="text-3xl md:text-5xl font-bold text-[#1C2A44] mb-12"
+              className="text-3xl md:text-5xl font-bold text-[#1C2A44] mb-6"
               style={{ fontFamily: "'Times New Roman', 'Yu Mincho', serif" }}
             >
               人生を、歌え。
             </h2>
+            <p className="text-gray-600 text-sm md:text-base mb-12">
+              あなたの物語を、ここから始めよう。
+            </p>
           </FadeInUp>
 
           <FadeInUp delay={200}>
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-              <Link
-                href="/miraiku/recruit/about#brand-story"
-                className="inline-block border-2 border-[#2563EB] text-[#2563EB] px-8 py-4 text-sm tracking-wider rounded-full font-bold hover:bg-[#2563EB]/5 transition-all duration-300 w-full sm:w-auto"
-              >
-                最初から読む
-              </Link>
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-6">
               <Link
                 href="/miraiku/recruit/entry"
                 className="inline-block bg-[#F59E0B] text-white px-8 py-4 text-sm tracking-wider font-bold rounded-full hover:bg-[#D97706] transition-all duration-300 w-full sm:w-auto"
               >
-                募集要項を見る
+                冒険に参加する（エントリー）
+              </Link>
+              <Link
+                href="/miraiku/recruit/about#brand-story"
+                className="inline-block border-2 border-[#2563EB] text-[#2563EB] px-8 py-4 text-sm tracking-wider rounded-full font-bold hover:bg-[#2563EB]/5 transition-all duration-300 w-full sm:w-auto"
+              >
+                物語を最初から読む
               </Link>
             </div>
+          </FadeInUp>
+
+          <FadeInUp delay={300}>
+            <Link
+              href="/miraiku/recruit/diagnosis"
+              className="inline-block text-sm text-[#2563EB] font-medium hover:underline"
+            >
+              冒険診断をする →
+            </Link>
           </FadeInUp>
         </div>
       </section>
