@@ -21,7 +21,7 @@ export default function RecruitCTA() {
       }`}
     >
       <Link
-        href="/miraiku/recruit/entry"
+        href="/recruit/entry"
         className="flex items-center gap-3 bg-[#F59E0B] text-white px-5 py-3 rounded-full shadow-lg shadow-[#F59E0B]/30 hover:bg-[#D97706] transition-all group"
       >
         <span className="text-sm font-bold tracking-wider">

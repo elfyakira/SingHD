@@ -5,8 +5,8 @@ import { Sword, Map, Scroll, Shield } from 'lucide-react'
 const menuItems = [
   { label: 'メニュー１', desc: '説明テキスト', href: '#', icon: Sword, color: '#2563EB' },
   { label: 'メニュー２', desc: '説明テキスト', href: '#', icon: Map, color: '#059669' },
-  { label: '▶ 冒険診断', desc: 'あなたのタイプは？', href: '/miraiku/recruit/diagnosis', icon: Scroll, color: '#D97706' },
-  { label: '▶ 冒険者ギルド', desc: '冒険者ギルドに相談する', href: '/miraiku/recruit/entry', icon: Shield, color: '#DC2626' },
+  { label: '▶ 冒険診断', desc: 'あなたのタイプは？', href: '/recruit/diagnosis', icon: Scroll, color: '#D97706' },
+  { label: '▶ 冒険者ギルド', desc: '冒険者ギルドに相談する', href: '/recruit/entry', icon: Shield, color: '#DC2626' },
 ]
 
 export default function RecruitFixedMenu() {

@@ -1205,7 +1205,7 @@ export default function AboutPage() {
           </FadeInUp>
           <FadeInUp delay={200}>
             <Link
-              href="/miraiku/recruit/mission"
+              href="/recruit/mission"
               className="inline-block bg-[#2563EB] text-white px-8 py-4 text-sm tracking-wider rounded-full font-bold hover:bg-[#1D4ED8] transition-all duration-300"
             >
               企業理念を見る

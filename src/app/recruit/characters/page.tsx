@@ -232,7 +232,7 @@ export default function CharactersPage() {
           </FadeInUp>
           <FadeInUp delay={200}>
             <Link
-              href="/miraiku/recruit/diagnosis"
+              href="/recruit/diagnosis"
               className="inline-flex items-center gap-3 bg-[#F59E0B] text-white px-10 py-4 font-bold tracking-wider rounded-full hover:bg-[#D97706] transition-colors text-lg"
             >
               <span>▶</span>
@@ -450,7 +450,7 @@ export default function CharactersPage() {
           <FadeInUp delay={400}>
             <div className="mt-12 text-center">
               <Link
-                href="/miraiku/recruit/entry"
+                href="/recruit/entry"
                 className="inline-block bg-[#F59E0B] text-white px-10 py-4 font-bold tracking-wider rounded-full hover:bg-[#D97706] transition-colors text-lg"
               >
                 ▶ 冒険に参加する

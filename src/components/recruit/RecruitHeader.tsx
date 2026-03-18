@@ -44,7 +44,7 @@ export default function RecruitHeader() {
       <div className="max-w-7xl mx-auto px-4 lg:px-8">
         <div className="flex items-center justify-between h-14 lg:h-16">
           {/* Logo */}
-          <Link href="/miraiku/recruit" className="flex items-center gap-2">
+          <Link href="/recruit" className="flex items-center gap-2">
             <Sword className="w-5 h-5 text-[#2563EB]" />
             <span className="text-sm font-bold text-[#1C2A44] tracking-wider">
               SING RECRUIT
@@ -53,10 +53,10 @@ export default function RecruitHeader() {
 
           {/* Desktop Nav */}
           <nav className="hidden lg:flex items-center gap-6">
-            <Link href="/miraiku/recruit/about" className={linkClass}>
+            <Link href="/recruit/about" className={linkClass}>
               冒険のはじまり
             </Link>
-            <Link href="/miraiku/recruit/mission" className={linkClass}>
+            <Link href="/recruit/mission" className={linkClass}>
               信念と約束
             </Link>
 
@@ -75,23 +75,23 @@ export default function RecruitHeader() {
                 }`}
               >
                 <div className="bg-white border border-gray-200 rounded-xl shadow-lg py-2 min-w-[180px]">
-                  <Link href="/miraiku/recruit/adventure-map" className={subLinkClass}>
+                  <Link href="/recruit/adventure-map" className={subLinkClass}>
                     冒険マップ
                   </Link>
-                  <Link href="/miraiku/recruit/characters" className={subLinkClass}>
+                  <Link href="/recruit/characters" className={subLinkClass}>
                     冒険者タイプ
                   </Link>
-                  <Link href="/miraiku/recruit/oath" className={subLinkClass}>
+                  <Link href="/recruit/oath" className={subLinkClass}>
                     冒険者の誓い
                   </Link>
-                  <Link href="/miraiku/recruit/last-boss" className={subLinkClass}>
+                  <Link href="/recruit/last-boss" className={subLinkClass}>
                     ラスボス
                   </Link>
                 </div>
               </div>
             </div>
 
-            <Link href="/miraiku/recruit/diagnosis" className={linkClass}>
+            <Link href="/recruit/diagnosis" className={linkClass}>
               冒険診断
             </Link>
 
@@ -110,10 +110,10 @@ export default function RecruitHeader() {
                 }`}
               >
                 <div className="bg-white border border-gray-200 rounded-xl shadow-lg py-2 min-w-[180px]">
-                  <Link href="/miraiku/recruit/stories/watanabe" className={subLinkClass}>
+                  <Link href="/recruit/stories/watanabe" className={subLinkClass}>
                     渡邉 大輝
                   </Link>
-                  <Link href="/miraiku/recruit/stories/iida" className={subLinkClass}>
+                  <Link href="/recruit/stories/iida" className={subLinkClass}>
                     飯田 思遠
                   </Link>
                 </div>
@@ -121,7 +121,7 @@ export default function RecruitHeader() {
             </div>
 
             <Link
-              href="/miraiku/recruit/entry"
+              href="/recruit/entry"
               className="text-xs font-medium tracking-wider text-white bg-[#F59E0B] px-5 py-2 rounded-full hover:bg-[#D97706] transition-colors"
             >
               ▶ 冒険に参加する
@@ -151,13 +151,13 @@ export default function RecruitHeader() {
       >
         <nav className="px-6 py-8">
           <div className="space-y-1">
-            <Link href="/miraiku/recruit/about" className={mobileLinkClass} onClick={close}>
+            <Link href="/recruit/about" className={mobileLinkClass} onClick={close}>
               冒険のはじまり
             </Link>
-            <Link href="/miraiku/recruit/mission" className={mobileLinkClass} onClick={close}>
+            <Link href="/recruit/mission" className={mobileLinkClass} onClick={close}>
               信念と約束
             </Link>
-            <Link href="/miraiku/recruit/diagnosis" className={mobileLinkClass} onClick={close}>
+            <Link href="/recruit/diagnosis" className={mobileLinkClass} onClick={close}>
               冒険診断
             </Link>
           </div>
@@ -168,16 +168,16 @@ export default function RecruitHeader() {
               冒険の世界
             </p>
             <div className="space-y-1 pl-3 border-l-2 border-[#2563EB]/20">
-              <Link href="/miraiku/recruit/adventure-map" className="block py-2.5 text-sm text-gray-700 hover:text-[#2563EB] transition-colors" onClick={close}>
+              <Link href="/recruit/adventure-map" className="block py-2.5 text-sm text-gray-700 hover:text-[#2563EB] transition-colors" onClick={close}>
                 冒険マップ
               </Link>
-              <Link href="/miraiku/recruit/characters" className="block py-2.5 text-sm text-gray-700 hover:text-[#2563EB] transition-colors" onClick={close}>
+              <Link href="/recruit/characters" className="block py-2.5 text-sm text-gray-700 hover:text-[#2563EB] transition-colors" onClick={close}>
                 冒険者タイプ
               </Link>
-              <Link href="/miraiku/recruit/oath" className="block py-2.5 text-sm text-gray-700 hover:text-[#2563EB] transition-colors" onClick={close}>
+              <Link href="/recruit/oath" className="block py-2.5 text-sm text-gray-700 hover:text-[#2563EB] transition-colors" onClick={close}>
                 冒険者の誓い
               </Link>
-              <Link href="/miraiku/recruit/last-boss" className="block py-2.5 text-sm text-gray-700 hover:text-[#2563EB] transition-colors" onClick={close}>
+              <Link href="/recruit/last-boss" className="block py-2.5 text-sm text-gray-700 hover:text-[#2563EB] transition-colors" onClick={close}>
                 ラスボス
               </Link>
             </div>
@@ -189,17 +189,17 @@ export default function RecruitHeader() {
               挑戦者ストーリー
             </p>
             <div className="space-y-1 pl-3 border-l-2 border-[#2563EB]/20">
-              <Link href="/miraiku/recruit/stories/watanabe" className="block py-2.5 text-sm text-gray-700 hover:text-[#2563EB] transition-colors" onClick={close}>
+              <Link href="/recruit/stories/watanabe" className="block py-2.5 text-sm text-gray-700 hover:text-[#2563EB] transition-colors" onClick={close}>
                 渡邉 大輝
               </Link>
-              <Link href="/miraiku/recruit/stories/iida" className="block py-2.5 text-sm text-gray-700 hover:text-[#2563EB] transition-colors" onClick={close}>
+              <Link href="/recruit/stories/iida" className="block py-2.5 text-sm text-gray-700 hover:text-[#2563EB] transition-colors" onClick={close}>
                 飯田 思遠
               </Link>
             </div>
           </div>
 
           <Link
-            href="/miraiku/recruit/entry"
+            href="/recruit/entry"
             className="block text-center text-sm font-medium tracking-wider text-white bg-[#F59E0B] py-4 mt-6 rounded-full hover:bg-[#D97706] transition-colors"
             onClick={close}
           >

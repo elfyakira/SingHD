@@ -63,7 +63,7 @@ const challengerStories = [
     company: '株式会社Sing.nexT',
     role: '代表取締役',
     tagline: '覚悟が固まるのを待つ人生は、もうやめた。',
-    href: '/miraiku/recruit/stories/watanabe',
+    href: '/recruit/stories/watanabe',
     image: '/img/recruit/stories/watanabe-portrait.png',
   },
   {
@@ -71,7 +71,7 @@ const challengerStories = [
     company: '株式会社ゆめスタ',
     role: '代表取締役',
     tagline: '自分の意思で未来を選び続ける',
-    href: '/miraiku/recruit/stories/iida',
+    href: '/recruit/stories/iida',
     image: '/img/recruit/stories/iida-portrait.png',
   },
 ]
@@ -297,7 +297,7 @@ export default function RecruitTopPage() {
 
           <FadeInUp delay={600}>
             <Link
-              href="/miraiku/recruit/about#brand-story"
+              href="/recruit/about#brand-story"
               className="inline-block bg-[#F59E0B] text-white px-8 py-4 text-sm tracking-wider rounded-full font-bold hover:bg-[#D97706] transition-all duration-300"
             >
               あなたの冒険をSingホールディングスで。
@@ -548,13 +548,13 @@ export default function RecruitTopPage() {
           <FadeInUp delay={200}>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-6">
               <Link
-                href="/miraiku/recruit/entry"
+                href="/recruit/entry"
                 className="inline-block bg-[#F59E0B] text-white px-8 py-4 text-sm tracking-wider font-bold rounded-full hover:bg-[#D97706] transition-all duration-300 w-full sm:w-auto"
               >
                 ▶ 冒険に参加する
               </Link>
               <Link
-                href="/miraiku/recruit/about#brand-story"
+                href="/recruit/about#brand-story"
                 className="inline-block border-2 border-[#2563EB] text-[#2563EB] px-8 py-4 text-sm tracking-wider rounded-full font-bold hover:bg-[#2563EB]/5 transition-all duration-300 w-full sm:w-auto"
               >
                 物語を最初から読む
@@ -564,7 +564,7 @@ export default function RecruitTopPage() {
 
           <FadeInUp delay={300}>
             <Link
-              href="/miraiku/recruit/diagnosis"
+              href="/recruit/diagnosis"
               className="inline-block text-sm text-[#2563EB] font-medium hover:underline"
             >
               冒険診断をする →

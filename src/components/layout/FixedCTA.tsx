@@ -16,7 +16,7 @@ export default function FixedCTA() {
   const pathname = usePathname()
 
   // 採用ページ配下では非表示（専用CTAがある）
-  const isRecruit = pathname.startsWith('/miraiku/recruit')
+  const isRecruit = pathname.startsWith('/recruit')
 
   useEffect(() => {
     const handleScroll = () => {

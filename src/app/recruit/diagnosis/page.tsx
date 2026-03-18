@@ -206,7 +206,7 @@ export default function DiagnosisPage() {
   const composite = compositeDesc[result.primary][result.secondary]
 
   // シェア
-  const shareUrl = 'https://hd.jp-sing.com/miraiku/recruit/diagnosis'
+  const shareUrl = 'https://hd.jp-sing.com/recruit/diagnosis'
   const shareText = `冒険診断の結果は「${primary.name}×${secondary.name}タイプ」でした！\nあなたのタイプは？`
 
   const shareOnX = () => {
@@ -450,7 +450,7 @@ export default function DiagnosisPage() {
               <div className="space-y-4 text-center">
                 <div>
                   <Link
-                    href="/miraiku/recruit/entry"
+                    href="/recruit/entry"
                     className="inline-block bg-[#F59E0B] text-white px-10 py-4 font-bold tracking-wider rounded-full hover:bg-[#D97706] transition-colors"
                   >
                     このタイプで冒険に参加する

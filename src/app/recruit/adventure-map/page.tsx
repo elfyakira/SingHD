@@ -265,7 +265,7 @@ export default function AdventureMapPage() {
 
           <FadeInUp delay={400}>
             <Link
-              href="/miraiku/recruit/entry"
+              href="/recruit/entry"
               className="inline-block bg-[#F59E0B] text-white px-10 py-4 text-sm font-bold tracking-wider rounded-full hover:bg-[#D97706] transition-all duration-300"
             >
               冒険に参加する

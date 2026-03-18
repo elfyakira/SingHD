@@ -76,9 +76,9 @@ Phase 04 — 冒険に出る
 
 #### CTA設計（Bottom CTA）
 
-- **Primary**: 冒険に参加する（エントリー）→ /miraiku/recruit/entry
-- **Secondary**: 物語を最初から読む → /miraiku/recruit/about#brand-story
-- **Tertiary**: 冒険診断をする → /miraiku/recruit/diagnosis
+- **Primary**: 冒険に参加する（エントリー）→ /recruit/entry
+- **Secondary**: 物語を最初から読む → /recruit/about#brand-story
+- **Tertiary**: 冒険診断をする → /recruit/diagnosis
 
 #### 画像配置
 
@@ -145,32 +145,10 @@ Phase 04 — 冒険に出る
 - [ ] エントリーページのべた塗、レイアウト、ビジュ改善
 - [ ] 応募までの導線をもっと近くに（伝えたいことを伝えつつ、コンバージョンしやすいようにする）
 
-#### URL構造の変更（/miraiku/recruit → /recruit）
-- [ ] `/miraiku/recruit/` → `/recruit/` にURL階層を短縮する
-- **理由**: URLの深度が深くなるだけでメリットがない。miraikuは社内ブランド区分であって訪問者には無関係
-- **⚠ 作業するセッションは必ず自分でも影響範囲を自分でしっかりと確認すること。一括で修正するとどこか壊れる可能性があるため、事前の調査・操作、プロジェクト「全体」の影響をしっかりと把握しておくこと**
-- **影響範囲（合計102箇所・14ファイル）**:
-
-| カテゴリ | ファイル | 箇所数 | 内容 |
-|---------|--------|-------|------|
-| ディレクトリ移動 | `src/app/miraiku/recruit/` | — | フォルダごと `src/app/recruit/` に移動（12ページ分） |
-| データ | `src/data/recruit-chapters.ts` | 14 | 全chapterのhrefリンク |
-| ヘッダー | `src/components/recruit/RecruitHeader.tsx` | 21 | デスクトップ+モバイルの全ナビリンク |
-| CTA | `src/components/recruit/RecruitCTA.tsx` | 1 | フロートボタンのhref |
-| 固定メニュー | `src/components/recruit/RecruitFixedMenu.tsx` | 2 | メニュー3,4のhref |
-| 共通CTA | `src/components/layout/FixedCTA.tsx` | 1 | `pathname.startsWith()` のパス判定 |
-| レイアウト | `src/app/miraiku/recruit/layout.tsx` | 1 | canonical URL |
-| TOPページ | `src/app/miraiku/recruit/page.tsx` | 6 | CTA・ストーリーカード等のhref |
-| 冒険診断 | `src/app/miraiku/recruit/diagnosis/page.tsx` | 2 | シェアURL（本番ドメイン含む）+ CTA href |
-| About | `src/app/miraiku/recruit/about/page.tsx` | 1 | mission誘導リンク |
-| characters | `src/app/miraiku/recruit/characters/page.tsx` | 2 | 診断誘導・CTA href |
-| adventure-map | `src/app/miraiku/recruit/adventure-map/page.tsx` | 1 | CTA href |
-| mission | `src/app/miraiku/recruit/mission/page.tsx` | 1 | CTA href |
-| HANDOFF | `docs/handoff/HANDOFF.md` | 35 | ドキュメント内のURL参照 |
-| SEO手順書 | `docs/インデックス登録リクエスト手順書.md` | 14 | Google Search Console登録URL |
-
-- **追加で必要な作業**:
-  - OGP・canonical URLの更新確認
+#### URL構造の変更（/miraiku/recruit → /recruit） ✅ 完了（セッション10）
+- [x] `/miraiku/recruit/` → `/recruit/` にURL階層を短縮済み
+- ディレクトリ移動、ソースコード内リンク112箇所、ドキュメント内URL参照すべて更新済み
+- canonical URL更新済み（layout.tsx）、シェアURL更新済み（diagnosis/page.tsx）
 
 #### 全体設計
 - [ ] 全体的に「読み物」要素が強いので、それをいかに導線通りに読ませていくか、「半教材の視点」。そしてそこにレベルアップの要素、読めば読むほどレベルが上がってるような感覚になる仕掛け
@@ -214,20 +192,20 @@ Phase 04 — 冒険に出る
 #### 新ページ構成
 
 ```
-/miraiku/recruit/                    ← TOP（冒険の地図UI — 改善予定）
-/miraiku/recruit/about               ← ②③④⑤⑥ 統合（About）
-/miraiku/recruit/diagnosis           ← 冒険診断（独立機能）
-/miraiku/recruit/stories/watanabe    ← ⑪-1 渡邉大輝ストーリー
-/miraiku/recruit/stories/iida        ← ⑪-2 飯田思遠ストーリー
-/miraiku/recruit/entry               ← ⑫+⑬ 統合（エントリー）
+/recruit/                    ← TOP（冒険の地図UI — 改善予定）
+/recruit/about               ← ②③④⑤⑥ 統合（About）
+/recruit/diagnosis           ← 冒険診断（独立機能）
+/recruit/stories/watanabe    ← ⑪-1 渡邉大輝ストーリー
+/recruit/stories/iida        ← ⑪-2 飯田思遠ストーリー
+/recruit/entry               ← ⑫+⑬ 統合（エントリー）
 ```
 
 **ゲーム系（別フェーズで設計）**:
 ```
-/miraiku/recruit/last-boss           ← ⑦ ラスボス
-/miraiku/recruit/adventure-map       ← ⑧ 冒険マップ
-/miraiku/recruit/characters          ← ⑨ 求める人物
-/miraiku/recruit/oath                ← ⑩ 冒険者の誓い
+/recruit/last-boss           ← ⑦ ラスボス
+/recruit/adventure-map       ← ⑧ 冒険マップ
+/recruit/characters          ← ⑨ 求める人物
+/recruit/oath                ← ⑩ 冒険者の誓い
 ```
 
 #### 削除した旧ページ
@@ -238,13 +216,13 @@ brand-story, founder, letter, sing-name, mission, message, jobs → 全て統合
 
 | メニュー | リンク先 | 備考 |
 |---------|---------|------|
-| TOP | `/miraiku/recruit` | |
-| About | `/miraiku/recruit/about` | ②③④⑤⑥統合 |
-| 冒険診断 | `/miraiku/recruit/diagnosis` | 独立機能 |
+| TOP | `/recruit` | |
+| About | `/recruit/about` | ②③④⑤⑥統合 |
+| 冒険診断 | `/recruit/diagnosis` | 独立機能 |
 | 挑戦者ストーリー | — | ホバーでサブメニュー |
-| 　└ 渡邉大輝 | `/miraiku/recruit/stories/watanabe` | |
-| 　└ 飯田思遠 | `/miraiku/recruit/stories/iida` | |
-| エントリー（CTA） | `/miraiku/recruit/entry` | ⑫+⑬統合 |
+| 　└ 渡邉大輝 | `/recruit/stories/watanabe` | |
+| 　└ 飯田思遠 | `/recruit/stories/iida` | |
+| エントリー（CTA） | `/recruit/entry` | ⑫+⑬統合 |
 
 #### Aboutページ構成（長スクロール）
 
@@ -289,7 +267,7 @@ brand-story, founder, letter, sing-name, mission, message, jobs → 全て統合
 
 ## セッション7（03-17）で実施した作業：MIRAIKU採用専用サイト初期構築
 
-**コミット: 0bb7674** / **ルート: /miraiku/recruit/**
+**コミット: 0bb7674** / **ルート: /recruit/**
 
 ### 概要
 
@@ -318,26 +296,26 @@ MIRAIKUに紐づく採用専用サイトを新規構築。概念的には専用�
 ### 現在のページ構成（全14ページ）
 
 ```
-/miraiku/recruit/                    ← ① TOP（ハブ＋ヒーロー）
-/miraiku/recruit/brand-story         ← ② ブランドストーリー
-/miraiku/recruit/founder             ← ③ 創業ストーリー
-/miraiku/recruit/letter              ← ④ 子供への手紙
-/miraiku/recruit/sing-name           ← ⑤ Singという名前の意味
-/miraiku/recruit/mission             ← ⑥ 企業理念（MVV＋社員憲章7つの約束）
-/miraiku/recruit/last-boss           ← ⑦ ラスボス
-/miraiku/recruit/adventure-map       ← ⑧ 冒険マップ
-/miraiku/recruit/characters          ← ⑨ 求める人物（4タイプ＋冒険診断＋プレイヤーレベル＋隠しクエスト＋ラスボス討伐PJ）
-/miraiku/recruit/oath                ← ⑩ 冒険者の誓い
-/miraiku/recruit/stories/watanabe    ← ⑪-1 渡邉大輝ストーリー
-/miraiku/recruit/stories/iida        ← ⑪-2 飯田思遠ストーリー
-/miraiku/recruit/message             ← ⑫ 最後のメッセージ
-/miraiku/recruit/jobs                ← ⑬ 募集要項
+/recruit/                    ← ① TOP（ハブ＋ヒーロー）
+/recruit/brand-story         ← ② ブランドストーリー
+/recruit/founder             ← ③ 創業ストーリー
+/recruit/letter              ← ④ 子供への手紙
+/recruit/sing-name           ← ⑤ Singという名前の意味
+/recruit/mission             ← ⑥ 企業理念（MVV＋社員憲章7つの約束）
+/recruit/last-boss           ← ⑦ ラスボス
+/recruit/adventure-map       ← ⑧ 冒険マップ
+/recruit/characters          ← ⑨ 求める人物（4タイプ＋冒険診断＋プレイヤーレベル＋隠しクエスト＋ラスボス討伐PJ）
+/recruit/oath                ← ⑩ 冒険者の誓い
+/recruit/stories/watanabe    ← ⑪-1 渡邉大輝ストーリー
+/recruit/stories/iida        ← ⑪-2 飯田思遠ストーリー
+/recruit/message             ← ⑫ 最後のメッセージ
+/recruit/jobs                ← ⑬ 募集要項
 ```
 
 ### ファイル構成
 
 ```
-src/app/miraiku/recruit/
+src/app/recruit/
   layout.tsx              ← 共通レイアウト（メタデータ＋RecruitShell）
   page.tsx                ← ① TOP
   brand-story/page.tsx    ← ②
