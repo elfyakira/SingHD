@@ -10,6 +10,7 @@ import {
   generateBreadcrumbSchema,
   generateAboutPageSchema,
   generateOrganizationSchema,
+  generatePersonSchema,
 } from '@/lib/structured-data'
 import { siteConfig } from '@/config/seo'
 
@@ -21,6 +22,14 @@ export default function CompanyPage() {
     ]),
     generateAboutPageSchema(),
     generateOrganizationSchema(),
+    generatePersonSchema({
+      name: siteConfig.company.representative,
+      nameEn: siteConfig.company.representativeEn,
+      position: '代表取締役社長',
+      positionEn: 'CEO',
+      image: siteConfig.executives[0]?.image,
+      description: `${siteConfig.company.name} 代表取締役社長`,
+    }),
   ]
 
   const companyInfo = [

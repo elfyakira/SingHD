@@ -80,6 +80,7 @@ export default function HomePage() {
                   transition: 'background-position 0.1s ease-out',
                 }}
               >
+                <span className="sr-only">株式会社Singホールディングス（SingHD） </span>
                 Sing
               </h1>
               {/* スローガン（SINGの下） */}

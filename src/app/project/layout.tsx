@@ -4,6 +4,9 @@ import { pageSeo } from '@/config/seo'
 export const metadata: Metadata = {
   title: pageSeo.project.title,
   description: pageSeo.project.description,
+  alternates: {
+    canonical: '/project',
+  },
 }
 
 export default function ProjectLayout({

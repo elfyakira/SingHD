@@ -38,6 +38,12 @@ export default function Footer() {
               挑戦する人に、現実的な仕組みと環境を提供する。
               起業が特別ではなく、選択肢の一つになる社会へ。
             </p>
+            {/* NAP情報 */}
+            <div className="mt-4 text-gray-500 text-xs leading-relaxed space-y-1">
+              <p>株式会社Singホールディングス</p>
+              <p>〒486-0918 愛知県春日井市如意申町７丁目15−５</p>
+              <p>アーバンハイツ春日井 302号</p>
+            </div>
           </div>
 
           {/* Links */}

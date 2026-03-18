@@ -10,6 +10,9 @@ export const metadata: Metadata = {
     description: '人生を本気で生きる仲間を募集しています。挑戦する人が集まる場所で、あなたの冒険を始めませんか。',
     type: 'website',
   },
+  alternates: {
+    canonical: '/miraiku/recruit',
+  },
 }
 
 export default function RecruitLayout({

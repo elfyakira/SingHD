@@ -4,6 +4,9 @@ import { pageSeo } from '@/config/seo'
 export const metadata: Metadata = {
   title: pageSeo.contact.title,
   description: pageSeo.contact.description,
+  alternates: {
+    canonical: '/contact',
+  },
 }
 
 export default function ContactLayout({
