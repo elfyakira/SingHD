@@ -43,6 +43,7 @@ export default function Footer() {
               <p>株式会社Singホールディングス</p>
               <p>〒486-0918 愛知県春日井市如意申町７丁目15−５</p>
               <p>アーバンハイツ春日井 302号</p>
+              <p>info@jp-sing.com</p>
             </div>
           </div>
 

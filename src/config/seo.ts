@@ -20,7 +20,7 @@ export const siteConfig = {
     address: '愛知県春日井市如意申町７丁目15−５ アーバンハイツ春日井 302号',
     phone: '', // TODO: 電話番号
     fax: '', // TODO: FAX番号
-    email: '', // TODO: メールアドレス
+    email: 'info@jp-sing.com',
     businessHours: '', // TODO: 営業時間
     access: '勝川駅より車で8分',
   },
