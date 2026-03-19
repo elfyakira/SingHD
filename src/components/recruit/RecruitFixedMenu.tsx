@@ -3,8 +3,8 @@
 import { Sword, BookOpen, Scroll, Shield } from 'lucide-react'
 
 const menuItems = [
-  { label: '出発の広場', desc: 'TOPページに戻る', href: '/recruit', icon: Sword, color: '#2563EB' },
-  { label: '冒険者ガイド', desc: '知恵袋コンテンツ', href: '/recruit/guide', icon: BookOpen, color: '#059669' },
+  { label: '▶ 出発の広場', desc: 'TOPページに戻る', href: '/recruit', icon: Sword, color: '#2563EB' },
+  { label: '▶ 冒険者ガイド', desc: '知恵袋コンテンツ', href: '/recruit/guide', icon: BookOpen, color: '#059669' },
   { label: '▶ 冒険診断', desc: 'あなたのタイプは？', href: '/recruit/diagnosis', icon: Scroll, color: '#D97706' },
   { label: '▶ 冒険者ギルド', desc: '冒険者ギルドに相談する', href: '/recruit/entry', icon: Shield, color: '#DC2626' },
 ]

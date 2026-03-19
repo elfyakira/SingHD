@@ -321,10 +321,10 @@ export default function RecruitTopPage() {
 
           <FadeInUp delay={600}>
             <Link
-              href="/recruit/about#brand-story"
+              href="/recruit/entry"
               className="inline-block bg-[#F59E0B] text-white px-8 py-4 text-sm tracking-wider rounded-full font-bold hover:bg-[#D97706] transition-all duration-300"
             >
-              あなたの冒険をSingホールディングスで。
+              ▶ 冒険に参加する
             </Link>
           </FadeInUp>
         </div>
@@ -587,48 +587,6 @@ export default function RecruitTopPage() {
         </div>
       </section>
 
-      {/* ===== Bottom CTA ===== */}
-      <section className="py-20 lg:py-32 px-4 bg-white/70">
-        <div className="max-w-3xl mx-auto text-center">
-          <FadeInUp>
-            <h2
-              className="text-3xl md:text-5xl font-bold text-[#1C2A44] mb-6"
-              style={{ fontFamily: "'Times New Roman', 'Yu Mincho', serif" }}
-            >
-              人生を、歌え。
-            </h2>
-            <p className="text-gray-600 text-sm md:text-base mb-12">
-              あなたの物語を、ここから始めよう。
-            </p>
-          </FadeInUp>
-
-          <FadeInUp delay={200}>
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-6">
-              <Link
-                href="/recruit/entry"
-                className="inline-block bg-[#F59E0B] text-white px-8 py-4 text-sm tracking-wider font-bold rounded-full hover:bg-[#D97706] transition-all duration-300 w-full sm:w-auto"
-              >
-                ▶ 冒険に参加する
-              </Link>
-              <Link
-                href="/recruit/about#brand-story"
-                className="inline-block border-2 border-[#2563EB] text-[#2563EB] px-8 py-4 text-sm tracking-wider rounded-full font-bold hover:bg-[#2563EB]/5 transition-all duration-300 w-full sm:w-auto"
-              >
-                物語を最初から読む
-              </Link>
-            </div>
-          </FadeInUp>
-
-          <FadeInUp delay={300}>
-            <Link
-              href="/recruit/diagnosis"
-              className="inline-block text-sm text-[#2563EB] font-medium hover:underline"
-            >
-              冒険診断をする →
-            </Link>
-          </FadeInUp>
-        </div>
-      </section>
 
       <RecruitCTA />
     </div>

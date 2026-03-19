@@ -54,9 +54,6 @@ export default function RecruitHeader() {
 
           {/* Desktop Nav */}
           <nav className="hidden lg:flex items-center gap-6">
-            <Link href="/recruit" className={linkClass}>
-              出発の広場
-            </Link>
             <Link href="/recruit/about" className={linkClass}>
               冒険のはじまり
             </Link>
@@ -163,9 +160,6 @@ export default function RecruitHeader() {
       >
         <nav className="px-6 py-8">
           <div className="space-y-1">
-            <Link href="/recruit" className={mobileLinkClass} onClick={close}>
-              出発の広場
-            </Link>
             <Link href="/recruit/about" className={mobileLinkClass} onClick={close}>
               冒険のはじまり
             </Link>

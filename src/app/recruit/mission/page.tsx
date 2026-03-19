@@ -307,16 +307,6 @@ export default function MissionPage() {
             </p>
           </FadeInUp>
 
-          <FadeInUp delay={400}>
-            <div className="mt-16">
-              <Link
-                href="/recruit/entry"
-                className="inline-block bg-[#F59E0B] text-white px-8 py-4 text-sm tracking-wider rounded-full font-bold hover:bg-[#D97706] transition-all duration-300"
-              >
-                ▶ 冒険に参加する
-              </Link>
-            </div>
-          </FadeInUp>
         </div>
       </section>
 

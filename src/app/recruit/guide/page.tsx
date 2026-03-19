@@ -20,31 +20,37 @@ export default function GuidePage() {
 
   return (
     <>
+      {/* 全体オーバーレイ */}
+      <div className="fixed inset-0 bg-[#1C2A44]/40 pointer-events-none z-[-1]" />
+
       <RecruitHeader />
 
       {/* Hero */}
-      <section className="pt-28 pb-12 px-4 text-center">
-        <FadeInUp>
-          <div className="inline-flex items-center gap-2 bg-[#2563EB]/10 text-[#2563EB] px-4 py-1.5 rounded-full text-xs font-bold tracking-wider mb-6">
-            <BookOpen className="w-4 h-4" />
-            ADVENTURER&apos;S GUIDE
-          </div>
-          <h1
-            className="text-3xl md:text-4xl font-bold text-[#1C2A44] mb-4"
-            style={{ fontFamily: '"Times New Roman", "Yu Mincho", serif' }}
-          >
-            冒険者ガイド
-          </h1>
-          <p className="text-gray-600 max-w-xl mx-auto leading-relaxed">
-            これから冒険を始めるあなたに贈る、先輩冒険者たちの知恵と経験。
-            <br />
-            挑戦と成長のヒントがここにあります。
-          </p>
-        </FadeInUp>
+      <section className="relative pt-28 pb-20 px-4 text-center">
+        <div className="absolute inset-0 bg-[#1C2A44]/75" />
+        <div className="relative">
+          <FadeInUp>
+            <div className="inline-flex items-center gap-2 bg-white/10 text-white px-4 py-1.5 rounded-full text-xs font-bold tracking-wider mb-6">
+              <BookOpen className="w-4 h-4" />
+              ADVENTURER&apos;S GUIDE
+            </div>
+            <h1
+              className="text-3xl md:text-4xl font-bold text-white mb-4"
+              style={{ fontFamily: '"Times New Roman", "Yu Mincho", serif' }}
+            >
+              冒険者ガイド
+            </h1>
+            <p className="text-white/80 max-w-xl mx-auto leading-relaxed">
+              これから冒険を始めるあなたに贈る、先輩冒険者たちの知恵と経験。
+              <br />
+              挑戦と成長のヒントがここにあります。
+            </p>
+          </FadeInUp>
+        </div>
       </section>
 
       {/* Category Filter */}
-      <section className="px-4 pb-4">
+      <section className="px-4 pt-8 pb-4">
         <div className="max-w-3xl mx-auto flex flex-wrap justify-center gap-2">
           <button
             onClick={() => setFilter(FILTER_ALL)}
@@ -160,27 +166,65 @@ export default function GuidePage() {
       {/* Cross-links */}
       <section className="px-4 pb-16">
         <FadeInUp delay={0.2}>
-          <div className="max-w-2xl mx-auto bg-white/60 backdrop-blur rounded-2xl border border-gray-200 p-8 text-center">
-            <p
-              className="text-lg font-bold text-[#1C2A44] mb-4"
-              style={{ fontFamily: '"Times New Roman", "Yu Mincho", serif' }}
-            >
-              もっと冒険の世界を知る
+          <div className="text-center mb-8">
+            <p className="text-[10px] tracking-[0.3em] uppercase text-white/60 mb-2">
+              Explore More
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link
-                href="/recruit/stories/watanabe"
-                className="inline-flex items-center gap-2 text-sm text-[#2563EB] hover:text-[#1D4ED8] font-medium transition-colors"
+            <div className="flex items-center justify-center gap-4">
+              <div className="w-12 h-px bg-white/20" />
+              <p
+                className="text-xl md:text-2xl font-bold text-white"
+                style={{ fontFamily: '"Times New Roman", "Yu Mincho", serif' }}
               >
-                挑戦者ストーリーを読む <ArrowRight className="w-4 h-4" />
-              </Link>
-              <Link
-                href="/recruit/diagnosis"
-                className="inline-flex items-center gap-2 text-sm text-[#D97706] hover:text-[#B45309] font-medium transition-colors"
-              >
-                冒険診断を受ける <ArrowRight className="w-4 h-4" />
-              </Link>
+                もっと冒険の世界を知る
+              </p>
+              <div className="w-12 h-px bg-white/20" />
             </div>
+          </div>
+          <div className="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-4">
+            {/* 冒険マップ */}
+            <Link href="/recruit/adventure-map" className="group">
+              <div className="bg-white/80 backdrop-blur rounded-xl overflow-hidden border border-gray-100 hover:shadow-lg transition-all duration-200 flex h-full">
+                <div className="relative w-1/3 flex-shrink-0">
+                  <Image
+                    src="/img/recruit/adventure-map/level-1.png"
+                    alt="冒険マップ"
+                    fill
+                    className="object-cover"
+                    sizes="200px"
+                  />
+                </div>
+                <div className="p-4 flex-1 flex flex-col justify-center">
+                  <p className="text-sm md:text-base font-bold tracking-wider text-[#2563EB] mb-1">冒険マップ</p>
+                  <p className="text-sm font-bold text-[#1C2A44] group-hover:text-[#2563EB] transition-colors mb-1">
+                    Singで歩む成長の道筋
+                  </p>
+                  <p className="text-xs text-gray-500">Lv.1からLv.100までのキャリアパス</p>
+                </div>
+              </div>
+            </Link>
+
+            {/* 冒険診断 */}
+            <Link href="/recruit/diagnosis" className="group">
+              <div className="bg-white/80 backdrop-blur rounded-xl overflow-hidden border border-gray-100 hover:shadow-lg transition-all duration-200 flex h-full">
+                <div className="relative w-1/3 flex-shrink-0">
+                  <Image
+                    src="/img/recruit/top/hero-party.png"
+                    alt="冒険診断"
+                    fill
+                    className="object-cover"
+                    sizes="200px"
+                  />
+                </div>
+                <div className="p-4 flex-1 flex flex-col justify-center">
+                  <p className="text-sm md:text-base font-bold tracking-wider text-[#D97706] mb-1">冒険診断</p>
+                  <p className="text-sm font-bold text-[#1C2A44] group-hover:text-[#D97706] transition-colors mb-1">
+                    あなたは勇者？戦士？魔法使い？僧侶？
+                  </p>
+                  <p className="text-xs text-gray-500">5問であなたの冒険者タイプがわかる</p>
+                </div>
+              </div>
+            </Link>
           </div>
         </FadeInUp>
       </section>
