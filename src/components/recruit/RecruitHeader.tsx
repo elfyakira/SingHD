@@ -34,6 +34,7 @@ export default function RecruitHeader() {
   const close = () => setIsMobileMenuOpen(false)
 
   return (
+    <>
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled
@@ -143,10 +144,12 @@ export default function RecruitHeader() {
         </div>
       </div>
 
-      {/* Mobile Navigation */}
+    </header>
+
+      {/* Mobile Navigation — headerの外に配置（backdrop-filterによるfixed破壊を回避） */}
       <div
-        className={`lg:hidden fixed inset-0 top-14 bg-white/98 backdrop-blur-md transition-all duration-300 overflow-y-auto ${
-          isMobileMenuOpen ? 'opacity-100 visible' : 'opacity-0 invisible'
+        className={`lg:hidden fixed inset-0 top-14 z-40 bg-white overflow-y-auto transition-all duration-300 ease-out ${
+          isMobileMenuOpen ? 'opacity-100 visible translate-y-0' : 'opacity-0 invisible -translate-y-4'
         }`}
       >
         <nav className="px-6 py-8">
@@ -215,6 +218,6 @@ export default function RecruitHeader() {
           </Link>
         </nav>
       </div>
-    </header>
+    </>
   )
 }

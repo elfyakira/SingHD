@@ -69,7 +69,6 @@ const typeData: Record<
     tagline: string
     strength: string
     role: string
-    route: string
     image: string
     color: string
   }
@@ -79,7 +78,6 @@ const typeData: Record<
     tagline: '一歩目を踏み出す勇気が、世界を変える',
     strength: 'リスクを恐れず挑戦する行動力',
     role: '新しい道を切り開くパイオニア',
-    route: '新規事業 → 起業家',
     image: '/img/recruit/characters/hero-type.jpg',
     color: '#D97706',
   },
@@ -88,7 +86,6 @@ const typeData: Record<
     tagline: 'やると決めたら、最後までやり抜く',
     strength: '圧倒的な実行力と粘り強さ',
     role: '最前線で結果を出すエース',
-    route: '現場リーダー → 事業責任者',
     image: '/img/recruit/characters/warrior-type.jpg',
     color: '#7A2020',
   },
@@ -97,7 +94,6 @@ const typeData: Record<
     tagline: '考え抜く力が、チームを次のステージへ導く',
     strength: '分析力と仕組みを作る思考力',
     role: '戦略でチームを導く頭脳',
-    route: '戦略設計 → 事業設計',
     image: '/img/recruit/characters/sage-type.jpg',
     color: '#C43B6B',
   },
@@ -106,9 +102,37 @@ const typeData: Record<
     tagline: 'あなたがいるから、チームは強くなる',
     strength: '人を支え、引き出す力',
     role: 'チームの土台を作る存在',
-    route: '教育・組織づくり → マネジメント',
     image: '/img/recruit/characters/priest-type.jpg',
     color: '#2D8A5E',
+  },
+}
+
+/* ─── Weapons (組み合わせ固有の武器) ─── */
+
+const weapons: Record<TypeKey, Record<TypeKey, string>> = {
+  hero: {
+    hero: '',
+    warrior: '挑戦を結果に変える\n突破力',
+    sage: 'ビジョンを戦略に\n落とし込む構想力',
+    priest: '人を巻き込みながら\n前に進む求心力',
+  },
+  warrior: {
+    hero: '困難に立ち向かい\n道を切り開く突進力',
+    warrior: '',
+    sage: '考えながら動ける\n実践知',
+    priest: '結果で示し\nチームを引き上げる統率力',
+  },
+  sage: {
+    hero: '知識を武器に\n未知へ踏み出す決断力',
+    warrior: '戦略を絵に描かず\n実行する遂行力',
+    sage: '',
+    priest: '知恵を分かち合い\n組織を育てる教導力',
+  },
+  priest: {
+    hero: '人のために\n一歩を踏み出す献身力',
+    warrior: '揺るがない土台で\n支え抜く堅守力',
+    sage: '人と仕組みの両方を\n見通す慧眼',
+    priest: '',
   },
 }
 
@@ -282,7 +306,7 @@ export default function DiagnosisPage() {
     setPhase('intro')
   }
 
-  // スコア計算 → メインタイプー＋サブタイプー
+  // スコア計算 ＞メインタイプー＋サブタイプー
   const getResult = () => {
     const scores: Record<TypeKey, number> = {
       hero: 0,
@@ -304,6 +328,7 @@ export default function DiagnosisPage() {
   const secondary = typeData[result.secondary]
   const composite = compositeDesc[result.primary][result.secondary]
   const upperJob = upperJobNames[result.primary][result.secondary]
+  const weapon = weapons[result.primary][result.secondary]
   const upperImage = upperJobImages[result.primary][result.secondary]
   const flavor = flavorTexts[result.primary][result.secondary]
 
@@ -491,7 +516,7 @@ export default function DiagnosisPage() {
             <FadeInUp>
               <div
                 className="rounded-[2px] overflow-hidden shadow-xl"
-                style={{ background: 'radial-gradient(ellipse 100% 80% at center, #F5ECD2 0%, #F5ECD2 40%, #E4D4AA 75%, #D4C08A 100%)', border: '2px solid #C8B88A' }}
+                style={{ background: 'radial-gradient(ellipse 100% 80% at center, #F5ECD2 0%, #F5ECD2 40%, #E4D4AA 75%, #D4C08A 100%)', boxShadow: 'inset 0 0 0 2px #C8B88A' }}
               >
                 {/* Header bar */}
                 <div className="py-2 text-center" style={{ background: `radial-gradient(ellipse 200% 60% at center, ${primary.color}BB 0%, ${primary.color} 50%, ${primary.color} 100%)` }}>
@@ -504,8 +529,8 @@ export default function DiagnosisPage() {
                 <div className="flex p-4 pb-3">
                   {/* 複合キャラ画像（縦長） — 将来的に上位職画像に差し替え */}
                   <div
-                    className="w-[45%] shrink-0 aspect-[3/4] rounded-[2px] overflow-hidden border-2"
-                    style={{ borderColor: '#C8B88A' }}
+                    className="w-[45%] shrink-0 aspect-[3/4] rounded-[2px] overflow-hidden border"
+                    style={{ borderColor: '#C0B08A' }}
                   >
                     <img
                       src={upperImage}
@@ -515,22 +540,22 @@ export default function DiagnosisPage() {
                   </div>
 
                   {/* タイプ名 + ステータス */}
-                  <div className="flex flex-col justify-between pl-4 min-w-0 py-1">
+                  <div className="flex flex-col justify-between pl-4 min-w-0 flex-1 py-1">
                     <div className="flex gap-1.5">
-                      <div className="flex-1 rounded-[2px] border overflow-hidden" style={{ borderColor: '#C8B88A' }}>
+                      <div className="flex-1 rounded-[2px] overflow-hidden" style={{ boxShadow: 'inset 0 0 0 1px #C8B88A' }}>
                         <p className="text-[10px] font-bold text-white px-2 py-0.5 text-center" style={{ ...serifStyle, background: `linear-gradient(90deg, ${primary.color} 0%, ${primary.color}BB 50%, ${primary.color} 100%)` }}>メインタイプ</p>
                         <p className="text-base font-bold text-[#1C2A44] px-2 py-1 text-center" style={serifStyle}>
                           {primary.name}
                         </p>
                       </div>
-                      <div className="flex-1 rounded-[2px] border overflow-hidden" style={{ borderColor: '#C8B88A' }}>
+                      <div className="flex-1 rounded-[2px] overflow-hidden" style={{ boxShadow: 'inset 0 0 0 1px #C8B88A' }}>
                         <p className="text-[10px] font-bold text-white px-2 py-0.5 text-center" style={{ ...serifStyle, background: `linear-gradient(90deg, ${primary.color} 0%, ${primary.color}BB 50%, ${primary.color} 100%)` }}>サブタイプ</p>
                         <p className="text-base font-bold text-[#1C2A44] px-2 py-1 text-center" style={serifStyle}>
                           {secondary.name}
                         </p>
                       </div>
                     </div>
-                    <div className="mt-2 rounded-[2px] border overflow-hidden" style={{ borderColor: '#C8B88A' }}>
+                    <div className="mt-2 rounded-[2px] overflow-hidden" style={{ boxShadow: 'inset 0 0 0 1px #C8B88A' }}>
                       <div style={{ borderBottom: '1px solid #C8B88A' }}>
                         <p className="text-[10px] font-bold text-white px-2 py-0.5 text-center" style={{ ...serifStyle, background: `linear-gradient(90deg, ${primary.color} 0%, ${primary.color}BB 50%, ${primary.color} 100%)` }}>強み</p>
                         <p className="text-xs text-[#1C2A44] px-2 py-1.5 text-center">{primary.strength}</p>
@@ -540,8 +565,8 @@ export default function DiagnosisPage() {
                         <p className="text-xs text-[#1C2A44] px-2 py-1.5 text-center">{primary.role}</p>
                       </div>
                       <div>
-                        <p className="text-[10px] font-bold text-white px-2 py-0.5 text-center" style={{ ...serifStyle, background: `linear-gradient(90deg, ${primary.color} 0%, ${primary.color}BB 50%, ${primary.color} 100%)` }}>ルート</p>
-                        <p className="text-xs text-[#1C2A44] px-2 py-1.5 text-center">{primary.route}</p>
+                        <p className="text-[10px] font-bold text-white px-2 py-0.5 text-center" style={{ ...serifStyle, background: `linear-gradient(90deg, ${primary.color} 0%, ${primary.color}BB 50%, ${primary.color} 100%)` }}>武器</p>
+                        <p className="text-xs text-[#1C2A44] px-2 py-1.5 text-center whitespace-pre-line">{weapon}</p>
                       </div>
                     </div>
                   </div>
@@ -552,20 +577,20 @@ export default function DiagnosisPage() {
                   <div className="px-4 -mt-1 pb-3">
                     <div className="flex justify-center items-center gap-4 mb-3">
                       <div
-                        className="w-24 h-24 rounded-[2px] overflow-hidden border-2 shrink-0"
-                        style={{ borderColor: primary.color }}
+                        className="w-24 h-24 rounded-[4px] overflow-hidden border shrink-0"
+                        style={{ borderColor: '#C0B08A' }}
                       >
                         <img src={primary.image} alt={primary.name} className="w-full h-full object-cover" />
                       </div>
                       <p className="text-base text-[#1C2A44] font-bold">×</p>
                       <div
-                        className="w-24 h-24 rounded-[2px] overflow-hidden border-2 shrink-0"
-                        style={{ borderColor: secondary.color }}
+                        className="w-24 h-24 rounded-[4px] overflow-hidden border shrink-0"
+                        style={{ borderColor: '#C0B08A' }}
                       >
                         <img src={secondary.image} alt={secondary.name} className="w-full h-full object-cover" />
                       </div>
                     </div>
-                    <div className="rounded-[2px] border overflow-hidden" style={{ borderColor: '#C8B88A' }}>
+                    <div className="rounded-[2px] overflow-hidden" style={{ boxShadow: 'inset 0 0 0 1px #C8B88A' }}>
                       <p className="text-[10px] font-bold text-white px-2.5 py-1 text-center" style={{ ...serifStyle, background: `linear-gradient(90deg, ${primary.color} 0%, ${primary.color}BB 50%, ${primary.color} 100%)` }}>素質</p>
                       <p className="text-sm font-bold text-[#1C2A44] px-2.5 py-1.5 text-center">{composite}</p>
                     </div>
