@@ -1,7 +1,10 @@
 'use client'
 
 import { useState, useEffect, useRef } from 'react'
+import { Press_Start_2P } from 'next/font/google'
 import Link from 'next/link'
+
+const dotFont = Press_Start_2P({ weight: '400', subsets: ['latin'] })
 import RecruitHeader from '@/components/recruit/RecruitHeader'
 import RecruitCTA from '@/components/recruit/RecruitCTA'
 import FadeInUp from '@/components/animations/FadeInUp'
@@ -264,7 +267,7 @@ export default function RecruitTopPage() {
             </span>
           </div>
         </div>
-        <div className="p-4 h-[150px] flex flex-col">
+        <div className="p-4 h-[155px] flex flex-col">
           <p className="text-base font-bold text-[#1C2A44] group-hover:text-[#2563EB] transition-colors">
             {story.name}
           </p>
@@ -278,14 +281,14 @@ export default function RecruitTopPage() {
             「{story.tagline}」
           </p>
           <div className="flex items-center gap-2 mt-auto">
-            <span className="text-[10px] text-gray-400 flex-shrink-0">
-              LEVEL 1
+            <span className={`text-[10px] text-[#1C2A44]/70 flex-shrink-0 ${dotFont.className}`}>
+              Lv.1
             </span>
-            <div className="flex-1 h-1.5 bg-gray-200 rounded-full overflow-hidden">
-              <div className="h-full w-4/5 bg-gradient-to-r from-[#2563EB] to-[#10B981] rounded-full" />
+            <div className="flex-1 h-5 border-2 border-[#1C2A44]/50 rounded-sm p-[1px] bg-white">
+              <div className="h-full w-4/5 bg-gradient-to-r from-[#93C5FD] via-[#3B82F6] to-[#2563EB] rounded-r-[2px]" />
             </div>
-            <span className="text-[10px] text-[#10B981] font-bold flex-shrink-0">
-              LEVEL 80+
+            <span className={`text-[10px] text-[#1D4ED8] font-bold flex-shrink-0 ${dotFont.className}`}>
+              MAX+
             </span>
           </div>
         </div>
