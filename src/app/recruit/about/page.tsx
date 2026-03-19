@@ -157,11 +157,11 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Brand Story - Main Story Text */}
+      {/* Brand Story - Aメロ: RPGメタファー導入 */}
       <section className="py-20 lg:py-32 px-4 bg-white">
-        <div className="max-w-3xl mx-auto">
+        <div className="max-w-2xl mx-auto">
           <FadeInUp>
-            <p className="text-gray-700 leading-loose text-sm md:text-base mb-10">
+            <p className="text-gray-700 leading-[2.5] text-base md:text-lg mb-12">
               人生は、ゲームに例えると
               <br />
               とてもよくできたRPGのようなものだと思っています。
@@ -169,7 +169,7 @@ export default function AboutPage() {
           </FadeInUp>
 
           <FadeInUp delay={100}>
-            <p className="text-gray-700 leading-loose text-sm md:text-base mb-10">
+            <p className="text-gray-700 leading-[2.5] text-base md:text-lg mb-12">
               何も持たない状態から始まり、
               <br />
               敵と戦いながら経験を積み、
@@ -183,13 +183,25 @@ export default function AboutPage() {
               自分自身を成長させながら
               <br />
               最終目的へと進んでいく。
-              <br />
-              まるでRPGの主人公のように。
             </p>
           </FadeInUp>
 
           <FadeInUp delay={100}>
-            <p className="text-gray-700 leading-loose text-sm md:text-base mb-10">
+            <p
+              className="text-[#1C2A44] text-lg md:text-xl font-bold leading-relaxed mb-12"
+              style={{ fontFamily: "'Times New Roman', 'Yu Mincho', serif" }}
+            >
+              まるでRPGの主人公のように。
+            </p>
+          </FadeInUp>
+        </div>
+      </section>
+
+      {/* Brand Story - Bメロ: 物語の深み */}
+      <section className="py-20 lg:py-32 px-4 bg-[#FAFAF5]">
+        <div className="max-w-2xl mx-auto">
+          <FadeInUp>
+            <p className="text-gray-700 leading-[2.5] text-base md:text-lg mb-12">
               でも、人生もRPGも
               <br />
               ただ「ラスボスを倒すこと」だけが目的ではありません。
@@ -197,7 +209,11 @@ export default function AboutPage() {
               その道の途中には
               <br />
               たくさんの物語があります。
-              <br />
+            </p>
+          </FadeInUp>
+
+          <FadeInUp delay={100}>
+            <p className="text-gray-700 leading-[2.5] text-base md:text-lg mb-12">
               かけがえのない仲間との出会い。
               <br />
               思いがけないチャンス。
@@ -207,13 +223,17 @@ export default function AboutPage() {
           </FadeInUp>
 
           <FadeInUp delay={100}>
-            <p className="text-gray-700 leading-loose text-sm md:text-base mb-10">
+            <p className="text-gray-700 leading-[2.5] text-base md:text-lg mb-12">
               そして、
               <br />
               どうしても乗り越えられないと思えるほどの
               <br />
               高い壁。
-              <br />
+            </p>
+          </FadeInUp>
+
+          <FadeInUp delay={100}>
+            <p className="text-gray-700 leading-[2.5] text-base md:text-lg">
               しかし不思議なことに、
               <br />
               人はその壁を乗り越えた時、
@@ -221,17 +241,22 @@ export default function AboutPage() {
               確実に成長しています。
             </p>
           </FadeInUp>
+        </div>
+      </section>
 
-          <FadeInUp delay={100}>
-            <p className="text-gray-700 leading-loose text-sm md:text-base mb-10">
+      {/* Brand Story - サビ1: 問いかけ */}
+      <section className="py-24 lg:py-36 px-4 bg-white">
+        <div className="max-w-2xl mx-auto text-center">
+          <FadeInUp>
+            <p className="text-gray-600 leading-[2.5] text-base md:text-lg mb-12">
               ここで少しだけ、
               <br />
               自分自身に問いかけてみてください。
             </p>
           </FadeInUp>
 
-          <FadeInUp delay={100}>
-            <div className="my-16 py-10 px-8 bg-[#1C2A44]/5 rounded-xl text-center">
+          <FadeInUp delay={200}>
+            <div className="py-12 px-8 bg-[#1C2A44]/5 rounded-xl">
               <p
                 className="text-[#1C2A44] text-xl md:text-2xl lg:text-3xl leading-relaxed font-bold"
                 style={{ fontFamily: "'Times New Roman', 'Yu Mincho', serif" }}
@@ -242,9 +267,14 @@ export default function AboutPage() {
               </p>
             </div>
           </FadeInUp>
+        </div>
+      </section>
 
-          <FadeInUp delay={100}>
-            <p className="text-gray-700 leading-loose text-sm md:text-base mb-10">
+      {/* Brand Story - Aメロ2: 主人公とは */}
+      <section className="py-20 lg:py-32 px-4 bg-[#FAFAF5]">
+        <div className="max-w-2xl mx-auto">
+          <FadeInUp>
+            <p className="text-gray-700 leading-[2.5] text-base md:text-lg mb-12">
               本当はもっと挑戦できる。
               <br />
               本当はもっと成長できる。
@@ -256,7 +286,7 @@ export default function AboutPage() {
           </FadeInUp>
 
           <FadeInUp delay={100}>
-            <p className="text-gray-700 leading-loose text-sm md:text-base mb-10">
+            <p className="text-gray-700 leading-[2.5] text-base md:text-lg mb-12">
               でも、RPGの主人公は
               <br />
               途中で逃げません。
@@ -272,7 +302,7 @@ export default function AboutPage() {
           </FadeInUp>
 
           <FadeInUp delay={100}>
-            <p className="text-gray-700 leading-loose text-sm md:text-base mb-10">
+            <p className="text-gray-700 leading-[2.5] text-base md:text-lg mb-12">
               主人公は、
               <br />
               自分のためだけに戦っているわけではありません。
@@ -282,19 +312,35 @@ export default function AboutPage() {
               村の人のため。
               <br />
               世界のため。
-              <br />
-              誰かのために戦っている。
             </p>
           </FadeInUp>
 
           <FadeInUp delay={100}>
-            <p className="text-gray-700 leading-loose text-sm md:text-base mb-10">
+            <p
+              className="text-[#1C2A44] text-lg md:text-xl font-bold leading-relaxed"
+              style={{ fontFamily: "'Times New Roman', 'Yu Mincho', serif" }}
+            >
+              誰かのために戦っている。
+            </p>
+          </FadeInUp>
+        </div>
+      </section>
+
+      {/* Brand Story - サビ2: 私たちの信念 */}
+      <section className="py-24 lg:py-36 px-4 bg-white">
+        <div className="max-w-2xl mx-auto">
+          <FadeInUp>
+            <p className="text-gray-700 leading-[2.5] text-base md:text-lg mb-12">
               私たちは思っています。
               <br />
               仕事も、人生も、
               <br />
               本質は同じだと。
-              <br />
+            </p>
+          </FadeInUp>
+
+          <FadeInUp delay={100}>
+            <p className="text-gray-700 leading-[2.5] text-base md:text-lg mb-16">
               誰かのために挑戦する人がいるから
               <br />
               社会は前に進む。
@@ -305,18 +351,30 @@ export default function AboutPage() {
             </p>
           </FadeInUp>
 
-          <FadeInUp delay={100}>
-            <p className="text-gray-700 leading-loose text-sm md:text-base mb-10">
-              だから私たちは、
-              <br />
-              ただ仕事をするだけの会社ではなく
-              <br />
-              「人生の主人公として挑戦する人」が集まる場所でありたい。
-            </p>
+          <FadeInUp delay={200}>
+            <div className="py-12 px-8 bg-[#1C2A44]/5 rounded-xl text-center">
+              <p
+                className="text-[#1C2A44] text-lg md:text-xl lg:text-2xl leading-relaxed font-bold"
+                style={{ fontFamily: "'Times New Roman', 'Yu Mincho', serif" }}
+              >
+                だから私たちは、
+                <br />
+                ただ仕事をするだけの会社ではなく
+                <br />
+                「人生の主人公として挑戦する人」が
+                <br />
+                集まる場所でありたい。
+              </p>
+            </div>
           </FadeInUp>
+        </div>
+      </section>
 
-          <FadeInUp delay={100}>
-            <p className="text-gray-700 leading-loose text-sm md:text-base mb-10">
+      {/* Brand Story - アウトロ */}
+      <section className="py-20 lg:py-32 px-4 bg-[#FAFAF5]">
+        <div className="max-w-2xl mx-auto">
+          <FadeInUp>
+            <p className="text-gray-700 leading-[2.5] text-base md:text-lg mb-12">
               失敗することもあるでしょう。
               <br />
               壁にぶつかることもあるでしょう。
@@ -328,7 +386,7 @@ export default function AboutPage() {
           </FadeInUp>
 
           <FadeInUp delay={100}>
-            <p className="text-gray-700 leading-loose text-sm md:text-base">
+            <p className="text-gray-700 leading-[2.5] text-base md:text-lg mb-16">
               人生は一度しかありません。
               <br />
               だからこそ、
@@ -336,7 +394,14 @@ export default function AboutPage() {
               ただ時間を過ごすのではなく
               <br />
               自分の物語を、自分の手でつくる。
-              <br />
+            </p>
+          </FadeInUp>
+
+          <FadeInUp delay={200}>
+            <p
+              className="text-[#1C2A44] text-lg md:text-xl font-bold leading-relaxed"
+              style={{ fontFamily: "'Times New Roman', 'Yu Mincho', serif" }}
+            >
               私たちは、
               <br />
               そんな仲間と出会えることを楽しみにしています。
@@ -371,42 +436,36 @@ export default function AboutPage() {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <FadeInUp delay={100}>
-              <div className="rounded-2xl p-8 h-full bg-white shadow-md">
-                <div className="text-[#2563EB] text-3xl font-bold mb-4" style={{ fontFamily: "'Times New Roman', serif" }}>
-                  01
+              <div className="rounded-2xl p-6 md:p-8 h-full bg-white shadow-md">
+                <div className="flex items-center gap-3 mb-6">
+                  <span className="text-[#2563EB] text-4xl font-bold flex-shrink-0" style={{ fontFamily: "'Times New Roman', serif" }}>01</span>
+                  <h3 className="text-[#1C2A44] text-lg font-bold">学びを得られる環境がある</h3>
                 </div>
-                <h3 className="text-[#1C2A44] text-lg font-bold mb-4">
-                  学びを得られる環境がある
-                </h3>
-                <p className="text-gray-600 text-sm leading-loose">
+                <p className="text-gray-600 text-sm leading-[2.2]">
                   人生のレベルを上げるのは経験と学びです。新しい挑戦。失敗からの気づき。仲間との議論。そのすべてがあなたの経験値になります。Singでは、ただ仕事をこなすのではなく「成長すること」そのものを大切にしています。昨日よりも今日、今日よりも明日。少しずつでも自分のレベルが上がっている。そんな実感を持てる環境があります。
                 </p>
               </div>
             </FadeInUp>
 
             <FadeInUp delay={200}>
-              <div className="rounded-2xl p-8 h-full bg-white shadow-md">
-                <div className="text-[#2563EB] text-3xl font-bold mb-4" style={{ fontFamily: "'Times New Roman', serif" }}>
-                  02
+              <div className="rounded-2xl p-6 md:p-8 h-full bg-white shadow-md">
+                <div className="flex items-center gap-3 mb-6">
+                  <span className="text-[#2563EB] text-4xl font-bold flex-shrink-0" style={{ fontFamily: "'Times New Roman', serif" }}>02</span>
+                  <h3 className="text-[#1C2A44] text-lg font-bold">一緒に寄り添ってくれる仲間がいる</h3>
                 </div>
-                <h3 className="text-[#1C2A44] text-lg font-bold mb-4">
-                  一緒に寄り添ってくれる仲間がいる
-                </h3>
-                <p className="text-gray-600 text-sm leading-loose">
+                <p className="text-gray-600 text-sm leading-[2.2]">
                   RPGの主人公は、一人では冒険を続けられません。苦しい時、迷った時、立ち止まりそうな時。隣に仲間がいるから前に進める。Singには、同じ方向を向いて挑戦する仲間がいます。競い合うだけではなく、支え合う関係。一人で戦わせない。それが私たちの文化です。
                 </p>
               </div>
             </FadeInUp>
 
             <FadeInUp delay={300}>
-              <div className="rounded-2xl p-8 h-full bg-white shadow-md">
-                <div className="text-[#2563EB] text-3xl font-bold mb-4" style={{ fontFamily: "'Times New Roman', serif" }}>
-                  03
+              <div className="rounded-2xl p-6 md:p-8 h-full bg-white shadow-md">
+                <div className="flex items-center gap-3 mb-6">
+                  <span className="text-[#2563EB] text-4xl font-bold flex-shrink-0" style={{ fontFamily: "'Times New Roman', serif" }}>03</span>
+                  <h3 className="text-[#1C2A44] text-lg font-bold">違っても良い。短所を補う仲間がいる</h3>
                 </div>
-                <h3 className="text-[#1C2A44] text-lg font-bold mb-4">
-                  違っても良い。短所を補う仲間がいる
-                </h3>
-                <p className="text-gray-600 text-sm leading-loose">
+                <p className="text-gray-600 text-sm leading-[2.2]">
                   人にはそれぞれ、得意なことと苦手なことがあります。完璧な人はいません。でも、違う人が集まることでチームは強くなる。誰かの弱さを誰かの強さが支える。それが仲間です。Singは、同じ人を集める会社ではありません。違うからこそ、強いチームになる。そう信じています。
                 </p>
               </div>
@@ -534,7 +593,7 @@ export default function AboutPage() {
                     <div className="absolute left-2 md:left-4 top-1 w-4 h-4 rotate-45 bg-white border-2 border-[#2563EB]" />
 
                     {/* Label */}
-                    <span className="text-[10px] tracking-[0.3em] uppercase text-[#2563EB] mb-3 block">
+                    <span className="text-base md:text-lg tracking-[0.3em] uppercase text-[#2563EB] font-bold mb-3 block">
                       {milestone.label}
                     </span>
 

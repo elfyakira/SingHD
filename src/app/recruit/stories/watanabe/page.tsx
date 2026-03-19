@@ -121,11 +121,6 @@ export default function WatanabeStoryPage() {
           <div className="absolute inset-0 bg-[#1C2A44]/70" />
         </div>
         <div className="relative text-center">
-          <FadeInUp>
-            <p className="text-xs tracking-[0.4em] uppercase text-white mb-6">
-              CHAPTER 11
-            </p>
-          </FadeInUp>
           <FadeInUp delay={200}>
             <h1
               className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6"
