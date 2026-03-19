@@ -41,10 +41,17 @@
 
 プロフィールカードの会社名に `uppercase` CSSクラスがついていたため、ブラウザ上で「株式会社SING」と表示されていた問題を修正。4ページすべてから `uppercase` を削除し「株式会社Sing」と正しく表示されるようにした。
 
+### robots.txt作成
+
+`public/robots.txt` を新規作成。
+- 全クローラー許可（`/api/` のみブロック）
+- AIクローラー個別許可（GPTBot, ChatGPT-User, Claude-Web, Google-Extended, Amazonbot, Applebot-Extended, PerplexityBot, Bytespider, CCBot）
+- サイトマップ指定（`https://hd.jp-sing.com/sitemap.xml`）
+
 ### 次セッションTODO
 - [ ] キャラクター名の最終確定（クライアント承認待ち）
 - [ ] `/seo-check` を実行してキーワードギャップを特定 → 次の記事テーマを決定
-- [ ] robots.txtの作成（AIクローラー許可設定）
+- [x] robots.txtの作成（AIクローラー許可設定） → 完了
 - [ ] フッターの作成
 - [ ] エントリーページのデザイン改善
 
