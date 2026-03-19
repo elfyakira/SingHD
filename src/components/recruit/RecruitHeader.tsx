@@ -28,7 +28,7 @@ export default function RecruitHeader() {
   }, [isMobileMenuOpen])
 
   const linkClass = 'text-sm font-bold tracking-wider text-gray-700 hover:text-[#2563EB] transition-colors'
-  const mobileLinkClass = 'block py-3 text-base font-bold text-gray-700 hover:text-[#2563EB] transition-colors'
+  const mobileLinkClass = 'block py-1.5 text-lg font-bold text-gray-700 hover:text-[#2563EB] transition-colors'
   const subLinkClass = 'block px-5 py-2.5 text-sm font-bold text-gray-700 hover:text-[#2563EB] hover:bg-[#2563EB]/5 transition-colors'
 
   const close = () => setIsMobileMenuOpen(false)
@@ -123,6 +123,12 @@ export default function RecruitHeader() {
                   <Link href="/recruit/stories/iida" className={subLinkClass}>
                     飯田 思遠
                   </Link>
+                  <Link href="/recruit/stories/yagi" className={subLinkClass}>
+                    屋宜 勝正
+                  </Link>
+                  <Link href="/recruit/stories/shimishun" className={subLinkClass}>
+                    清水 駿之介
+                  </Link>
                   <div className="border-t border-gray-100 my-1" />
                   <p className="px-5 py-1.5 text-[10px] uppercase tracking-widest text-[#2563EB] font-bold">冒険者ガイド</p>
                   <Link href="/recruit/guide" className={subLinkClass}>
@@ -163,8 +169,8 @@ export default function RecruitHeader() {
           isMobileMenuOpen ? 'opacity-100 visible translate-y-0' : 'opacity-0 invisible -translate-y-4'
         }`}
       >
-        <nav className="px-6 py-8">
-          <div className="space-y-1">
+        <nav className="px-6 py-4">
+          <div className="space-y-0">
             <Link href="/recruit/about" className={mobileLinkClass} onClick={close}>
               冒険のはじまり
             </Link>
@@ -177,42 +183,48 @@ export default function RecruitHeader() {
           </div>
 
           {/* 冒険の世界 */}
-          <div className="mt-6 mb-6">
-            <p className="text-[10px] uppercase tracking-widest text-[#2563EB] font-bold mb-3">
+          <div className="mt-3 mb-3">
+            <p className="text-xs uppercase tracking-widest text-[#2563EB] font-bold mb-1">
               冒険の世界
             </p>
-            <div className="space-y-1 pl-3 border-l-2 border-[#2563EB]/20">
-              <Link href="/recruit/adventure-map" className="block py-2.5 text-sm font-bold text-gray-700 hover:text-[#2563EB] transition-colors" onClick={close}>
+            <div className="space-y-0 pl-3 border-l-2 border-[#2563EB]/20">
+              <Link href="/recruit/adventure-map" className="block py-1.5 text-base font-bold text-gray-700 hover:text-[#2563EB] transition-colors" onClick={close}>
                 冒険マップ
               </Link>
-              <Link href="/recruit/characters" className="block py-2.5 text-sm font-bold text-gray-700 hover:text-[#2563EB] transition-colors" onClick={close}>
+              <Link href="/recruit/characters" className="block py-1.5 text-base font-bold text-gray-700 hover:text-[#2563EB] transition-colors" onClick={close}>
                 冒険者タイプ
               </Link>
-              <Link href="/recruit/oath" className="block py-2.5 text-sm font-bold text-gray-700 hover:text-[#2563EB] transition-colors" onClick={close}>
+              <Link href="/recruit/oath" className="block py-1.5 text-base font-bold text-gray-700 hover:text-[#2563EB] transition-colors" onClick={close}>
                 冒険者の誓い
               </Link>
-              <Link href="/recruit/last-boss" className="block py-2.5 text-sm font-bold text-gray-700 hover:text-[#2563EB] transition-colors" onClick={close}>
+              <Link href="/recruit/last-boss" className="block py-1.5 text-base font-bold text-gray-700 hover:text-[#2563EB] transition-colors" onClick={close}>
                 ラスボス
               </Link>
             </div>
           </div>
 
           {/* 冒険の知恵袋 */}
-          <div className="mb-6">
-            <p className="text-[10px] uppercase tracking-widest text-[#2563EB] font-bold mb-3">
+          <div className="mb-3">
+            <p className="text-xs uppercase tracking-widest text-[#2563EB] font-bold mb-1">
               冒険の知恵袋
             </p>
-            <div className="space-y-1 pl-3 border-l-2 border-[#2563EB]/20">
-              <p className="py-1.5 text-[10px] text-gray-400 font-medium tracking-wider">挑戦者ストーリー</p>
-              <Link href="/recruit/stories/watanabe" className="block py-2.5 text-sm font-bold text-gray-700 hover:text-[#2563EB] transition-colors" onClick={close}>
+            <div className="space-y-0 pl-3 border-l-2 border-[#2563EB]/20">
+              <p className="py-1 text-xs text-gray-600 font-medium tracking-wider">挑戦者ストーリー</p>
+              <Link href="/recruit/stories/watanabe" className="block py-1.5 text-base font-bold text-gray-700 hover:text-[#2563EB] transition-colors" onClick={close}>
                 渡邉 大輝
               </Link>
-              <Link href="/recruit/stories/iida" className="block py-2.5 text-sm font-bold text-gray-700 hover:text-[#2563EB] transition-colors" onClick={close}>
+              <Link href="/recruit/stories/iida" className="block py-1.5 text-base font-bold text-gray-700 hover:text-[#2563EB] transition-colors" onClick={close}>
                 飯田 思遠
               </Link>
+              <Link href="/recruit/stories/yagi" className="block py-1.5 text-base font-bold text-gray-700 hover:text-[#2563EB] transition-colors" onClick={close}>
+                屋宜 勝正
+              </Link>
+              <Link href="/recruit/stories/shimishun" className="block py-1.5 text-base font-bold text-gray-700 hover:text-[#2563EB] transition-colors" onClick={close}>
+                清水 駿之介
+              </Link>
               <div className="border-t border-gray-100 my-1" />
-              <p className="py-1.5 text-[10px] text-gray-400 font-medium tracking-wider">冒険者ガイド</p>
-              <Link href="/recruit/guide" className="block py-2.5 text-sm font-bold text-gray-700 hover:text-[#2563EB] transition-colors" onClick={close}>
+              <p className="py-1 text-xs text-gray-600 font-medium tracking-wider">冒険者ガイド</p>
+              <Link href="/recruit/guide" className="block py-1.5 text-base font-bold text-gray-700 hover:text-[#2563EB] transition-colors" onClick={close}>
                 コンテンツ一覧
               </Link>
             </div>
@@ -228,7 +240,7 @@ export default function RecruitHeader() {
 
           <Link
             href="/"
-            className="block text-center text-xs text-gray-400 mt-4 py-2 hover:text-gray-600 transition-colors"
+            className="block text-center text-xs text-gray-600 mt-4 py-2 hover:text-gray-800 transition-colors"
             onClick={close}
           >
             コーポレートサイトへ戻る

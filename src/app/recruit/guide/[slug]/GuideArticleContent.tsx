@@ -32,7 +32,7 @@ export default function GuideArticleContent({
 
       <article className="pt-20 pb-16">
         <div className="max-w-3xl md:max-w-5xl mx-auto px-4">
-          <div className="bg-white/60 backdrop-blur rounded-2xl px-6 md:px-16 lg:px-24 py-8 mt-8">
+          <div className="bg-white/80 backdrop-blur rounded-2xl px-6 md:px-16 lg:px-24 py-8 mt-8">
             {/* Header */}
             <header className="pb-6">
               <FadeInUp>

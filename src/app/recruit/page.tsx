@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import Link from 'next/link'
 import RecruitHeader from '@/components/recruit/RecruitHeader'
 import RecruitCTA from '@/components/recruit/RecruitCTA'
@@ -65,6 +65,9 @@ const cardImages: Record<string, string> = {
   jobs: '/img/recruit/entry/open-door.jpg',
 }
 
+const cardImagePositions: Record<string, string> = {
+  oath: '50% 25%',
+}
 
 const phaseConfig = [
   { phase: 'hook' as const, number: '01', label: '物語のはじまり', color: '#EF4444' },
@@ -81,6 +84,7 @@ const challengerStories = [
     tagline: '覚悟が固まるのを待つ人生は、もうやめた。',
     href: '/recruit/stories/watanabe',
     image: '/img/recruit/stories/watanabe-portrait.png',
+    imagePosition: '50% 5%',
   },
   {
     name: '飯田 思遠',
@@ -89,11 +93,35 @@ const challengerStories = [
     tagline: '自分の意思で未来を選び続ける',
     href: '/recruit/stories/iida',
     image: '/img/recruit/stories/iida-portrait.png',
+    imagePosition: '50% 5%',
+  },
+  {
+    name: '屋宜 勝正',
+    company: '株式会社フライトップ',
+    role: '代表取締役',
+    tagline: '逃げない選択が、人生を変える',
+    href: '/recruit/stories/yagi',
+    image: '/img/miraiku/partner-yagi.jpg',
+    imagePosition: '50% 20%',
+  },
+  {
+    name: '清水 駿之介',
+    company: '株式会社Sing',
+    role: '代表取締役会長',
+    tagline: '仲間と共に、日本に新しい風を起こし続ける',
+    href: '/recruit/stories/shimishun',
+    image: '/img/miraiku/partner-shimishun.jpg',
+    imagePosition: '50% 48%',
   },
 ]
 
 export default function RecruitTopPage() {
   const [scrollIndicatorVisible, setScrollIndicatorVisible] = useState(true)
+  const storyTrackRef = useRef<HTMLDivElement>(null)
+  const storyAnimRef = useRef<number>(0)
+  const storyPosRef = useRef(0)
+  const storyPausedRef = useRef(false)
+  const touchStartX = useRef(0)
 
   useEffect(() => {
     const handleScroll = () => {
@@ -102,6 +130,44 @@ export default function RecruitTopPage() {
     window.addEventListener('scroll', handleScroll)
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
+
+  // 無限ループスクロール（requestAnimationFrame）
+  useEffect(() => {
+    const track = storyTrackRef.current
+    if (!track) return
+    const speed = 0.5 // px/frame
+    const singleSetWidth = track.scrollWidth / 2
+
+    const animate = () => {
+      if (!storyPausedRef.current) {
+        storyPosRef.current += speed
+        if (storyPosRef.current >= singleSetWidth) {
+          storyPosRef.current -= singleSetWidth
+        }
+        track.style.transform = `translateX(-${storyPosRef.current}px)`
+      }
+      storyAnimRef.current = requestAnimationFrame(animate)
+    }
+    storyAnimRef.current = requestAnimationFrame(animate)
+    return () => cancelAnimationFrame(storyAnimRef.current)
+  }, [])
+
+  const handleStoryTouchStart = (e: React.TouchEvent) => {
+    touchStartX.current = e.touches[0].clientX
+    storyPausedRef.current = true
+  }
+
+  const handleStoryTouchEnd = (e: React.TouchEvent) => {
+    const diff = touchStartX.current - e.changedTouches[0].clientX
+    storyPosRef.current += diff
+    const track = storyTrackRef.current
+    if (track) {
+      const singleSetWidth = track.scrollWidth / 2
+      if (storyPosRef.current < 0) storyPosRef.current += singleSetWidth
+      if (storyPosRef.current >= singleSetWidth) storyPosRef.current -= singleSetWidth
+    }
+    storyPausedRef.current = false
+  }
 
   const allChapters = recruitChapters.filter(
     (c) => c.id !== 'top' && c.id !== 'story-watanabe' && c.id !== 'story-iida'
@@ -122,6 +188,7 @@ export default function RecruitTopPage() {
                 src={cardImages[c.id]}
                 alt={mapTitles[c.id] || c.title}
                 className="absolute inset-0 w-full h-full object-cover"
+                style={cardImagePositions[c.id] ? { objectPosition: cardImagePositions[c.id] } : undefined}
               />
             </div>
             <div className="px-5 py-5">
@@ -183,20 +250,21 @@ export default function RecruitTopPage() {
   // 挑戦者ストーリーカード（正方形）
   const storyCard = (story: (typeof challengerStories)[number]) => (
     <Link href={story.href} className="group">
-      <div className="aspect-square bg-white/95 backdrop-blur-sm rounded-xl overflow-hidden border-2 border-[#2563EB]/20 hover:border-[#2563EB]/40 hover:shadow-lg hover:shadow-[#2563EB]/10 transition-all duration-300 flex flex-col">
-        <div className="flex-1 relative overflow-hidden">
+      <div className="bg-white/95 backdrop-blur-sm rounded-xl overflow-hidden border-2 border-[#2563EB]/20 hover:border-[#2563EB]/40 hover:shadow-lg hover:shadow-[#2563EB]/10 transition-all duration-300">
+        <div className="relative overflow-hidden h-[160px] md:h-[180px]">
           <img
             src={story.image}
             alt={story.name}
             className="absolute inset-0 w-full h-full object-cover"
+            style={{ objectPosition: story.imagePosition || '50% 30%' }}
           />
-          <div className="absolute top-3 left-4">
+          <div className="absolute top-2 left-3">
             <span className="text-[10px] tracking-widest text-[#2563EB] font-bold bg-white/80 backdrop-blur-sm px-2 py-1 rounded">
               CHALLENGER STORY
             </span>
           </div>
         </div>
-        <div className="p-4">
+        <div className="p-4 h-[150px] flex flex-col">
           <p className="text-base font-bold text-[#1C2A44] group-hover:text-[#2563EB] transition-colors">
             {story.name}
           </p>
@@ -204,12 +272,12 @@ export default function RecruitTopPage() {
             {story.company} {story.role}
           </p>
           <p
-            className="text-sm text-[#1C2A44] mt-3"
+            className="text-sm text-[#1C2A44] mt-3 line-clamp-2"
             style={{ fontFamily: "'Yu Mincho', serif" }}
           >
             「{story.tagline}」
           </p>
-          <div className="flex items-center gap-2 mt-4">
+          <div className="flex items-center gap-2 mt-auto">
             <span className="text-[10px] text-gray-400 flex-shrink-0">
               LEVEL 1
             </span>
@@ -377,7 +445,7 @@ export default function RecruitTopPage() {
           </FadeInUp>
 
           <FadeInUp delay={100}>
-            <p className="text-gray-700 leading-loose text-sm md:text-base mb-8">
+            <p className="text-gray-700 leading-loose text-base md:text-xl font-bold mb-8">
               人生はRPGのようなものです。
               <br />
               敵に出会い、壁にぶつかり、仲間と出会いながら
@@ -387,7 +455,7 @@ export default function RecruitTopPage() {
           </FadeInUp>
 
           <FadeInUp delay={200}>
-            <p className="text-gray-700 leading-loose text-sm md:text-base mb-12">
+            <p className="text-gray-700 leading-loose text-base md:text-xl font-bold mb-12">
               Singホールディングスは
               <br />
               そんな人生を本気で生きる人たちが集まる場所です。
@@ -542,9 +610,24 @@ export default function RecruitTopPage() {
                         <div className="w-12 h-px bg-white/20" />
                       </div>
                     </div>
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-                      {storyCard(challengerStories[0])}
-                      {storyCard(challengerStories[1])}
+                    {/* Story Slider — 無限ループ（親max-w-5xlを突破してフルワイド） */}
+                    <div
+                      className="overflow-hidden relative left-1/2 -translate-x-1/2 w-screen"
+                      onTouchStart={handleStoryTouchStart}
+                      onTouchEnd={handleStoryTouchEnd}
+                      onMouseEnter={() => { storyPausedRef.current = true }}
+                      onMouseLeave={() => { storyPausedRef.current = false }}
+                    >
+                      <div
+                        ref={storyTrackRef}
+                        className="flex gap-6 will-change-transform"
+                      >
+                        {[...challengerStories, ...challengerStories].map((story, i) => (
+                          <div key={`${story.name}-${i}`} className="flex-shrink-0 w-[260px] md:w-[300px]">
+                            {storyCard(story)}
+                          </div>
+                        ))}
+                      </div>
                     </div>
                     <div className="text-center pt-6">
                       <p className="text-[10px] tracking-[0.3em] uppercase text-gray-400 mb-2">
