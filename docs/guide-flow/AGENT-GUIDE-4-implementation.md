@@ -127,7 +127,11 @@ rm /mnt/c/Nanobanana/tmp_generate.py
 
 `public/llms.txt` にコンテンツ情報を追記。
 
-### Step 7: 型チェック
+### Step 7: インデックス登録手順書を更新
+
+`docs/インデックス登録リクエスト手順書.md` の優先度4セクションに新しいURLを追記し、合計件数を更新する。
+
+### Step 8: 型チェック
 
 ```bash
 npx tsc --noEmit
@@ -145,6 +149,7 @@ npx tsc --noEmit
 - [ ] `src/app/sitemap.ts` — URLエントリー追加済み
 - [ ] `public/ai.txt` — コンテンツ情報追記済み
 - [ ] `public/llms.txt` — コンテンツ情報追記済み
+- [ ] `docs/インデックス登録リクエスト手順書.md` — URL追記済み
 
 ---
 
