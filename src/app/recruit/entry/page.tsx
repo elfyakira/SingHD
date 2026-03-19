@@ -1,7 +1,7 @@
 'use client'
 
+import { useState } from 'react'
 import RecruitHeader from '@/components/recruit/RecruitHeader'
-import RecruitCTA from '@/components/recruit/RecruitCTA'
 import FadeInUp from '@/components/animations/FadeInUp'
 import Link from 'next/link'
 
@@ -52,73 +52,76 @@ const jobDetails = [
   },
 ]
 
-const contactMethods = [
-  {
-    icon: (
-      <svg
-        className="w-8 h-8 text-[#1C2A44]"
-        fill="none"
-        stroke="currentColor"
-        viewBox="0 0 24 24"
-      >
-        <path
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          strokeWidth={1.5}
-          d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z"
-        />
-      </svg>
-    ),
-    title: '電話',
-    description: 'お電話でのお問い合わせ',
-    sub: 'お気軽にご連絡ください',
-    href: null,
-  },
-  {
-    icon: (
-      <svg
-        className="w-8 h-8 text-[#1C2A44]"
-        fill="none"
-        stroke="currentColor"
-        viewBox="0 0 24 24"
-      >
-        <path
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          strokeWidth={1.5}
-          d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75"
-        />
-      </svg>
-    ),
-    title: 'メール',
-    description: 'お問い合わせフォーム',
-    sub: 'フォームから送信できます',
-    href: '/contact',
-  },
-  {
-    icon: (
-      <svg
-        className="w-8 h-8 text-[#1C2A44]"
-        fill="none"
-        stroke="currentColor"
-        viewBox="0 0 24 24"
-      >
-        <path
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          strokeWidth={1.5}
-          d="M8.625 12a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0H8.25m4.125 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0H12m4.125 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0h-.375M21 12c0 4.556-4.03 8.25-9 8.25a9.764 9.764 0 01-2.555-.337A5.972 5.972 0 015.41 20.97a5.969 5.969 0 01-.474-.065 4.48 4.48 0 00.978-2.025c.09-.457-.133-.901-.467-1.226C3.93 16.178 3 14.189 3 12c0-4.556 4.03-8.25 9-8.25s9 3.694 9 8.25z"
-        />
-      </svg>
-    ),
-    title: 'DM',
-    description: 'SNSのDMでもOK',
-    sub: 'Instagram・X など',
-    href: null,
-  },
-]
+const serifStyle = { fontFamily: "'Times New Roman', 'Yu Mincho', serif" }
+
+type FormStep = 'input' | 'confirm' | 'complete'
+
+interface EntryFormData {
+  name: string
+  email: string
+  phone: string
+  message: string
+  privacy: boolean
+}
 
 export default function EntryPage() {
+  const [step, setStep] = useState<FormStep>('input')
+  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [formData, setFormData] = useState<EntryFormData>({
+    name: '',
+    email: '',
+    phone: '',
+    message: '',
+    privacy: false,
+  })
+  const [errors, setErrors] = useState<Partial<Record<keyof EntryFormData, string>>>({})
+
+  const validateForm = () => {
+    const newErrors: Partial<Record<keyof EntryFormData, string>> = {}
+    if (!formData.name) newErrors.name = 'お名前を入力してください'
+    if (!formData.email) {
+      newErrors.email = 'メールアドレスを入力してください'
+    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
+      newErrors.email = '正しいメールアドレスを入力してください'
+    }
+    if (!formData.phone) newErrors.phone = '電話番号を入力してください'
+    if (!formData.message) newErrors.message = 'メッセージを入力してください'
+    if (!formData.privacy) newErrors.privacy = '同意が必要です'
+    setErrors(newErrors)
+    return Object.keys(newErrors).length === 0
+  }
+
+  const submitForm = async () => {
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          phone: formData.phone,
+          message: formData.message,
+          source: 'recruit',
+        }),
+      })
+      return res.ok
+    } catch {
+      return false
+    }
+  }
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault()
+    if (step === 'input') {
+      if (validateForm()) setStep('confirm')
+    } else if (step === 'confirm') {
+      setIsSubmitting(true)
+      const success = await submitForm()
+      setIsSubmitting(false)
+      if (success) setStep('complete')
+    }
+  }
+
   return (
     <div className="min-h-screen bg-white text-[#1C2A44]">
       <RecruitHeader />
@@ -546,85 +549,218 @@ export default function EntryPage() {
         </div>
       </section>
 
-      {/* ===== Application Section ===== */}
-      <section className="py-20 lg:py-32 px-4 bg-white">
-        <div className="max-w-3xl mx-auto">
+      {/* ===== Entry Form ===== */}
+      <section id="entry-form" className="py-20 lg:py-32 px-4 bg-white">
+        <div className="max-w-2xl mx-auto">
           <FadeInUp>
-            <div className="text-center mb-16">
-              <p className="text-xs tracking-[0.3em] uppercase text-[#1C2A44] mb-4">
+            <div className="text-center mb-12">
+              <p className="text-xs tracking-[0.3em] uppercase text-[#F59E0B] mb-4">
                 JOIN THE ADVENTURE
               </p>
               <h2
                 className="text-3xl md:text-4xl font-bold text-[#1C2A44] mb-4"
-                style={{
-                  fontFamily: "'Times New Roman', 'Yu Mincho', serif",
-                }}
+                style={serifStyle}
               >
                 冒険に参加する
               </h2>
-              <div className="w-16 h-px bg-[#1C2A44] mx-auto mb-6" />
+              <div className="w-16 h-1 bg-[#F59E0B] rounded-full mx-auto mb-6" />
               <p className="text-gray-600 text-sm md:text-base">
                 あなたの物語を、ここから始めよう。
               </p>
             </div>
           </FadeInUp>
 
-          {/* Contact method cards */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
-            {contactMethods.map((method, index) => (
-              <FadeInUp key={index} delay={index * 150}>
-                {method.href ? (
-                  <Link href={method.href} className="block group">
-                    <div className="bg-[#FAFAF5] hover:bg-[#F0EDE8] rounded-2xl p-8 text-center transition-all duration-300 h-full shadow-sm hover:shadow-md">
-                      <div className="flex justify-center mb-5">
-                        {method.icon}
-                      </div>
-                      <h3 className="text-lg font-bold text-[#1C2A44] mb-2 group-hover:text-[#F59E0B] transition-colors">
-                        {method.title}
-                      </h3>
-                      <p className="text-sm text-gray-600 mb-1">
-                        {method.description}
-                      </p>
-                      <p className="text-xs text-gray-500">{method.sub}</p>
-                    </div>
-                  </Link>
-                ) : (
-                  <div className="bg-[#FAFAF5] rounded-2xl p-8 text-center h-full shadow-sm">
-                    <div className="flex justify-center mb-5">
-                      {method.icon}
-                    </div>
-                    <h3 className="text-lg font-bold text-[#1C2A44] mb-2">
-                      {method.title}
-                    </h3>
-                    <p className="text-sm text-gray-600 mb-1">
-                      {method.description}
-                    </p>
-                    <p className="text-xs text-gray-500">{method.sub}</p>
+          {/* ステップ */}
+          <FadeInUp delay={100}>
+            <div className="flex items-center justify-center mb-12">
+              {(['input', 'confirm', 'complete'] as const).map((s, i) => (
+                <div key={s} className="flex items-center">
+                  {i > 0 && <div className="w-12 md:w-20 h-px bg-gray-300" />}
+                  <div
+                    className={`w-10 h-10 md:w-12 md:h-12 rounded-full flex items-center justify-center text-xs md:text-sm font-bold transition-colors ${
+                      step === s
+                        ? 'bg-[#F59E0B] text-white'
+                        : (['input', 'confirm', 'complete'].indexOf(step) > i
+                          ? 'bg-[#1C2A44] text-white'
+                          : 'bg-gray-200 text-gray-400')
+                    }`}
+                  >
+                    {s === 'input' ? '入力' : s === 'confirm' ? '確認' : '完了'}
                   </div>
-                )}
-              </FadeInUp>
-            ))}
-          </div>
-
-          {/* Main CTA button */}
-          <FadeInUp delay={500}>
-            <div className="text-center">
-              <Link
-                href="/contact"
-                className="inline-block bg-[#F59E0B] text-white px-12 py-5 text-lg font-bold tracking-wider rounded-full hover:bg-[#D97706] transition-colors shadow-md"
-              >
-                ▶ 冒険に参加する
-              </Link>
+                </div>
+              ))}
             </div>
           </FadeInUp>
-        </div>
-      </section>
 
-      {/* ===== Party Welcome ===== */}
-      <section className="py-12 px-4 bg-[#FAFAF5]">
-        <div className="max-w-3xl mx-auto overflow-hidden rounded-2xl">
-          <FadeInUp>
-            <img src="/img/recruit/entry/party-welcome.png" alt="仲間の歓迎" className="w-full h-auto" />
+          <FadeInUp delay={200}>
+            <div className="bg-[#FAFAF5] rounded-2xl p-6 md:p-10">
+              {step === 'complete' ? (
+                <div className="text-center py-8">
+                  <div className="w-16 h-16 bg-[#F59E0B] rounded-full flex items-center justify-center mx-auto mb-6">
+                    <svg className="w-8 h-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                    </svg>
+                  </div>
+                  <h3 className="text-xl md:text-2xl font-bold text-[#1C2A44] mb-4" style={serifStyle}>
+                    エントリーありがとうございます
+                  </h3>
+                  <p className="text-gray-600 text-sm md:text-base mb-8">
+                    内容を確認次第、担当者よりご連絡いたします。
+                    <br />
+                    あなたの冒険の始まりを、楽しみにしています。
+                  </p>
+                  <Link
+                    href="/recruit"
+                    className="inline-block bg-[#1C2A44] text-white px-8 py-3 rounded-full font-bold hover:bg-[#141E30] transition-colors text-sm"
+                  >
+                    TOPに戻る
+                  </Link>
+                </div>
+              ) : (
+                <form onSubmit={handleSubmit}>
+                  {step === 'input' && (
+                    <p className="text-center text-gray-600 text-sm mb-8">
+                      お問い合わせ後、1営業日以内にご連絡いたします。
+                    </p>
+                  )}
+
+                  {/* お名前 */}
+                  <div className="mb-6">
+                    <label className="flex items-center gap-2 mb-2">
+                      <span className="font-bold text-sm text-[#1C2A44]">お名前</span>
+                      <span className="bg-[#F59E0B] text-white text-[10px] px-2 py-0.5 rounded">必須</span>
+                    </label>
+                    {step === 'input' ? (
+                      <>
+                        <input
+                          type="text"
+                          value={formData.name}
+                          onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                          placeholder="例）田中太郎"
+                          className={`w-full px-4 py-3 bg-white border rounded-lg focus:outline-none focus:border-[#F59E0B] text-sm ${
+                            errors.name ? 'border-red-500' : 'border-gray-300'
+                          }`}
+                        />
+                        {errors.name && <p className="text-red-500 text-xs mt-1">{errors.name}</p>}
+                      </>
+                    ) : (
+                      <p className="py-3 border-b border-gray-300 text-sm">{formData.name}</p>
+                    )}
+                  </div>
+
+                  {/* メールアドレス */}
+                  <div className="mb-6">
+                    <label className="flex items-center gap-2 mb-2">
+                      <span className="font-bold text-sm text-[#1C2A44]">メールアドレス</span>
+                      <span className="bg-[#F59E0B] text-white text-[10px] px-2 py-0.5 rounded">必須</span>
+                    </label>
+                    {step === 'input' ? (
+                      <>
+                        <input
+                          type="email"
+                          value={formData.email}
+                          onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                          placeholder="例）example@email.com"
+                          className={`w-full px-4 py-3 bg-white border rounded-lg focus:outline-none focus:border-[#F59E0B] text-sm ${
+                            errors.email ? 'border-red-500' : 'border-gray-300'
+                          }`}
+                        />
+                        {errors.email && <p className="text-red-500 text-xs mt-1">{errors.email}</p>}
+                      </>
+                    ) : (
+                      <p className="py-3 border-b border-gray-300 text-sm">{formData.email}</p>
+                    )}
+                  </div>
+
+                  {/* 電話番号 */}
+                  <div className="mb-6">
+                    <label className="flex items-center gap-2 mb-2">
+                      <span className="font-bold text-sm text-[#1C2A44]">電話番号</span>
+                      <span className="bg-[#F59E0B] text-white text-[10px] px-2 py-0.5 rounded">必須</span>
+                    </label>
+                    {step === 'input' ? (
+                      <>
+                        <input
+                          type="tel"
+                          value={formData.phone}
+                          onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                          placeholder="例）09012345678"
+                          className={`w-full px-4 py-3 bg-white border rounded-lg focus:outline-none focus:border-[#F59E0B] text-sm ${
+                            errors.phone ? 'border-red-500' : 'border-gray-300'
+                          }`}
+                        />
+                        {errors.phone && <p className="text-red-500 text-xs mt-1">{errors.phone}</p>}
+                      </>
+                    ) : (
+                      <p className="py-3 border-b border-gray-300 text-sm">{formData.phone}</p>
+                    )}
+                  </div>
+
+                  {/* メッセージ */}
+                  <div className="mb-6">
+                    <label className="flex items-center gap-2 mb-2">
+                      <span className="font-bold text-sm text-[#1C2A44]">メッセージ</span>
+                      <span className="bg-[#F59E0B] text-white text-[10px] px-2 py-0.5 rounded">必須</span>
+                    </label>
+                    {step === 'input' ? (
+                      <>
+                        <textarea
+                          value={formData.message}
+                          onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                          placeholder="志望動機、自己PR、質問など自由にご記入ください。"
+                          rows={5}
+                          className={`w-full px-4 py-3 bg-white border rounded-lg focus:outline-none focus:border-[#F59E0B] resize-none text-sm ${
+                            errors.message ? 'border-red-500' : 'border-gray-300'
+                          }`}
+                        />
+                        {errors.message && <p className="text-red-500 text-xs mt-1">{errors.message}</p>}
+                      </>
+                    ) : (
+                      <p className="py-3 border-b border-gray-300 text-sm whitespace-pre-wrap">{formData.message}</p>
+                    )}
+                  </div>
+
+                  {/* プライバシーポリシー同意 */}
+                  {step === 'input' && (
+                    <div className="mb-8 text-center">
+                      <label className="inline-flex items-center gap-2 cursor-pointer">
+                        <input
+                          type="checkbox"
+                          checked={formData.privacy}
+                          onChange={(e) => setFormData({ ...formData, privacy: e.target.checked })}
+                          className="w-4 h-4 accent-[#F59E0B]"
+                        />
+                        <span className="text-sm text-gray-700">
+                          プライバシーポリシーに同意の上、送信します。
+                        </span>
+                      </label>
+                      {errors.privacy && <p className="text-red-500 text-xs mt-1">{errors.privacy}</p>}
+                    </div>
+                  )}
+
+                  {/* ボタン */}
+                  <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                    {step === 'confirm' && (
+                      <button
+                        type="button"
+                        onClick={() => setStep('input')}
+                        disabled={isSubmitting}
+                        className="px-8 py-3 border border-gray-300 rounded-full font-bold text-sm hover:bg-gray-100 transition-colors disabled:opacity-50"
+                      >
+                        入力に戻る
+                      </button>
+                    )}
+                    <button
+                      type="submit"
+                      disabled={isSubmitting}
+                      className="bg-[#F59E0B] text-white px-12 py-3 rounded-full font-bold text-sm hover:bg-[#D97706] transition-colors shadow-md disabled:opacity-50"
+                    >
+                      {isSubmitting ? '送信中...' : step === 'input' ? '入力内容を確認' : '▶ エントリーする'}
+                    </button>
+                  </div>
+                </form>
+              )}
+            </div>
           </FadeInUp>
         </div>
       </section>
@@ -674,7 +810,6 @@ export default function EntryPage() {
         </div>
       </section>
 
-      <RecruitCTA />
     </div>
   )
 }
