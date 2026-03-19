@@ -79,7 +79,11 @@ const phaseConfig = [
   { phase: 'apply' as const, number: '04', label: '冒険に出る', color: '#2563EB' },
 ]
 
-const challengerStories = [
+const challengerStories: {
+  name: string; company: string; role: string; tagline: string
+  href: string; image: string; imagePosition?: string; imageScale?: number
+  iconPosition?: string; iconScale?: number
+}[] = [
   {
     name: '渡邉 大輝',
     company: '株式会社Sing.nexT',
@@ -87,7 +91,7 @@ const challengerStories = [
     tagline: '覚悟が固まるのを待つ人生は、もうやめた。',
     href: '/recruit/stories/watanabe',
     image: '/img/recruit/stories/watanabe-portrait.png',
-    imagePosition: '50% 5%',
+    imagePosition: '50% -35%',
   },
   {
     name: '飯田 思遠',
@@ -96,7 +100,10 @@ const challengerStories = [
     tagline: '自分の意思で未来を選び続ける',
     href: '/recruit/stories/iida',
     image: '/img/recruit/stories/iida-portrait.png',
-    imagePosition: '50% 5%',
+    imagePosition: '50% -90%',
+    imageScale: 1.3,
+    iconPosition: '50% -60%',
+    iconScale: 1.3,
   },
   {
     name: '屋宜 勝正',
@@ -115,16 +122,14 @@ const challengerStories = [
     href: '/recruit/stories/shimishun',
     image: '/img/miraiku/partner-shimishun.jpg',
     imagePosition: '50% 48%',
+    iconPosition: '50% 70%',
   },
 ]
 
 export default function RecruitTopPage() {
   const [scrollIndicatorVisible, setScrollIndicatorVisible] = useState(true)
+  const [storySetWidth, setStorySetWidth] = useState(0)
   const storyTrackRef = useRef<HTMLDivElement>(null)
-  const storyAnimRef = useRef<number>(0)
-  const storyPosRef = useRef(0)
-  const storyPausedRef = useRef(false)
-  const touchStartX = useRef(0)
 
   useEffect(() => {
     const handleScroll = () => {
@@ -134,48 +139,19 @@ export default function RecruitTopPage() {
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
-  // 無限ループスクロール（requestAnimationFrame）
+  // CSS animation用: 1セット分の幅を計測
   useEffect(() => {
     const track = storyTrackRef.current
     if (!track) return
-    const speed = 0.5 // px/frame
-    // 5番目の子要素（2セット目の先頭）のoffsetLeftで正確なリセット位置を取得
-    const halfCount = challengerStories.length
-    const resetChild = track.children[halfCount] as HTMLElement
-    const singleSetWidth = resetChild ? resetChild.offsetLeft : track.scrollWidth / 2
-
-    const animate = () => {
-      if (!storyPausedRef.current) {
-        storyPosRef.current += speed
-        if (storyPosRef.current >= singleSetWidth) {
-          storyPosRef.current -= singleSetWidth
-        }
-        track.style.transform = `translateX(-${storyPosRef.current}px)`
-      }
-      storyAnimRef.current = requestAnimationFrame(animate)
-    }
-    storyAnimRef.current = requestAnimationFrame(animate)
-    return () => cancelAnimationFrame(storyAnimRef.current)
-  }, [])
-
-  const handleStoryTouchStart = (e: React.TouchEvent) => {
-    touchStartX.current = e.touches[0].clientX
-    storyPausedRef.current = true
-  }
-
-  const handleStoryTouchEnd = (e: React.TouchEvent) => {
-    const diff = touchStartX.current - e.changedTouches[0].clientX
-    storyPosRef.current += diff
-    const track = storyTrackRef.current
-    if (track) {
+    const measure = () => {
       const halfCount = challengerStories.length
       const resetChild = track.children[halfCount] as HTMLElement
-      const singleSetWidth = resetChild ? resetChild.offsetLeft : track.scrollWidth / 2
-      if (storyPosRef.current < 0) storyPosRef.current += singleSetWidth
-      if (storyPosRef.current >= singleSetWidth) storyPosRef.current -= singleSetWidth
+      if (resetChild) setStorySetWidth(resetChild.offsetLeft)
     }
-    storyPausedRef.current = false
-  }
+    measure()
+    window.addEventListener('resize', measure)
+    return () => window.removeEventListener('resize', measure)
+  }, [])
 
   const allChapters = recruitChapters.filter(
     (c) => c.id !== 'top' && c.id !== 'story-watanabe' && c.id !== 'story-iida'
@@ -264,7 +240,7 @@ export default function RecruitTopPage() {
             src={story.image}
             alt={story.name}
             className="absolute inset-0 w-full h-full object-cover"
-            style={{ objectPosition: story.imagePosition || '50% 30%' }}
+            style={{ objectPosition: story.imagePosition || '50% 30%', transform: story.imageScale ? `scale(${story.imageScale})` : undefined }}
           />
           <div className="absolute top-2 left-3">
             <span className="text-[10px] tracking-widest text-[#2563EB] font-bold bg-white/80 backdrop-blur-sm px-2 py-1 rounded">
@@ -618,23 +594,47 @@ export default function RecruitTopPage() {
                         <div className="w-12 h-px bg-white/20" />
                       </div>
                     </div>
-                    {/* Story Slider — 無限ループ（親max-w-5xlを突破してフルワイド） */}
-                    <div
-                      className="overflow-hidden relative left-1/2 -translate-x-1/2 w-screen"
-                      onTouchStart={handleStoryTouchStart}
-                      onTouchEnd={handleStoryTouchEnd}
-                      onMouseEnter={() => { storyPausedRef.current = true }}
-                      onMouseLeave={() => { storyPausedRef.current = false }}
-                    >
+                    {/* Story Slider — CSS animation無限ループ */}
+                    <div className="overflow-hidden relative left-1/2 -translate-x-1/2 w-screen group/slider">
+                      <style>{`
+                        @keyframes storyScroll {
+                          from { transform: translateX(0); }
+                          to { transform: translateX(-${storySetWidth}px); }
+                        }
+                      `}</style>
                       <div
                         ref={storyTrackRef}
-                        className="flex gap-6 will-change-transform"
+                        className="flex gap-6 will-change-transform group-hover/slider:[animation-play-state:paused]"
+                        style={storySetWidth > 0 ? {
+                          animation: `storyScroll ${storySetWidth / 30}s linear infinite`,
+                        } : undefined}
                       >
                         {[...challengerStories, ...challengerStories].map((story, i) => (
                           <div key={`${story.name}-${i}`} className="flex-shrink-0 w-[260px] md:w-[300px]">
                             {storyCard(story)}
                           </div>
                         ))}
+                      </div>
+                      {/* 4人の顔アイコン */}
+                      <div className="flex justify-center gap-6 mt-5">
+                      {challengerStories.map((story) => (
+                        <Link key={story.name} href={story.href} className="group/face flex flex-col items-center gap-1.5">
+                          <div className="w-20 h-20 md:w-24 md:h-24 rounded-full overflow-hidden border-2 border-white/30 group-hover/face:border-[#2563EB] transition-colors">
+                            <img
+                              src={story.image}
+                              alt={story.name}
+                              className="w-full h-full object-cover"
+                              style={{
+                                objectPosition: story.iconPosition || story.imagePosition || '50% 30%',
+                                transform: story.iconScale ? `scale(${story.iconScale})` : undefined,
+                              }}
+                            />
+                          </div>
+                          <span className="text-base text-white/70 group-hover/face:text-white transition-colors font-bold">
+                            {story.name.split(' ')[0]}
+                          </span>
+                        </Link>
+                      ))}
                       </div>
                     </div>
                     <div className="text-center pt-6">
