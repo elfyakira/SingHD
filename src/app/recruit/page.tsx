@@ -139,7 +139,10 @@ export default function RecruitTopPage() {
     const track = storyTrackRef.current
     if (!track) return
     const speed = 0.5 // px/frame
-    const singleSetWidth = track.scrollWidth / 2
+    // 5番目の子要素（2セット目の先頭）のoffsetLeftで正確なリセット位置を取得
+    const halfCount = challengerStories.length
+    const resetChild = track.children[halfCount] as HTMLElement
+    const singleSetWidth = resetChild ? resetChild.offsetLeft : track.scrollWidth / 2
 
     const animate = () => {
       if (!storyPausedRef.current) {
@@ -165,7 +168,9 @@ export default function RecruitTopPage() {
     storyPosRef.current += diff
     const track = storyTrackRef.current
     if (track) {
-      const singleSetWidth = track.scrollWidth / 2
+      const halfCount = challengerStories.length
+      const resetChild = track.children[halfCount] as HTMLElement
+      const singleSetWidth = resetChild ? resetChild.offsetLeft : track.scrollWidth / 2
       if (storyPosRef.current < 0) storyPosRef.current += singleSetWidth
       if (storyPosRef.current >= singleSetWidth) storyPosRef.current -= singleSetWidth
     }
