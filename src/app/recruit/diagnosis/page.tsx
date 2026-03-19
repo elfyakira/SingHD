@@ -81,7 +81,7 @@ const typeData: Record<
     role: '新しい道を切り開くパイオニア',
     route: '新規事業 → 起業家',
     image: '/img/recruit/characters/hero-type.jpg',
-    color: '#EF4444',
+    color: '#D97706',
   },
   warrior: {
     name: '戦士',
@@ -90,16 +90,16 @@ const typeData: Record<
     role: '最前線で結果を出すエース',
     route: '現場リーダー → 事業責任者',
     image: '/img/recruit/characters/warrior-type.jpg',
-    color: '#F59E0B',
+    color: '#7A2020',
   },
   sage: {
-    name: '賢者',
+    name: '魔法使い',
     tagline: '考え抜く力が、チームを次のステージへ導く',
     strength: '分析力と仕組みを作る思考力',
     role: '戦略でチームを導く頭脳',
     route: '戦略設計 → 事業設計',
     image: '/img/recruit/characters/sage-type.jpg',
-    color: '#2563EB',
+    color: '#C43B6B',
   },
   priest: {
     name: '僧侶',
@@ -108,7 +108,65 @@ const typeData: Record<
     role: 'チームの土台を作る存在',
     route: '教育・組織づくり → マネジメント',
     image: '/img/recruit/characters/priest-type.jpg',
-    color: '#10B981',
+    color: '#2D8A5E',
+  },
+}
+
+/* ─── Upper Job Names (上位職) ─── */
+
+const upperJobNames: Record<TypeKey, Record<TypeKey, string>> = {
+  hero: {
+    hero: '勇者',
+    warrior: 'ブレイバー',
+    sage: '大将軍',
+    priest: 'ホーリーナイト',
+  },
+  warrior: {
+    hero: 'バトルマスター',
+    warrior: '戦士',
+    sage: '魔法戦士',
+    priest: 'パラディン',
+  },
+  sage: {
+    hero: '大英雄',
+    warrior: '大軍師',
+    sage: '魔法使い',
+    priest: '大魔導士',
+  },
+  priest: {
+    hero: '救世主',
+    warrior: '守護神',
+    sage: '大賢者',
+    priest: '僧侶',
+  },
+}
+
+/* ─── Upper Job Images ─── */
+
+const upperJobImages: Record<TypeKey, Record<TypeKey, string>> = {
+  hero: {
+    hero: '/img/recruit/characters/hero-type.png',
+    warrior: '/img/recruit/characters/upper/braver.png',
+    sage: '/img/recruit/characters/upper/great-general.png',
+    priest: '/img/recruit/characters/upper/holy-knight.png',
+  },
+  warrior: {
+    hero: '/img/recruit/characters/upper/battle-master.png',
+    warrior: '/img/recruit/characters/warrior-type.png',
+    sage: '/img/recruit/characters/upper/magic-warrior.png',
+    priest: '/img/recruit/characters/upper/paladin.png',
+  },
+  sage: {
+    hero: '/img/recruit/characters/upper/great-hero.png',
+    warrior: '/img/recruit/characters/upper/great-strategist.png',
+    sage: '/img/recruit/characters/sage-type.png',
+    priest: '/img/recruit/characters/upper/great-archmage.png',
+  },
+  priest: {
+    hero: '/img/recruit/characters/upper/savior.png',
+    warrior: '/img/recruit/characters/upper/guardian-deity.png',
+    sage: '/img/recruit/characters/upper/great-sage.png',
+    priest: '/img/recruit/characters/priest-type.png',
   },
 }
 
@@ -137,6 +195,47 @@ const compositeDesc: Record<TypeKey, Record<TypeKey, string>> = {
     hero: '支えながらも、自ら挑戦できる',
     warrior: '支えながらも、粘り強く結果を出す',
     sage: '支える力に、戦略的な視点を持つ',
+    priest: '',
+  },
+}
+
+/* ─── Flavor Texts (ビジネス特性 + 将来性) ─── */
+
+const flavorTexts: Record<TypeKey, Record<TypeKey, string>> = {
+  hero: {
+    hero: '',
+    warrior:
+      'あなたは未知の領域に飛び込む勇気と、決めたことを最後までやり抜く粘り強さを併せ持っています。新規事業の立ち上げから軌道に乗せるまで、一貫して先頭に立てる存在です。',
+    sage:
+      '直感的に動ける行動力と、戦略を描ける思考力の両方を持っています。ただ飛び込むだけでなく、勝ち筋を見据えて挑戦できる。事業を構想し、自ら実現に動けるリーダーです。',
+    priest:
+      '自ら先頭に立ちながらも、周囲の人を置いていかない強さがあります。挑戦の中でも仲間を巻き込み、一緒に成長していける。人がついてくるタイプのリーダーです。',
+  },
+  warrior: {
+    hero:
+      '圧倒的な実行力に加えて、新しいことにも臆さず挑めます。困難な局面で逃げずに立ち向かい、結果で道を切り開く。現場のエースから事業を率いるリーダーへと成長できる人材です。',
+    warrior: '',
+    sage:
+      '手を動かしながらも頭で考えられる。がむしゃらに走るだけでなく、効率的な方法を見つけて成果を最大化できます。実行と戦略の両輪で事業を加速させる存在です。',
+    priest:
+      '自ら結果を出しながら、チームの力も引き出せます。個人の成果だけでなく、組織全体の底上げに貢献できる。プレイングマネージャーとして最も信頼される存在です。',
+  },
+  sage: {
+    hero:
+      '深い分析力と大胆な行動力を併せ持っています。緻密な戦略を描きながらも、必要な場面では自らリスクを取れる。知識と勇気で組織を未知の領域へ導ける稀有な存在です。',
+    warrior:
+      '戦略を考えるだけでなく、自ら現場に立って実行までやり切れます。机上の空論で終わらせない実践的な知性の持ち主。参謀でありながら、前線でも戦える人材です。',
+    sage: '',
+    priest:
+      '高い分析力で本質を見抜き、その知見を惜しみなくチームに共有できます。人の成長を仕組みとして設計できる。教育者・メンターとして組織の知的基盤を築く存在です。',
+  },
+  priest: {
+    hero:
+      '人を支える力をベースに持ちながら、自らも挑戦できます。困っている人のために一歩を踏み出せる勇気がある。組織の危機に最も頼りにされる存在です。',
+    warrior:
+      'チームを支えるだけでなく、自ら手を動かし粘り強く結果を出せます。縁の下の力持ちでありながら、いざという時に頼れる実行力を持つ。組織の揺るがない土台となる存在です。',
+    sage:
+      '人を見る力と物事を分析する力を併せ持っています。一人ひとりの強みを見抜き、最適な役割を設計できる。人と組織の可能性を最大化するマネジメントの要です。',
     priest: '',
   },
 }
@@ -183,7 +282,7 @@ export default function DiagnosisPage() {
     setPhase('intro')
   }
 
-  // スコア計算 → プライマリー＋セカンダリー
+  // スコア計算 → メインタイプー＋サブタイプー
   const getResult = () => {
     const scores: Record<TypeKey, number> = {
       hero: 0,
@@ -204,10 +303,13 @@ export default function DiagnosisPage() {
   const primary = typeData[result.primary]
   const secondary = typeData[result.secondary]
   const composite = compositeDesc[result.primary][result.secondary]
+  const upperJob = upperJobNames[result.primary][result.secondary]
+  const upperImage = upperJobImages[result.primary][result.secondary]
+  const flavor = flavorTexts[result.primary][result.secondary]
 
   // シェア
   const shareUrl = 'https://hd.jp-sing.com/recruit/diagnosis'
-  const shareText = `冒険診断の結果は「${primary.name}×${secondary.name}タイプ」でした！\nあなたのタイプは？`
+  const shareText = `冒険診断の結果は「${upperJob}」でした！\nあなたのタイプは？`
 
   const shareOnX = () => {
     window.open(
@@ -249,7 +351,7 @@ export default function DiagnosisPage() {
             <div className="w-16 h-1 bg-white rounded-full mx-auto mb-6" />
           </FadeInUp>
           <FadeInUp delay={400}>
-            <p className="text-lg md:text-xl text-white/90">
+            <p className="text-lg md:text-xl text-white">
               冒険診断 — あなたのプレイヤータイプ
             </p>
           </FadeInUp>
@@ -259,9 +361,9 @@ export default function DiagnosisPage() {
       {/* ===== Intro Phase ===== */}
       {phase === 'intro' && (
         <section className="py-20 lg:py-32 px-4 bg-[#FAFAF5]">
-          <div className="max-w-2xl mx-auto text-center">
+          <div className="max-w-3xl mx-auto text-center">
             <FadeInUp>
-              <p className="text-gray-700 leading-loose text-sm md:text-base mb-12">
+              <p className="text-gray-700 leading-loose text-sm md:text-base mb-14">
                 人生というゲームには
                 <br />
                 さまざまなプレイヤーがいます。
@@ -273,7 +375,37 @@ export default function DiagnosisPage() {
                 5つの質問で診断できます。
               </p>
             </FadeInUp>
-            <FadeInUp delay={200}>
+
+            {/* 4 Type Preview */}
+            <FadeInUp delay={150}>
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-14">
+                {(Object.keys(typeData) as TypeKey[]).map((key) => {
+                  const t = typeData[key]
+                  return (
+                    <div key={key} className="flex flex-col items-center">
+                      <div
+                        className="w-24 h-24 md:w-28 md:h-28 rounded-2xl overflow-hidden mb-3 border-3 shadow-lg"
+                        style={{ borderColor: t.color }}
+                      >
+                        <img
+                          src={t.image}
+                          alt={t.name}
+                          className="w-full h-full object-cover"
+                        />
+                      </div>
+                      <p
+                        className="text-sm font-bold text-[#1C2A44]"
+                        style={serifStyle}
+                      >
+                        {t.name}
+                      </p>
+                    </div>
+                  )
+                })}
+              </div>
+            </FadeInUp>
+
+            <FadeInUp delay={300}>
               <button
                 onClick={handleStart}
                 className="inline-flex items-center gap-3 bg-[#F59E0B] text-white px-10 py-4 font-bold tracking-wider rounded-full hover:bg-[#D97706] transition-colors text-lg"
@@ -352,102 +484,108 @@ export default function DiagnosisPage() {
 
       {/* ===== Result Phase ===== */}
       {phase === 'result' && (
-        <section className="py-20 lg:py-32 px-4 bg-[#FAFAF5]">
-          <div className="max-w-2xl mx-auto">
+        <section className="py-16 lg:py-24 px-4 bg-[#FAFAF5]">
+          <div className="max-w-sm mx-auto">
+
+            {/* ── Result Card ── */}
             <FadeInUp>
-              <div className="text-center mb-10">
-                <p className="text-xs tracking-[0.3em] uppercase text-gray-400 mb-4">
-                  YOUR TYPE
-                </p>
-                <h2
-                  className="text-3xl md:text-4xl font-bold text-[#1C2A44] mb-2"
-                  style={serifStyle}
-                >
-                  {primary.name} × {secondary.name}
-                </h2>
-                <p className="text-xs text-gray-400">タイプ</p>
-              </div>
-            </FadeInUp>
-
-            {/* Character Image */}
-            <FadeInUp delay={150}>
-              <div className="flex justify-center mb-8">
-                <div
-                  className="w-40 h-40 rounded-2xl overflow-hidden border-4"
-                  style={{ borderColor: primary.color }}
-                >
-                  <img
-                    src={primary.image}
-                    alt={primary.name}
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-              </div>
-            </FadeInUp>
-
-            {/* Tagline */}
-            <FadeInUp delay={250}>
-              <p
-                className="text-center text-lg md:text-xl font-bold text-[#1C2A44] mb-10"
-                style={serifStyle}
+              <div
+                className="rounded-[2px] overflow-hidden shadow-xl"
+                style={{ background: 'radial-gradient(ellipse 100% 80% at center, #F5ECD2 0%, #F5ECD2 40%, #E4D4AA 75%, #D4C08A 100%)', border: '2px solid #C8B88A' }}
               >
-                「{primary.tagline}」
-              </p>
-            </FadeInUp>
+                {/* Header bar */}
+                <div className="py-2 text-center" style={{ background: `radial-gradient(ellipse 200% 60% at center, ${primary.color}BB 0%, ${primary.color} 50%, ${primary.color} 100%)` }}>
+                  <p className="text-xs tracking-[0.3em] text-white font-bold" style={serifStyle}>
+                    ▶ {upperJob}
+                  </p>
+                </div>
 
-            {/* Info Cards */}
-            <FadeInUp delay={350}>
-              <div className="grid grid-cols-3 gap-3 mb-8">
-                <div className="bg-white rounded-xl p-4 text-center border border-gray-100">
-                  <p className="text-[10px] tracking-widest text-gray-400 mb-2">
-                    強み
-                  </p>
-                  <p className="text-xs font-bold text-[#1C2A44] leading-relaxed">
-                    {primary.strength}
-                  </p>
+                {/* Top section — 複合キャラ画像(左) + ステータス(右) */}
+                <div className="flex p-4 pb-3">
+                  {/* 複合キャラ画像（縦長） — 将来的に上位職画像に差し替え */}
+                  <div
+                    className="w-[45%] shrink-0 aspect-[3/4] rounded-[2px] overflow-hidden border-2"
+                    style={{ borderColor: '#C8B88A' }}
+                  >
+                    <img
+                      src={upperImage}
+                      alt={upperJob}
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+
+                  {/* タイプ名 + ステータス */}
+                  <div className="flex flex-col justify-between pl-4 min-w-0 py-1">
+                    <div className="flex gap-1.5">
+                      <div className="flex-1 rounded-[2px] border overflow-hidden" style={{ borderColor: '#C8B88A' }}>
+                        <p className="text-[10px] font-bold text-white px-2 py-0.5 text-center" style={{ ...serifStyle, background: `linear-gradient(90deg, ${primary.color} 0%, ${primary.color}BB 50%, ${primary.color} 100%)` }}>メインタイプ</p>
+                        <p className="text-base font-bold text-[#1C2A44] px-2 py-1 text-center" style={serifStyle}>
+                          {primary.name}
+                        </p>
+                      </div>
+                      <div className="flex-1 rounded-[2px] border overflow-hidden" style={{ borderColor: '#C8B88A' }}>
+                        <p className="text-[10px] font-bold text-white px-2 py-0.5 text-center" style={{ ...serifStyle, background: `linear-gradient(90deg, ${primary.color} 0%, ${primary.color}BB 50%, ${primary.color} 100%)` }}>サブタイプ</p>
+                        <p className="text-base font-bold text-[#1C2A44] px-2 py-1 text-center" style={serifStyle}>
+                          {secondary.name}
+                        </p>
+                      </div>
+                    </div>
+                    <div className="mt-2 rounded-[2px] border overflow-hidden" style={{ borderColor: '#C8B88A' }}>
+                      <div style={{ borderBottom: '1px solid #C8B88A' }}>
+                        <p className="text-[10px] font-bold text-white px-2 py-0.5 text-center" style={{ ...serifStyle, background: `linear-gradient(90deg, ${primary.color} 0%, ${primary.color}BB 50%, ${primary.color} 100%)` }}>強み</p>
+                        <p className="text-xs text-[#1C2A44] px-2 py-1.5 text-center">{primary.strength}</p>
+                      </div>
+                      <div style={{ borderBottom: '1px solid #C8B88A' }}>
+                        <p className="text-[10px] font-bold text-white px-2 py-0.5 text-center" style={{ ...serifStyle, background: `linear-gradient(90deg, ${primary.color} 0%, ${primary.color}BB 50%, ${primary.color} 100%)` }}>役割</p>
+                        <p className="text-xs text-[#1C2A44] px-2 py-1.5 text-center">{primary.role}</p>
+                      </div>
+                      <div>
+                        <p className="text-[10px] font-bold text-white px-2 py-0.5 text-center" style={{ ...serifStyle, background: `linear-gradient(90deg, ${primary.color} 0%, ${primary.color}BB 50%, ${primary.color} 100%)` }}>ルート</p>
+                        <p className="text-xs text-[#1C2A44] px-2 py-1.5 text-center">{primary.route}</p>
+                      </div>
+                    </div>
+                  </div>
                 </div>
-                <div className="bg-white rounded-xl p-4 text-center border border-gray-100">
-                  <p className="text-[10px] tracking-widest text-gray-400 mb-2">
-                    役割
-                  </p>
-                  <p className="text-xs font-bold text-[#1C2A44] leading-relaxed">
-                    {primary.role}
-                  </p>
-                </div>
-                <div className="bg-white rounded-xl p-4 text-center border border-gray-100">
-                  <p className="text-[10px] tracking-widest text-gray-400 mb-2">
-                    ルート
-                  </p>
-                  <p className="text-xs font-bold text-[#1C2A44] leading-relaxed">
-                    {primary.route}
-                  </p>
-                </div>
+
+                {/* P×S 画像 + 素質（2段） */}
+                {composite && (
+                  <div className="px-4 -mt-1 pb-3">
+                    <div className="flex justify-center items-center gap-4 mb-3">
+                      <div
+                        className="w-24 h-24 rounded-[2px] overflow-hidden border-2 shrink-0"
+                        style={{ borderColor: primary.color }}
+                      >
+                        <img src={primary.image} alt={primary.name} className="w-full h-full object-cover" />
+                      </div>
+                      <p className="text-base text-[#1C2A44] font-bold">×</p>
+                      <div
+                        className="w-24 h-24 rounded-[2px] overflow-hidden border-2 shrink-0"
+                        style={{ borderColor: secondary.color }}
+                      >
+                        <img src={secondary.image} alt={secondary.name} className="w-full h-full object-cover" />
+                      </div>
+                    </div>
+                    <div className="rounded-[2px] border overflow-hidden" style={{ borderColor: '#C8B88A' }}>
+                      <p className="text-[10px] font-bold text-white px-2.5 py-1 text-center" style={{ ...serifStyle, background: `linear-gradient(90deg, ${primary.color} 0%, ${primary.color}BB 50%, ${primary.color} 100%)` }}>素質</p>
+                      <p className="text-sm font-bold text-[#1C2A44] px-2.5 py-1.5 text-center">{composite}</p>
+                    </div>
+                  </div>
+                )}
+
+                {/* Flavor text */}
+                {flavor && (
+                  <div className="pb-5 pt-3 mx-4" style={{ borderTop: '1px solid #C8B88A' }}>
+                    <p className="text-sm text-[#1C2A44] leading-relaxed pl-1">
+                      {flavor}
+                    </p>
+                  </div>
+                )}
               </div>
             </FadeInUp>
 
-            {/* Composite */}
-            {composite && (
-              <FadeInUp delay={450}>
-                <div
-                  className="rounded-xl p-5 mb-10 text-center border"
-                  style={{
-                    backgroundColor: `${secondary.color}08`,
-                    borderColor: `${secondary.color}20`,
-                  }}
-                >
-                  <p className="text-xs text-gray-500 mb-1">
-                    + {secondary.name}の素質
-                  </p>
-                  <p className="text-sm font-bold text-[#1C2A44]">
-                    {composite}
-                  </p>
-                </div>
-              </FadeInUp>
-            )}
-
-            {/* Actions */}
-            <FadeInUp delay={550}>
-              <div className="space-y-4 text-center">
+            {/* ── Actions（カード外） ── */}
+            <FadeInUp delay={150}>
+              <div className="mt-8 space-y-4 text-center">
                 <div>
                   <Link
                     href="/recruit/entry"
@@ -465,25 +603,19 @@ export default function DiagnosisPage() {
                   </button>
                 </div>
 
-                {/* Share */}
-                <div className="pt-4">
-                  <p className="text-[10px] tracking-[0.3em] uppercase text-gray-400 mb-4">
-                    SHARE
-                  </p>
-                  <div className="flex justify-center gap-3">
-                    <button
-                      onClick={shareOnX}
-                      className="inline-flex items-center gap-2 bg-black text-white px-6 py-3 rounded-full hover:bg-gray-800 transition-colors text-sm font-bold"
-                    >
-                      X でシェア
-                    </button>
-                    <button
-                      onClick={shareOnLine}
-                      className="inline-flex items-center gap-2 bg-[#06C755] text-white px-6 py-3 rounded-full hover:bg-[#05b34c] transition-colors text-sm font-bold"
-                    >
-                      LINE でシェア
-                    </button>
-                  </div>
+                <div className="flex justify-center gap-3 pt-2">
+                  <button
+                    onClick={shareOnX}
+                    className="inline-flex items-center gap-2 bg-black text-white px-5 py-2.5 rounded-full hover:bg-gray-800 transition-colors text-sm font-bold"
+                  >
+                    X でシェア
+                  </button>
+                  <button
+                    onClick={shareOnLine}
+                    className="inline-flex items-center gap-2 bg-[#06C755] text-white px-5 py-2.5 rounded-full hover:bg-[#05b34c] transition-colors text-sm font-bold"
+                  >
+                    LINE でシェア
+                  </button>
                 </div>
               </div>
             </FadeInUp>
