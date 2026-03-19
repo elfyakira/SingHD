@@ -111,7 +111,7 @@ export default function WatanabeStoryPage() {
       <RecruitHeader />
 
       {/* ===== Hero Section ===== */}
-      <section className="relative pt-32 pb-20 lg:pt-44 lg:pb-32 px-4 overflow-hidden">
+      <section className="relative pt-32 pb-12 lg:pt-44 lg:pb-32 px-4 overflow-hidden">
         <div className="absolute inset-0">
           <img
             src="/img/recruit/stories/watanabe-journey.png"
@@ -137,26 +137,33 @@ export default function WatanabeStoryPage() {
               className="text-xl md:text-2xl text-[#F59E0B] font-bold leading-relaxed"
               style={serifStyle}
             >
-              覚悟が固まるのを待つ人生は、もうやめた。
+              覚悟が固まるのを待つ人生は、
+              <br className="md:hidden" />
+              もうやめた。
             </p>
           </FadeInUp>
         </div>
       </section>
 
       {/* ===== Profile Card ===== */}
-      <section className="py-16 px-4 bg-[#FAFAF5]">
+      <section className="py-16 md:py-16 -mt-12 md:mt-0 px-4 bg-[#FAFAF5]">
         <div className="max-w-3xl mx-auto">
           <FadeInUp>
-            <div className="flex flex-col md:flex-row items-center gap-8 bg-white rounded-2xl p-8 shadow-lg">
-              <div className="w-36 h-36 md:w-44 md:h-44 rounded-xl overflow-hidden flex-shrink-0 shadow-md">
+            <div className="md:flex md:flex-row md:items-stretch bg-white rounded-2xl shadow-lg relative overflow-hidden min-h-[380px] md:h-[200px]">
+              <img
+                src="/img/recruit/stories/watanabe-portrait.png"
+                alt="渡邉大輝"
+                className="absolute inset-0 w-full h-full object-cover md:hidden"
+              />
+              <div className="hidden md:block w-64 rounded-l-2xl overflow-hidden flex-shrink-0">
                 <img
                   src="/img/recruit/stories/watanabe-portrait.png"
                   alt="渡邉大輝"
                   className="w-full h-full object-cover"
                 />
               </div>
-              <div className="text-center md:text-left">
-                <p className="text-xs tracking-[0.3em] uppercase text-[#2563EB] mb-2">
+              <div className="absolute bottom-0 left-0 right-0 bg-white/85 backdrop-blur-sm p-6 md:relative md:bg-transparent md:backdrop-blur-none md:p-8 md:py-12 md:text-left text-center md:flex md:flex-col md:justify-center">
+                <p className="text-xs tracking-[0.3em] text-[#2563EB] mb-2">
                   株式会社Sing.nexT 代表取締役
                 </p>
                 <h2

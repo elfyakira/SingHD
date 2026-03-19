@@ -231,7 +231,7 @@ export default function RecruitTopPage() {
     )
   }
 
-  // 挑戦者ストーリーカード（正方形）
+  // 挑戦者ストーリーカード
   const storyCard = (story: (typeof challengerStories)[number]) => (
     <Link href={story.href} className="group">
       <div className="bg-white/95 backdrop-blur-sm rounded-xl overflow-hidden border-2 border-[#2563EB]/20 hover:border-[#2563EB]/40 hover:shadow-lg hover:shadow-[#2563EB]/10 transition-all duration-300">
