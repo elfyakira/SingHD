@@ -312,7 +312,7 @@ export default function RecruitTopPage() {
           </FadeInUp>
 
           <FadeInUp delay={400}>
-            <p className="text-white text-sm md:text-base leading-relaxed max-w-xl mx-auto mb-12">
+            <p className="text-white text-lg md:text-xl leading-relaxed max-w-xl mx-auto mb-12">
               人生は一度きりのRPG。
               <br />
               その物語をどう生きるかは、あなた次第。
@@ -322,7 +322,7 @@ export default function RecruitTopPage() {
           <FadeInUp delay={600}>
             <Link
               href="/recruit/entry"
-              className="inline-block bg-[#F59E0B] text-white px-8 py-4 text-sm tracking-wider rounded-full font-bold hover:bg-[#D97706] transition-all duration-300"
+              className="inline-block bg-[#F59E0B] text-white px-12 py-5 text-xl md:text-2xl tracking-wider rounded-full font-bold hover:bg-[#D97706] transition-all duration-300"
             >
               ▶ 冒険に参加する
             </Link>
