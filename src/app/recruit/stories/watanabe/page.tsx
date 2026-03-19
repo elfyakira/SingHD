@@ -111,18 +111,18 @@ export default function WatanabeStoryPage() {
       <RecruitHeader />
 
       {/* ===== Hero Section ===== */}
-      <section className="relative min-h-[70vh] flex items-center justify-center overflow-hidden">
+      <section className="relative pt-32 pb-20 lg:pt-44 lg:pb-32 px-4 overflow-hidden">
         <div className="absolute inset-0">
           <img
             src="/img/recruit/stories/watanabe-journey.png"
             alt=""
             className="w-full h-full object-cover"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#1C2A44] via-[#1C2A44]/70 to-[#1C2A44]/40" />
+          <div className="absolute inset-0 bg-[#1C2A44]/70" />
         </div>
-        <div className="relative text-center px-4 py-32">
+        <div className="relative text-center">
           <FadeInUp>
-            <p className="text-xs tracking-[0.4em] uppercase text-white/70 mb-6">
+            <p className="text-xs tracking-[0.4em] uppercase text-white mb-6">
               CHAPTER 11
             </p>
           </FadeInUp>
@@ -152,8 +152,8 @@ export default function WatanabeStoryPage() {
       <section className="py-16 px-4 bg-[#FAFAF5]">
         <div className="max-w-3xl mx-auto">
           <FadeInUp>
-            <div className="flex flex-col md:flex-row items-center gap-8 bg-white rounded-2xl p-8 shadow-lg border border-gray-100">
-              <div className="w-36 h-36 md:w-44 md:h-44 rounded-full overflow-hidden flex-shrink-0 border-4 border-[#2563EB]/20">
+            <div className="flex flex-col md:flex-row items-center gap-8 bg-white rounded-2xl p-8 shadow-lg">
+              <div className="w-36 h-36 md:w-44 md:h-44 rounded-xl overflow-hidden flex-shrink-0 shadow-md">
                 <img
                   src="/img/recruit/stories/watanabe-portrait.png"
                   alt="渡邉大輝"
@@ -190,16 +190,13 @@ export default function WatanabeStoryPage() {
                 } gap-8 lg:gap-12 items-center`}
               >
                 {/* Level Badge */}
-                <div className="flex-shrink-0">
-                  <div className="w-24 h-24 md:w-28 md:h-28 rounded-2xl bg-[#2563EB] flex flex-col items-center justify-center shadow-lg">
-                    <span className="text-white/60 text-[10px] tracking-wider uppercase">
-                      LEVEL
-                    </span>
+                <div className="flex-shrink-0 flex items-center justify-center">
+                  <div className="w-16 h-16 md:w-20 md:h-20 border-2 border-[#2563EB] bg-white flex items-center justify-center rotate-45">
                     <span
-                      className="text-white text-3xl md:text-4xl font-bold"
+                      className="text-[#2563EB] text-xl md:text-2xl font-bold -rotate-45"
                       style={serifStyle}
                     >
-                      {getLevelNumber(section.level)}
+                      Lv.{getLevelNumber(section.level)}
                     </span>
                   </div>
                 </div>
@@ -216,9 +213,9 @@ export default function WatanabeStoryPage() {
                     {section.content}
                   </p>
                   {section.quote && (
-                    <div className="border-l-4 border-[#2563EB] pl-5 py-2 my-4">
+                    <div className="bg-[#1C2A44]/5 pl-5 py-3 rounded-lg my-4">
                       <p
-                        className="text-lg md:text-xl font-bold text-[#2563EB] leading-relaxed"
+                        className="text-lg md:text-xl font-bold text-[#1C2A44] leading-relaxed"
                         style={serifStyle}
                       >
                         {section.quote}
@@ -238,8 +235,16 @@ export default function WatanabeStoryPage() {
       </section>
 
       {/* ===== FINAL QUEST ===== */}
-      <section className="py-20 lg:py-32 px-4 bg-[#2563EB]">
-        <div className="max-w-3xl mx-auto text-center">
+      <section className="relative py-20 lg:py-32 px-4 overflow-hidden">
+        <div className="absolute inset-0">
+          <img
+            src="/img/recruit/stories/watanabe-journey.png"
+            alt=""
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-[#1C2A44]/85" />
+        </div>
+        <div className="relative max-w-3xl mx-auto text-center">
           <FadeInUp>
             <div className="inline-flex items-center gap-3 bg-white/10 rounded-full px-6 py-2 mb-8">
               <span className="text-[#F59E0B] text-xs tracking-[0.3em] uppercase font-bold">
@@ -258,7 +263,7 @@ export default function WatanabeStoryPage() {
           </FadeInUp>
 
           <FadeInUp delay={200}>
-            <p className="text-white/80 leading-loose text-sm md:text-base mb-8">
+            <p className="text-white leading-loose text-sm md:text-base mb-8">
               {finalQuest.content}
             </p>
           </FadeInUp>
@@ -273,7 +278,7 @@ export default function WatanabeStoryPage() {
           </FadeInUp>
 
           <FadeInUp delay={400}>
-            <p className="text-white/80 leading-loose text-sm md:text-base mb-8">
+            <p className="text-white leading-loose text-sm md:text-base mb-8">
               {finalQuest.afterQuote}
             </p>
           </FadeInUp>
@@ -288,7 +293,7 @@ export default function WatanabeStoryPage() {
           </FadeInUp>
 
           <FadeInUp delay={600}>
-            <p className="text-white/80 leading-loose text-sm md:text-base">
+            <p className="text-white leading-loose text-sm md:text-base">
               {finalQuest.closing}
             </p>
           </FadeInUp>
@@ -300,7 +305,7 @@ export default function WatanabeStoryPage() {
         <div className="max-w-3xl mx-auto">
           <FadeInUp>
             <div className="text-center mb-12">
-              <p className="text-xs tracking-[0.3em] uppercase text-white/50 mb-4">
+              <p className="text-xs tracking-[0.3em] uppercase text-white mb-4">
                 MESSAGE
               </p>
               <h3
@@ -315,13 +320,13 @@ export default function WatanabeStoryPage() {
 
           <FadeInUp delay={100}>
             <div className="space-y-6">
-              <p className="text-white/80 leading-loose text-sm md:text-base">
+              <p className="text-white leading-loose text-sm md:text-base">
                 覚悟が固まるのを待っていたら一生動けない。
               </p>
-              <p className="text-white/80 leading-loose text-sm md:text-base">
+              <p className="text-white leading-loose text-sm md:text-base">
                 100％じゃなくていい。
               </p>
-              <div className="border-l-4 border-[#F59E0B] pl-6 py-2 my-6 bg-white/5 rounded-r-lg">
+              <div className="bg-white/10 pl-6 py-4 my-6 rounded-lg">
                 <p
                   className="text-xl md:text-2xl font-bold text-white leading-relaxed"
                   style={serifStyle}
@@ -331,7 +336,7 @@ export default function WatanabeStoryPage() {
                   そこが始まりだ。
                 </p>
               </div>
-              <p className="text-white/80 leading-loose text-sm md:text-base">
+              <p className="text-white leading-loose text-sm md:text-base">
                 起業は復讐でも証明でもない。
               </p>
               <p
@@ -340,7 +345,7 @@ export default function WatanabeStoryPage() {
               >
                 「選択だ。」
               </p>
-              <p className="text-white/80 leading-loose text-sm md:text-base">
+              <p className="text-white leading-loose text-sm md:text-base">
                 環境に左右されない生き方を自分の手で選んでほしい。
               </p>
             </div>

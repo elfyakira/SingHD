@@ -10,13 +10,14 @@ export default function LastBossPage() {
       <RecruitHeader />
 
       {/* ===== Chapter Header ===== */}
-      <section className="relative pt-32 pb-20 lg:pt-44 lg:pb-32 px-4 bg-[#2563EB] overflow-hidden">
+      <section className="relative pt-32 pb-20 lg:pt-44 lg:pb-32 px-4 overflow-hidden">
         <div className="absolute inset-0">
-          <img src="/img/recruit/last-boss/boss-reveal.png" alt="" className="w-full h-full object-cover opacity-15" />
+          <img src="/img/recruit/last-boss/boss-reveal.png" alt="" className="w-full h-full object-cover" />
+          <div className="absolute inset-0 bg-[#1C2A44]/75" />
         </div>
         <div className="relative max-w-3xl mx-auto text-center">
           <FadeInUp>
-            <p className="text-xs tracking-[0.4em] uppercase text-white/70 mb-6">
+            <p className="text-xs tracking-[0.4em] uppercase text-white mb-6">
               CHAPTER 07
             </p>
           </FadeInUp>
@@ -35,18 +36,9 @@ export default function LastBossPage() {
           </FadeInUp>
 
           <FadeInUp delay={400}>
-            <p className="text-lg md:text-xl text-white/90">
+            <p className="text-lg md:text-xl text-white">
               日本から「挑戦」が消え始めている
             </p>
-          </FadeInUp>
-        </div>
-      </section>
-
-      {/* ===== Boss Visual ===== */}
-      <section className="bg-[#0a0a1a]">
-        <div className="max-w-5xl mx-auto">
-          <FadeInUp>
-            <img src="/img/recruit/last-boss/boss-reveal.png" alt="ラスボス" className="w-full h-auto" />
           </FadeInUp>
         </div>
       </section>
@@ -78,7 +70,7 @@ export default function LastBossPage() {
                 The Real Crisis
               </p>
               <p
-                className="text-2xl md:text-4xl lg:text-5xl font-bold text-[#2563EB]"
+                className="text-2xl md:text-4xl lg:text-5xl font-bold text-[#1C2A44]"
                 style={{ fontFamily: "'Times New Roman', 'Yu Mincho', serif" }}
               >
                 「挑戦する人が
@@ -95,7 +87,7 @@ export default function LastBossPage() {
         <div className="max-w-3xl mx-auto">
           <FadeInUp>
             <div className="flex items-center gap-4 mb-8">
-              <div className="w-16 h-1 bg-[#2563EB] rounded-full" />
+              <div className="w-16 h-1 bg-[#1C2A44] rounded-full" />
               <h2
                 className="text-xl md:text-2xl font-bold text-[#1C2A44]"
                 style={{ fontFamily: "'Times New Roman', 'Yu Mincho', serif" }}
@@ -140,11 +132,11 @@ export default function LastBossPage() {
       </section>
 
       {/* ===== 子どもたちの「選択肢」が消えている ===== */}
-      <section className="py-20 lg:py-32 px-4 bg-[#2563EB]/5">
+      <section className="py-20 lg:py-32 px-4 bg-[#FAFAF5]">
         <div className="max-w-3xl mx-auto">
           <FadeInUp>
             <div className="flex items-center gap-4 mb-8">
-              <div className="w-16 h-1 bg-[#2563EB] rounded-full" />
+              <div className="w-16 h-1 bg-[#1C2A44] rounded-full" />
               <h2
                 className="text-xl md:text-2xl font-bold text-[#1C2A44]"
                 style={{ fontFamily: "'Times New Roman', 'Yu Mincho', serif" }}
@@ -198,9 +190,9 @@ export default function LastBossPage() {
       <section className="py-20 lg:py-32 px-4 bg-white">
         <div className="max-w-3xl mx-auto">
           <FadeInUp>
-            <div className="border-l-4 border-[#2563EB] bg-[#2563EB]/5 rounded-2xl pl-6 md:pl-8 py-6 pr-6">
+            <div className="bg-[#1C2A44]/5 rounded-2xl px-8 py-8">
               <p
-                className="text-xl md:text-2xl lg:text-3xl text-[#2563EB] font-bold leading-relaxed"
+                className="text-xl md:text-2xl lg:text-3xl text-[#1C2A44] font-bold leading-relaxed"
                 style={{ fontFamily: "'Times New Roman', 'Yu Mincho', serif" }}
               >
                 挑戦しないのではない。
@@ -215,11 +207,11 @@ export default function LastBossPage() {
       </section>
 
       {/* ===== この社会を誰が変えるのか ===== */}
-      <section className="py-20 lg:py-32 px-4 bg-[#2563EB]/5">
+      <section className="py-20 lg:py-32 px-4 bg-[#FAFAF5]">
         <div className="max-w-3xl mx-auto">
           <FadeInUp>
             <div className="flex items-center gap-4 mb-8">
-              <div className="w-16 h-1 bg-[#2563EB] rounded-full" />
+              <div className="w-16 h-1 bg-[#1C2A44] rounded-full" />
               <h2
                 className="text-xl md:text-2xl font-bold text-[#1C2A44]"
                 style={{ fontFamily: "'Times New Roman', 'Yu Mincho', serif" }}
@@ -274,7 +266,7 @@ export default function LastBossPage() {
         <div className="max-w-3xl mx-auto">
           <FadeInUp>
             <div className="flex items-center gap-4 mb-8">
-              <div className="w-16 h-1 bg-[#2563EB] rounded-full" />
+              <div className="w-16 h-1 bg-[#1C2A44] rounded-full" />
               <h2
                 className="text-xl md:text-2xl font-bold text-[#1C2A44]"
                 style={{ fontFamily: "'Times New Roman', 'Yu Mincho', serif" }}
@@ -321,21 +313,20 @@ export default function LastBossPage() {
       </section>
 
       {/* ===== LAST BOSS Reveal ===== */}
-      <section className="py-20 lg:py-32 px-4 bg-[#2563EB]">
-        <div className="max-w-3xl mx-auto text-center">
+      <section className="relative py-20 lg:py-32 px-4 overflow-hidden">
+        <div className="absolute inset-0">
+          <img src="/img/recruit/last-boss/boss-reveal.png" alt="" className="w-full h-full object-cover" />
+          <div className="absolute inset-0 bg-[#1C2A44]/85" />
+        </div>
+        <div className="relative max-w-3xl mx-auto text-center">
           <FadeInUp>
-            <p className="text-xs tracking-[0.4em] uppercase text-white/70 mb-8">
+            <p className="text-xs tracking-[0.4em] uppercase text-white mb-8">
               The Last Boss We Must Defeat
             </p>
           </FadeInUp>
 
           <FadeInUp delay={200}>
             <div className="relative py-12 md:py-16">
-              {/* Decorative borders */}
-              <div className="absolute inset-0 border border-white/30 rounded-2xl" />
-              <div className="absolute inset-2 border border-white/20 rounded-xl" />
-              <div className="absolute inset-4 border border-white/10 rounded-lg" />
-
               <div className="relative z-10 px-8">
                 <p className="text-xs tracking-[0.3em] uppercase text-[#F59E0B] mb-6">
                   LAST BOSS
@@ -347,17 +338,11 @@ export default function LastBossPage() {
                   「挑戦が減り続ける社会」
                 </p>
               </div>
-
-              {/* Corner accents */}
-              <div className="absolute top-0 left-0 w-8 h-8 border-t-2 border-l-2 border-white rounded-tl-2xl" />
-              <div className="absolute top-0 right-0 w-8 h-8 border-t-2 border-r-2 border-white rounded-tr-2xl" />
-              <div className="absolute bottom-0 left-0 w-8 h-8 border-b-2 border-l-2 border-white rounded-bl-2xl" />
-              <div className="absolute bottom-0 right-0 w-8 h-8 border-b-2 border-r-2 border-white rounded-br-2xl" />
             </div>
           </FadeInUp>
 
           <FadeInUp delay={400}>
-            <p className="text-white/80 leading-relaxed text-sm md:text-base mt-12 max-w-xl mx-auto">
+            <p className="text-white leading-relaxed text-sm md:text-base mt-12 max-w-xl mx-auto">
               私たちが倒すべきラスボスは
               <br />
               どこか遠くにいるモンスターではありません。
@@ -388,7 +373,7 @@ export default function LastBossPage() {
               >
                 次のプレイヤーへ
               </h2>
-              <div className="w-16 h-1 bg-[#2563EB] rounded-full mx-auto" />
+              <div className="w-16 h-1 bg-[#1C2A44] rounded-full mx-auto" />
             </div>
           </FadeInUp>
 
@@ -411,7 +396,7 @@ export default function LastBossPage() {
           </FadeInUp>
 
           <FadeInUp delay={300}>
-            <div className="space-y-4 mb-12 pl-4 border-l-2 border-[#2563EB]/40">
+            <div className="space-y-4 mb-12 pl-6 bg-[#1C2A44]/5 py-6 rounded-lg">
               <p className="text-[#1C2A44] text-lg md:text-xl font-bold">
                 ・この社会を変えたい
               </p>
@@ -426,9 +411,9 @@ export default function LastBossPage() {
 
           <FadeInUp delay={400}>
             <div className="text-center">
-              <div className="w-16 h-1 bg-[#2563EB] rounded-full mx-auto mb-8" />
+              <div className="w-16 h-1 bg-[#1C2A44] rounded-full mx-auto mb-8" />
               <p
-                className="text-2xl md:text-4xl font-bold text-[#2563EB]"
+                className="text-2xl md:text-4xl font-bold text-[#1C2A44]"
                 style={{ fontFamily: "'Times New Roman', 'Yu Mincho', serif" }}
               >
                 次に挑戦するプレイヤーは、

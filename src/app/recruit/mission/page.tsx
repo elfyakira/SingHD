@@ -6,11 +6,11 @@ import FadeInUp from '@/components/animations/FadeInUp'
 const serifStyle = { fontFamily: "'Times New Roman', 'Yu Mincho', serif" }
 
 const values = [
-  { title: '主人公として生きる', description: '自分の人生の責任を持つ' },
-  { title: '挑戦する', description: '成長のために行動する' },
-  { title: '仲間を大切にする', description: '信頼こそ最大の力' },
-  { title: '学び続ける', description: '昨日の自分を超える' },
-  { title: '誇れる仕事をする', description: '社会に価値を届ける' },
+  { title: '主人公として生きる', description: '自分の人生の責任を持つ', image: '/img/recruit/oath/oath-01.png' },
+  { title: '挑戦する', description: '成長のために行動する', image: '/img/recruit/oath/oath-02.png' },
+  { title: '仲間を大切にする', description: '信頼こそ最大の力', image: '/img/recruit/oath/oath-03.png' },
+  { title: '学び続ける', description: '昨日の自分を超える', image: '/img/recruit/oath/oath-04.png' },
+  { title: '誇れる仕事をする', description: '社会に価値を届ける', image: '/img/recruit/oath/oath-05.png' },
 ]
 
 const sevenPromises = [
@@ -64,13 +64,14 @@ export default function MissionPage() {
       <RecruitHeader />
 
       {/* ===== Header ===== */}
-      <section className="relative pt-32 pb-20 lg:pt-44 lg:pb-32 px-4 bg-[#2563EB] overflow-hidden">
+      <section className="relative pt-32 pb-20 lg:pt-44 lg:pb-32 px-4 overflow-hidden">
         <div className="absolute inset-0">
           <img
             src="/img/recruit/about/mission.jpg"
             alt=""
-            className="w-full h-full object-cover opacity-15"
+            className="w-full h-full object-cover"
           />
+          <div className="absolute inset-0 bg-[#1C2A44]/75" />
         </div>
         <div className="relative max-w-3xl mx-auto text-center">
           <FadeInUp delay={200}>
@@ -85,23 +86,23 @@ export default function MissionPage() {
             <div className="w-16 h-1 bg-white rounded-full mx-auto mb-6" />
           </FadeInUp>
           <FadeInUp delay={400}>
-            <p className="text-lg md:text-xl text-white/90">企業理念</p>
+            <p className="text-lg md:text-xl text-white">企業理念</p>
           </FadeInUp>
         </div>
       </section>
 
       {/* ===== Corporate Philosophy ===== */}
       <section className="py-20 lg:py-32 px-4 bg-[#FAFAF5]">
-        <div className="max-w-3xl mx-auto text-center">
+        <div className="max-w-4xl mx-auto">
           <FadeInUp>
-            <p className="text-xs tracking-[0.3em] uppercase text-gray-500 mb-8">
+            <p className="text-xs tracking-[0.3em] uppercase text-gray-500 mb-8 text-center">
               Corporate Philosophy
             </p>
           </FadeInUp>
 
           <FadeInUp delay={200}>
             <p
-              className="text-4xl md:text-5xl lg:text-6xl font-bold text-[#2563EB] mb-12"
+              className="text-4xl md:text-5xl lg:text-6xl font-bold text-[#1C2A44] mb-12 text-center"
               style={serifStyle}
             >
               人生を、歌え。
@@ -109,7 +110,7 @@ export default function MissionPage() {
           </FadeInUp>
 
           <FadeInUp delay={300}>
-            <p className="text-gray-700 leading-loose text-sm md:text-base max-w-xl mx-auto">
+            <p className="text-gray-700 leading-loose text-sm md:text-base max-w-xl mx-auto text-center">
               私たちは、一人ひとりが自分の人生を
               <br />
               自分の声で歌えるようになる社会を目指しています。
@@ -175,28 +176,53 @@ export default function MissionPage() {
               >
                 バリュー（価値観）
               </h2>
-              <div className="w-16 h-1 bg-[#2563EB] rounded-full mx-auto" />
+              <div className="w-16 h-1 bg-[#1C2A44] rounded-full mx-auto" />
             </div>
           </FadeInUp>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {values.map((value, index) => (
               <FadeInUp key={value.title} delay={index * 100}>
-                <div className="bg-white rounded-2xl p-6 md:p-8 text-center shadow-sm">
-                  <p className="text-[#2563EB] text-lg font-bold mb-1">
-                    {String(index + 1).padStart(2, '0')}
-                  </p>
-                  <h3
-                    className="text-xl font-bold text-[#1C2A44] mb-3"
-                    style={serifStyle}
-                  >
-                    {value.title}
-                  </h3>
-                  <p className="text-gray-500 text-sm">{value.description}</p>
+                <div className="bg-white rounded-2xl overflow-hidden shadow-sm">
+                  <div className="aspect-[4/3] relative overflow-hidden">
+                    <img
+                      src={value.image}
+                      alt={value.title}
+                      className="absolute inset-0 w-full h-full object-cover"
+                    />
+                  </div>
+                  <div className="p-6 md:p-8 text-center">
+                    <p
+                      className="text-[#2563EB] text-lg font-bold mb-1"
+                      style={serifStyle}
+                    >
+                      {String(index + 1).padStart(2, '0')}
+                    </p>
+                    <h3
+                      className="text-xl font-bold text-[#1C2A44] mb-3"
+                      style={serifStyle}
+                    >
+                      {value.title}
+                    </h3>
+                    <p className="text-gray-500 text-sm">{value.description}</p>
+                  </div>
                 </div>
               </FadeInUp>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* ===== Visual Break ===== */}
+      <section className="py-8 px-4 bg-white">
+        <div className="max-w-3xl mx-auto">
+          <FadeInUp>
+            <img
+              src="/img/recruit/oath/oath-circle.jpg"
+              alt="冒険者の誓い"
+              className="w-full h-auto rounded-2xl"
+            />
+          </FadeInUp>
         </div>
       </section>
 
@@ -214,7 +240,7 @@ export default function MissionPage() {
               >
                 社員憲章 7つの約束
               </h2>
-              <div className="w-16 h-1 bg-[#2563EB] rounded-full mx-auto mb-8" />
+              <div className="w-16 h-1 bg-[#1C2A44] rounded-full mx-auto mb-8" />
               <p className="text-gray-700 leading-loose text-sm md:text-base max-w-xl mx-auto">
                 私たちはただ働くためにここにいるのではありません。
                 <br />
@@ -256,15 +282,23 @@ export default function MissionPage() {
       </section>
 
       {/* ===== Closing ===== */}
-      <section className="py-20 lg:py-32 px-4 bg-[#FAFAF5]">
-        <div className="max-w-3xl mx-auto text-center">
+      <section className="relative py-20 lg:py-32 px-4 overflow-hidden">
+        <div className="absolute inset-0">
+          <img
+            src="/img/recruit/last-boss/heroes-stand.png"
+            alt=""
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-[#1C2A44]/85" />
+        </div>
+        <div className="relative max-w-3xl mx-auto text-center">
           <FadeInUp>
-            <div className="w-16 h-1 bg-[#2563EB] rounded-full mx-auto mb-12" />
+            <div className="w-16 h-1 bg-white rounded-full mx-auto mb-12" />
           </FadeInUp>
 
           <FadeInUp delay={200}>
             <p
-              className="text-3xl md:text-5xl lg:text-6xl font-bold text-[#2563EB]"
+              className="text-3xl md:text-5xl lg:text-6xl font-bold text-[#F59E0B]"
               style={serifStyle}
             >
               主人公になれ。

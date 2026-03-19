@@ -33,7 +33,7 @@ const contactMethods = [
   {
     icon: (
       <svg
-        className="w-8 h-8 text-[#2563EB]"
+        className="w-8 h-8 text-[#1C2A44]"
         fill="none"
         stroke="currentColor"
         viewBox="0 0 24 24"
@@ -54,7 +54,7 @@ const contactMethods = [
   {
     icon: (
       <svg
-        className="w-8 h-8 text-[#2563EB]"
+        className="w-8 h-8 text-[#1C2A44]"
         fill="none"
         stroke="currentColor"
         viewBox="0 0 24 24"
@@ -75,7 +75,7 @@ const contactMethods = [
   {
     icon: (
       <svg
-        className="w-8 h-8 text-[#2563EB]"
+        className="w-8 h-8 text-[#1C2A44]"
         fill="none"
         stroke="currentColor"
         viewBox="0 0 24 24"
@@ -101,13 +101,14 @@ export default function EntryPage() {
       <RecruitHeader />
 
       {/* ===== Chapter Header + Hero Image ===== */}
-      <section className="relative pt-32 pb-20 lg:pt-44 lg:pb-32 px-4 bg-[#2563EB] overflow-hidden">
+      <section className="relative pt-32 pb-20 lg:pt-44 lg:pb-32 px-4 overflow-hidden">
         <div className="absolute inset-0">
           <img
             src="/img/recruit/entry/open-door.jpg"
             alt=""
-            className="w-full h-full object-cover opacity-20"
+            className="w-full h-full object-cover"
           />
+          <div className="absolute inset-0 bg-[#1C2A44]/70" />
         </div>
         <div className="relative max-w-3xl mx-auto text-center">
           <FadeInUp delay={200}>
@@ -120,20 +121,16 @@ export default function EntryPage() {
           </FadeInUp>
 
           <FadeInUp delay={300}>
-            <div className="w-16 h-px bg-white/60 mx-auto mb-6" />
+            <div className="w-16 h-px bg-white mx-auto mb-6" />
           </FadeInUp>
 
           <FadeInUp delay={400}>
-            <p className="text-lg md:text-xl text-white/90">
+            <p className="text-lg md:text-xl text-white">
               未来の仲間へ
             </p>
           </FadeInUp>
         </div>
       </section>
-
-      {/* ============================================================ */}
-      {/* ===== LAST MESSAGE Content (from message/page.tsx) ========= */}
-      {/* ============================================================ */}
 
       {/* ===== Opening Message ===== */}
       <section id="message" className="py-20 lg:py-32 px-4 bg-[#FAFAF5]">
@@ -169,7 +166,7 @@ export default function EntryPage() {
             >
               なぜなら私たちは本気で
               <br />
-              <span className="text-[#2563EB]">人生は一度きり</span>
+              <span className="text-[#F59E0B]">人生は一度きり</span>
               だと思っているからです。
             </p>
           </FadeInUp>
@@ -221,26 +218,15 @@ export default function EntryPage() {
       <section className="py-24 lg:py-36 px-4 bg-[#FAFAF5]">
         <div className="max-w-3xl mx-auto text-center">
           <FadeInUp>
-            <div className="relative py-12 md:py-16">
-              <div className="absolute inset-0 border-2 border-[#2563EB]/20 rounded-2xl" />
-              <div className="absolute inset-3 border border-[#2563EB]/10 rounded-xl" />
-
-              {/* Corner accents */}
-              <div className="absolute top-0 left-0 w-8 h-8 border-t-2 border-l-2 border-[#2563EB] rounded-tl-2xl" />
-              <div className="absolute top-0 right-0 w-8 h-8 border-t-2 border-r-2 border-[#2563EB] rounded-tr-2xl" />
-              <div className="absolute bottom-0 left-0 w-8 h-8 border-b-2 border-l-2 border-[#2563EB] rounded-bl-2xl" />
-              <div className="absolute bottom-0 right-0 w-8 h-8 border-b-2 border-r-2 border-[#2563EB] rounded-br-2xl" />
-
-              <div className="relative z-10 px-8">
-                <p
-                  className="text-2xl md:text-4xl lg:text-5xl font-bold text-[#2563EB] leading-tight"
-                  style={{ fontFamily: "'Times New Roman', 'Yu Mincho', serif" }}
-                >
-                  「人生は、
-                  <br />
-                  誰かに与えられるものではない。」
-                </p>
-              </div>
+            <div className="py-12 md:py-16 px-8 bg-white rounded-2xl shadow-lg">
+              <p
+                className="text-2xl md:text-4xl lg:text-5xl font-bold text-[#1C2A44] leading-tight"
+                style={{ fontFamily: "'Times New Roman', 'Yu Mincho', serif" }}
+              >
+                「人生は、
+                <br />
+                誰かに与えられるものではない。」
+              </p>
             </div>
           </FadeInUp>
 
@@ -287,7 +273,7 @@ export default function EntryPage() {
           </FadeInUp>
 
           <FadeInUp delay={100}>
-            <div className="my-8 space-y-3 pl-4 border-l-2 border-[#2563EB]/40">
+            <div className="my-8 space-y-3 pl-6 bg-[#1C2A44]/5 py-6 rounded-lg">
               <p className="text-[#1C2A44] text-lg md:text-xl font-bold py-1">
                 もっと成長したい
               </p>
@@ -308,7 +294,7 @@ export default function EntryPage() {
 
           <FadeInUp delay={300}>
             <p
-              className="text-xl md:text-3xl font-bold text-[#2563EB] text-center my-12"
+              className="text-xl md:text-3xl font-bold text-[#1C2A44] text-center my-12"
               style={{ fontFamily: "'Times New Roman', 'Yu Mincho', serif" }}
             >
               その気持ちはきっとあなたの中にある
@@ -368,7 +354,7 @@ export default function EntryPage() {
 
           <FadeInUp delay={200}>
             <p
-              className="text-xl md:text-3xl font-bold text-[#2563EB] text-center my-12"
+              className="text-xl md:text-3xl font-bold text-[#1C2A44] text-center my-12"
               style={{ fontFamily: "'Times New Roman', 'Yu Mincho', serif" }}
             >
               この冒険にあなたの力を貸してほしい。
@@ -392,18 +378,26 @@ export default function EntryPage() {
               style={{ fontFamily: "'Times New Roman', 'Yu Mincho', serif" }}
             >
               あなたの人生を
-              <span className="text-[#2563EB]">本気で生きる</span>
+              <span className="text-[#F59E0B]">本気で生きる</span>
               場所です。
             </p>
           </FadeInUp>
         </div>
       </section>
 
-      {/* ===== Closing Statement (from message) ===== */}
-      <section className="py-24 lg:py-40 px-4 bg-[#2563EB] relative overflow-hidden">
-        <div className="max-w-3xl mx-auto text-center relative z-10">
+      {/* ===== Closing Statement ===== */}
+      <section className="relative py-24 lg:py-40 px-4 overflow-hidden">
+        <div className="absolute inset-0">
+          <img
+            src="/img/recruit/entry/party-welcome.png"
+            alt=""
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-[#1C2A44]/85" />
+        </div>
+        <div className="relative max-w-3xl mx-auto text-center">
           <FadeInUp>
-            <div className="w-16 h-px bg-white/50 mx-auto mb-16" />
+            <div className="w-16 h-px bg-white mx-auto mb-16" />
           </FadeInUp>
 
           <FadeInUp delay={200}>
@@ -418,7 +412,7 @@ export default function EntryPage() {
           </FadeInUp>
 
           <FadeInUp delay={400}>
-            <div className="w-12 h-px bg-white/40 mx-auto mb-16" />
+            <div className="w-12 h-px bg-white mx-auto mb-16" />
           </FadeInUp>
 
           <FadeInUp delay={600}>
@@ -431,12 +425,12 @@ export default function EntryPage() {
           </FadeInUp>
 
           <FadeInUp delay={800}>
-            <div className="w-12 h-px bg-white/40 mx-auto mb-16" />
+            <div className="w-12 h-px bg-white mx-auto mb-16" />
           </FadeInUp>
 
           <FadeInUp delay={1000}>
             <p
-              className="text-xl md:text-2xl lg:text-3xl text-white/90 font-bold"
+              className="text-xl md:text-2xl lg:text-3xl text-white font-bold"
               style={{ fontFamily: "'Times New Roman', 'Yu Mincho', serif" }}
             >
               あなたの冒険を
@@ -447,16 +441,12 @@ export default function EntryPage() {
         </div>
       </section>
 
-      {/* ============================================================ */}
-      {/* ===== RECRUIT / JOBS Content (from jobs/page.tsx) ========== */}
-      {/* ============================================================ */}
-
       {/* ===== Job Details Table ===== */}
       <section id="jobs" className="py-20 lg:py-32 px-4 bg-[#FAFAF5]">
         <div className="max-w-3xl mx-auto">
           <FadeInUp>
             <div className="flex items-center gap-4 mb-12">
-              <div className="w-16 h-px bg-[#2563EB]" />
+              <div className="w-16 h-px bg-[#1C2A44]" />
               <h2
                 className="text-xl md:text-2xl font-bold text-[#1C2A44]"
                 style={{
@@ -468,20 +458,16 @@ export default function EntryPage() {
             </div>
           </FadeInUp>
 
-          <div className="border-2 border-[#2563EB]/20 rounded-2xl overflow-hidden">
+          <div className="rounded-2xl overflow-hidden shadow-lg">
             {jobDetails.map((item, index) => (
               <FadeInUp key={index} delay={index * 80}>
                 <div
                   className={`flex flex-col md:flex-row ${
                     index % 2 === 0 ? 'bg-white' : 'bg-[#FAFAF5]'
-                  } ${
-                    index < jobDetails.length - 1
-                      ? 'border-b border-gray-200'
-                      : ''
                   }`}
                 >
-                  <div className="md:w-40 lg:w-48 flex-shrink-0 px-6 py-4 md:py-5 bg-[#2563EB]/5 border-b md:border-b-0 md:border-r border-gray-200">
-                    <span className="text-sm text-[#2563EB] font-medium">
+                  <div className="md:w-40 lg:w-48 flex-shrink-0 px-6 py-4 md:py-5 bg-[#1C2A44]/5">
+                    <span className="text-sm text-[#1C2A44] font-medium">
                       {item.label}
                     </span>
                   </div>
@@ -502,7 +488,7 @@ export default function EntryPage() {
         <div className="max-w-3xl mx-auto">
           <FadeInUp>
             <div className="text-center mb-16">
-              <p className="text-xs tracking-[0.3em] uppercase text-[#2563EB] mb-4">
+              <p className="text-xs tracking-[0.3em] uppercase text-[#1C2A44] mb-4">
                 JOIN THE ADVENTURE
               </p>
               <h2
@@ -513,7 +499,7 @@ export default function EntryPage() {
               >
                 冒険に参加する
               </h2>
-              <div className="w-16 h-px bg-[#2563EB] mx-auto mb-6" />
+              <div className="w-16 h-px bg-[#1C2A44] mx-auto mb-6" />
               <p className="text-gray-600 text-sm md:text-base">
                 あなたの物語を、ここから始めよう。
               </p>
@@ -526,11 +512,11 @@ export default function EntryPage() {
               <FadeInUp key={index} delay={index * 150}>
                 {method.href ? (
                   <Link href={method.href} className="block group">
-                    <div className="border-2 border-[#2563EB]/20 hover:border-[#2563EB]/50 bg-white rounded-2xl p-8 text-center transition-all duration-300 h-full shadow-sm hover:shadow-md">
+                    <div className="bg-[#FAFAF5] hover:bg-[#F0EDE8] rounded-2xl p-8 text-center transition-all duration-300 h-full shadow-sm hover:shadow-md">
                       <div className="flex justify-center mb-5">
                         {method.icon}
                       </div>
-                      <h3 className="text-lg font-bold text-[#1C2A44] mb-2 group-hover:text-[#2563EB] transition-colors">
+                      <h3 className="text-lg font-bold text-[#1C2A44] mb-2 group-hover:text-[#F59E0B] transition-colors">
                         {method.title}
                       </h3>
                       <p className="text-sm text-gray-600 mb-1">
@@ -540,7 +526,7 @@ export default function EntryPage() {
                     </div>
                   </Link>
                 ) : (
-                  <div className="border-2 border-[#2563EB]/20 bg-white rounded-2xl p-8 text-center h-full shadow-sm">
+                  <div className="bg-[#FAFAF5] rounded-2xl p-8 text-center h-full shadow-sm">
                     <div className="flex justify-center mb-5">
                       {method.icon}
                     </div>
@@ -581,10 +567,18 @@ export default function EntryPage() {
       </section>
 
       {/* ===== Final Closing ===== */}
-      <section className="py-24 lg:py-36 px-4 bg-[#2563EB] relative overflow-hidden">
-        <div className="max-w-3xl mx-auto text-center relative z-10">
+      <section className="relative py-24 lg:py-36 px-4 overflow-hidden">
+        <div className="absolute inset-0">
+          <img
+            src="/img/recruit/entry/open-door.jpg"
+            alt=""
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-[#1C2A44]/85" />
+        </div>
+        <div className="relative max-w-3xl mx-auto text-center">
           <FadeInUp>
-            <div className="w-16 h-px bg-white/50 mx-auto mb-12" />
+            <div className="w-16 h-px bg-white mx-auto mb-12" />
           </FadeInUp>
 
           <FadeInUp delay={200}>
@@ -598,7 +592,7 @@ export default function EntryPage() {
 
           <FadeInUp delay={400}>
             <p
-              className="text-lg md:text-2xl text-white/90 font-bold mb-16"
+              className="text-lg md:text-2xl text-white font-bold mb-16"
               style={{ fontFamily: "'Times New Roman', 'Yu Mincho', serif" }}
             >
               あなたの冒険をSingホールディングスで。
@@ -606,10 +600,10 @@ export default function EntryPage() {
           </FadeInUp>
 
           <FadeInUp delay={600}>
-            <div className="w-12 h-px bg-white/30 mx-auto mb-8" />
+            <div className="w-12 h-px bg-white mx-auto mb-8" />
             <Link
               href="/"
-              className="inline-block text-sm text-white/50 hover:text-white/80 transition-colors tracking-wider"
+              className="inline-block text-sm text-white hover:text-[#F59E0B] transition-colors tracking-wider"
             >
               コーポレートサイトへ
             </Link>

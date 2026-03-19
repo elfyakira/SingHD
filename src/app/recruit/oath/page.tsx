@@ -57,13 +57,14 @@ export default function OathPage() {
       <RecruitHeader />
 
       {/* ===== Chapter Header ===== */}
-      <section className="relative pt-32 pb-20 lg:pt-44 lg:pb-32 px-4 bg-[#2563EB] overflow-hidden">
+      <section className="relative pt-32 pb-20 lg:pt-44 lg:pb-32 px-4 overflow-hidden">
         <div className="absolute inset-0">
-          <img src="/img/recruit/oath/oath-circle.jpg" alt="" className="w-full h-full object-cover opacity-15" />
+          <img src="/img/recruit/oath/oath-circle.jpg" alt="" className="w-full h-full object-cover" />
+          <div className="absolute inset-0 bg-[#1C2A44]/75" />
         </div>
         <div className="relative max-w-3xl mx-auto text-center">
           <FadeInUp>
-            <p className="text-xs tracking-[0.4em] uppercase text-white/70 mb-6">
+            <p className="text-xs tracking-[0.4em] uppercase text-white mb-6">
               CHAPTER 10
             </p>
           </FadeInUp>
@@ -82,10 +83,10 @@ export default function OathPage() {
           </FadeInUp>
 
           <FadeInUp delay={400}>
-            <p className="text-lg md:text-xl text-white/90 leading-relaxed">
+            <p className="text-lg md:text-xl text-white leading-relaxed">
               冒険者の誓い
               <br />
-              <span className="text-base text-white/70">
+              <span className="text-base">
                 〜Singホールディングスで働く私たちの約束〜
               </span>
             </p>
@@ -125,19 +126,19 @@ export default function OathPage() {
       {/* ===== 6 Oaths ===== */}
       <section className="py-20 lg:py-32 px-4 bg-white">
         <div className="max-w-3xl mx-auto">
-          <div className="space-y-0">
+          <div className="space-y-6">
             {oaths.map((oath, index) => (
               <FadeInUp key={oath.number} delay={index * 100}>
-                <div className="py-10 border-b border-gray-200 first:pt-0 last:border-b-0">
+                <div className="py-8 px-6 bg-[#FAFAF5] rounded-xl">
                   <div className="flex gap-6 md:gap-10">
                   {/* Image */}
                   <div className="flex-shrink-0 hidden md:block">
                     <img src={oath.image} alt={oath.title} className="w-20 h-20 lg:w-24 lg:h-24 object-contain rounded-xl" />
                   </div>
-                  {/* Large translucent blue number */}
+                  {/* Large translucent number */}
                   <div className="flex-shrink-0">
                     <span
-                      className="text-5xl md:text-6xl lg:text-7xl font-bold text-[#2563EB]/20"
+                      className="text-5xl md:text-6xl lg:text-7xl font-bold text-[#1C2A44]/15"
                       style={serifStyle}
                     >
                       {oath.number}
@@ -165,14 +166,18 @@ export default function OathPage() {
       </section>
 
       {/* ===== 最後の誓い (Closing) ===== */}
-      <section className="py-20 lg:py-32 px-4 bg-[#2563EB]">
-        <div className="max-w-3xl mx-auto text-center">
+      <section className="relative py-20 lg:py-32 px-4 overflow-hidden">
+        <div className="absolute inset-0">
+          <img src="/img/recruit/oath/oath-circle.jpg" alt="" className="w-full h-full object-cover" />
+          <div className="absolute inset-0 bg-[#1C2A44]/85" />
+        </div>
+        <div className="relative max-w-3xl mx-auto text-center">
           <FadeInUp>
             <div className="w-16 h-1 bg-white rounded-full mx-auto mb-12" />
           </FadeInUp>
 
           <FadeInUp delay={100}>
-            <p className="text-xs tracking-[0.3em] uppercase text-white/70 mb-8">
+            <p className="text-xs tracking-[0.3em] uppercase text-white mb-8">
               最後の誓い
             </p>
           </FadeInUp>
@@ -207,7 +212,7 @@ export default function OathPage() {
               人生を、歌え。
             </p>
             <p
-              className="text-lg md:text-xl text-white/90 mt-6"
+              className="text-lg md:text-xl text-white mt-6"
               style={serifStyle}
             >
               この冒険をSingホールディングスで。

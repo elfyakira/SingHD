@@ -113,13 +113,14 @@ export default function CharactersPage() {
       <RecruitHeader />
 
       {/* ===== Chapter Header ===== */}
-      <section className="relative pt-32 pb-20 lg:pt-44 lg:pb-32 px-4 bg-[#2563EB] overflow-hidden">
+      <section className="relative pt-32 pb-20 lg:pt-44 lg:pb-32 px-4 overflow-hidden">
         <div className="absolute inset-0">
-          <img src="/img/recruit/top/hero-party.png" alt="" className="w-full h-full object-cover opacity-15" />
+          <img src="/img/recruit/top/hero-party.png" alt="" className="w-full h-full object-cover" />
+          <div className="absolute inset-0 bg-[#1C2A44]/75" />
         </div>
         <div className="relative max-w-3xl mx-auto text-center">
           <FadeInUp>
-            <p className="text-xs tracking-[0.4em] uppercase text-white/70 mb-6">
+            <p className="text-xs tracking-[0.4em] uppercase text-white mb-6">
               CHAPTER 09
             </p>
           </FadeInUp>
@@ -138,7 +139,7 @@ export default function CharactersPage() {
           </FadeInUp>
 
           <FadeInUp delay={400}>
-            <p className="text-lg md:text-xl text-white/90">
+            <p className="text-lg md:text-xl text-white">
               Singホールディングスが求める人物
             </p>
           </FadeInUp>
@@ -163,13 +164,13 @@ export default function CharactersPage() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
             {rpgTypes.map((type, index) => (
               <FadeInUp key={type.number} delay={index * 100}>
-                <div className="border-l-4 border-[#2563EB] bg-white border-2 border-[#2563EB]/20 rounded-2xl overflow-hidden h-full shadow-sm">
-                  <div className="p-4 bg-gradient-to-b from-[#2563EB]/5 to-transparent flex justify-center">
-                    <img src={type.image} alt={type.name} className="w-28 h-36 object-contain" />
+                <div className="bg-white rounded-2xl overflow-hidden h-full shadow-md">
+                  <div className="p-6 bg-[#1C2A44]/5 flex justify-center">
+                    <img src={type.image} alt={type.name} className="w-36 h-44 object-contain" />
                   </div>
                   <div className="p-6 md:p-8">
                   <p
-                    className="text-[#2563EB] text-xs tracking-[0.3em] font-bold mb-3"
+                    className="text-[#1C2A44] text-xs tracking-[0.3em] font-bold mb-3"
                   >
                     {type.number}
                   </p>
@@ -179,7 +180,7 @@ export default function CharactersPage() {
                   >
                     {type.name}
                   </h3>
-                  <p className="text-[#2563EB] text-sm mb-4">{type.subtitle}</p>
+                  <p className="text-[#F59E0B] text-sm font-bold mb-4">{type.subtitle}</p>
                   <p className="text-gray-600 leading-relaxed text-sm">
                     {type.description}
                   </p>
@@ -192,12 +193,12 @@ export default function CharactersPage() {
           {/* Most important message */}
           <FadeInUp delay={500}>
             <div className="mt-16 text-center">
-              <div className="w-16 h-1 bg-[#2563EB] rounded-full mx-auto mb-8" />
+              <div className="w-16 h-1 bg-[#1C2A44] rounded-full mx-auto mb-8" />
               <p className="text-xs tracking-[0.3em] uppercase text-gray-500 mb-6">
                 最も大切なこと
               </p>
               <p
-                className="text-2xl md:text-3xl lg:text-4xl font-bold text-[#2563EB] leading-relaxed"
+                className="text-2xl md:text-3xl lg:text-4xl font-bold text-[#1C2A44] leading-relaxed"
                 style={serifStyle}
               >
                 一番大切なのはタイプではありません。
@@ -222,8 +223,8 @@ export default function CharactersPage() {
             >
               冒険診断
             </h2>
-            <p className="text-[#2563EB] text-lg mb-4">あなたのプレイヤータイプ</p>
-            <div className="w-16 h-1 bg-[#2563EB] rounded-full mx-auto mb-8" />
+            <p className="text-[#F59E0B] text-lg font-bold mb-4">あなたのプレイヤータイプ</p>
+            <div className="w-16 h-1 bg-[#1C2A44] rounded-full mx-auto mb-8" />
             <p className="text-gray-700 leading-loose text-sm md:text-base mb-12">
               あなたは勇者？戦士？賢者？僧侶？
               <br />
@@ -235,7 +236,6 @@ export default function CharactersPage() {
               href="/recruit/diagnosis"
               className="inline-flex items-center gap-3 bg-[#F59E0B] text-white px-10 py-4 font-bold tracking-wider rounded-full hover:bg-[#D97706] transition-colors text-lg"
             >
-              <span>▶</span>
               <span>冒険診断をはじめる</span>
             </Link>
           </FadeInUp>
@@ -256,8 +256,8 @@ export default function CharactersPage() {
               >
                 プレイヤーレベル
               </h2>
-              <p className="text-[#2563EB] text-lg mb-4">Singでの成長ステップ</p>
-              <div className="w-16 h-1 bg-[#2563EB] rounded-full mx-auto mb-8" />
+              <p className="text-[#F59E0B] text-lg font-bold mb-4">Singでの成長ステップ</p>
+              <div className="w-16 h-1 bg-[#1C2A44] rounded-full mx-auto mb-8" />
               <p className="text-gray-700 leading-loose text-sm md:text-base">
                 Singでは仕事を「作業」ではなく人生のレベルアップだと考えています。
               </p>
@@ -266,29 +266,32 @@ export default function CharactersPage() {
 
           <div className="relative">
             {/* Vertical timeline line */}
-            <div className="absolute left-6 md:left-8 top-0 bottom-0 w-px bg-[#2563EB]/20" />
+            <div className="absolute left-6 md:left-8 top-0 bottom-0 w-px bg-[#1C2A44]/15" />
 
-            <div className="space-y-8">
+            <div className="space-y-12">
               {levels.map((lvl, index) => (
                 <FadeInUp key={lvl.level} delay={index * 100}>
-                  <div className="flex gap-6 md:gap-8 relative">
+                  <div className="relative pl-24 md:pl-28 flex items-center">
                     {/* Level badge */}
-                    <div className="flex-shrink-0 relative z-10">
-                      <div className="w-12 h-12 md:w-16 md:h-16 rounded-full bg-[#2563EB] flex items-center justify-center shadow-md">
-                        <span className="text-white text-[10px] md:text-xs font-bold text-center leading-tight">
+                    <div className="absolute left-6 md:left-8 -translate-x-1/2 z-10 flex items-center justify-center">
+                      <div className="w-16 h-16 md:w-20 md:h-20 border-2 border-[#2563EB] bg-white flex items-center justify-center rotate-45">
+                        <span
+                          className="text-[#2563EB] text-sm md:text-lg font-bold text-center leading-tight -rotate-45"
+                          style={serifStyle}
+                        >
                           {lvl.level === 'FINAL LEVEL' ? 'MAX' : lvl.level.replace('LEVEL ', 'Lv.')}
                         </span>
                       </div>
                     </div>
                     {/* Content */}
-                    <div className="flex-1 pt-1 pb-4">
-                      <p className="text-[#2563EB] text-xs tracking-[0.2em] font-bold mb-1">
+                    <div className="flex-1 py-2">
+                      <p className="text-[#2563EB] text-xs tracking-[0.2em] font-bold mb-2">
                         {lvl.level}
                       </p>
-                      <h3 className="text-lg md:text-xl font-bold text-[#1C2A44] mb-2">
+                      <h3 className="text-xl md:text-2xl font-bold text-[#1C2A44] mb-3">
                         {lvl.title}
                       </h3>
-                      <p className="text-gray-600 leading-relaxed text-sm">
+                      <p className="text-gray-600 leading-relaxed text-sm md:text-base">
                         {lvl.description}
                       </p>
                     </div>
@@ -314,8 +317,8 @@ export default function CharactersPage() {
               >
                 隠しクエスト
               </h2>
-              <p className="text-[#2563EB] text-lg mb-4">特別採用ルート</p>
-              <div className="w-16 h-1 bg-[#2563EB] rounded-full mx-auto mb-8" />
+              <p className="text-[#F59E0B] text-lg font-bold mb-4">特別採用ルート</p>
+              <div className="w-16 h-1 bg-[#1C2A44] rounded-full mx-auto mb-8" />
               <p className="text-gray-700 leading-loose text-sm md:text-base">
                 Singには通常の採用とは別に「隠しクエスト」があります。
                 <br />
@@ -327,8 +330,8 @@ export default function CharactersPage() {
           <div className="space-y-6">
             {hiddenQuests.map((quest, index) => (
               <FadeInUp key={quest.number} delay={index * 120}>
-                <div className="border-2 border-dashed border-[#2563EB]/40 bg-[#FAFAF5] rounded-2xl p-6 md:p-8 hover:border-[#2563EB] transition-colors">
-                  <p className="text-[#2563EB] text-xs tracking-[0.3em] font-bold mb-2">
+                <div className="bg-[#FAFAF5] rounded-2xl p-6 md:p-8 shadow-sm">
+                  <p className="text-[#F59E0B] text-xs tracking-[0.3em] font-bold mb-2">
                     {quest.number}
                   </p>
                   <h3
@@ -352,7 +355,7 @@ export default function CharactersPage() {
                 参加条件
               </p>
               <p
-                className="text-2xl md:text-3xl font-bold text-[#2563EB]"
+                className="text-2xl md:text-3xl font-bold text-[#1C2A44]"
                 style={serifStyle}
               >
                 「本気で挑戦したい人」
@@ -378,17 +381,17 @@ export default function CharactersPage() {
               >
                 ラスボス討伐プロジェクト
               </h2>
-              <div className="w-16 h-1 bg-[#2563EB] rounded-full mx-auto" />
+              <div className="w-16 h-1 bg-[#1C2A44] rounded-full mx-auto" />
             </div>
           </FadeInUp>
 
           <FadeInUp delay={100}>
-            <div className="border-2 border-[#2563EB] bg-white rounded-2xl p-8 md:p-12 text-center mb-12 shadow-lg">
+            <div className="bg-white rounded-2xl p-8 md:p-12 text-center mb-12 shadow-lg">
               <p className="text-xs tracking-[0.3em] uppercase text-gray-500 mb-4">
                 LAST BOSS
               </p>
               <h3
-                className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#2563EB] mb-6"
+                className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#1C2A44] mb-6"
                 style={serifStyle}
               >
                 「挑戦しない社会」
@@ -412,10 +415,10 @@ export default function CharactersPage() {
                 Singが挑んでいるのは「挑戦者を増やすこと。」
               </p>
               <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-                {lastBossQuests.map((quest, index) => (
+                {lastBossQuests.map((quest) => (
                   <div
                     key={quest}
-                    className="border-2 border-[#2563EB]/20 bg-white rounded-2xl p-4 text-center hover:border-[#2563EB] transition-colors shadow-sm"
+                    className="bg-white rounded-2xl p-4 text-center shadow-sm"
                   >
                     <p className="text-[#1C2A44] font-bold text-sm">{quest}</p>
                   </div>
@@ -427,7 +430,7 @@ export default function CharactersPage() {
           {/* Closing MESSAGE */}
           <FadeInUp delay={300}>
             <div className="mt-16 text-center">
-              <div className="w-16 h-1 bg-[#2563EB] rounded-full mx-auto mb-10" />
+              <div className="w-16 h-1 bg-[#1C2A44] rounded-full mx-auto mb-10" />
               <p
                 className="text-2xl md:text-3xl lg:text-4xl font-bold text-[#1C2A44] leading-relaxed mb-8"
                 style={serifStyle}
@@ -439,7 +442,7 @@ export default function CharactersPage() {
                 胸を張って生きる人生にしたい。
               </p>
               <p
-                className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#2563EB]"
+                className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#F59E0B]"
                 style={serifStyle}
               >
                 人生を、歌え。

@@ -86,9 +86,11 @@ const milestones: TimelineMilestone[] = [
 /* ===== Section Divider Component ===== */
 function SectionDivider() {
   return (
-    <div className="py-8 bg-white">
-      <div className="max-w-3xl mx-auto px-4 text-center">
-        <div className="w-px h-16 bg-[#2563EB]/20 mx-auto" />
+    <div className="py-16 bg-[#FAFAF5]">
+      <div className="max-w-3xl mx-auto px-4 flex items-center justify-center gap-4">
+        <div className="w-16 h-px bg-[#1C2A44]/15" />
+        <div className="w-2 h-2 rotate-45 bg-[#2563EB]/30" />
+        <div className="w-16 h-px bg-[#1C2A44]/15" />
       </div>
     </div>
   )
@@ -100,9 +102,10 @@ export default function AboutPage() {
       <RecruitHeader />
 
       {/* ===== Chapter Header ===== */}
-      <section className="relative pt-32 pb-20 lg:pt-40 lg:pb-32 px-4 bg-[#2563EB] overflow-hidden">
+      <section className="relative pt-32 pb-20 lg:pt-40 lg:pb-32 px-4 overflow-hidden">
         <div className="absolute inset-0">
-          <img src="/img/recruit/top/hero-party.png" alt="" className="w-full h-full object-cover opacity-20" />
+          <img src="/img/recruit/top/hero-party.png" alt="" className="w-full h-full object-cover" />
+          <div className="absolute inset-0 bg-[#1C2A44]/75" />
         </div>
         <div className="relative max-w-3xl mx-auto text-center">
           <FadeInUp>
@@ -115,7 +118,7 @@ export default function AboutPage() {
           </FadeInUp>
 
           <FadeInUp delay={200}>
-            <p className="text-white/80 text-base md:text-lg leading-relaxed mb-8">
+            <p className="text-white text-base md:text-lg leading-relaxed mb-8">
               なぜ冒険するのか
             </p>
           </FadeInUp>
@@ -228,12 +231,16 @@ export default function AboutPage() {
           </FadeInUp>
 
           <FadeInUp delay={100}>
-            <p
-              className="text-[#1C2A44] text-lg md:text-xl leading-loose mb-10 font-bold"
-              style={{ fontFamily: "'Times New Roman', 'Yu Mincho', serif" }}
-            >
-              自分は今、人生の主人公を生きているだろうか。
-            </p>
+            <div className="my-16 py-10 px-8 bg-[#1C2A44]/5 rounded-xl text-center">
+              <p
+                className="text-[#1C2A44] text-xl md:text-2xl lg:text-3xl leading-relaxed font-bold"
+                style={{ fontFamily: "'Times New Roman', 'Yu Mincho', serif" }}
+              >
+                自分は今、人生の主人公を
+                <br />
+                生きているだろうか。
+              </p>
+            </div>
           </FadeInUp>
 
           <FadeInUp delay={100}>
@@ -364,7 +371,7 @@ export default function AboutPage() {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <FadeInUp delay={100}>
-              <div className="border-2 border-[#2563EB]/20 rounded-2xl p-8 h-full bg-white">
+              <div className="rounded-2xl p-8 h-full bg-white shadow-md">
                 <div className="text-[#2563EB] text-3xl font-bold mb-4" style={{ fontFamily: "'Times New Roman', serif" }}>
                   01
                 </div>
@@ -378,7 +385,7 @@ export default function AboutPage() {
             </FadeInUp>
 
             <FadeInUp delay={200}>
-              <div className="border-2 border-[#2563EB]/20 rounded-2xl p-8 h-full bg-white">
+              <div className="rounded-2xl p-8 h-full bg-white shadow-md">
                 <div className="text-[#2563EB] text-3xl font-bold mb-4" style={{ fontFamily: "'Times New Roman', serif" }}>
                   02
                 </div>
@@ -392,7 +399,7 @@ export default function AboutPage() {
             </FadeInUp>
 
             <FadeInUp delay={300}>
-              <div className="border-2 border-[#2563EB]/20 rounded-2xl p-8 h-full bg-white">
+              <div className="rounded-2xl p-8 h-full bg-white shadow-md">
                 <div className="text-[#2563EB] text-3xl font-bold mb-4" style={{ fontFamily: "'Times New Roman', serif" }}>
                   03
                 </div>
@@ -468,12 +475,15 @@ export default function AboutPage() {
           </FadeInUp>
 
           <FadeInUp delay={400}>
-            <p
-              className="text-[#1C2A44] text-lg md:text-xl leading-loose mb-12 font-bold"
-              style={{ fontFamily: "'Times New Roman', 'Yu Mincho', serif" }}
-            >
-              さあ、次はあなたの番です。
-            </p>
+            <div className="text-center mt-16">
+              <div className="w-16 h-1 bg-[#1C2A44] rounded-full mx-auto mb-8" />
+              <p
+                className="text-[#1C2A44] text-2xl md:text-3xl leading-loose font-bold"
+                style={{ fontFamily: "'Times New Roman', 'Yu Mincho', serif" }}
+              >
+                さあ、次はあなたの番です。
+              </p>
+            </div>
           </FadeInUp>
         </div>
       </section>
@@ -520,8 +530,8 @@ export default function AboutPage() {
               {milestones.map((milestone, idx) => (
                 <FadeInUp key={idx} delay={idx * 80}>
                   <div className="relative pl-12 md:pl-16">
-                    {/* Timeline dot */}
-                    <div className="absolute left-2.5 md:left-4.5 top-1 w-3 h-3 rounded-full bg-[#2563EB] ring-4 ring-white" />
+                    {/* Timeline diamond */}
+                    <div className="absolute left-2 md:left-4 top-1 w-4 h-4 rotate-45 bg-white border-2 border-[#2563EB]" />
 
                     {/* Label */}
                     <span className="text-[10px] tracking-[0.3em] uppercase text-[#2563EB] mb-3 block">
@@ -1161,15 +1171,19 @@ export default function AboutPage() {
       </section>
 
       {/* Sing Name - Closing Statement */}
-      <section className="py-20 lg:py-32 px-4 bg-white">
-        <div className="max-w-3xl mx-auto text-center">
+      <section className="relative py-20 lg:py-32 px-4 overflow-hidden">
+        <div className="absolute inset-0">
+          <img src="/img/recruit/about/sing-meaning.png" alt="" className="w-full h-full object-cover" />
+          <div className="absolute inset-0 bg-[#1C2A44]/85" />
+        </div>
+        <div className="relative max-w-3xl mx-auto text-center">
           <FadeInUp>
-            <div className="w-16 h-1 bg-[#2563EB] rounded-full mx-auto mb-12" />
+            <div className="w-16 h-1 bg-white rounded-full mx-auto mb-12" />
           </FadeInUp>
 
           <FadeInUp delay={200}>
             <p
-              className="text-4xl md:text-6xl lg:text-7xl font-bold text-[#2563EB]"
+              className="text-4xl md:text-6xl lg:text-7xl font-bold text-[#F59E0B]"
               style={{ fontFamily: "'Times New Roman', 'Yu Mincho', serif" }}
             >
               人生を、歌え。
@@ -1208,7 +1222,7 @@ export default function AboutPage() {
               href="/recruit/mission"
               className="inline-block bg-[#2563EB] text-white px-8 py-4 text-sm tracking-wider rounded-full font-bold hover:bg-[#1D4ED8] transition-all duration-300"
             >
-              企業理念を見る
+              ▶ 企業理念を見る
             </Link>
           </FadeInUp>
         </div>

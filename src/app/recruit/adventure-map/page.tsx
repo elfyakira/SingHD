@@ -62,13 +62,14 @@ export default function AdventureMapPage() {
       <RecruitHeader />
 
       {/* ===== Chapter Header ===== */}
-      <section className="relative pt-32 pb-20 lg:pt-44 lg:pb-32 px-4 bg-[#2563EB] overflow-hidden">
+      <section className="relative pt-32 pb-20 lg:pt-44 lg:pb-32 px-4 overflow-hidden">
         <div className="absolute inset-0">
-          <img src="/img/recruit/adventure-map/level-1.png" alt="" className="w-full h-full object-cover opacity-15" />
+          <img src="/img/recruit/adventure-map/level-1.png" alt="" className="w-full h-full object-cover" />
+          <div className="absolute inset-0 bg-[#1C2A44]/75" />
         </div>
         <div className="relative max-w-3xl mx-auto text-center">
           <FadeInUp>
-            <p className="text-xs tracking-[0.4em] uppercase text-white/70 mb-6">
+            <p className="text-xs tracking-[0.4em] uppercase text-white mb-6">
               CHAPTER 08
             </p>
           </FadeInUp>
@@ -87,7 +88,7 @@ export default function AdventureMapPage() {
           </FadeInUp>
 
           <FadeInUp delay={400}>
-            <p className="text-lg md:text-xl text-white/90">
+            <p className="text-lg md:text-xl text-white">
               Sing 冒険マップ
               <br />
               あなたのレベルアップの旅
@@ -133,18 +134,18 @@ export default function AdventureMapPage() {
       <section className="py-20 lg:py-32 px-4 bg-white">
         <div className="max-w-3xl mx-auto">
           <div className="relative">
-            {/* Vertical blue line */}
-            <div className="absolute left-6 md:left-8 top-0 bottom-0 w-px bg-gradient-to-b from-[#2563EB] via-[#2563EB]/50 to-[#2563EB]" />
+            {/* Vertical line */}
+            <div className="absolute left-6 md:left-8 top-0 bottom-0 w-px bg-[#1C2A44]/15" />
 
             <div className="space-y-16">
               {levels.map((item, index) => (
                 <FadeInUp key={item.level} delay={index * 100}>
-                  <div className="relative pl-16 md:pl-20">
+                  <div className="relative pl-24 md:pl-28">
                     {/* Level badge on the line */}
-                    <div className="absolute left-0 top-0 w-12 md:w-16 h-12 md:h-16 flex items-center justify-center">
-                      <div className="w-12 md:w-16 h-12 md:h-16 bg-[#2563EB]/10 border-2 border-[#2563EB] rounded-xl flex items-center justify-center relative z-10">
+                    <div className="absolute top-0 left-6 md:left-8 -translate-x-1/2 flex items-center justify-center">
+                      <div className="w-16 h-16 md:w-20 md:h-20 border-2 border-[#2563EB] bg-white flex items-center justify-center relative z-10 rotate-45">
                         <span
-                          className="text-[#2563EB] text-xs md:text-sm font-bold"
+                          className="text-[#2563EB] text-xl md:text-2xl font-bold -rotate-45"
                           style={{ fontFamily: "'Times New Roman', 'Yu Mincho', serif" }}
                         >
                           Lv.{item.level}
@@ -153,14 +154,14 @@ export default function AdventureMapPage() {
                     </div>
 
                     {/* Card content */}
-                    <div className="bg-white border-2 border-[#2563EB]/20 rounded-2xl overflow-hidden">
+                    <div className="bg-[#FAFAF5] rounded-2xl overflow-hidden shadow-md">
                       <div className="flex flex-col md:flex-row">
-                      <div className="md:w-40 lg:w-48 flex-shrink-0 bg-gradient-to-b md:bg-gradient-to-r from-[#2563EB]/5 to-transparent p-4 flex items-center justify-center">
+                      <div className="md:w-40 lg:w-48 flex-shrink-0 bg-[#1C2A44]/5 p-4 flex items-center justify-center">
                         <img src={item.image} alt={item.title} className="w-24 h-24 md:w-32 md:h-32 object-contain" />
                       </div>
                       <div className="p-6 md:p-8 flex-1">
                       <p
-                        className="text-2xl md:text-3xl font-bold text-[#2563EB] mb-2"
+                        className="text-2xl md:text-3xl font-bold text-[#1C2A44] mb-2"
                         style={{ fontFamily: "'Times New Roman', 'Yu Mincho', serif" }}
                       >
                         LEVEL {item.level}
@@ -168,7 +169,7 @@ export default function AdventureMapPage() {
                       <h3 className="text-lg md:text-xl font-bold text-[#1C2A44] mb-4">
                         {item.title}
                       </h3>
-                      <div className="w-12 h-1 bg-[#2563EB]/40 rounded-full mb-4" />
+                      <div className="w-12 h-1 bg-[#1C2A44]/20 rounded-full mb-4" />
                       <p className="text-gray-700 leading-loose text-sm md:text-base">
                         {item.description}
                       </p>
@@ -178,7 +179,7 @@ export default function AdventureMapPage() {
                           {item.skills.map((skill) => (
                             <span
                               key={skill}
-                              className="text-xs px-3 py-1.5 border-2 border-[#2563EB]/30 text-[#2563EB] rounded-full tracking-wider"
+                              className="text-xs px-3 py-1.5 bg-[#1C2A44]/10 text-[#1C2A44] rounded-full tracking-wider"
                             >
                               {skill}
                             </span>
@@ -207,7 +208,7 @@ export default function AdventureMapPage() {
               >
                 そして、次の冒険へ
               </h2>
-              <div className="w-16 h-1 bg-[#2563EB] rounded-full mx-auto" />
+              <div className="w-16 h-1 bg-[#1C2A44] rounded-full mx-auto" />
             </div>
           </FadeInUp>
 
@@ -249,12 +250,12 @@ export default function AdventureMapPage() {
           </FadeInUp>
 
           <FadeInUp delay={200}>
-            <div className="w-16 h-1 bg-[#2563EB] rounded-full mx-auto mb-8" />
+            <div className="w-16 h-1 bg-[#1C2A44] rounded-full mx-auto mb-8" />
           </FadeInUp>
 
           <FadeInUp delay={300}>
             <p
-              className="text-2xl md:text-4xl font-bold text-[#2563EB] mb-12"
+              className="text-2xl md:text-4xl font-bold text-[#1C2A44] mb-12"
               style={{ fontFamily: "'Times New Roman', 'Yu Mincho', serif" }}
             >
               あなたの物語を
@@ -268,7 +269,7 @@ export default function AdventureMapPage() {
               href="/recruit/entry"
               className="inline-block bg-[#F59E0B] text-white px-10 py-4 text-sm font-bold tracking-wider rounded-full hover:bg-[#D97706] transition-all duration-300"
             >
-              冒険に参加する
+              ▶ 冒険に参加する
             </Link>
           </FadeInUp>
         </div>

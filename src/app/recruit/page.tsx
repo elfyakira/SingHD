@@ -273,7 +273,7 @@ export default function RecruitTopPage() {
       <section className="relative h-screen flex items-center justify-center overflow-hidden bg-gray-800/60">
         <div className="relative z-10 text-center px-4">
           <FadeInUp>
-            <p className="text-xs tracking-[0.4em] uppercase text-white/70 mb-8">
+            <p className="text-xs tracking-[0.4em] uppercase text-white mb-8">
               Sing Holdings Recruit
             </p>
           </FadeInUp>
@@ -288,7 +288,7 @@ export default function RecruitTopPage() {
           </FadeInUp>
 
           <FadeInUp delay={400}>
-            <p className="text-white/80 text-sm md:text-base leading-relaxed max-w-xl mx-auto mb-12">
+            <p className="text-white text-sm md:text-base leading-relaxed max-w-xl mx-auto mb-12">
               人生は一度きりのRPG。
               <br />
               その物語をどう生きるかは、あなた次第。
@@ -311,7 +311,7 @@ export default function RecruitTopPage() {
             scrollIndicatorVisible ? 'opacity-100' : 'opacity-0'
           }`}
         >
-          <span className="text-[10px] tracking-[0.3em] uppercase text-white/60">
+          <span className="text-[10px] tracking-[0.3em] uppercase text-white">
             Scroll
           </span>
           <div className="w-px h-8 bg-white/30 relative overflow-hidden">
@@ -343,7 +343,7 @@ export default function RecruitTopPage() {
         <div className="max-w-3xl mx-auto">
           <FadeInUp>
             <p
-              className="text-xl md:text-2xl lg:text-3xl text-[#1C2A44] font-bold leading-loose mb-12"
+              className="text-2xl md:text-3xl lg:text-4xl text-[#1C2A44] font-bold leading-loose mb-12"
               style={{ fontFamily: "'Times New Roman', 'Yu Mincho', serif" }}
             >
               あなたは、自分の人生の主人公を
