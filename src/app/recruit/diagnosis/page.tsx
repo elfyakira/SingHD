@@ -409,7 +409,7 @@ export default function DiagnosisPage() {
                   return (
                     <div key={key} className="flex flex-col items-center">
                       <div
-                        className="w-24 h-24 md:w-28 md:h-28 rounded-2xl overflow-hidden mb-3 border-3 shadow-lg"
+                        className="w-32 h-44 md:w-40 md:h-56 rounded-2xl overflow-hidden mb-3 border-3 shadow-lg"
                         style={{ borderColor: t.color }}
                       >
                         <img

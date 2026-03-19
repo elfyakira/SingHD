@@ -81,18 +81,21 @@ const hiddenQuests = [
     target: '在学中に事業を立ち上げたい人向け。',
     content:
       '内容: 事業アイデア作成、ビジネスモデル構築、実際の事業立ち上げ。優秀者は起業支援・事業化サポートを受けられます。',
+    image: '/img/recruit/characters/hidden-quest-01.png',
   },
   {
     number: 'クエスト2',
     title: '新規事業プロジェクト',
     target: 'Singの新規事業に学生から参加。',
     content: '内容: マーケティング、営業戦略、サービス設計。',
+    image: '/img/recruit/characters/hidden-quest-02.png',
   },
   {
     number: 'クエスト3',
     title: '社会課題プロジェクト',
     target: '教育、地域、若者支援。',
     content: '社会課題をテーマにしたプロジェクトに参加。',
+    image: '/img/recruit/characters/hidden-quest-03.png',
   },
 ]
 
@@ -158,26 +161,24 @@ export default function CharactersPage() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
             {rpgTypes.map((type, index) => (
               <FadeInUp key={type.number} delay={index * 100}>
-                <div className="bg-white rounded-2xl overflow-hidden h-full shadow-md">
-                  <div className="p-6 bg-[#1C2A44]/5 flex justify-center">
-                    <img src={type.image} alt={type.name} className="w-36 h-44 object-contain" />
+                <div className="bg-white rounded-2xl overflow-hidden h-full shadow-md flex flex-row">
+                  <div className="w-32 md:w-40 flex-shrink-0 overflow-hidden">
+                    <img src={type.image} alt={type.name} className="w-full h-full object-cover" />
                   </div>
-                  <div className="p-6 md:p-8">
-                  <p
-                    className="text-[#1C2A44] text-xs tracking-[0.3em] font-bold mb-3"
-                  >
-                    {type.number}
-                  </p>
-                  <h3
-                    className="text-xl md:text-2xl font-bold text-[#1C2A44] mb-2"
-                    style={serifStyle}
-                  >
-                    {type.name}
-                  </h3>
-                  <p className="text-[#F59E0B] text-sm font-bold mb-4">{type.subtitle}</p>
-                  <p className="text-gray-600 leading-relaxed text-sm">
-                    {type.description}
-                  </p>
+                  <div className="p-5 md:p-6 flex-1">
+                    <p className="text-[#1C2A44] text-xs tracking-[0.3em] font-bold mb-2">
+                      {type.number}
+                    </p>
+                    <h3
+                      className="text-lg md:text-xl font-bold text-[#1C2A44] mb-1"
+                      style={serifStyle}
+                    >
+                      {type.name}
+                    </h3>
+                    <p className="text-[#F59E0B] text-sm font-bold mb-3">{type.subtitle}</p>
+                    <p className="text-gray-600 leading-relaxed text-sm">
+                      {type.description}
+                    </p>
                   </div>
                 </div>
               </FadeInUp>
@@ -324,20 +325,25 @@ export default function CharactersPage() {
           <div className="space-y-6">
             {hiddenQuests.map((quest, index) => (
               <FadeInUp key={quest.number} delay={index * 120}>
-                <div className="bg-[#FAFAF5] rounded-2xl p-6 md:p-8 shadow-sm">
-                  <p className="text-[#F59E0B] text-xs tracking-[0.3em] font-bold mb-2">
-                    {quest.number}
-                  </p>
-                  <h3
-                    className="text-xl md:text-2xl font-bold text-[#1C2A44] mb-3"
-                    style={serifStyle}
-                  >
-                    {quest.title}
-                  </h3>
-                  <p className="text-gray-700 text-sm mb-2">{quest.target}</p>
-                  <p className="text-gray-600 leading-relaxed text-sm">
-                    {quest.content}
-                  </p>
+                <div className="bg-[#FAFAF5] rounded-2xl overflow-hidden shadow-sm flex flex-row">
+                  <div className="w-32 md:w-40 flex-shrink-0 overflow-hidden">
+                    <img src={quest.image} alt={quest.title} className="w-full h-full object-cover" />
+                  </div>
+                  <div className="p-5 md:p-6 flex-1">
+                    <p className="text-[#F59E0B] text-xs tracking-[0.3em] font-bold mb-2">
+                      {quest.number}
+                    </p>
+                    <h3
+                      className="text-lg md:text-xl font-bold text-[#1C2A44] mb-2"
+                      style={serifStyle}
+                    >
+                      {quest.title}
+                    </h3>
+                    <p className="text-gray-700 text-sm mb-2">{quest.target}</p>
+                    <p className="text-gray-600 leading-relaxed text-sm">
+                      {quest.content}
+                    </p>
+                  </div>
                 </div>
               </FadeInUp>
             ))}

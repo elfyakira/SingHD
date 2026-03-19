@@ -296,15 +296,15 @@ export default function WatanabeStoryPage() {
       </section>
 
       {/* ===== MESSAGE ===== */}
-      <section className="py-20 lg:py-32 px-4 bg-[#1C2A44]">
+      <section className="py-20 lg:py-32 px-4 bg-white">
         <div className="max-w-3xl mx-auto">
           <FadeInUp>
             <div className="text-center mb-12">
-              <p className="text-xs tracking-[0.3em] uppercase text-white mb-4">
+              <p className="text-xs tracking-[0.3em] uppercase text-[#1C2A44] mb-4">
                 MESSAGE
               </p>
               <h3
-                className="text-2xl md:text-3xl font-bold text-white mb-4"
+                className="text-2xl md:text-3xl font-bold text-[#1C2A44] mb-4"
                 style={serifStyle}
               >
                 これから挑戦する人へ
@@ -315,15 +315,15 @@ export default function WatanabeStoryPage() {
 
           <FadeInUp delay={100}>
             <div className="space-y-6">
-              <p className="text-white leading-loose text-sm md:text-base">
+              <p className="text-gray-700 leading-loose text-sm md:text-base">
                 覚悟が固まるのを待っていたら一生動けない。
               </p>
-              <p className="text-white leading-loose text-sm md:text-base">
+              <p className="text-gray-700 leading-loose text-sm md:text-base">
                 100％じゃなくていい。
               </p>
-              <div className="bg-white/10 pl-6 py-4 my-6 rounded-lg">
+              <div className="bg-[#1C2A44]/5 pl-6 py-4 my-6 rounded-lg">
                 <p
-                  className="text-xl md:text-2xl font-bold text-white leading-relaxed"
+                  className="text-xl md:text-2xl font-bold text-[#1C2A44] leading-relaxed"
                   style={serifStyle}
                 >
                   「一人じゃない」そう思える場所を見つけたら
@@ -331,7 +331,7 @@ export default function WatanabeStoryPage() {
                   そこが始まりだ。
                 </p>
               </div>
-              <p className="text-white leading-loose text-sm md:text-base">
+              <p className="text-gray-700 leading-loose text-sm md:text-base">
                 起業は復讐でも証明でもない。
               </p>
               <p
@@ -340,7 +340,7 @@ export default function WatanabeStoryPage() {
               >
                 「選択だ。」
               </p>
-              <p className="text-white leading-loose text-sm md:text-base">
+              <p className="text-gray-700 leading-loose text-sm md:text-base">
                 環境に左右されない生き方を自分の手で選んでほしい。
               </p>
             </div>

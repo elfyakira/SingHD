@@ -123,12 +123,12 @@ export default function OathPage() {
           <div className="space-y-6">
             {oaths.map((oath, index) => (
               <FadeInUp key={oath.number} delay={index * 100}>
-                <div className="py-8 px-6 bg-[#FAFAF5] rounded-xl">
-                  <div className="flex gap-6 md:gap-10">
+                <div className="bg-[#FAFAF5] rounded-xl overflow-hidden flex flex-row">
                   {/* Image */}
-                  <div className="flex-shrink-0 hidden md:block">
-                    <img src={oath.image} alt={oath.title} className="w-20 h-20 lg:w-24 lg:h-24 object-contain rounded-xl" />
+                  <div className="w-24 lg:w-32 flex-shrink-0 hidden md:block overflow-hidden">
+                    <img src={oath.image} alt={oath.title} className="w-full h-full object-cover" />
                   </div>
+                  <div className="flex gap-6 md:gap-10 py-8 px-6">
                   {/* Large translucent number */}
                   <div className="flex-shrink-0">
                     <span

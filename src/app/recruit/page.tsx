@@ -437,9 +437,9 @@ export default function RecruitTopPage() {
             {/* START */}
             <FadeInUp>
               <div className="flex justify-center">
-                <div className="flex items-center gap-3 bg-white/10 border border-white/10 px-6 py-3 rounded-full">
-                  <span className="text-white text-xs">▶</span>
-                  <span className="text-xs font-bold text-white tracking-[0.2em]">
+                <div className="flex items-center gap-3 bg-white/10 border border-white/10 px-8 py-4 rounded-full">
+                  <span className="text-white text-base">▶</span>
+                  <span className="text-base font-bold text-white tracking-[0.3em]">
                     START
                   </span>
                 </div>

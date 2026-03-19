@@ -129,14 +129,14 @@ export default function AdventureMapPage() {
         <div className="max-w-3xl mx-auto">
           <div className="relative">
             {/* Vertical line */}
-            <div className="absolute left-6 md:left-8 top-0 bottom-0 w-px bg-[#1C2A44]/15" />
+            <div className="absolute left-10 md:left-8 top-0 bottom-0 w-px bg-[#1C2A44]/15" />
 
             <div className="space-y-16">
               {levels.map((item, index) => (
                 <FadeInUp key={item.level} delay={index * 100}>
-                  <div className="relative pl-24 md:pl-28">
+                  <div className="relative pl-28 md:pl-28">
                     {/* Level badge on the line */}
-                    <div className="absolute top-0 left-6 md:left-8 -translate-x-1/2 flex items-center justify-center">
+                    <div className="absolute top-0 left-10 md:left-8 -translate-x-1/2 flex items-center justify-center">
                       <div className="w-16 h-16 md:w-20 md:h-20 border-2 border-[#2563EB] bg-white flex items-center justify-center relative z-10 rotate-45">
                         <span
                           className="text-[#2563EB] text-xl md:text-2xl font-bold -rotate-45"
@@ -150,8 +150,8 @@ export default function AdventureMapPage() {
                     {/* Card content */}
                     <div className="bg-[#FAFAF5] rounded-2xl overflow-hidden shadow-md">
                       <div className="flex flex-col md:flex-row">
-                      <div className="md:w-44 lg:w-52 flex-shrink-0 bg-[#1C2A44]/5 p-4 flex items-center justify-center">
-                        <img src={item.image} alt={item.title} className="w-28 h-28 md:w-36 md:h-36 object-contain" />
+                      <div className="md:w-44 lg:w-52 flex-shrink-0 overflow-hidden">
+                        <img src={item.image} alt={item.title} className="w-full h-48 md:h-full object-cover" />
                       </div>
                       <div className="p-6 md:p-8 flex-1">
                       <p
