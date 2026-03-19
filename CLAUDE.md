@@ -34,3 +34,17 @@ docs/guide-flow/
 - `public/img/recruit/guide/[slug].png` — サムネイル画像
 - `public/ai.txt` — AIクローラー向け情報
 - `public/llms.txt` — LLM向け情報
+- `docs/インデックス登録リクエスト手順書.md` — Google Search Console登録用URL
+
+## SEO/LLMOチェック
+「SEOチェックして」「LLMO監査」「コンテンツ戦略を見直して」等の指示を受けたら、 `/seo-check` コマンドを実行すること。
+
+SingHDリクルートサイトに特化した包括的なSEO/LLMO監査を実行する:
+- 技術SEO（メタデータ・構造化データ・パフォーマンス）
+- LLMO対策（ai.txt/llms.txt品質・AIクローラー設定・セマンティックHTML）
+- コンテンツ棚卸し（記事数・カテゴリバランス・内部リンク・CTA導線）
+- **キーワード戦略**（狙うべきキーワード・競合ギャップ・ロングテール発掘）
+- **AI質問パターン分析**（ターゲットがAIに聞く質問の推定・AI回答に含まれるための戦略）
+- **コンテンツ追加提案**（キーワードギャップとAI質問パターンに基づく新規記事提案）
+
+コマンド定義: `.claude/commands/seo-check.md`
