@@ -175,25 +175,61 @@ SingHDリクルートサイトはRPG（ロールプレイングゲーム）の�
 ### ツール
 `/mnt/c/Nanobanana/generate_image_pro.py` の `generate_with_reference_pro` 関数
 
-### SingHD向けスタイル定数
+### スタイル
+**チビ/SD（スーパーデフォルメ）スタイル。** 白背景、クリーンな線画、セルシェーディング、RPGファンタジー衣装。
+
+### スタイル定数
 
 ```python
 STYLE = (
-    "Fantasy RPG illustration, painterly style with soft lighting, "
-    "warm parchment-like atmosphere, "
-    "young Japanese adventurer characters (early 20s) in modern-fantasy hybrid clothing, "
-    "natural black hair, determined expressions, "
-    "muted jewel-tone palette: deep blue (#2563EB), warm amber (#D97706), "
-    "forest green (#059669), crimson (#DC2626), ivory (#FAFAF5), "
-    "subtle texture like aged paper or canvas, "
-    "cinematic composition, depth of field, "
-    "professional and inspiring mood, "
+    "Chibi / super-deformed RPG character illustration, "
+    "clean line art with cel-shading, "
+    "white or very light clean background, "
+    "cute but professional, not overly childish, "
+    "RPG fantasy clothing with modern touches, "
+    "full body character standing pose, "
+    "bright and cheerful color palette, "
+    "consistent with Japanese mobile game character art style, "
     "no text, no watermark, no border."
 )
 ```
 
-### アンカー画像
-**初回は既存のrecruitサイト画像を基準にする。** 最初の1枚を生成したらそれをアンカーにして統一する。
+### アンカー画像（4キャラクター）
+
+**保存場所:** `docs/guide-flow/anchors/`
+
+| ファイル | キャラ名 | 外見の特徴 | Windowsパス |
+|---------|---------|-----------|------------|
+| `hero-adventurer.jpg` | 勇者/冒険者 | 茶髪男性、青マント+オレンジ縁取り、笑顔、元気 | `C:\singhd\docs\guide-flow\anchors\hero-adventurer.jpg` |
+| `warrior.jpg` | 戦士 | 黒髪男性、灰色鎧+茶ベルト、落ち着いた微笑 | `C:\singhd\docs\guide-flow\anchors\warrior.jpg` |
+| `sage.jpg` | 賢者 | 銀髪男性、眼鏡、青ルーンローブ+金縁取り | `C:\singhd\docs\guide-flow\anchors\sage.jpg` |
+| `healer.jpg` | 僧侶/ヒーラー | 茶髪女性、水色ワンピース+赤帯、サッチェル | `C:\singhd\docs\guide-flow\anchors\healer.jpg` |
+
+### アンカー使用ルール（厳守）
+
+1. **1つの生成画像に対して、アンカーは必ず1枚だけ渡す。** 複数アンカーを同時に渡すとスタイルが不安定になる
+2. **記事の内容に合ったキャラクターを選ぶ。** テーマとキャラの対応に根拠を持たせる
+3. **4キャラクターの登場回数をなるべく均等にする。** 偏りが出ないよう、キャラ選定時に過去の使用回数を確認する
+4. プロンプトではアンカーのキャラクターを中心に描写し、**記事テーマを反映したシチュエーション**を追加する
+
+### キャラクター選定の目安
+
+| 記事テーマ | 推奨キャラ | 理由 |
+|-----------|-----------|------|
+| 挑戦・一歩踏み出す系 | 勇者/冒険者 | 冒険に飛び出す意志を象徴 |
+| スキル・武器・装備系 | 戦士 | 武器・装備と直結 |
+| 知識・学び・分析系 | 賢者 | 知恵・洞察を象徴 |
+| チーム・仲間・支え合い系 | 僧侶/ヒーラー | 絆・支えを象徴 |
+
+### キャラクター使用履歴
+
+新しい記事で画像を生成するたびに、ここに追記する。
+
+| slug | 使用キャラ | 日付 |
+|------|-----------|------|
+| why-challenge | 勇者/冒険者 | 2026-03-19 |
+| first-weapon | 戦士 | 2026-03-19 |
+| party-building | 僧侶/ヒーラー | 2026-03-19 |
 
 ### 出力先
 ```
@@ -206,6 +242,50 @@ STYLE = (
 
 ### 命名規則
 `[slug].png` — guide-data.tsのslugと一致させる
+
+### バッチスクリプトの書き方（例）
+
+```python
+import os, sys, time
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from generate_image_pro import generate_with_reference_pro
+
+STYLE = (
+    "Chibi / super-deformed RPG character illustration, "
+    "clean line art with cel-shading, "
+    "white or very light clean background, "
+    "cute but professional, not overly childish, "
+    "RPG fantasy clothing with modern touches, "
+    "full body character standing pose, "
+    "bright and cheerful color palette, "
+    "consistent with Japanese mobile game character art style, "
+    "no text, no watermark, no border."
+)
+
+ANCHORS = r"C:\singhd\docs\guide-flow\anchors"
+OUTPUT  = r"C:\singhd\public\img\recruit\guide"
+
+# 1記事 = 1アンカー。複数アンカーは使わない
+IMAGES = {
+    "slug-name": {
+        "anchor": os.path.join(ANCHORS, "hero-adventurer.jpg"),  # ← 1枚だけ
+        "prompt": f"{STYLE} [記事テーマに合ったシチュエーション描写]",
+        "ratio": "3:2",
+    },
+}
+
+if __name__ == "__main__":
+    os.makedirs(OUTPUT, exist_ok=True)
+    for name, cfg in IMAGES.items():
+        out = os.path.join(OUTPUT, f"{name}.png")
+        if os.path.exists(out):
+            print(f"SKIP {name}")
+            continue
+        print(f"Generating: {name}")
+        generate_with_reference_pro(cfg["prompt"], [cfg["anchor"]], out, cfg["ratio"])
+        time.sleep(3)
+    print("Done!")
+```
 
 ---
 

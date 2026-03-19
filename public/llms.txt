@@ -52,6 +52,11 @@ RPGの世界観で構築された採用サイト。「人生を、歌え。」�
 
 **エントリー:** https://hd.jp-sing.com/recruit/entry
 
+**冒険者ガイド コンテンツ:**
+- 「安定」を選ばなかった理由 (/recruit/guide/why-challenge) — 安定vs挑戦のデータと20代のキャリア選択
+- 最初の武器の見つけ方 (/recruit/guide/first-weapon) — 自分の強みを見つける3ステップ
+- 最強パーティの作り方 (/recruit/guide/party-building) — 心理的安全性とチームビルディングの科学
+
 ## ページ一覧
 
 - / — トップページ

@@ -30,7 +30,7 @@ export const guideArticles: GuideCardData[] = [
     tags: ['マインドセット', '挑戦'],
     image: `${IMG}/why-challenge.png`,
     category: '冒険の心得',
-    available: false,
+    available: true,
   },
   {
     slug: 'failure-is-exp',
@@ -50,7 +50,7 @@ export const guideArticles: GuideCardData[] = [
     tags: ['スキル', '自己分析'],
     image: `${IMG}/first-weapon.png`,
     category: 'スキルの書',
-    available: false,
+    available: true,
   },
   {
     slug: 'level-up-habits',
@@ -70,7 +70,7 @@ export const guideArticles: GuideCardData[] = [
     tags: ['チーム', 'リーダーシップ'],
     image: `${IMG}/party-building.png`,
     category: '仲間の絆',
-    available: false,
+    available: true,
   },
   {
     slug: 'leader-or-hero',
