@@ -1,8 +1,18 @@
 import { MetadataRoute } from 'next'
 import { siteConfig } from '@/config/seo'
+import { getAllGuideSlugs } from '@/lib/guide-loader'
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = siteConfig.siteUrl || 'https://example.com'
+
+  // 冒険者ガイドの動的ページ
+  const guideSlugs = getAllGuideSlugs()
+  const guideEntries: MetadataRoute.Sitemap = guideSlugs.map((slug) => ({
+    url: `${baseUrl}/recruit/guide/${slug}`,
+    lastModified: new Date(),
+    changeFrequency: 'monthly' as const,
+    priority: 0.7,
+  }))
 
   return [
     {
@@ -46,6 +56,44 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: new Date(),
       changeFrequency: 'yearly',
       priority: 0.6,
+    },
+    // Recruit セクション
+    {
+      url: `${baseUrl}/recruit`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.9,
+    },
+    {
+      url: `${baseUrl}/recruit/about`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.8,
+    },
+    {
+      url: `${baseUrl}/recruit/mission`,
+      lastModified: new Date(),
+      changeFrequency: 'yearly',
+      priority: 0.8,
+    },
+    {
+      url: `${baseUrl}/recruit/diagnosis`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.8,
+    },
+    {
+      url: `${baseUrl}/recruit/guide`,
+      lastModified: new Date(),
+      changeFrequency: 'weekly',
+      priority: 0.85,
+    },
+    ...guideEntries,
+    {
+      url: `${baseUrl}/recruit/entry`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.9,
     },
   ]
 }

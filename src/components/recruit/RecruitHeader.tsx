@@ -7,7 +7,7 @@ import { Menu, X, Sword } from 'lucide-react'
 export default function RecruitHeader() {
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
-  const [isStoryOpen, setIsStoryOpen] = useState(false)
+  const [isWisdomOpen, setIsWisdomOpen] = useState(false)
   const [isWorldOpen, setIsWorldOpen] = useState(false)
 
   useEffect(() => {
@@ -54,6 +54,9 @@ export default function RecruitHeader() {
 
           {/* Desktop Nav */}
           <nav className="hidden lg:flex items-center gap-6">
+            <Link href="/recruit" className={linkClass}>
+              出発の広場
+            </Link>
             <Link href="/recruit/about" className={linkClass}>
               冒険のはじまり
             </Link>
@@ -96,26 +99,32 @@ export default function RecruitHeader() {
               冒険診断
             </Link>
 
-            {/* 挑戦者ストーリー submenu */}
+            {/* 冒険の知恵袋 submenu */}
             <div
               className="relative"
-              onMouseEnter={() => setIsStoryOpen(true)}
-              onMouseLeave={() => setIsStoryOpen(false)}
+              onMouseEnter={() => setIsWisdomOpen(true)}
+              onMouseLeave={() => setIsWisdomOpen(false)}
             >
               <span className={`${linkClass} cursor-pointer`}>
-                挑戦者ストーリー
+                冒険の知恵袋
               </span>
               <div
                 className={`absolute top-full left-1/2 -translate-x-1/2 pt-2 transition-all duration-200 ${
-                  isStoryOpen ? 'opacity-100 visible translate-y-0' : 'opacity-0 invisible -translate-y-1'
+                  isWisdomOpen ? 'opacity-100 visible translate-y-0' : 'opacity-0 invisible -translate-y-1'
                 }`}
               >
-                <div className="bg-white border border-gray-200 rounded-xl shadow-lg py-2 min-w-[180px]">
+                <div className="bg-white border border-gray-200 rounded-xl shadow-lg py-2 min-w-[200px]">
+                  <p className="px-5 py-1.5 text-[10px] uppercase tracking-widest text-[#2563EB] font-bold">挑戦者ストーリー</p>
                   <Link href="/recruit/stories/watanabe" className={subLinkClass}>
                     渡邉 大輝
                   </Link>
                   <Link href="/recruit/stories/iida" className={subLinkClass}>
                     飯田 思遠
+                  </Link>
+                  <div className="border-t border-gray-100 my-1" />
+                  <p className="px-5 py-1.5 text-[10px] uppercase tracking-widest text-[#2563EB] font-bold">冒険者ガイド</p>
+                  <Link href="/recruit/guide" className={subLinkClass}>
+                    コンテンツ一覧
                   </Link>
                 </div>
               </div>
@@ -154,6 +163,9 @@ export default function RecruitHeader() {
       >
         <nav className="px-6 py-8">
           <div className="space-y-1">
+            <Link href="/recruit" className={mobileLinkClass} onClick={close}>
+              出発の広場
+            </Link>
             <Link href="/recruit/about" className={mobileLinkClass} onClick={close}>
               冒険のはじまり
             </Link>
@@ -186,17 +198,23 @@ export default function RecruitHeader() {
             </div>
           </div>
 
-          {/* 挑戦者ストーリー */}
+          {/* 冒険の知恵袋 */}
           <div className="mb-6">
             <p className="text-[10px] uppercase tracking-widest text-[#2563EB] font-bold mb-3">
-              挑戦者ストーリー
+              冒険の知恵袋
             </p>
             <div className="space-y-1 pl-3 border-l-2 border-[#2563EB]/20">
+              <p className="py-1.5 text-[10px] text-gray-400 font-medium tracking-wider">挑戦者ストーリー</p>
               <Link href="/recruit/stories/watanabe" className="block py-2.5 text-sm text-gray-700 hover:text-[#2563EB] transition-colors" onClick={close}>
                 渡邉 大輝
               </Link>
               <Link href="/recruit/stories/iida" className="block py-2.5 text-sm text-gray-700 hover:text-[#2563EB] transition-colors" onClick={close}>
                 飯田 思遠
+              </Link>
+              <div className="border-t border-gray-100 my-1" />
+              <p className="py-1.5 text-[10px] text-gray-400 font-medium tracking-wider">冒険者ガイド</p>
+              <Link href="/recruit/guide" className="block py-2.5 text-sm text-gray-700 hover:text-[#2563EB] transition-colors" onClick={close}>
+                コンテンツ一覧
               </Link>
             </div>
           </div>

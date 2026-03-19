@@ -7,6 +7,30 @@
 - **デプロイ**: Vercel
 - **ドメイン**: hd.jp-sing.com
 
+## 引き継ぎ・進捗
+セッション開始時に **docs/handoff/HANDOFF.md** を読むこと。サイトの現状・未着手項目・設計判断の経緯がすべて記載されている。
+
 ## 画像生成
 画像を生成する際は必ず **docs/NANOBANANA.md** を参照すること。
 WSLからの実行方法・クォート問題の回避策・バッチスクリプトのテンプレートがすべて記載されている。
+
+## コンテンツ量産（冒険者ガイド）
+「コンテンツを増やして」「冒険者ガイドに記事を追加して」等の指示を受けたら、**docs/guide-flow/README.md** を読み、そこに記載された5段階パイプラインに従うこと。
+
+```
+docs/guide-flow/
+├── README.md                    ← 全体フロー概要（最初にここを読む）
+├── AGENT-CONFIG.md              ← ターゲット・ブランドボイス・品質基準
+├── AGENT-GUIDE-1-research.md    ← リサーチ（裏どり）
+├── AGENT-GUIDE-2-content-design.md ← 構成設計
+├── AGENT-GUIDE-3-writing.md     ← 執筆（Markdown）
+├── AGENT-GUIDE-4-implementation.md ← 実装（ファイル配置・画像生成・データ登録）
+└── AGENT-GUIDE-5-qa.md          ← 品質チェック
+```
+
+コンテンツ追加時に更新が必要なファイル:
+- `src/content/guide/[slug].md` — 記事本体
+- `src/app/recruit/guide/guide-data.ts` — ハブページのカード情報
+- `public/img/recruit/guide/[slug].png` — サムネイル画像
+- `public/ai.txt` — AIクローラー向け情報
+- `public/llms.txt` — LLM向け情報
