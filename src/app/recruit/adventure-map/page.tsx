@@ -150,8 +150,8 @@ export default function AdventureMapPage() {
                     {/* Card content */}
                     <div className="bg-[#FAFAF5] rounded-2xl overflow-hidden shadow-md">
                       <div className="flex flex-col md:flex-row">
-                      <div className="md:w-40 lg:w-48 flex-shrink-0 bg-[#1C2A44]/5 p-4 flex items-center justify-center">
-                        <img src={item.image} alt={item.title} className="w-24 h-24 md:w-32 md:h-32 object-contain" />
+                      <div className="md:w-44 lg:w-52 flex-shrink-0 bg-[#1C2A44]/5 p-4 flex items-center justify-center">
+                        <img src={item.image} alt={item.title} className="w-28 h-28 md:w-36 md:h-36 object-contain" />
                       </div>
                       <div className="p-6 md:p-8 flex-1">
                       <p

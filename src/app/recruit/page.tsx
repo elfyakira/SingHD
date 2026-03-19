@@ -22,6 +22,21 @@ const mapTitles: Record<string, string> = {
   jobs: '冒険への参加方法',
 }
 
+// 地図上のナンバリング（表示順に上から、2カラムは左が先）
+const mapNumbers: Record<string, string> = {
+  'brand-story': '01',
+  founder: '02',
+  mission: '03',
+  'sing-name': '04',
+  letter: '05',
+  'adventure-map': '06',
+  oath: '07',
+  characters: '08',
+  'last-boss': '09',
+  message: '10',
+  jobs: '11',
+}
+
 const chapterDescriptions: Record<string, string> = {
   'brand-story': '人生は、ゲームに似ている。',
   founder: '社長はなぜこの会社を作ったのか',
@@ -49,6 +64,7 @@ const cardImages: Record<string, string> = {
   message: '/img/recruit/entry/party-welcome.png',
   jobs: '/img/recruit/entry/open-door.jpg',
 }
+
 
 const phaseConfig = [
   { phase: 'hook' as const, number: '01', label: '物語のはじまり', color: '#EF4444' },
@@ -108,19 +124,19 @@ export default function RecruitTopPage() {
                 className="absolute inset-0 w-full h-full object-cover"
               />
             </div>
-            <div className="px-5 py-4">
+            <div className="px-5 py-5">
               <div className="flex items-center gap-2 mb-1">
-                <span className="text-xs font-bold" style={{ color }}>
-                  {c.number}
+                <span className="text-sm font-bold" style={{ color }}>
+                  {mapNumbers[c.id] || c.number}
                 </span>
-                <span className="text-[10px] tracking-widest text-gray-400">
+                <span className="text-xs tracking-widest text-gray-400">
                   {c.titleEn}
                 </span>
               </div>
-              <p className="text-sm font-bold text-[#1C2A44] group-hover:text-[#2563EB] transition-colors">
+              <p className="text-base md:text-lg font-bold text-[#1C2A44] group-hover:text-[#2563EB] transition-colors">
                 {mapTitles[c.id] || c.title}
               </p>
-              <p className="text-xs text-gray-500 mt-1 leading-relaxed">
+              <p className="text-sm text-gray-500 mt-1 leading-relaxed">
                 {chapterDescriptions[c.id] || ''}
               </p>
             </div>
@@ -144,10 +160,18 @@ export default function RecruitTopPage() {
             />
           </div>
           <div className="p-4">
-            <p className="text-sm font-bold text-[#1C2A44] group-hover:text-[#2563EB] transition-colors">
+            <div className="flex items-center gap-2 mb-1">
+              <span className="text-sm font-bold" style={{ color }}>
+                {mapNumbers[c.id] || c.number}
+              </span>
+              <span className="text-xs tracking-widest text-gray-400">
+                {c.titleEn}
+              </span>
+            </div>
+            <p className="text-base font-bold text-[#1C2A44] group-hover:text-[#2563EB] transition-colors">
               {mapTitles[c.id] || c.title}
             </p>
-            <p className="text-xs text-gray-500 mt-1">
+            <p className="text-sm text-gray-500 mt-1">
               {chapterDescriptions[c.id] || ''}
             </p>
           </div>
@@ -467,7 +491,40 @@ export default function RecruitTopPage() {
                 <div className="relative">
                   <div className="absolute left-1/2 top-0 bottom-0 w-0.5 -translate-x-px" style={{ backgroundColor: `${phaseConfig[2].color}40` }} />
                   <div className="space-y-20">
-                    {wideCard('adventure-map', phaseConfig[2].color)}
+                    {(() => {
+                      const c = ch('adventure-map')
+                      return (
+                        <div className="max-w-2xl mx-auto">
+                          <Link href={c.href} className="group block">
+                            <div className="bg-white/90 backdrop-blur-sm rounded-xl overflow-hidden border border-white/20 hover:shadow-lg hover:shadow-white/5 transition-all duration-300">
+                              <div className="aspect-[16/5] relative overflow-hidden">
+                                <img
+                                  src={cardImages[c.id]}
+                                  alt={mapTitles[c.id] || c.title}
+                                  className="absolute inset-0 w-full h-full object-cover" style={{ objectPosition: '50% 20%' }}
+                                />
+                              </div>
+                              <div className="px-5 py-5">
+                                <div className="flex items-center gap-2 mb-1">
+                                  <span className="text-sm font-bold" style={{ color: phaseConfig[2].color }}>
+                                    {mapNumbers[c.id] || c.number}
+                                  </span>
+                                  <span className="text-xs tracking-widest text-gray-400">
+                                    {c.titleEn}
+                                  </span>
+                                </div>
+                                <p className="text-base md:text-lg font-bold text-[#1C2A44] group-hover:text-[#2563EB] transition-colors">
+                                  {mapTitles[c.id] || c.title}
+                                </p>
+                                <p className="text-sm text-gray-500 mt-1 leading-relaxed">
+                                  {chapterDescriptions[c.id] || ''}
+                                </p>
+                              </div>
+                            </div>
+                          </Link>
+                        </div>
+                      )
+                    })()}
                     {wideCard('oath', phaseConfig[2].color)}
                     {wideCard('characters', phaseConfig[2].color)}
                     <div className="text-center pt-6">
