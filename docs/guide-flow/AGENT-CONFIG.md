@@ -231,6 +231,9 @@ STYLE = (
 | why-challenge | 勇者/冒険者 | 2026-03-19 |
 | first-weapon | 戦士 | 2026-03-19 |
 | party-building | 僧侶/ヒーラー | 2026-03-19 |
+| failure-is-exp | 賢者 | 2026-03-20 |
+| level-up-habits | 戦士 | 2026-03-20 |
+| leader-or-hero | 僧侶/ヒーラー | 2026-03-20 |
 
 ### 出力先
 ```

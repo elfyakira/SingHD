@@ -121,8 +121,8 @@ export function renderMarkdown(md: string): string {
 
 function inline(text: string): string {
   return text
+    .replace(/\[(.+?)\]\((.+?)\)/g, '<a href="$2" class="text-[#2563EB] hover:underline">$1</a>')
     .replace(/\*\*(.+?)\*\*/g, '<strong class="font-bold text-[#1C2A44]">$1</strong>')
     .replace(/\*(.+?)\*/g, '<em>$1</em>')
     .replace(/`(.+?)`/g, '<code class="bg-gray-100 px-1.5 py-0.5 rounded text-sm">$1</code>')
-    .replace(/\[(.+?)\]\((.+?)\)/g, '<a href="$2" class="text-[#2563EB] hover:underline">$1</a>')
 }

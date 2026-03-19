@@ -5,10 +5,29 @@ import RecruitCTA from '@/components/recruit/RecruitCTA'
 import FadeInUp from '@/components/animations/FadeInUp'
 import Link from 'next/link'
 
+const careerExamples = [
+  {
+    path: '営業職入社 → 管理職 → 取締役',
+    detail: '入社2年｜年収600万',
+  },
+  {
+    path: '事務職入社 → 完全在宅・管理職 → 部長',
+    detail: '入社2年｜年収500万',
+  },
+  {
+    path: '営業職入社 → 管理職 → 起業',
+    detail: '入社2年｜年収600万',
+  },
+  {
+    path: '起業支援 → 会社の代表取締役',
+    detail: '創業2年目｜年商2億',
+  },
+]
+
 const jobDetails = [
   {
     label: '職種',
-    value: '営業、営業事務、クリエーター、コンサルタント など',
+    value: '営業、営業事務、クリエーター、コンサルタント、社長、代表取締役 など',
   },
   {
     label: '仕事内容',
@@ -22,6 +41,10 @@ const jobDetails = [
     label: '福利厚生',
     value:
       '退職金あり、賞与あり、大型連休あり、有給あり、ウォーターサーバーあり、駐車場有',
+  },
+  {
+    label: '応募資格',
+    value: 'この会社で仕事をしたいと思ったあなたの熱量',
   },
   {
     label: '応募方法',
@@ -438,6 +461,46 @@ export default function EntryPage() {
               Singホールディングスで。
             </p>
           </FadeInUp>
+        </div>
+      </section>
+
+      {/* ===== Career Possibilities ===== */}
+      <section className="py-20 lg:py-32 px-4 bg-white">
+        <div className="max-w-3xl mx-auto">
+          <FadeInUp>
+            <div className="text-center mb-16">
+              <p className="text-xs tracking-[0.3em] text-gray-500 mb-4">
+                CAREER PATH
+              </p>
+              <h2
+                className="text-3xl md:text-4xl font-bold text-[#1C2A44] mb-4"
+                style={{
+                  fontFamily: "'Times New Roman', 'Yu Mincho', serif",
+                }}
+              >
+                起業も社長も社員も可能
+              </h2>
+              <div className="w-16 h-px bg-[#1C2A44] mx-auto mb-6" />
+              <p className="text-gray-700 text-sm md:text-base leading-relaxed">
+                Singでは、社員としてのキャリアだけでなく、
+                <br />
+                起業・経営者への道も全力で支援します。
+              </p>
+            </div>
+          </FadeInUp>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            {careerExamples.map((example, index) => (
+              <FadeInUp key={index} delay={index * 100}>
+                <div className="bg-[#FAFAF5] rounded-2xl p-6 shadow-sm">
+                  <p className="text-[#F59E0B] text-xs font-bold mb-2">{example.detail}</p>
+                  <p className="text-[#1C2A44] font-bold text-sm leading-relaxed">
+                    {example.path}
+                  </p>
+                </div>
+              </FadeInUp>
+            ))}
+          </div>
         </div>
       </section>
 

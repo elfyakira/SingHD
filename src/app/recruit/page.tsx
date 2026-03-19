@@ -297,8 +297,8 @@ export default function RecruitTopPage() {
       <section className="relative h-screen flex items-center justify-center overflow-hidden bg-gray-800/60">
         <div className="relative z-10 text-center px-4">
           <FadeInUp>
-            <p className="text-xs tracking-[0.4em] uppercase text-white mb-8">
-              Sing Holdings Recruit
+            <p className="text-xs tracking-[0.4em] text-white mb-8">
+              Sing HOLDINGS RECRUIT
             </p>
           </FadeInUp>
 

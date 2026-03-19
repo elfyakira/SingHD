@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
-import { Menu, X } from 'lucide-react'
+import { Menu, X, Sword } from 'lucide-react'
 
 export default function RecruitHeader() {
   const [isScrolled, setIsScrolled] = useState(false)
@@ -46,12 +46,11 @@ export default function RecruitHeader() {
         <div className="flex items-center justify-between h-14 lg:h-16">
           {/* Logo + Corporate Link */}
           <div className="flex items-center gap-4">
-            <Link href="/recruit" className="flex-shrink-0">
-              <img
-                src="/img/logo/logo.png"
-                alt="Sing Holdings"
-                className="h-12 lg:h-14 w-auto"
-              />
+            <Link href="/recruit" className="flex items-center gap-2">
+              <Sword className="w-5 h-5 text-[#2563EB]" />
+              <span className="text-sm font-bold text-[#1C2A44] tracking-wider">
+                Sing RECRUIT
+              </span>
             </Link>
             <Link href="/" className="hidden lg:block text-xs font-bold text-gray-700 hover:text-[#2563EB] transition-colors ml-6">
               コーポレートサイト

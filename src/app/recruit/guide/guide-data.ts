@@ -39,7 +39,7 @@ export const guideArticles: GuideCardData[] = [
     tags: ['マインドセット', '失敗学'],
     image: `${IMG}/failure-is-exp.png`,
     category: '冒険の心得',
-    available: false,
+    available: true,
   },
 
   // ── スキルの書 ──
@@ -59,7 +59,7 @@ export const guideArticles: GuideCardData[] = [
     tags: ['習慣', '成長'],
     image: `${IMG}/level-up-habits.png`,
     category: 'スキルの書',
-    available: false,
+    available: true,
   },
 
   // ── 仲間の絆 ──
@@ -79,7 +79,7 @@ export const guideArticles: GuideCardData[] = [
     tags: ['リーダーシップ', 'カルチャー'],
     image: `${IMG}/leader-or-hero.png`,
     category: '仲間の絆',
-    available: false,
+    available: true,
   },
 ]
 

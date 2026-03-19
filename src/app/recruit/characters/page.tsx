@@ -9,6 +9,8 @@ const rpgTypes = [
   {
     number: 'TYPE 01',
     name: '勇者タイプ',
+    characterName: 'ユウキ',
+    intro: '「迷っても立ち止まらない。それが俺の戦い方だ。」',
     image: '/img/recruit/characters/hero-type.jpg',
     subtitle: '未来に向かって挑戦できる人',
     description:
@@ -17,6 +19,8 @@ const rpgTypes = [
   {
     number: 'TYPE 02',
     name: '戦士タイプ',
+    characterName: 'タケル',
+    intro: '「やると決めたら、最後までやり抜く。それだけだ。」',
     image: '/img/recruit/characters/warrior-type.jpg',
     subtitle: '圧倒的にやり抜く人',
     description:
@@ -25,6 +29,8 @@ const rpgTypes = [
   {
     number: 'TYPE 03',
     name: '賢者タイプ',
+    characterName: 'サトリ',
+    intro: '「正しい答えより、正しい問いを探し続ける。」',
     image: '/img/recruit/characters/sage-type.jpg',
     subtitle: '考え続ける人',
     description:
@@ -33,10 +39,75 @@ const rpgTypes = [
   {
     number: 'TYPE 04',
     name: '僧侶タイプ',
+    characterName: 'ヒカリ',
+    intro: '「誰かの力になれるなら、それが私の強さです。」',
     image: '/img/recruit/characters/priest-type.jpg',
     subtitle: '仲間を支えられる人',
     description:
       'RPGのパーティーには必ず仲間を支える存在がいます。仲間の挑戦を応援する。困っている人を助ける。チームを強くするのはこうした支え合いです。誰かの成功を自分の喜びにできる人。そんな人は組織にとって欠かせない存在です。',
+  },
+]
+
+const characterProfiles = [
+  {
+    name: 'ユウキ',
+    type: '勇者タイプ',
+    image: '/img/recruit/characters/hero-type.jpg',
+    catchphrase: '「迷っても立ち止まらない。それが俺の戦い方だ。」',
+    bio: '誰よりも先に飛び出し、誰よりも多く転ぶ。でもそのたびに立ち上がる姿が、仲間に勇気を与える。Singパーティーの先頭を走り続ける、生粋の挑戦者。口ぐせは「やってみなきゃわからないだろ！」',
+    stats: [
+      { label: '性格', value: '猪突猛進・熱血・仲間想い' },
+      { label: '武器', value: '圧倒的な行動力と巻き込み力' },
+      { label: '特技', value: '逆境でのモチベーション爆上げ' },
+      { label: '弱点', value: '考えるより先に動くので、たまに壁に激突する' },
+      { label: '好きな言葉', value: '人生は一度きり' },
+      { label: '休日の過ごし方', value: '新しい場所を開拓・仲間とBBQ' },
+    ],
+  },
+  {
+    name: 'タケル',
+    type: '戦士タイプ',
+    image: '/img/recruit/characters/warrior-type.jpg',
+    catchphrase: '「やると決めたら、最後までやり抜く。それだけだ。」',
+    bio: '寡黙だけど、背中で語るタイプ。誰よりも地道に、誰よりも粘り強く。チームが苦しい時こそ最前線に立つ、Singパーティーの鉄壁。口ぐせは「結果で証明する。」',
+    stats: [
+      { label: '性格', value: '寡黙・ストイック・責任感の塊' },
+      { label: '武器', value: '折れない意志とやり抜く力' },
+      { label: '特技', value: '泥臭い仕事を淡々とこなす持久力' },
+      { label: '弱点', value: '不器用で、気持ちを言葉にするのが苦手' },
+      { label: '好きな言葉', value: '継続は力なり' },
+      { label: '休日の過ごし方', value: '筋トレ・一人キャンプ・読書' },
+    ],
+  },
+  {
+    name: 'サトリ',
+    type: '賢者タイプ',
+    image: '/img/recruit/characters/sage-type.jpg',
+    catchphrase: '「正しい答えより、正しい問いを探し続ける。」',
+    bio: '冷静な分析力でチームの道を照らす頭脳派。データも感情も読み取り、最善手を導き出す。ユウキが暴走した時のストッパー役でもある。口ぐせは「それ、根拠は？」',
+    stats: [
+      { label: '性格', value: '冷静沈着・知的好奇心旺盛・ちょっと毒舌' },
+      { label: '武器', value: '論理的思考と多角的な視点' },
+      { label: '特技', value: '複雑な問題をシンプルに整理する力' },
+      { label: '弱点', value: '考えすぎて動き出しが遅い時がある' },
+      { label: '好きな言葉', value: '知は力なり' },
+      { label: '休日の過ごし方', value: 'カフェで読書・ボードゲーム・美術館巡り' },
+    ],
+  },
+  {
+    name: 'ヒカリ',
+    type: '僧侶タイプ',
+    image: '/img/recruit/characters/priest-type.jpg',
+    catchphrase: '「誰かの力になれるなら、それが私の強さです。」',
+    bio: 'パーティーの心を繋ぐ、チームの太陽。誰かが落ち込んでいれば真っ先に気づき、そっと寄り添う。でも芯は強く、仲間のためなら誰よりも戦う。口ぐせは「大丈夫、一人じゃないよ。」',
+    stats: [
+      { label: '性格', value: '温厚・共感力の鬼・芯が強い' },
+      { label: '武器', value: '傾聴力とチームの空気を変える笑顔' },
+      { label: '特技', value: '人の本音を引き出すコミュニケーション' },
+      { label: '弱点', value: '人の悩みを抱え込みすぎることがある' },
+      { label: '好きな言葉', value: '一人の百歩より百人の一歩' },
+      { label: '休日の過ごし方', value: '料理・カフェ巡り・友達の相談に乗る' },
+    ],
   },
 ]
 
@@ -170,12 +241,16 @@ export default function CharactersPage() {
                       {type.number}
                     </p>
                     <h3
-                      className="text-lg md:text-xl font-bold text-[#1C2A44] mb-1"
+                      className="text-lg md:text-xl font-bold text-[#1C2A44] mb-0.5"
                       style={serifStyle}
                     >
                       {type.name}
                     </h3>
-                    <p className="text-[#F59E0B] text-sm font-bold mb-3">{type.subtitle}</p>
+                    <p className="text-[#2563EB] text-sm font-bold mb-1">
+                      {type.characterName}
+                    </p>
+                    <p className="text-[#F59E0B] text-sm font-bold mb-2">{type.subtitle}</p>
+                    <p className="text-gray-500 italic text-xs mb-3">{type.intro}</p>
                     <p className="text-gray-600 leading-relaxed text-sm">
                       {type.description}
                     </p>
@@ -205,8 +280,81 @@ export default function CharactersPage() {
         </div>
       </section>
 
-      {/* ===== Sub-section 2: 冒険診断へ誘導 ===== */}
+      {/* ===== Character Profiles ===== */}
       <section className="py-20 lg:py-32 px-4 bg-white">
+        <div className="max-w-5xl mx-auto">
+          <FadeInUp>
+            <div className="text-center mb-16">
+              <p className="text-xs tracking-[0.3em] text-gray-500 mb-4">
+                Character Profile
+              </p>
+              <h2
+                className="text-3xl md:text-4xl font-bold text-[#1C2A44] mb-4"
+                style={serifStyle}
+              >
+                冒険者プロフィール
+              </h2>
+              <p className="text-[#F59E0B] text-lg font-bold mb-4">Singパーティーの仲間たち</p>
+              <div className="w-16 h-1 bg-[#1C2A44] rounded-full mx-auto" />
+            </div>
+          </FadeInUp>
+
+          <div className="space-y-12">
+            {characterProfiles.map((char, index) => (
+              <FadeInUp key={char.name} delay={index * 100}>
+                <div className="bg-[#FAFAF5] rounded-2xl overflow-hidden shadow-md">
+                  <div className="flex flex-col md:flex-row">
+                    {/* Character image */}
+                    <div className="w-full md:w-56 lg:w-64 flex-shrink-0 overflow-hidden">
+                      <img
+                        src={char.image}
+                        alt={char.name}
+                        className="w-full h-56 md:h-full object-cover"
+                      />
+                    </div>
+                    {/* Profile content */}
+                    <div className="flex-1 p-6 md:p-8">
+                      <div className="flex items-baseline gap-3 mb-1">
+                        <h3
+                          className="text-2xl md:text-3xl font-bold text-[#1C2A44]"
+                          style={serifStyle}
+                        >
+                          {char.name}
+                        </h3>
+                        <span className="text-xs tracking-[0.2em] text-[#2563EB] font-bold">
+                          {char.type}
+                        </span>
+                      </div>
+                      <p className="text-[#F59E0B] text-sm font-bold italic mb-4">
+                        {char.catchphrase}
+                      </p>
+                      <p className="text-gray-700 text-sm leading-relaxed mb-6">
+                        {char.bio}
+                      </p>
+                      {/* Stats table */}
+                      <div className="border-t border-[#1C2A44]/10 pt-4">
+                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-2">
+                          {char.stats.map((stat) => (
+                            <div key={stat.label} className="flex gap-2 py-1.5">
+                              <span className="text-xs font-bold text-[#2563EB] whitespace-nowrap min-w-[5em]">
+                                {stat.label}
+                              </span>
+                              <span className="text-xs text-gray-600">{stat.value}</span>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </FadeInUp>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ===== Sub-section 2: 冒険診断へ誘導 ===== */}
+      <section className="py-20 lg:py-32 px-4 bg-[#FAFAF5]">
         <div className="max-w-3xl mx-auto text-center">
           <FadeInUp>
             <p className="text-xs tracking-[0.3em] uppercase text-gray-500 mb-4">
@@ -238,7 +386,7 @@ export default function CharactersPage() {
       </section>
 
       {/* ===== Sub-section 3: プレイヤーレベル ===== */}
-      <section className="py-20 lg:py-32 px-4 bg-[#FAFAF5]">
+      <section className="py-20 lg:py-32 px-4 bg-white">
         <div className="max-w-3xl mx-auto">
           <FadeInUp>
             <div className="text-center mb-16">
@@ -299,7 +447,7 @@ export default function CharactersPage() {
       </section>
 
       {/* ===== Sub-section 4: 隠しクエスト ===== */}
-      <section className="py-20 lg:py-32 px-4 bg-white">
+      <section className="py-20 lg:py-32 px-4 bg-[#FAFAF5]">
         <div className="max-w-3xl mx-auto">
           <FadeInUp>
             <div className="text-center mb-16">
@@ -368,7 +516,7 @@ export default function CharactersPage() {
       </section>
 
       {/* ===== Sub-section 5: ラスボス討伐プロジェクト ===== */}
-      <section className="py-20 lg:py-32 px-4 bg-[#FAFAF5]">
+      <section className="py-20 lg:py-32 px-4 bg-white">
         <div className="max-w-3xl mx-auto">
           <FadeInUp>
             <div className="text-center mb-16">
