@@ -11,10 +11,13 @@ const footerLinks = {
     { name: 'グループ会社', href: '/project' },
     { name: 'ニュース', href: '/news' },
     { name: 'お問い合わせ', href: '/contact' },
+    { name: '採用サイト', href: '/recruit' },
   ],
-  // legal: [
-  //   { name: 'プライバシーポリシー', href: '/privacy' },
-  // ],
+  group: [
+    { name: '株式会社Sing', href: 'https://www.singgroup.biz/' },
+    { name: '株式会社フライトップ', href: 'https://www.flytop.biz/' },
+    { name: '株式会社ゆめスタ', href: 'https://yumesuta.com/' },
+  ],
 }
 
 export default function Footer() {
@@ -88,24 +91,26 @@ export default function Footer() {
                 </ul>
               </div>
 
-              {/* Legal - プライバシーポリシー準備後に有効化 */}
-              {/* <div>
+              {/* Group Companies */}
+              <div>
                 <h3 className="text-sm font-medium tracking-wider mb-4 text-gray-300 uppercase">
-                  Legal
+                  Group
                 </h3>
                 <ul className="space-y-3">
-                  {footerLinks.legal.map((link) => (
+                  {footerLinks.group.map((link) => (
                     <li key={link.href}>
-                      <Link
+                      <a
                         href={link.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
                         className="text-gray-400 hover:text-white text-sm transition-colors"
                       >
                         {link.name}
-                      </Link>
+                      </a>
                     </li>
                   ))}
                 </ul>
-              </div> */}
+              </div>
             </div>
           </div>
         </div>
