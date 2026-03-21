@@ -1228,6 +1228,7 @@ import TypingText from '@/components/animations/TypingText'
 |---------|---------|------|
 | `/seo-check` | `seo-check.md` | SEO/LLMOコンテンツ戦略監査。技術SEO・LLMO対策・コンテンツ棚卸し・キーワード戦略・AI質問パターン分析を実行 |
 | `/report` | `report.md` | 活動報告（ニュース記事）の作成。事実ベースで記事を生成し `content/news/` に配置 |
+| `/guide` | `guide.md` | 冒険者ガイド記事の作成。`docs/guide-flow/` の5段階パイプラインを実行 |
 
 ### 連絡事項
 - ユーザーは日本語でコミュニケーション
