@@ -1230,6 +1230,25 @@ import TypingText from '@/components/animations/TypingText'
 | `/report` | `report.md` | 活動報告（ニュース記事）の作成。事実ベースで記事を生成し `content/news/` に配置 |
 | `/guide` | `guide.md` | 冒険者ガイド記事の作成。`docs/guide-flow/` の5段階パイプラインを実行 |
 
+### 月次レポート（未完了）
+
+GA4 + Search Console の月次レポート機能を導入予定。現在は既存のサービスアカウント（ゆめスタと共用）でGA4/GSCにアクセス権を付与して暫定運用中。
+
+**TODO:**
+- [ ] SingのGoogleアカウントで2段階認証を有効化（Google Cloud Consoleが2段階認証を必須化しているため、新規サービスアカウント作成にはこれが必要）
+- [ ] Sing専用のGoogle Cloudプロジェクト・サービスアカウントを作成
+- [ ] 既存の共用サービスアカウントの権限を削除し、Sing専用に切り替え
+- [ ] 月次レポートのconfig設定ファイル作成（ファネル定義・ページグループ・キーワード）
+- [ ] コマンド登録（`/f-monthly-report` のSingHD版）
+
+**2段階認証の注意点:**
+- 変更するとこのGoogleアカウントの全サービス（Gmail, Drive, GA4等）でログイン時に2段階認証が必要になる
+- 既にログイン済みのデバイスでも再認証が必要になる可能性あり
+- 運営メンバーと相談してから実施すべき
+
+**GA4プロパティID:** 設定済み（seo.tsのanalytics参照）
+**Search Console:** sc-domain:jp-sing.com（ドメインプロパティ）
+
 ### 連絡事項
 - ユーザーは日本語でコミュニケーション
 - ビルドチェックは指示がない限り不要
