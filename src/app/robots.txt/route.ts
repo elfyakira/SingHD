@@ -3,13 +3,12 @@ import { siteConfig } from '@/config/seo'
 export function GET(): Response {
   const baseUrl = siteConfig.siteUrl || 'https://example.com'
 
-  const robotsTxt = `# Robots.txt for ${siteConfig.siteName || 'Sing Holdings'}
+  const robotsTxt = `# Robots.txt - ${siteConfig.siteName || 'Sing Holdings'}
+# ${baseUrl}
 
 User-agent: *
 Allow: /
 Disallow: /api/
-Disallow: /private/
-Disallow: /admin/
 
 # AI Crawlers (LLMO対応) - すべて許可
 User-agent: GPTBot
@@ -27,6 +26,9 @@ Allow: /
 User-agent: anthropic-ai
 Allow: /
 
+User-agent: Amazonbot
+Allow: /
+
 User-agent: Applebot-Extended
 Allow: /
 
@@ -34,6 +36,9 @@ User-agent: PerplexityBot
 Allow: /
 
 User-agent: Bytespider
+Allow: /
+
+User-agent: CCBot
 Allow: /
 
 Sitemap: ${baseUrl}/sitemap.xml

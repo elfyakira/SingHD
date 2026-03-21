@@ -6,7 +6,7 @@ export const siteConfig = {
   siteNameEn: 'Sing Holdings Inc.',
   siteNameShort: 'SingHD',
   alternateNames: ['SingHD', 'Singhd', 'SINGHD', '株式会社SingHD', 'Sing Holdings', 'Singホールディングス', 'シングホールディングス'],
-  siteUrl: 'https://hd.jp-sing.com',
+  siteUrl: 'https://jp-sing.com',
 
   // 会社情報
   company: {

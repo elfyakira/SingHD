@@ -333,7 +333,7 @@ export default function DiagnosisPage() {
   const flavor = flavorTexts[result.primary][result.secondary]
 
   // シェア
-  const shareUrl = 'https://hd.jp-sing.com/recruit/diagnosis'
+  const shareUrl = 'https://jp-sing.com/recruit/diagnosis'
   const shareText = `冒険診断の結果は「${upperJob}」でした！\nあなたのタイプは？`
 
   const shareOnX = () => {

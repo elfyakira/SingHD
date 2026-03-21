@@ -5,7 +5,7 @@
 ## 会社概要
 
 - 正式名称: 株式会社Singホールディングス (Sing Holdings Inc.)
-- サイト: https://hd.jp-sing.com
+- サイト: https://jp-sing.com
 - 所在地: 愛知県春日井市
 - 代表者: 笠本慎二
 - 設立: 2026年3月
@@ -34,7 +34,7 @@
 
 ## 採用情報
 
-### SING RECRUIT (https://hd.jp-sing.com/recruit)
+### SING RECRUIT (https://jp-sing.com/recruit)
 
 RPGの世界観で構築された採用サイト。「人生を、歌え。」をスローガンに、20代の挑戦志向の若者に向けてキャリアを「冒険」として提案。
 
@@ -50,7 +50,7 @@ RPGの世界観で構築された採用サイト。「人生を、歌え。」�
 - 仲間と共に成長したい人
 - 20代で事業責任者を目指したい人
 
-**エントリー:** https://hd.jp-sing.com/recruit/entry
+**エントリー:** https://jp-sing.com/recruit/entry
 
 **冒険者ガイド コンテンツ:**
 - 「安定」を選ばなかった理由 (/recruit/guide/why-challenge) — 安定vs挑戦のデータと20代のキャリア選択

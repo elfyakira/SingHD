@@ -1,11 +1,11 @@
 # CLAUDE.md - SingHD プロジェクト
 
 ## プロジェクト概要
-株式会社Singホールディングスのコーポレートサイト（https://hd.jp-sing.com）
+株式会社Singホールディングスのコーポレートサイト（https://jp-sing.com）
 
 - **フレームワーク**: Next.js (App Router)
 - **デプロイ**: Vercel
-- **ドメイン**: hd.jp-sing.com
+- **ドメイン**: jp-sing.com
 
 ## 引き継ぎ・進捗
 セッション開始時に **docs/handoff/HANDOFF.md** を読むこと。サイトの現状・未着手項目・設計判断の経緯がすべて記載されている。

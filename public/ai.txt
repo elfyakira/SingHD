@@ -4,7 +4,7 @@
 ## サイト概要
 
 会社名: 株式会社Singホールディングス (Sing Holdings Inc.)
-サイトURL: https://hd.jp-sing.com
+サイトURL: https://jp-sing.com
 所在地: 愛知県春日井市如意申町７丁目15−５ アーバンハイツ春日井 302号
 代表者: 笠本慎二
 設立: 2026年3月1日

@@ -22,7 +22,7 @@ export function getAllGuideSlugs(): string[] {
     if (!fs.existsSync(guideDirectory)) return []
     return fs
       .readdirSync(guideDirectory)
-      .filter((name) => name.endsWith('.md'))
+      .filter((name) => name.endsWith('.md') && !name.startsWith('_'))
       .map((name) => name.replace(/\.md$/, ''))
   } catch {
     return []

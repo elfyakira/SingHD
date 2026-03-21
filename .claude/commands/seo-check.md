@@ -1,6 +1,6 @@
 # SingHD SEO/LLMO コンテンツ戦略監査
 
-SingHDリクルートサイト（hd.jp-sing.com）に特化した包括的なSEO/LLMO監査を実行する。
+SingHDリクルートサイト（jp-sing.com）に特化した包括的なSEO/LLMO監査を実行する。
 技術的なSEOチェックに加え、**ターゲットの検索行動・AI質問パターンに基づくコンテンツ戦略提案**を行う。
 
 ---
@@ -126,7 +126,7 @@ subagent_type: general-purpose（WebSearch使用）
 # SingHD SEO/LLMO コンテンツ戦略レポート
 
 **実施日**: YYYY-MM-DD
-**対象**: hd.jp-sing.com（リクルートサイト中心）
+**対象**: jp-sing.com（リクルートサイト中心）
 
 ---
 
