@@ -127,7 +127,7 @@ export default function OathPage() {
                 <div className="bg-[#FAFAF5] rounded-xl overflow-hidden flex flex-row">
                   {/* Image */}
                   <div className="w-24 lg:w-32 flex-shrink-0 hidden md:block overflow-hidden">
-                    <Image src={oath.image} alt={oath.title} fill sizes="160px" className="object-cover" />
+                    <Image src={oath.image} alt={oath.title} fill sizes="(max-width: 768px) 50vw, 320px" className="object-cover" />
                   </div>
                   <div className="flex gap-6 md:gap-10 py-8 px-6">
                   {/* Large translucent number */}

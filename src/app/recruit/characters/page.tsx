@@ -235,7 +235,7 @@ export default function CharactersPage() {
               <FadeInUp key={type.number} delay={index * 100}>
                 <div className="bg-white rounded-2xl overflow-hidden h-full shadow-md flex flex-row">
                   <div className="w-32 md:w-40 flex-shrink-0 overflow-hidden">
-                    <Image src={type.image} alt={type.name} fill sizes="160px" className="object-cover" />
+                    <Image src={type.image} alt={type.name} fill sizes="(max-width: 768px) 50vw, 320px" className="object-cover" />
                   </div>
                   <div className="p-5 md:p-6 flex-1">
                     <p className="text-[#1C2A44] text-xs tracking-[0.3em] font-bold mb-2">
@@ -478,7 +478,7 @@ export default function CharactersPage() {
               <FadeInUp key={quest.number} delay={index * 120}>
                 <div className="bg-[#FAFAF5] rounded-2xl overflow-hidden shadow-sm flex flex-row">
                   <div className="w-32 md:w-40 flex-shrink-0 overflow-hidden">
-                    <Image src={quest.image} alt={quest.title} fill sizes="160px" className="object-cover" />
+                    <Image src={quest.image} alt={quest.title} fill sizes="(max-width: 768px) 50vw, 320px" className="object-cover" />
                   </div>
                   <div className="p-5 md:p-6 flex-1">
                     <p className="text-[#F59E0B] text-xs tracking-[0.3em] font-bold mb-2">

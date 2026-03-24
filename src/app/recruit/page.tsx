@@ -634,7 +634,7 @@ export default function RecruitTopPage() {
                               src={story.image}
                               alt={story.name}
                               fill
-                              sizes="96px"
+                              sizes="192px"
                               className="object-cover"
                               style={{
                                 objectPosition: story.iconPosition || story.imagePosition || '50% 30%',

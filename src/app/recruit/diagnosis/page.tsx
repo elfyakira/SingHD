@@ -419,7 +419,7 @@ export default function DiagnosisPage() {
                           src={t.image}
                           alt={t.name}
                           fill
-                          sizes="80px"
+                          sizes="160px"
                           className="object-cover"
                         />
                       </div>
@@ -587,14 +587,14 @@ export default function DiagnosisPage() {
                         className="w-24 h-24 rounded-[4px] overflow-hidden border shrink-0"
                         style={{ borderColor: '#C0B08A' }}
                       >
-                        <Image src={primary.image} alt={primary.name} fill sizes="64px" className="object-cover" />
+                        <Image src={primary.image} alt={primary.name} fill sizes="128px" className="object-cover" />
                       </div>
                       <p className="text-base text-[#1C2A44] font-bold">×</p>
                       <div
                         className="w-24 h-24 rounded-[4px] overflow-hidden border shrink-0"
                         style={{ borderColor: '#C0B08A' }}
                       >
-                        <Image src={secondary.image} alt={secondary.name} fill sizes="48px" className="object-cover" />
+                        <Image src={secondary.image} alt={secondary.name} fill sizes="96px" className="object-cover" />
                       </div>
                     </div>
                     <div className="rounded-[2px] overflow-hidden" style={{ boxShadow: 'inset 0 0 0 1px #C8B88A' }}>
