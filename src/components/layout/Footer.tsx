@@ -8,7 +8,7 @@ const footerLinks = {
   ],
   corporate: [
     { name: '会社概要', href: '/company' },
-    { name: 'グループ会社', href: '/project' },
+    { name: 'Sing発スタートアップ企業', href: '/project' },
     { name: 'ニュース', href: '/news' },
     { name: 'お問い合わせ', href: '/contact' },
     { name: '採用サイト', href: '/recruit' },

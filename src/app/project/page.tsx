@@ -82,7 +82,7 @@ const groupCompanies = [
 export default function ProjectPage() {
   const breadcrumbSchema = generateBreadcrumbSchema([
     { name: 'ホーム', url: siteConfig.siteUrl || '/' },
-    { name: 'グループ会社紹介', url: `${siteConfig.siteUrl}/project` },
+    { name: 'Sing発スタートアップ企業紹介', url: `${siteConfig.siteUrl}/project` },
   ])
 
   return (
@@ -94,7 +94,7 @@ export default function ProjectPage() {
         {/* Hero Section */}
         <LowPageHero
           titleEn="Project"
-          titleJa="グループ会社紹介"
+          titleJa="Sing発スタートアップ企業紹介"
           imageSrc="/img/project/group-hero.jpg"
         />
 
@@ -115,7 +115,7 @@ export default function ProjectPage() {
               </h2>
               <p className="text-lg text-gray-600 max-w-2xl mx-auto">
                 確かな未来図を描く「ホールディングス」。
-                各グループ会社が専門性を活かし、シナジーを生み出しています。
+                各Sing発スタートアップ企業が専門性を活かし、シナジーを生み出しています。
               </p>
             </SectionTitleEntrance>
           </div>
