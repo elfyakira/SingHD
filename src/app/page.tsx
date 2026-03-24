@@ -83,7 +83,7 @@ export default function HomePage() {
                 <span className="sr-only">株式会社Singホールディングス（SingHD） </span>
                 Sing
               </h1>
-              {/* スローガン（SINGの下） */}
+              {/* スローガン（Singの下） */}
               <p className="text-2xl md:text-3xl lg:text-4xl font-bold text-[#1C2A44] mt-4 whitespace-nowrap">
                 夢を、ビジネスに。
               </p>
