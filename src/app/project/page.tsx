@@ -1,5 +1,6 @@
 'use client'
 
+import Image from 'next/image'
 import { ExternalLink } from 'lucide-react'
 import Header from '@/components/layout/Header'
 import Footer from '@/components/layout/Footer'
@@ -149,9 +150,11 @@ export default function ProjectPage() {
                   {/* ロゴ / 会社名 */}
                   <div className="h-16 md:h-20 flex items-center">
                     {company.logo ? (
-                      <img
+                      <Image
                         src={company.logo}
                         alt={`${company.name} ロゴ`}
+                        width={200}
+                        height={80}
                         className="max-h-full max-w-[200px] object-contain"
                       />
                     ) : (
@@ -210,9 +213,11 @@ export default function ProjectPage() {
                                 rel="noopener noreferrer"
                                 className="w-8 h-8 flex items-center justify-center hover:opacity-70 transition-opacity"
                               >
-                                <img
+                                <Image
                                   src="/img/logo/Instagram_Glyph_Gradient.png"
                                   alt="Instagram"
+                                  width={28}
+                                  height={28}
                                   className="w-7 h-7"
                                 />
                               </a>
@@ -252,12 +257,14 @@ export default function ProjectPage() {
 
                 {/* 画像 */}
                 <FadeInUp delay={200} className={`relative ${index % 2 === 1 ? 'lg:order-1' : ''}`}>
-                  <div className="aspect-[4/3] overflow-hidden bg-gray-100">
+                  <div className="aspect-[4/3] overflow-hidden bg-gray-100 relative">
                     {company.photo ? (
-                      <img
+                      <Image
                         src={company.photo}
                         alt={`${company.name} イメージ`}
-                        className="w-full h-full object-cover"
+                        fill
+                        sizes="(max-width: 1024px) 100vw, 50vw"
+                        className="object-cover"
                       />
                     ) : (
                       <div className="w-full h-full flex items-end justify-end p-8 bg-gradient-to-br from-[#1C2A44] to-[#0E7490]">

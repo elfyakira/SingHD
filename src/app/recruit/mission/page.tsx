@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import Image from 'next/image'
 import RecruitHeader from '@/components/recruit/RecruitHeader'
 import RecruitCTA from '@/components/recruit/RecruitCTA'
 import FadeInUp from '@/components/animations/FadeInUp'
@@ -66,10 +67,12 @@ export default function MissionPage() {
       {/* ===== Header ===== */}
       <section className="relative pt-32 pb-20 lg:pt-44 lg:pb-32 px-4 overflow-hidden">
         <div className="absolute inset-0">
-          <img
+          <Image
             src="/img/recruit/about/mission.jpg"
             alt=""
-            className="w-full h-full object-cover"
+            fill
+            sizes="100vw"
+            className="object-cover"
           />
           <div className="absolute inset-0 bg-[#1C2A44]/75" />
         </div>
@@ -185,10 +188,12 @@ export default function MissionPage() {
               <FadeInUp key={value.title} delay={index * 100}>
                 <div className="bg-white rounded-2xl overflow-hidden shadow-sm">
                   <div className="aspect-[4/3] relative overflow-hidden">
-                    <img
+                    <Image
                       src={value.image}
                       alt={value.title}
-                      className="absolute inset-0 w-full h-full object-cover"
+                      fill
+                      sizes="(max-width: 768px) 100vw, 50vw"
+                      className="object-cover"
                     />
                   </div>
                   <div className="p-6 md:p-8 text-center">
@@ -217,9 +222,11 @@ export default function MissionPage() {
       <section className="py-8 px-4 bg-white">
         <div className="max-w-3xl mx-auto">
           <FadeInUp>
-            <img
+            <Image
               src="/img/recruit/oath/oath-circle.jpg"
               alt="冒険者の誓い"
+              width={1200}
+              height={675}
               className="w-full h-auto rounded-2xl"
             />
           </FadeInUp>
@@ -284,10 +291,12 @@ export default function MissionPage() {
       {/* ===== Closing ===== */}
       <section className="relative py-20 lg:py-32 px-4 overflow-hidden">
         <div className="absolute inset-0">
-          <img
+          <Image
             src="/img/recruit/last-boss/heroes-stand.png"
             alt=""
-            className="w-full h-full object-cover"
+            fill
+            sizes="100vw"
+            className="object-cover"
           />
           <div className="absolute inset-0 bg-[#1C2A44]/85" />
         </div>

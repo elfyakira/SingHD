@@ -3,6 +3,7 @@
 import { useState, useEffect, useRef } from 'react'
 import { Press_Start_2P } from 'next/font/google'
 import Link from 'next/link'
+import Image from 'next/image'
 
 const dotFont = Press_Start_2P({ weight: '400', subsets: ['latin'] })
 import RecruitHeader from '@/components/recruit/RecruitHeader'
@@ -168,10 +169,12 @@ export default function RecruitTopPage() {
         <Link href={c.href} className="group block">
           <div className="bg-white/90 backdrop-blur-sm rounded-xl overflow-hidden border border-white/20 hover:shadow-lg hover:shadow-white/5 transition-all duration-300">
             <div className="aspect-[16/5] relative overflow-hidden">
-              <img
+              <Image
                 src={cardImages[c.id]}
                 alt={mapTitles[c.id] || c.title}
-                className="absolute inset-0 w-full h-full object-cover"
+                fill
+                sizes="(max-width: 768px) 100vw, 640px"
+                className="object-cover"
                 style={cardImagePositions[c.id] ? { objectPosition: cardImagePositions[c.id] } : undefined}
               />
             </div>
@@ -204,10 +207,12 @@ export default function RecruitTopPage() {
       <Link href={c.href} className="group">
         <div className="aspect-square bg-white/90 backdrop-blur-sm rounded-xl overflow-hidden border border-white/20 hover:shadow-lg hover:shadow-white/5 transition-all duration-300 flex flex-col">
           <div className="flex-1 relative overflow-hidden">
-            <img
+            <Image
               src={cardImages[c.id]}
               alt={mapTitles[c.id] || c.title}
-              className="absolute inset-0 w-full h-full object-cover"
+              fill
+              sizes="(max-width: 768px) 50vw, 400px"
+              className="object-cover"
             />
           </div>
           <div className="p-4">
@@ -236,10 +241,12 @@ export default function RecruitTopPage() {
     <Link href={story.href} className="group">
       <div className="bg-white/95 backdrop-blur-sm rounded-xl overflow-hidden border-2 border-[#2563EB]/20 hover:border-[#2563EB]/40 hover:shadow-lg hover:shadow-[#2563EB]/10 transition-all duration-300">
         <div className="relative overflow-hidden h-[160px] md:h-[180px]">
-          <img
+          <Image
             src={story.image}
             alt={story.name}
-            className="absolute inset-0 w-full h-full object-cover"
+            fill
+            sizes="300px"
+            className="object-cover"
             style={{ objectPosition: story.imagePosition || '50% 30%', transform: story.imageScale ? `scale(${story.imageScale})` : undefined }}
           />
           <div className="absolute top-2 left-3">
@@ -550,10 +557,13 @@ export default function RecruitTopPage() {
                           <Link href={c.href} className="group block">
                             <div className="bg-white/90 backdrop-blur-sm rounded-xl overflow-hidden border border-white/20 hover:shadow-lg hover:shadow-white/5 transition-all duration-300">
                               <div className="aspect-[16/5] relative overflow-hidden">
-                                <img
+                                <Image
                                   src={cardImages[c.id]}
                                   alt={mapTitles[c.id] || c.title}
-                                  className="absolute inset-0 w-full h-full object-cover" style={{ objectPosition: '50% 20%' }}
+                                  fill
+                                  sizes="(max-width: 768px) 100vw, 640px"
+                                  className="object-cover"
+                                  style={{ objectPosition: '50% 20%' }}
                                 />
                               </div>
                               <div className="px-5 py-5">
@@ -619,11 +629,13 @@ export default function RecruitTopPage() {
                       <div className="flex justify-center gap-6 mt-5">
                       {challengerStories.map((story) => (
                         <Link key={story.name} href={story.href} className="group/face flex flex-col items-center gap-1.5">
-                          <div className="w-20 h-20 md:w-24 md:h-24 rounded-full overflow-hidden border-2 border-white/30 group-hover/face:border-[#2563EB] transition-colors">
-                            <img
+                          <div className="w-20 h-20 md:w-24 md:h-24 rounded-full overflow-hidden border-2 border-white/30 group-hover/face:border-[#2563EB] transition-colors relative">
+                            <Image
                               src={story.image}
                               alt={story.name}
-                              className="w-full h-full object-cover"
+                              fill
+                              sizes="96px"
+                              className="object-cover"
                               style={{
                                 objectPosition: story.iconPosition || story.imagePosition || '50% 30%',
                                 transform: story.iconScale ? `scale(${story.iconScale})` : undefined,

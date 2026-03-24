@@ -1,5 +1,6 @@
 'use client'
 
+import Image from 'next/image'
 import RecruitHeader from '@/components/recruit/RecruitHeader'
 import RecruitCTA from '@/components/recruit/RecruitCTA'
 import FadeInUp from '@/components/animations/FadeInUp'
@@ -135,10 +136,12 @@ export default function IidaStoryPage() {
       {/* ===== Hero Section ===== */}
       <section className="relative pt-32 pb-12 lg:pt-44 lg:pb-32 px-4 overflow-hidden">
         <div className="absolute inset-0">
-          <img
+          <Image
             src="/img/recruit/stories/iida-journey.png"
             alt=""
-            className="w-full h-full object-cover"
+            fill
+            sizes="100vw"
+            className="object-cover"
           />
           <div className="absolute inset-0 bg-[#1C2A44]/70" />
         </div>
@@ -170,16 +173,21 @@ export default function IidaStoryPage() {
         <div className="max-w-3xl mx-auto">
           <FadeInUp>
             <div className="md:flex md:flex-row md:items-stretch bg-white rounded-2xl shadow-lg relative overflow-hidden min-h-[380px] md:h-[200px]">
-              <img
+              <Image
                 src="/img/recruit/stories/iida-portrait.png"
                 alt="飯田思遠"
-                className="absolute inset-0 w-full h-full object-cover md:hidden"
+                fill
+                sizes="100vw"
+                className="object-cover md:hidden"
+                priority
               />
-              <div className="hidden md:block w-64 rounded-l-2xl overflow-hidden flex-shrink-0">
-                <img
+              <div className="hidden md:block w-64 rounded-l-2xl overflow-hidden flex-shrink-0 relative">
+                <Image
                   src="/img/recruit/stories/iida-portrait.png"
                   alt="飯田思遠"
-                  className="w-full h-full object-cover"
+                  fill
+                  sizes="256px"
+                  className="object-cover"
                 />
               </div>
               <div className="absolute bottom-0 left-0 right-0 bg-white/85 backdrop-blur-sm p-6 md:relative md:bg-transparent md:backdrop-blur-none md:p-8 md:py-12 md:text-left text-center md:flex md:flex-col md:justify-center">
@@ -264,10 +272,12 @@ export default function IidaStoryPage() {
       {/* ===== FINAL QUEST ===== */}
       <section className="relative py-20 lg:py-32 px-4 overflow-hidden">
         <div className="absolute inset-0">
-          <img
+          <Image
             src="/img/recruit/stories/iida-journey.png"
             alt=""
-            className="w-full h-full object-cover"
+            fill
+            sizes="100vw"
+            className="object-cover"
           />
           <div className="absolute inset-0 bg-[#1C2A44]/85" />
         </div>

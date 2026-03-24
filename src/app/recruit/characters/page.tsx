@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import RecruitHeader from '@/components/recruit/RecruitHeader'
 import RecruitCTA from '@/components/recruit/RecruitCTA'
 import FadeInUp from '@/components/animations/FadeInUp'
@@ -189,7 +190,7 @@ export default function CharactersPage() {
       {/* ===== Chapter Header ===== */}
       <section className="relative pt-32 pb-20 lg:pt-44 lg:pb-32 px-4 overflow-hidden">
         <div className="absolute inset-0">
-          <img src="/img/recruit/top/hero-party.png" alt="" className="w-full h-full object-cover" />
+          <Image src="/img/recruit/top/hero-party.png" alt="" fill sizes="100vw" className="object-cover" priority />
           <div className="absolute inset-0 bg-[#1C2A44]/75" />
         </div>
         <div className="relative max-w-3xl mx-auto text-center">
@@ -234,7 +235,7 @@ export default function CharactersPage() {
               <FadeInUp key={type.number} delay={index * 100}>
                 <div className="bg-white rounded-2xl overflow-hidden h-full shadow-md flex flex-row">
                   <div className="w-32 md:w-40 flex-shrink-0 overflow-hidden">
-                    <img src={type.image} alt={type.name} className="w-full h-full object-cover" />
+                    <Image src={type.image} alt={type.name} fill sizes="160px" className="object-cover" />
                   </div>
                   <div className="p-5 md:p-6 flex-1">
                     <p className="text-[#1C2A44] text-xs tracking-[0.3em] font-bold mb-2">
@@ -306,10 +307,12 @@ export default function CharactersPage() {
                   <div className="flex flex-col md:flex-row">
                     {/* Character image */}
                     <div className="w-full md:w-56 lg:w-64 flex-shrink-0 overflow-hidden">
-                      <img
+                      <Image
                         src={char.image}
                         alt={char.name}
-                        className="w-full h-56 md:h-full object-cover"
+                        fill
+                        sizes="(max-width: 768px) 100vw, 256px"
+                        className="object-cover"
                       />
                     </div>
                     {/* Profile content */}
@@ -475,7 +478,7 @@ export default function CharactersPage() {
               <FadeInUp key={quest.number} delay={index * 120}>
                 <div className="bg-[#FAFAF5] rounded-2xl overflow-hidden shadow-sm flex flex-row">
                   <div className="w-32 md:w-40 flex-shrink-0 overflow-hidden">
-                    <img src={quest.image} alt={quest.title} className="w-full h-full object-cover" />
+                    <Image src={quest.image} alt={quest.title} fill sizes="160px" className="object-cover" />
                   </div>
                   <div className="p-5 md:p-6 flex-1">
                     <p className="text-[#F59E0B] text-xs tracking-[0.3em] font-bold mb-2">

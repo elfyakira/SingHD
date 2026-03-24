@@ -2,6 +2,7 @@
 
 import { useState } from 'react'
 import Link from 'next/link'
+import Image from 'next/image'
 import RecruitHeader from '@/components/recruit/RecruitHeader'
 import RecruitCTA from '@/components/recruit/RecruitCTA'
 import FadeInUp from '@/components/animations/FadeInUp'
@@ -357,10 +358,12 @@ export default function DiagnosisPage() {
       {/* ===== Chapter Header ===== */}
       <section className="relative pt-32 pb-20 lg:pt-44 lg:pb-32 px-4 bg-[#2563EB] overflow-hidden">
         <div className="absolute inset-0">
-          <img
+          <Image
             src="/img/recruit/top/hero-party.png"
             alt=""
-            className="w-full h-full object-cover opacity-15"
+            fill
+            sizes="100vw"
+            className="object-cover opacity-15"
           />
         </div>
         <div className="relative max-w-3xl mx-auto text-center">
@@ -412,10 +415,12 @@ export default function DiagnosisPage() {
                         className="w-32 h-44 md:w-40 md:h-56 rounded-2xl overflow-hidden mb-3 border-3 shadow-lg"
                         style={{ borderColor: t.color }}
                       >
-                        <img
+                        <Image
                           src={t.image}
                           alt={t.name}
-                          className="w-full h-full object-cover"
+                          fill
+                          sizes="80px"
+                          className="object-cover"
                         />
                       </div>
                       <p
@@ -532,10 +537,12 @@ export default function DiagnosisPage() {
                     className="w-[45%] shrink-0 aspect-[3/4] rounded-[2px] overflow-hidden border"
                     style={{ borderColor: '#C0B08A' }}
                   >
-                    <img
+                    <Image
                       src={upperImage}
                       alt={upperJob}
-                      className="w-full h-full object-cover"
+                      fill
+                      sizes="(max-width: 768px) 100vw, 50vw"
+                      className="object-cover"
                     />
                   </div>
 
@@ -580,14 +587,14 @@ export default function DiagnosisPage() {
                         className="w-24 h-24 rounded-[4px] overflow-hidden border shrink-0"
                         style={{ borderColor: '#C0B08A' }}
                       >
-                        <img src={primary.image} alt={primary.name} className="w-full h-full object-cover" />
+                        <Image src={primary.image} alt={primary.name} fill sizes="64px" className="object-cover" />
                       </div>
                       <p className="text-base text-[#1C2A44] font-bold">×</p>
                       <div
                         className="w-24 h-24 rounded-[4px] overflow-hidden border shrink-0"
                         style={{ borderColor: '#C0B08A' }}
                       >
-                        <img src={secondary.image} alt={secondary.name} className="w-full h-full object-cover" />
+                        <Image src={secondary.image} alt={secondary.name} fill sizes="48px" className="object-cover" />
                       </div>
                     </div>
                     <div className="rounded-[2px] overflow-hidden" style={{ boxShadow: 'inset 0 0 0 1px #C8B88A' }}>

@@ -1,6 +1,7 @@
 'use client'
 
 import { useState } from 'react'
+import Image from 'next/image'
 import RecruitHeader from '@/components/recruit/RecruitHeader'
 import FadeInUp from '@/components/animations/FadeInUp'
 import Link from 'next/link'
@@ -129,10 +130,12 @@ export default function EntryPage() {
       {/* ===== Chapter Header + Hero Image ===== */}
       <section className="relative pt-32 pb-20 lg:pt-44 lg:pb-32 px-4 overflow-hidden">
         <div className="absolute inset-0">
-          <img
+          <Image
             src="/img/recruit/entry/open-door.jpg"
             alt=""
-            className="w-full h-full object-cover"
+            fill
+            sizes="100vw"
+            className="object-cover"
           />
           <div className="absolute inset-0 bg-[#1C2A44]/70" />
         </div>
@@ -414,10 +417,12 @@ export default function EntryPage() {
       {/* ===== Closing Statement ===== */}
       <section className="relative py-24 lg:py-40 px-4 overflow-hidden">
         <div className="absolute inset-0">
-          <img
+          <Image
             src="/img/recruit/entry/party-welcome.png"
             alt=""
-            className="w-full h-full object-cover"
+            fill
+            sizes="100vw"
+            className="object-cover"
           />
           <div className="absolute inset-0 bg-[#1C2A44]/85" />
         </div>
@@ -768,10 +773,12 @@ export default function EntryPage() {
       {/* ===== Final Closing ===== */}
       <section className="relative py-24 lg:py-36 px-4 overflow-hidden">
         <div className="absolute inset-0">
-          <img
+          <Image
             src="/img/recruit/entry/open-door.jpg"
             alt=""
-            className="w-full h-full object-cover"
+            fill
+            sizes="100vw"
+            className="object-cover"
           />
           <div className="absolute inset-0 bg-[#1C2A44]/85" />
         </div>

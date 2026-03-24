@@ -1,5 +1,6 @@
 'use client'
 
+import Image from 'next/image'
 import Header from '@/components/layout/Header'
 import Footer from '@/components/layout/Footer'
 import LowPageHero from '@/components/LowPageHero'
@@ -171,9 +172,11 @@ export default function ConceptPage() {
               ロゴマーク
             </h2>
             <div className="max-w-sm mx-auto">
-              <img
+              <Image
                 src="/singhdlogo512.png"
                 alt="Singホールディングス ロゴ"
+                width={320}
+                height={320}
                 className="w-64 h-64 md:w-80 md:h-80 mx-auto object-contain"
               />
             </div>

@@ -1,5 +1,7 @@
 'use client'
 
+import Image from 'next/image'
+
 interface LowPageHeroProps {
   titleEn: string        // 英語タイトル（大きく表示）
   titleJa: string        // 日本語サブタイトル
@@ -46,10 +48,13 @@ export default function LowPageHero({
               clipPath: 'polygon(30% 0, 100% 0, 100% 100%, 0 100%)',
             }}
           >
-            <img
+            <Image
               src={imageSrc}
               alt={imageAlt}
-              className="w-full h-full object-cover"
+              fill
+              sizes="40vw"
+              className="object-cover"
+              priority
             />
           </div>
         )}

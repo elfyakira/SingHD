@@ -1,5 +1,6 @@
 'use client'
 
+import Image from 'next/image'
 import Header from '@/components/layout/Header'
 import Footer from '@/components/layout/Footer'
 import LowPageHero from '@/components/LowPageHero'
@@ -81,11 +82,13 @@ export default function CompanyPage() {
               {/* 代表写真 */}
               <FadeInUp>
                 <div className="relative">
-                  <div className="aspect-[3/4] bg-gray-100 overflow-hidden">
-                    <img
+                  <div className="aspect-[3/4] bg-gray-100 overflow-hidden relative">
+                    <Image
                       src="/img/company/ceo.jpg"
                       alt="代表取締役 笠本慎二"
-                      className="w-full h-full object-cover"
+                      fill
+                      sizes="(max-width: 1024px) 100vw, 50vw"
+                      className="object-cover"
                     />
                   </div>
                 </div>

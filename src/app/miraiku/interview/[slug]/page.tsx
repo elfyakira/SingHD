@@ -1,6 +1,7 @@
 'use client'
 
 import Link from 'next/link'
+import Image from 'next/image'
 import { ArrowRight } from 'lucide-react'
 import { useParams } from 'next/navigation'
 import Header from '@/components/layout/Header'
@@ -36,10 +37,12 @@ function InterviewImage({
   return (
     <div className={`${aspectClass} rounded overflow-hidden bg-[#0A1020] relative`}>
       {!failed ? (
-        <img
+        <Image
           src={src}
           alt={alt}
-          className="w-full h-full object-cover"
+          fill
+          sizes="280px"
+          className="object-cover"
           onError={() => setFailed(true)}
         />
       ) : (
@@ -92,13 +95,16 @@ export default function InterviewDetailPage() {
         <section className="relative min-h-[60vh] lg:min-h-[80vh] bg-[#0D1520] text-white flex items-end overflow-hidden">
           {/* 右側ポートレート */}
           <div className="absolute right-0 top-0 w-full lg:w-1/2 h-full">
-            <img
+            <Image
               src={interview.portraitImage || interview.image}
               alt={interview.name}
-              className="w-full h-full object-cover"
+              fill
+              sizes="(max-width: 1024px) 100vw, 50vw"
+              className="object-cover"
               style={interview.portraitPosition ? { objectPosition: interview.portraitPosition } : undefined}
+              priority
               onError={(e) => {
-                e.currentTarget.style.display = 'none'
+                (e.currentTarget as HTMLImageElement).style.display = 'none'
               }}
             />
             <div className="absolute inset-0 bg-gradient-to-r from-[#0D1520] via-[#0D1520]/60 to-transparent lg:via-transparent" />
@@ -388,10 +394,12 @@ export default function InterviewDetailPage() {
                 {/* 左: 写真 */}
                 <div className="mb-6 lg:mb-0 max-w-[240px]">
                   <div className={`aspect-square rounded overflow-hidden bg-[#0A1020] relative`}>
-                    <img
+                    <Image
                       src={interview.profileImage || interview.image}
                       alt={interview.name}
-                      className="w-full h-full object-cover"
+                      fill
+                      sizes="240px"
+                      className="object-cover"
                       style={interview.profilePosition ? { objectPosition: interview.profilePosition } : undefined}
                     />
                   </div>

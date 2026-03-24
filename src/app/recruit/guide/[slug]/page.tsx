@@ -2,6 +2,12 @@ import { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import { getGuideArticle, getAllGuideSlugs, renderMarkdown } from '@/lib/guide-loader'
 import GuideArticleContent from './GuideArticleContent'
+import StructuredData from '@/components/StructuredData'
+import {
+  generateArticleSchema,
+  generateBreadcrumbSchema,
+} from '@/lib/structured-data'
+import { siteConfig } from '@/config/seo'
 
 interface Props {
   params: Promise<{ slug: string }>
@@ -24,6 +30,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       description: article.excerpt,
       images: [article.image],
     },
+    alternates: {
+      canonical: `/recruit/guide/${slug}`,
+    },
   }
 }
 
@@ -34,15 +43,33 @@ export default async function GuideArticlePage({ params }: Props) {
 
   const htmlContent = renderMarkdown(article.content)
 
+  const schemas = [
+    generateBreadcrumbSchema([
+      { name: 'ホーム', url: siteConfig.siteUrl },
+      { name: '冒険者ガイド', url: `${siteConfig.siteUrl}/recruit/guide` },
+      { name: article.title, url: `${siteConfig.siteUrl}/recruit/guide/${slug}` },
+    ]),
+    generateArticleSchema({
+      title: article.title,
+      description: article.excerpt,
+      url: `${siteConfig.siteUrl}/recruit/guide/${slug}`,
+      datePublished: article.date,
+      image: `${siteConfig.siteUrl}${article.image}`,
+    }),
+  ]
+
   return (
-    <GuideArticleContent
-      title={article.title}
-      date={article.date}
-      category={article.category}
-      tags={article.tags}
-      readingTime={article.readingTime}
-      image={article.image}
-      htmlContent={htmlContent}
-    />
+    <>
+      <StructuredData data={schemas} />
+      <GuideArticleContent
+        title={article.title}
+        date={article.date}
+        category={article.category}
+        tags={article.tags}
+        readingTime={article.readingTime}
+        image={article.image}
+        htmlContent={htmlContent}
+      />
+    </>
   )
 }

@@ -1,6 +1,7 @@
 'use client'
 
 import Link from 'next/link'
+import Image from 'next/image'
 import { ArrowRight, Check, ChevronDown } from 'lucide-react'
 import Header from '@/components/layout/Header'
 import Footer from '@/components/layout/Footer'
@@ -228,15 +229,15 @@ export default function MiraikuPage() {
           {/* 背景スライドショー（クロスフェード） */}
           <div className="absolute inset-0">
             {heroImages.map((img, index) => (
-              <img
+              <Image
                 key={img.src}
                 src={img.src}
                 alt=""
-                className="absolute inset-0 w-full h-full object-cover transition-opacity duration-[2000ms] ease-in-out"
+                fill
+                sizes="100vw"
+                className="object-cover transition-opacity duration-[2000ms] ease-in-out"
                 style={{ opacity: index === currentImageIndex ? 1 : 0, objectPosition: img.position, transform: `scale(${img.scale})`, transformOrigin: img.position }}
-                onError={(e) => {
-                  e.currentTarget.style.display = 'none'
-                }}
+                priority={index === 0}
               />
             ))}
             <div className="absolute inset-0 bg-gradient-to-l from-black/90 via-black/50 to-transparent" />
@@ -316,13 +317,15 @@ export default function MiraikuPage() {
                 >
                   {/* 写真 */}
                   <div className="aspect-[4/3] bg-[#0A1020] rounded overflow-hidden mb-4 relative">
-                    <img
+                    <Image
                       src={partner.image}
                       alt={partner.name}
-                      className="w-full h-full object-cover opacity-90 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500"
+                      fill
+                      sizes="(max-width: 768px) 50vw, 25vw"
+                      className="object-cover opacity-90 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500"
                       style={partner.imagePosition ? { objectPosition: partner.imagePosition } : undefined}
                       onError={(e) => {
-                        const target = e.currentTarget
+                        const target = e.currentTarget as HTMLImageElement
                         target.style.display = 'none'
                         const el = target.parentElement?.querySelector(
                           '.placeholder'
@@ -494,13 +497,15 @@ export default function MiraikuPage() {
                 >
                   {/* 写真 */}
                   <div className="aspect-[4/3] bg-[#0A1020] rounded overflow-hidden mb-4 relative">
-                    <img
+                    <Image
                       src={partner.image}
                       alt={partner.name}
-                      className="w-full h-full object-cover opacity-90 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500"
+                      fill
+                      sizes="(max-width: 768px) 50vw, 25vw"
+                      className="object-cover opacity-90 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500"
                       style={partner.imagePosition ? { objectPosition: partner.imagePosition } : undefined}
                       onError={(e) => {
-                        const target = e.currentTarget
+                        const target = e.currentTarget as HTMLImageElement
                         target.style.display = 'none'
                         const el = target.parentElement?.querySelector(
                           '.placeholder'

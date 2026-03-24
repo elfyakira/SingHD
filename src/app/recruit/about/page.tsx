@@ -1,6 +1,7 @@
 'use client'
 
 import Link from 'next/link'
+import Image from 'next/image'
 import RecruitHeader from '@/components/recruit/RecruitHeader'
 import RecruitCTA from '@/components/recruit/RecruitCTA'
 import FadeInUp from '@/components/animations/FadeInUp'
@@ -104,7 +105,7 @@ export default function AboutPage() {
       {/* ===== Chapter Header ===== */}
       <section className="relative pt-32 pb-20 lg:pt-40 lg:pb-32 px-4 overflow-hidden">
         <div className="absolute inset-0">
-          <img src="/img/recruit/top/hero-party.png" alt="" className="w-full h-full object-cover" />
+          <Image src="/img/recruit/top/hero-party.png" alt="" fill sizes="100vw" className="object-cover" priority />
           <div className="absolute inset-0 bg-[#1C2A44]/75" />
         </div>
         <div className="relative max-w-3xl mx-auto text-center">
@@ -153,7 +154,7 @@ export default function AboutPage() {
       {/* Brand Story Image */}
       <section className="px-4 bg-white">
         <div className="max-w-4xl mx-auto overflow-hidden rounded-2xl">
-          <img src="/img/recruit/about/brand-story.png" alt="冒険の始まり" className="w-full h-auto" />
+          <Image src="/img/recruit/about/brand-story.png" alt="冒険の始まり" width={1200} height={675} className="w-full h-auto" />
         </div>
       </section>
 
@@ -431,7 +432,7 @@ export default function AboutPage() {
           </FadeInUp>
 
           <div className="mb-12 max-w-4xl mx-auto overflow-hidden rounded-2xl">
-            <img src="/img/recruit/about/three-reasons.jpg" alt="3つの理由" className="w-full h-auto" />
+            <Image src="/img/recruit/about/three-reasons.jpg" alt="3つの理由" width={1200} height={675} className="w-full h-auto" />
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -574,7 +575,7 @@ export default function AboutPage() {
       {/* Founder Story Image */}
       <section className="px-4 bg-white">
         <div className="max-w-4xl mx-auto overflow-hidden rounded-2xl">
-          <img src="/img/recruit/about/founder-journey.png" alt="創業の旅" className="w-full h-auto" />
+          <Image src="/img/recruit/about/founder-journey.png" alt="創業の旅" width={1200} height={675} className="w-full h-auto" />
         </div>
       </section>
 
@@ -1057,7 +1058,7 @@ export default function AboutPage() {
       {/* Sing Name Image */}
       <section className="px-4 bg-white">
         <div className="max-w-4xl mx-auto overflow-hidden rounded-2xl">
-          <img src="/img/recruit/about/sing-meaning.png" alt="Singの意味" className="w-full h-auto" />
+          <Image src="/img/recruit/about/sing-meaning.png" alt="Singの意味" width={1200} height={675} className="w-full h-auto" />
         </div>
       </section>
 
@@ -1232,7 +1233,7 @@ export default function AboutPage() {
       {/* Sing Name - Closing Statement */}
       <section className="relative py-20 lg:py-32 px-4 overflow-hidden">
         <div className="absolute inset-0">
-          <img src="/img/recruit/about/sing-meaning.png" alt="" className="w-full h-full object-cover" />
+          <Image src="/img/recruit/about/sing-meaning.png" alt="" fill sizes="100vw" className="object-cover" />
           <div className="absolute inset-0 bg-[#1C2A44]/85" />
         </div>
         <div className="relative max-w-3xl mx-auto text-center">

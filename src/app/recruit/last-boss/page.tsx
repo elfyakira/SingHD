@@ -1,5 +1,6 @@
 'use client'
 
+import Image from 'next/image'
 import RecruitHeader from '@/components/recruit/RecruitHeader'
 import RecruitCTA from '@/components/recruit/RecruitCTA'
 import FadeInUp from '@/components/animations/FadeInUp'
@@ -12,7 +13,7 @@ export default function LastBossPage() {
       {/* ===== Chapter Header ===== */}
       <section className="relative pt-32 pb-20 lg:pt-44 lg:pb-32 px-4 overflow-hidden">
         <div className="absolute inset-0">
-          <img src="/img/recruit/last-boss/boss-reveal.png" alt="" className="w-full h-full object-cover" />
+          <Image src="/img/recruit/last-boss/boss-reveal.png" alt="" fill sizes="100vw" className="object-cover" />
           <div className="absolute inset-0 bg-[#1C2A44]/75" />
         </div>
         <div className="relative max-w-3xl mx-auto text-center">
@@ -309,7 +310,7 @@ export default function LastBossPage() {
       {/* ===== LAST BOSS Reveal ===== */}
       <section className="relative py-20 lg:py-32 px-4 overflow-hidden">
         <div className="absolute inset-0">
-          <img src="/img/recruit/last-boss/boss-reveal.png" alt="" className="w-full h-full object-cover" />
+          <Image src="/img/recruit/last-boss/boss-reveal.png" alt="" fill sizes="100vw" className="object-cover" />
           <div className="absolute inset-0 bg-[#1C2A44]/85" />
         </div>
         <div className="relative max-w-3xl mx-auto text-center">
@@ -347,7 +348,7 @@ export default function LastBossPage() {
 
           <FadeInUp delay={500}>
             <div className="mt-12 max-w-3xl mx-auto overflow-hidden rounded-2xl">
-              <img src="/img/recruit/last-boss/heroes-stand.png" alt="立ち向かう仲間たち" className="w-full h-auto" />
+              <Image src="/img/recruit/last-boss/heroes-stand.png" alt="立ち向かう仲間たち" width={1200} height={675} className="w-full h-auto" />
             </div>
           </FadeInUp>
         </div>

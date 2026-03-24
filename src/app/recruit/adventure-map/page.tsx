@@ -1,5 +1,6 @@
 'use client'
 
+import Image from 'next/image'
 import RecruitHeader from '@/components/recruit/RecruitHeader'
 import RecruitCTA from '@/components/recruit/RecruitCTA'
 import FadeInUp from '@/components/animations/FadeInUp'
@@ -64,7 +65,7 @@ export default function AdventureMapPage() {
       {/* ===== Chapter Header ===== */}
       <section className="relative pt-32 pb-20 lg:pt-44 lg:pb-32 px-4 overflow-hidden">
         <div className="absolute inset-0">
-          <img src="/img/recruit/adventure-map/level-1.png" alt="" className="w-full h-full object-cover" />
+          <Image src="/img/recruit/adventure-map/level-1.png" alt="" fill sizes="100vw" className="object-cover" priority />
           <div className="absolute inset-0 bg-[#1C2A44]/75" />
         </div>
         <div className="relative max-w-3xl mx-auto text-center">
@@ -151,7 +152,7 @@ export default function AdventureMapPage() {
                     <div className="bg-[#FAFAF5] rounded-2xl overflow-hidden shadow-md">
                       <div className="flex flex-col md:flex-row">
                       <div className="md:w-44 lg:w-52 flex-shrink-0 overflow-hidden">
-                        <img src={item.image} alt={item.title} className="w-full h-48 md:h-full object-cover" />
+                        <Image src={item.image} alt={item.title} fill sizes="(max-width: 768px) 100vw, 300px" className="object-cover" />
                       </div>
                       <div className="p-6 md:p-8 flex-1">
                       <p

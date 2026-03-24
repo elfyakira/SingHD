@@ -1,6 +1,7 @@
 'use client'
 
 import Link from 'next/link'
+import Image from 'next/image'
 
 const footerLinks = {
   service: [
@@ -30,9 +31,11 @@ export default function Footer() {
           <div className="lg:col-span-5">
             {/* ロゴ */}
             <div className="mb-6">
-              <img
+              <Image
                 src="/img/logo/logo-white.png"
                 alt="Sing Holdings"
+                width={160}
+                height={40}
                 className="h-10 w-auto"
               />
             </div>

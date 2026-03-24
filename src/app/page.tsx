@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
+import Image from 'next/image'
 import { ArrowRight, Check } from 'lucide-react'
 import Header from '@/components/layout/Header'
 import Footer from '@/components/layout/Footer'
@@ -111,9 +112,11 @@ export default function HomePage() {
 
             {/* 右下: CTA + ロゴ */}
             <div className="absolute bottom-24 right-4 lg:right-8 flex items-center gap-6">
-              <img
+              <Image
                 src="/img/logo/logo-white.png"
                 alt="Sing Holdings"
+                width={160}
+                height={40}
                 className="h-10 w-auto hidden md:block"
               />
               <Link
@@ -147,14 +150,13 @@ export default function HomePage() {
               {/* 左: 画像 */}
               <FadeInUp>
                 <div className="relative">
-                  <div className="aspect-[4/3] bg-gray-100 rounded-lg overflow-hidden">
-                    <img
+                  <div className="aspect-[4/3] bg-gray-100 rounded-lg overflow-hidden relative">
+                    <Image
                       src="/img/miraiku/miraiku-overview.jpg"
                       alt="ミライク"
-                      className="w-full h-full object-cover"
-                      onError={(e) => {
-                        e.currentTarget.style.display = 'none'
-                      }}
+                      fill
+                      sizes="(max-width: 1024px) 100vw, 50vw"
+                      className="object-cover"
                     />
                   </div>
                 </div>
@@ -239,11 +241,13 @@ export default function HomePage() {
             {/* 3つのメリット */}
             <StaggerContainer staggerDelay={200} className="grid md:grid-cols-3 gap-8">
               <div className="bg-white rounded-lg overflow-hidden">
-                <div className="aspect-[4/3] overflow-hidden">
-                  <img
+                <div className="aspect-[4/3] overflow-hidden relative">
+                  <Image
                     src="/img/top/why-us-1.jpg"
                     alt="若い代表によるリアルな挑戦環境"
-                    className="w-full h-full object-cover"
+                    fill
+                    sizes="(max-width: 768px) 100vw, 33vw"
+                    className="object-cover"
                   />
                 </div>
                 <div className="p-8">
@@ -258,11 +262,13 @@ export default function HomePage() {
               </div>
 
               <div className="bg-white rounded-lg overflow-hidden">
-                <div className="aspect-[4/3] overflow-hidden">
-                  <img
+                <div className="aspect-[4/3] overflow-hidden relative">
+                  <Image
                     src="/img/top/why-us-2.jpg"
                     alt="実行基盤が整っている"
-                    className="w-full h-full object-cover"
+                    fill
+                    sizes="(max-width: 768px) 100vw, 33vw"
+                    className="object-cover"
                   />
                 </div>
                 <div className="p-8">
@@ -277,11 +283,13 @@ export default function HomePage() {
               </div>
 
               <div className="bg-white rounded-lg overflow-hidden">
-                <div className="aspect-[4/3] overflow-hidden">
-                  <img
+                <div className="aspect-[4/3] overflow-hidden relative">
+                  <Image
                     src="/img/top/why-us-3.jpg"
                     alt="伴走型支援"
-                    className="w-full h-full object-cover"
+                    fill
+                    sizes="(max-width: 768px) 100vw, 33vw"
+                    className="object-cover"
                   />
                 </div>
                 <div className="p-8">
@@ -318,11 +326,13 @@ export default function HomePage() {
             {/* 4ステップ */}
             <StaggerContainer staggerDelay={150} className="grid md:grid-cols-4 gap-6">
               <div className="bg-white rounded-lg overflow-hidden shadow-sm">
-                <div className="aspect-[4/3] overflow-hidden">
-                  <img
+                <div className="aspect-[4/3] overflow-hidden relative">
+                  <Image
                     src="/img/top/flow-1.jpg"
                     alt="無料相談"
-                    className="w-full h-full object-cover"
+                    fill
+                    sizes="(max-width: 768px) 100vw, 25vw"
+                    className="object-cover"
                   />
                 </div>
                 <div className="p-6 text-center">
@@ -339,11 +349,13 @@ export default function HomePage() {
               </div>
 
               <div className="bg-white rounded-lg overflow-hidden shadow-sm">
-                <div className="aspect-[4/3] overflow-hidden">
-                  <img
+                <div className="aspect-[4/3] overflow-hidden relative">
+                  <Image
                     src="/img/top/flow-2.jpg"
                     alt="事業設計・市場検証"
-                    className="w-full h-full object-cover"
+                    fill
+                    sizes="(max-width: 768px) 100vw, 25vw"
+                    className="object-cover"
                   />
                 </div>
                 <div className="p-6 text-center">
@@ -360,11 +372,13 @@ export default function HomePage() {
               </div>
 
               <div className="bg-white rounded-lg overflow-hidden shadow-sm">
-                <div className="aspect-[4/3] overflow-hidden">
-                  <img
+                <div className="aspect-[4/3] overflow-hidden relative">
+                  <Image
                     src="/img/top/flow-3.jpg"
                     alt="収益モデル構築"
-                    className="w-full h-full object-cover"
+                    fill
+                    sizes="(max-width: 768px) 100vw, 25vw"
+                    className="object-cover"
                   />
                 </div>
                 <div className="p-6 text-center">
@@ -381,11 +395,13 @@ export default function HomePage() {
               </div>
 
               <div className="bg-white rounded-lg overflow-hidden shadow-sm">
-                <div className="aspect-[4/3] overflow-hidden">
-                  <img
+                <div className="aspect-[4/3] overflow-hidden relative">
+                  <Image
                     src="/img/top/flow-4.jpg"
                     alt="実行・伴走支援"
-                    className="w-full h-full object-cover"
+                    fill
+                    sizes="(max-width: 768px) 100vw, 25vw"
+                    className="object-cover"
                   />
                 </div>
                 <div className="p-6 text-center">
@@ -451,14 +467,13 @@ export default function HomePage() {
               {/* 右: 代表写真 */}
               <FadeInUp delay={200}>
                 <div className="relative">
-                  <div className="aspect-[3/4] bg-gray-800 rounded-lg overflow-hidden">
-                    <img
+                  <div className="aspect-[3/4] bg-gray-800 rounded-lg overflow-hidden relative">
+                    <Image
                       src="/img/company/ceo.jpg"
                       alt="代表取締役 笠本慎二"
-                      className="w-full h-full object-cover"
-                      onError={(e) => {
-                        e.currentTarget.style.display = 'none'
-                      }}
+                      fill
+                      sizes="(max-width: 1024px) 100vw, 50vw"
+                      className="object-cover"
                     />
                   </div>
                 </div>

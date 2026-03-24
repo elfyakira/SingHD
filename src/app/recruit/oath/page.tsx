@@ -1,5 +1,6 @@
 'use client'
 
+import Image from 'next/image'
 import RecruitHeader from '@/components/recruit/RecruitHeader'
 import RecruitCTA from '@/components/recruit/RecruitCTA'
 import FadeInUp from '@/components/animations/FadeInUp'
@@ -59,7 +60,7 @@ export default function OathPage() {
       {/* ===== Chapter Header ===== */}
       <section className="relative pt-32 pb-20 lg:pt-44 lg:pb-32 px-4 overflow-hidden">
         <div className="absolute inset-0">
-          <img src="/img/recruit/oath/oath-circle.jpg" alt="" className="w-full h-full object-cover" />
+          <Image src="/img/recruit/oath/oath-circle.jpg" alt="" fill sizes="100vw" className="object-cover" />
           <div className="absolute inset-0 bg-[#1C2A44]/75" />
         </div>
         <div className="relative max-w-3xl mx-auto text-center">
@@ -112,7 +113,7 @@ export default function OathPage() {
       <section className="py-8 px-4 bg-white">
         <div className="max-w-2xl mx-auto">
           <FadeInUp>
-            <img src="/img/recruit/oath/oath-circle.jpg" alt="冒険者の誓い" className="w-full h-auto rounded-2xl" />
+            <Image src="/img/recruit/oath/oath-circle.jpg" alt="冒険者の誓い" width={1200} height={675} className="w-full h-auto rounded-2xl" />
           </FadeInUp>
         </div>
       </section>
@@ -126,7 +127,7 @@ export default function OathPage() {
                 <div className="bg-[#FAFAF5] rounded-xl overflow-hidden flex flex-row">
                   {/* Image */}
                   <div className="w-24 lg:w-32 flex-shrink-0 hidden md:block overflow-hidden">
-                    <img src={oath.image} alt={oath.title} className="w-full h-full object-cover" />
+                    <Image src={oath.image} alt={oath.title} fill sizes="160px" className="object-cover" />
                   </div>
                   <div className="flex gap-6 md:gap-10 py-8 px-6">
                   {/* Large translucent number */}
@@ -162,7 +163,7 @@ export default function OathPage() {
       {/* ===== 最後の誓い (Closing) ===== */}
       <section className="relative py-20 lg:py-32 px-4 overflow-hidden">
         <div className="absolute inset-0">
-          <img src="/img/recruit/oath/oath-circle.jpg" alt="" className="w-full h-full object-cover" />
+          <Image src="/img/recruit/oath/oath-circle.jpg" alt="" fill sizes="100vw" className="object-cover" />
           <div className="absolute inset-0 bg-[#1C2A44]/85" />
         </div>
         <div className="relative max-w-3xl mx-auto text-center">

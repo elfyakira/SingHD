@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
+import Image from 'next/image'
 import { Menu, X } from 'lucide-react'
 
 const navigation = [
@@ -35,10 +36,13 @@ export default function Header() {
         <div className="flex items-center justify-between h-16 lg:h-20">
           {/* Logo */}
           <Link href="/" className="flex-shrink-0">
-            <img
+            <Image
               src="/img/logo/logo.png"
               alt="Sing Holdings"
+              width={160}
+              height={80}
               className="h-16 lg:h-20 w-auto"
+              priority
             />
           </Link>
 
