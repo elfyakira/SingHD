@@ -41,6 +41,15 @@ export const guideArticles: GuideCardData[] = [
     category: '冒険の心得',
     available: true,
   },
+  {
+    slug: 'venture-vs-corporate',
+    title: 'ベンチャーvs大企業 — データで見る20代の選択肢',
+    desc: '給与・成長・安定性・働き方を公的データで徹底比較。後悔しない判断軸を解説',
+    tags: ['キャリア選択', 'ベンチャー', '大企業', '20代'],
+    image: `${IMG}/venture-vs-corporate.png`,
+    category: '冒険の心得',
+    available: true,
+  },
 
   // ── スキルの書 ──
   {

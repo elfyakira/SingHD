@@ -234,6 +234,7 @@ STYLE = (
 | failure-is-exp | 賢者 | 2026-03-20 |
 | level-up-habits | 戦士 | 2026-03-20 |
 | leader-or-hero | 僧侶/ヒーラー | 2026-03-20 |
+| venture-vs-corporate | 賢者 | 2026-03-24 |
 
 ### 出力先
 ```
