@@ -1,6 +1,6 @@
 'use client'
 
-import Image from 'next/image'
+import Image from '@/components/QImage'
 
 interface LowPageHeroProps {
   titleEn: string        // 英語タイトル（大きく表示）

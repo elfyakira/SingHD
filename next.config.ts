@@ -3,8 +3,7 @@ import type { NextConfig } from "next";
 const nextConfig: NextConfig = {
   poweredByHeader: false,
   images: {
-    formats: ['image/webp'],
-    minimumCacheTTL: 86400,
+    unoptimized: true,
   },
   async headers() {
     return [

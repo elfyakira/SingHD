@@ -3,7 +3,7 @@
 import { useState, useEffect, useRef } from 'react'
 import { Press_Start_2P } from 'next/font/google'
 import Link from 'next/link'
-import Image from 'next/image'
+import Image from '@/components/QImage'
 
 const dotFont = Press_Start_2P({ weight: '400', subsets: ['latin'] })
 import RecruitHeader from '@/components/recruit/RecruitHeader'

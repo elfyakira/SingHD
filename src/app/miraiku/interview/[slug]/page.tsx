@@ -1,7 +1,7 @@
 'use client'
 
 import Link from 'next/link'
-import Image from 'next/image'
+import Image from '@/components/QImage'
 import { ArrowRight } from 'lucide-react'
 import { useParams } from 'next/navigation'
 import Header from '@/components/layout/Header'

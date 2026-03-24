@@ -1,7 +1,7 @@
 'use client'
 
 import { useState } from 'react'
-import Image from 'next/image'
+import Image from '@/components/QImage'
 import RecruitHeader from '@/components/recruit/RecruitHeader'
 import FadeInUp from '@/components/animations/FadeInUp'
 import Link from 'next/link'

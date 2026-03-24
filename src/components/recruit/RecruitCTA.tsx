@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
-import Image from 'next/image'
+import Image from '@/components/QImage'
 import FadeInUp from '@/components/animations/FadeInUp'
 
 export default function RecruitCTA() {
