@@ -122,6 +122,7 @@ export default function ShimishunStoryPage() {
             src="/img/miraiku/shimishun-wide.jpg"
             alt=""
             fill
+            unoptimized
             sizes="100vw"
             className="object-cover"
           />
@@ -161,6 +162,7 @@ export default function ShimishunStoryPage() {
                 src="/img/miraiku/partner-shimishun.jpg"
                 alt="清水駿之介"
                 fill
+                unoptimized
                 sizes="100vw"
                 className="object-cover object-[center_60%] md:hidden"
                 priority
@@ -170,6 +172,7 @@ export default function ShimishunStoryPage() {
                   src="/img/miraiku/partner-shimishun.jpg"
                   alt="清水駿之介"
                   fill
+                  unoptimized
                   sizes="256px"
                   className="object-cover"
                 />
@@ -252,6 +255,7 @@ export default function ShimishunStoryPage() {
             src="/img/miraiku/shimishun-wide.jpg"
             alt=""
             fill
+            unoptimized
             sizes="100vw"
             className="object-cover"
           />

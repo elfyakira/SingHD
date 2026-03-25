@@ -234,7 +234,7 @@ export default function CharactersPage() {
             {rpgTypes.map((type, index) => (
               <FadeInUp key={type.number} delay={index * 100}>
                 <div className="bg-white rounded-2xl overflow-hidden h-full shadow-md flex flex-row">
-                  <div className="w-32 md:w-40 flex-shrink-0 overflow-hidden">
+                  <div className="w-32 md:w-40 flex-shrink-0 overflow-hidden relative">
                     <Image src={type.image} alt={type.name} fill sizes="(max-width: 768px) 50vw, 320px" className="object-cover" />
                   </div>
                   <div className="p-5 md:p-6 flex-1">
@@ -306,7 +306,7 @@ export default function CharactersPage() {
                 <div className="bg-[#FAFAF5] rounded-2xl overflow-hidden shadow-md">
                   <div className="flex flex-col md:flex-row">
                     {/* Character image */}
-                    <div className="w-full md:w-56 lg:w-64 flex-shrink-0 overflow-hidden">
+                    <div className="w-full md:w-56 lg:w-64 flex-shrink-0 overflow-hidden relative">
                       <Image
                         src={char.image}
                         alt={char.name}
@@ -477,7 +477,7 @@ export default function CharactersPage() {
             {hiddenQuests.map((quest, index) => (
               <FadeInUp key={quest.number} delay={index * 120}>
                 <div className="bg-[#FAFAF5] rounded-2xl overflow-hidden shadow-sm flex flex-row">
-                  <div className="w-32 md:w-40 flex-shrink-0 overflow-hidden">
+                  <div className="w-32 md:w-40 flex-shrink-0 overflow-hidden relative">
                     <Image src={quest.image} alt={quest.title} fill sizes="(max-width: 768px) 50vw, 320px" className="object-cover" />
                   </div>
                   <div className="p-5 md:p-6 flex-1">

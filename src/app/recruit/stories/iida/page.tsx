@@ -140,6 +140,7 @@ export default function IidaStoryPage() {
             src="/img/recruit/stories/iida-journey.png"
             alt=""
             fill
+            unoptimized
             sizes="100vw"
             className="object-cover"
           />
@@ -177,6 +178,7 @@ export default function IidaStoryPage() {
                 src="/img/recruit/stories/iida-portrait.png"
                 alt="飯田思遠"
                 fill
+                unoptimized
                 sizes="100vw"
                 className="object-cover md:hidden"
                 priority
@@ -186,6 +188,7 @@ export default function IidaStoryPage() {
                   src="/img/recruit/stories/iida-portrait.png"
                   alt="飯田思遠"
                   fill
+                  unoptimized
                   sizes="256px"
                   className="object-cover"
                 />
@@ -276,6 +279,7 @@ export default function IidaStoryPage() {
             src="/img/recruit/stories/iida-journey.png"
             alt=""
             fill
+            unoptimized
             sizes="100vw"
             className="object-cover"
           />

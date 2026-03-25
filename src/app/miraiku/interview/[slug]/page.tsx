@@ -41,6 +41,7 @@ function InterviewImage({
           src={src}
           alt={alt}
           fill
+          unoptimized
           sizes="280px"
           className="object-cover"
           onError={() => setFailed(true)}
@@ -99,6 +100,7 @@ export default function InterviewDetailPage() {
               src={interview.portraitImage || interview.image}
               alt={interview.name}
               fill
+              unoptimized
               sizes="(max-width: 1024px) 100vw, 50vw"
               className="object-cover"
               style={interview.portraitPosition ? { objectPosition: interview.portraitPosition } : undefined}
@@ -398,6 +400,7 @@ export default function InterviewDetailPage() {
                       src={interview.profileImage || interview.image}
                       alt={interview.name}
                       fill
+                      unoptimized
                       sizes="240px"
                       className="object-cover"
                       style={interview.profilePosition ? { objectPosition: interview.profilePosition } : undefined}

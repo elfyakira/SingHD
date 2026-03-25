@@ -123,6 +123,7 @@ export default function YagiStoryPage() {
             src="/img/miraiku/yagi-wide.jpg"
             alt=""
             fill
+            unoptimized
             sizes="100vw"
             className="object-cover"
           />
@@ -162,6 +163,7 @@ export default function YagiStoryPage() {
                 src="/img/miraiku/partner-yagi.jpg"
                 alt="屋宜勝正"
                 fill
+                unoptimized
                 sizes="100vw"
                 className="object-cover md:hidden"
                 priority
@@ -171,6 +173,7 @@ export default function YagiStoryPage() {
                   src="/img/miraiku/partner-yagi.jpg"
                   alt="屋宜勝正"
                   fill
+                  unoptimized
                   sizes="256px"
                   className="object-cover"
                 />
@@ -253,6 +256,7 @@ export default function YagiStoryPage() {
             src="/img/miraiku/yagi-wide.jpg"
             alt=""
             fill
+            unoptimized
             sizes="100vw"
             className="object-cover"
           />

@@ -118,6 +118,7 @@ export default function WatanabeStoryPage() {
             src="/img/recruit/stories/watanabe-journey.png"
             alt=""
             fill
+            unoptimized
             sizes="100vw"
             className="object-cover"
           />
@@ -157,6 +158,7 @@ export default function WatanabeStoryPage() {
                 src="/img/recruit/stories/watanabe-portrait.png"
                 alt="渡邉大輝"
                 fill
+                unoptimized
                 sizes="100vw"
                 className="object-cover md:hidden"
                 priority
@@ -166,6 +168,7 @@ export default function WatanabeStoryPage() {
                   src="/img/recruit/stories/watanabe-portrait.png"
                   alt="渡邉大輝"
                   fill
+                  unoptimized
                   sizes="256px"
                   className="object-cover"
                 />
@@ -251,6 +254,7 @@ export default function WatanabeStoryPage() {
             src="/img/recruit/stories/watanabe-journey.png"
             alt=""
             fill
+            unoptimized
             sizes="100vw"
             className="object-cover"
           />

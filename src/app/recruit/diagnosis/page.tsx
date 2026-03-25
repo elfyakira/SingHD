@@ -412,7 +412,7 @@ export default function DiagnosisPage() {
                   return (
                     <div key={key} className="flex flex-col items-center">
                       <div
-                        className="w-32 h-44 md:w-40 md:h-56 rounded-2xl overflow-hidden mb-3 border-3 shadow-lg"
+                        className="w-32 h-44 md:w-40 md:h-56 rounded-2xl overflow-hidden mb-3 border-3 shadow-lg relative"
                         style={{ borderColor: t.color }}
                       >
                         <Image
@@ -534,7 +534,7 @@ export default function DiagnosisPage() {
                 <div className="flex p-4 pb-3">
                   {/* 複合キャラ画像（縦長） — 将来的に上位職画像に差し替え */}
                   <div
-                    className="w-[45%] shrink-0 aspect-[3/4] rounded-[2px] overflow-hidden border"
+                    className="w-[45%] shrink-0 aspect-[3/4] rounded-[2px] overflow-hidden border relative"
                     style={{ borderColor: '#C0B08A' }}
                   >
                     <Image
@@ -584,14 +584,14 @@ export default function DiagnosisPage() {
                   <div className="px-4 -mt-1 pb-3">
                     <div className="flex justify-center items-center gap-4 mb-3">
                       <div
-                        className="w-24 h-24 rounded-[4px] overflow-hidden border shrink-0"
+                        className="w-24 h-24 rounded-[4px] overflow-hidden border shrink-0 relative"
                         style={{ borderColor: '#C0B08A' }}
                       >
                         <Image src={primary.image} alt={primary.name} fill sizes="128px" className="object-cover" />
                       </div>
                       <p className="text-base text-[#1C2A44] font-bold">×</p>
                       <div
-                        className="w-24 h-24 rounded-[4px] overflow-hidden border shrink-0"
+                        className="w-24 h-24 rounded-[4px] overflow-hidden border shrink-0 relative"
                         style={{ borderColor: '#C0B08A' }}
                       >
                         <Image src={secondary.image} alt={secondary.name} fill sizes="96px" className="object-cover" />

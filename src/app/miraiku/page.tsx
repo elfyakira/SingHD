@@ -234,6 +234,7 @@ export default function MiraikuPage() {
                 src={img.src}
                 alt=""
                 fill
+                unoptimized
                 sizes="100vw"
                 className="object-cover transition-opacity duration-[2000ms] ease-in-out"
                 style={{ opacity: index === currentImageIndex ? 1 : 0, objectPosition: img.position, transform: `scale(${img.scale})`, transformOrigin: img.position }}
@@ -321,6 +322,7 @@ export default function MiraikuPage() {
                       src={partner.image}
                       alt={partner.name}
                       fill
+                      unoptimized
                       sizes="(max-width: 768px) 50vw, 25vw"
                       className="object-cover opacity-90 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500"
                       style={partner.imagePosition ? { objectPosition: partner.imagePosition } : undefined}
@@ -501,6 +503,7 @@ export default function MiraikuPage() {
                       src={partner.image}
                       alt={partner.name}
                       fill
+                      unoptimized
                       sizes="(max-width: 768px) 50vw, 25vw"
                       className="object-cover opacity-90 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500"
                       style={partner.imagePosition ? { objectPosition: partner.imagePosition } : undefined}
