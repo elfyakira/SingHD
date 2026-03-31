@@ -155,7 +155,7 @@ export default function ProjectPage() {
                         alt={`${company.name} ロゴ`}
                         width={200}
                         height={80}
-                        className="max-h-full max-w-[200px] object-contain"
+                        className={`max-h-full object-contain ${company.id === 'singnext' ? 'max-w-[320px] scale-150 origin-left -ml-6' : 'max-w-[200px]'}`}
                       />
                     ) : (
                       <h3 className="text-2xl md:text-3xl font-bold text-[#1C2A44]">
