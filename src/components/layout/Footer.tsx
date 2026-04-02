@@ -18,6 +18,7 @@ const footerLinks = {
     { name: '株式会社Sing', href: 'https://www.singgroup.biz/' },
     { name: '株式会社フライトップ', href: 'https://www.flytop.biz/' },
     { name: '株式会社ゆめスタ', href: 'https://yumesuta.com/' },
+    { name: '株式会社Sing.nexT', href: 'https://sing-next.com/' },
   ],
 }
 
