@@ -130,6 +130,20 @@ export default function RecruitHeader() {
                     清水 駿之介
                   </Link>
                   <div className="border-t border-gray-100 my-1" />
+                  <p className="px-5 py-1.5 text-[10px] uppercase tracking-widest text-[#2563EB] font-bold">サポートメンバー</p>
+                  <Link href="/recruit/stories/support-1" className={subLinkClass}>
+                    黒川 沙織
+                  </Link>
+                  <Link href="/recruit/stories/support-2" className={subLinkClass}>
+                    藤井 美咲
+                  </Link>
+                  <Link href="/recruit/stories/support-3" className={subLinkClass}>
+                    佐野 遼
+                  </Link>
+                  <Link href="/recruit/stories/support-4" className={subLinkClass}>
+                    林 凛香
+                  </Link>
+                  <div className="border-t border-gray-100 my-1" />
                   <p className="px-5 py-1.5 text-[10px] uppercase tracking-widest text-[#2563EB] font-bold">冒険者ガイド</p>
                   <Link href="/recruit/guide" className={subLinkClass}>
                     コンテンツ一覧
@@ -221,6 +235,20 @@ export default function RecruitHeader() {
               </Link>
               <Link href="/recruit/stories/shimishun" className="block py-1.5 text-base font-bold text-gray-700 hover:text-[#2563EB] transition-colors" onClick={close}>
                 清水 駿之介
+              </Link>
+              <div className="border-t border-gray-100 my-1" />
+              <p className="py-1 text-xs text-gray-600 font-medium tracking-wider">サポートメンバー</p>
+              <Link href="/recruit/stories/support-1" className="block py-1.5 text-base font-bold text-gray-700 hover:text-[#2563EB] transition-colors" onClick={close}>
+                黒川 沙織
+              </Link>
+              <Link href="/recruit/stories/support-2" className="block py-1.5 text-base font-bold text-gray-700 hover:text-[#2563EB] transition-colors" onClick={close}>
+                藤井 美咲
+              </Link>
+              <Link href="/recruit/stories/support-3" className="block py-1.5 text-base font-bold text-gray-700 hover:text-[#2563EB] transition-colors" onClick={close}>
+                佐野 遼
+              </Link>
+              <Link href="/recruit/stories/support-4" className="block py-1.5 text-base font-bold text-gray-700 hover:text-[#2563EB] transition-colors" onClick={close}>
+                林 凛香
               </Link>
               <div className="border-t border-gray-100 my-1" />
               <p className="py-1 text-xs text-gray-600 font-medium tracking-wider">冒険者ガイド</p>
