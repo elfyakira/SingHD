@@ -21,10 +21,12 @@ function InterviewImage({
   src,
   alt,
   aspect,
+  position,
 }: {
   src: string
   alt: string
   aspect: 'portrait' | 'wide' | 'square'
+  position?: string
 }) {
   const [failed, setFailed] = useState(false)
   const aspectClass =
@@ -44,6 +46,7 @@ function InterviewImage({
           unoptimized
           sizes="280px"
           className="object-cover"
+          style={position ? { objectPosition: position } : undefined}
           onError={() => setFailed(true)}
         />
       ) : (
@@ -327,6 +330,7 @@ export default function InterviewDetailPage() {
                           src={interview.wideImage || interview.image}
                           alt={interview.name}
                           aspect="wide"
+                          position={interview.wideImagePosition}
                         />
                       </div>
                     )}

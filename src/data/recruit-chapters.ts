@@ -18,7 +18,6 @@ export const recruitChapters: RecruitChapter[] = [
   { id: 'adventure-map', number: '⑧', title: '冒険マップ', titleEn: 'ADVENTURE MAP', href: '/recruit/adventure-map', phase: 'growth' },
   { id: 'characters', number: '⑨', title: '求める人物', titleEn: 'WHO WE ARE LOOKING FOR', href: '/recruit/characters', phase: 'growth' },
   { id: 'oath', number: '⑩', title: '冒険者の誓い', titleEn: "ADVENTURER'S OATH", href: '/recruit/oath', phase: 'growth' },
-  { id: 'story-watanabe', number: '⑪', title: '渡邉大輝の物語', titleEn: 'CHALLENGER STORY', href: '/recruit/stories/watanabe', phase: 'growth' },
   { id: 'story-iida', number: '⑪', title: '飯田思遠の物語', titleEn: 'CHALLENGER STORY', href: '/recruit/stories/iida', phase: 'growth' },
   { id: 'message', number: '⑫', title: '最後のメッセージ', titleEn: 'LAST MESSAGE', href: '/recruit/entry#message', phase: 'apply' },
   { id: 'jobs', number: '⑬', title: '募集要項', titleEn: 'RECRUIT', href: '/recruit/entry#jobs', phase: 'apply' },

@@ -86,15 +86,6 @@ const challengerStories: {
   iconPosition?: string; iconScale?: number
 }[] = [
   {
-    name: '渡邉 大輝',
-    company: '株式会社Sing.nexT',
-    role: '代表取締役',
-    tagline: '覚悟が固まるのを待つ人生は、もうやめた。',
-    href: '/recruit/stories/watanabe',
-    image: '/img/recruit/stories/watanabe-portrait.png',
-    imagePosition: '50% -35%',
-  },
-  {
     name: '飯田 思遠',
     company: '株式会社ゆめスタ',
     role: '代表取締役',
@@ -155,7 +146,7 @@ export default function RecruitTopPage() {
   }, [])
 
   const allChapters = recruitChapters.filter(
-    (c) => c.id !== 'top' && c.id !== 'story-watanabe' && c.id !== 'story-iida'
+    (c) => c.id !== 'top' && c.id !== 'story-iida'
   )
   const ch = (id: string) => allChapters.find((c) => c.id === id)!
 

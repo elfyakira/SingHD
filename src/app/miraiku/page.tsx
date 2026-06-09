@@ -60,14 +60,6 @@ const partnerData = [
     tagline: '止まっていた時間を、自分で動かす',
   },
   {
-    slug: 'daiki',
-    name: '渡邉 大輝',
-    nameEn: 'Taiki Watanabe',
-    company: '株式会社Sing.nexT',
-    image: '/img/miraiku/partner-daiki.jpg',
-    tagline: '覚悟は、行動の中で完成する',
-  },
-  {
     slug: 'shion',
     name: '飯田 思遠',
     nameEn: 'Shien Iida',
@@ -115,7 +107,6 @@ export default function MiraikuPage() {
   const heroImages = [
     { src: '/img/miraiku/yagi-wide.jpg', position: 'center center', scale: 1 },
     { src: '/img/miraiku/partner-shimishun.jpg', position: 'center center', scale: 1 },
-    { src: '/img/miraiku/partner-daiki.jpg', position: 'center center', scale: 1 },
     { src: '/img/miraiku/partner-shion.jpg', position: 'center 20%', scale: 1 },
   ]
   const [currentImageIndex, setCurrentImageIndex] = useState(0)

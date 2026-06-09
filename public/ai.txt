@@ -127,7 +127,6 @@ Singホールディングスの採用サイト。RPG（ロールプレイング�
 - /recruit/oath — 冒険者の誓い
 - /recruit/last-boss — ラスボス（社会の課題に挑む）
 - /recruit/diagnosis — 冒険診断（タイプ診断クイズ）
-- /recruit/stories/watanabe — 挑戦者ストーリー: 渡邉大輝
 - /recruit/stories/iida — 挑戦者ストーリー: 飯田思遠
 - /recruit/guide — 冒険者ガイド（コンテンツハブ）
 - /recruit/entry — 冒険に参加する（エントリー）

@@ -117,9 +117,6 @@ export default function RecruitHeader() {
               >
                 <div className="bg-white border border-gray-200 rounded-xl shadow-lg py-2 min-w-[200px]">
                   <p className="px-5 py-1.5 text-[10px] uppercase tracking-widest text-[#2563EB] font-bold">挑戦者ストーリー</p>
-                  <Link href="/recruit/stories/watanabe" className={subLinkClass}>
-                    渡邉 大輝
-                  </Link>
                   <Link href="/recruit/stories/iida" className={subLinkClass}>
                     飯田 思遠
                   </Link>
@@ -224,9 +221,6 @@ export default function RecruitHeader() {
             </p>
             <div className="space-y-0 pl-3 border-l-2 border-[#2563EB]/20">
               <p className="py-1 text-xs text-gray-600 font-medium tracking-wider">挑戦者ストーリー</p>
-              <Link href="/recruit/stories/watanabe" className="block py-1.5 text-base font-bold text-gray-700 hover:text-[#2563EB] transition-colors" onClick={close}>
-                渡邉 大輝
-              </Link>
               <Link href="/recruit/stories/iida" className="block py-1.5 text-base font-bold text-gray-700 hover:text-[#2563EB] transition-colors" onClick={close}>
                 飯田 思遠
               </Link>

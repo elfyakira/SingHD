@@ -77,12 +77,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.7,
     },
     {
-      url: `${baseUrl}/miraiku/interview/daiki`,
-      lastModified: new Date(),
-      changeFrequency: 'yearly',
-      priority: 0.7,
-    },
-    {
       url: `${baseUrl}/miraiku/interview/shion`,
       lastModified: new Date(),
       changeFrequency: 'yearly',
@@ -147,12 +141,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     // Recruit ストーリー
     {
       url: `${baseUrl}/recruit/stories/iida`,
-      lastModified: new Date(),
-      changeFrequency: 'yearly',
-      priority: 0.7,
-    },
-    {
-      url: `${baseUrl}/recruit/stories/watanabe`,
       lastModified: new Date(),
       changeFrequency: 'yearly',
       priority: 0.7,
