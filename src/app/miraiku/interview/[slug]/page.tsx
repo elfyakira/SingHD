@@ -458,16 +458,6 @@ export default function InterviewDetailPage() {
                           </td>
                         </tr>
                       )}
-                      {interview.companyInfo.founded && (
-                        <tr className="border-b border-gray-100">
-                          <td className="py-3 pr-8 text-gray-500 w-24">
-                            設立日
-                          </td>
-                          <td className="py-3">
-                            {interview.companyInfo.founded}
-                          </td>
-                        </tr>
-                      )}
                       {interview.companyInfo.location && (
                         <tr className="border-b border-gray-100">
                           <td className="py-3 pr-8 text-gray-500 w-24">

@@ -31,7 +31,6 @@ export interface Interview {
   profile: string
   companyInfo?: {
     name: string
-    founded?: string
     location?: string
     business?: string
     url?: string
