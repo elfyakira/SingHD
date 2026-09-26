@@ -209,7 +209,7 @@ const domains: Domain[] = [
         category: 'ブランディング',
         icon: Lightbulb,
         logo: '/img/company/bizrealogo.png',
-        // TODO: 正式URL確認でき次第追加（推測URLは設定しない）
+        website: 'https://www.bizrea.net/',
         items: [
           {
             title: '総合ブランディング支援',
@@ -229,7 +229,7 @@ const domains: Domain[] = [
         category: '健康経営',
         icon: HeartPulse,
         logo: '/img/company/vitalcorelogo.png',
-        // TODO: 正式URL確認でき次第追加（推測URLは設定しない）
+        website: 'https://vitalcore.jp/',
         items: [
           {
             title: '健康支援伴走コンサルティング',
@@ -280,7 +280,7 @@ const domains: Domain[] = [
         category: '挑戦支援',
         icon: Sprout,
         logo: '/img/company/yumesutapartnerslogo.png',
-        // TODO: 正式URL確認でき次第追加（推測URLは設定しない）
+        website: 'https://yumesuta-partners.com/',
         items: [
           {
             title: '若者・高校生のスタート支援',
