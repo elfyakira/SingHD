@@ -225,7 +225,7 @@ export const supportMembers: SupportMember[] = [
     image: '/img/recruit/stories/support-3-portrait.png',
     journeyImage: '/img/recruit/stories/support-3-journey.png',
     tagline: '迷うなら、動いてください。',
-    overview: '前職では別業界で営業をしていた川﨑遼。数字を追いかけるだけの毎日にやりがいを見失い、「自分は何のために働いているのか」と問い続けていた。Singとの出会い、覚悟の決断、そして入社後に変わった自分自身のこと。',
+    overview: '前職では別業界で営業をしていた佐野遼。数字を追いかけるだけの毎日にやりがいを見失い、「自分は何のために働いているのか」と問い続けていた。Singとの出会い、覚悟の決断、そして入社後に変わった自分自身のこと。',
     chapters: [
       {
         number: '01',

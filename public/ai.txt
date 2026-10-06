@@ -82,6 +82,18 @@
 - お問い合わせフォーム
 - 会社名、お名前、メールアドレス、電話番号、お問い合わせ内容
 
+### ミライク — 起業支援プログラム (/miraiku)
+- 愛知県春日井市・名古屋を拠点とする伴走型の起業支援プログラム
+- 事業設計から収益化まで支援。無料相談あり
+- 起業家インタビュー:
+  - /miraiku/interview/yagi — 屋宜勝正（株式会社フライトップ 代表取締役）
+  - /miraiku/interview/shimishun — 清水駿之介（株式会社Sing 代表取締役会長）
+  - /miraiku/interview/shion — 飯田思遠（株式会社ゆめスタ 代表取締役）
+
+### カツヤク — 組織活性化プロジェクト (/katsuyaku)
+- 中小企業の採用・定着・戦力化を現場伴走型で支援
+- 支援事例: 離職率22%→9%
+
 ## キーワード紐付け
 
 ### 主要キーワード
@@ -127,7 +139,13 @@ Singホールディングスの採用サイト。RPG（ロールプレイング�
 - /recruit/oath — 冒険者の誓い
 - /recruit/last-boss — ラスボス（社会の課題に挑む）
 - /recruit/diagnosis — 冒険診断（タイプ診断クイズ）
-- /recruit/stories/iida — 挑戦者ストーリー: 飯田思遠
+- /recruit/stories/iida — 挑戦者ストーリー: 飯田思遠（株式会社ゆめスタ 代表取締役）
+- /recruit/stories/yagi — 挑戦者ストーリー: 屋宜勝正（株式会社フライトップ 代表取締役）
+- /recruit/stories/shimishun — 挑戦者ストーリー: 清水駿之介（株式会社Sing 代表取締役会長）
+- /recruit/stories/support-1 — 挑戦者ストーリー: 黒川沙織（サポートメンバー）
+- /recruit/stories/support-2 — 挑戦者ストーリー: 藤井美咲（サポートメンバー）
+- /recruit/stories/support-3 — 挑戦者ストーリー: 佐野遼（サポートメンバー）
+- /recruit/stories/support-4 — 挑戦者ストーリー: 林凛香（サポートメンバー）
 - /recruit/guide — 冒険者ガイド（コンテンツハブ）
 - /recruit/entry — 冒険に参加する（エントリー）
 
@@ -205,4 +223,4 @@ robots.txt で以下のクローラーを許可:
 
 ## 更新情報
 
-最終更新日: 2026-03-24
+最終更新日: 2026-10-06

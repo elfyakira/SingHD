@@ -6,6 +6,8 @@ export interface GuideArticle {
   slug: string
   title: string
   date: string
+  /** 最終更新日（frontmatterの updated。未指定なら date） */
+  updated?: string
   category: string
   excerpt: string
   featured: boolean
@@ -41,6 +43,7 @@ export function getGuideArticle(slug: string): GuideArticle | null {
       slug,
       title: data.title,
       date: data.date,
+      updated: data.updated,
       category: data.category || '',
       excerpt: data.excerpt || '',
       featured: data.featured || false,

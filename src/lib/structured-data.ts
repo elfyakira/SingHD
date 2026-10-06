@@ -9,7 +9,7 @@ export function generateOrganizationSchema() {
     name: siteConfig.company.name,
     alternateName: [siteConfig.company.nameEn, ...siteConfig.alternateNames],
     url: siteConfig.siteUrl,
-    logo: `${siteConfig.siteUrl}/img/logo.png`,
+    logo: `${siteConfig.siteUrl}/singhdlogo512.png`,
     description: siteConfig.defaultSeo.description,
     foundingDate: siteConfig.company.foundedDate,
     address: {
@@ -27,7 +27,8 @@ export function generateOrganizationSchema() {
     ],
     contactPoint: {
       '@type': 'ContactPoint',
-      telephone: siteConfig.company.phone,
+      ...(siteConfig.company.phone && { telephone: siteConfig.company.phone }),
+      email: siteConfig.company.email,
       contactType: 'customer service',
       availableLanguage: ['Japanese'],
     },
@@ -79,10 +80,10 @@ export function generateLocalBusinessSchema() {
     '@context': 'https://schema.org',
     '@type': 'LocalBusiness',
     name: siteConfig.company.name,
-    image: `${siteConfig.siteUrl}/img/company.jpg`,
+    image: `${siteConfig.siteUrl}${siteConfig.ogImage.url}`,
     '@id': siteConfig.siteUrl,
     url: siteConfig.siteUrl,
-    telephone: siteConfig.company.phone,
+    ...(siteConfig.company.phone && { telephone: siteConfig.company.phone }),
     address: {
       '@type': 'PostalAddress',
       streetAddress: siteConfig.company.address,
@@ -159,7 +160,7 @@ export function generatePersonSchema(person: {
   }
 }
 
-// Article Schema (for news)
+// Article Schema (news: NewsArticle / guide: BlogPosting)
 export function generateArticleSchema(article: {
   title: string
   description: string
@@ -167,10 +168,16 @@ export function generateArticleSchema(article: {
   datePublished: string
   dateModified?: string
   image?: string
+  type?: 'NewsArticle' | 'BlogPosting' | 'Article'
+  keywords?: string[]
+  section?: string
 }) {
   return {
     '@context': 'https://schema.org',
-    '@type': 'NewsArticle',
+    '@type': article.type || 'NewsArticle',
+    inLanguage: 'ja',
+    ...(article.keywords && { keywords: article.keywords.join(', ') }),
+    ...(article.section && { articleSection: article.section }),
     headline: article.title,
     description: article.description,
     url: article.url,
@@ -185,10 +192,10 @@ export function generateArticleSchema(article: {
       name: siteConfig.company.name,
       logo: {
         '@type': 'ImageObject',
-        url: `${siteConfig.siteUrl}/img/logo.png`,
+        url: `${siteConfig.siteUrl}/singhdlogo512.png`,
       },
     },
-    image: article.image || siteConfig.ogImage.url,
+    image: article.image || `${siteConfig.siteUrl}${siteConfig.ogImage.url}`,
     mainEntityOfPage: {
       '@type': 'WebPage',
       '@id': article.url,
@@ -238,4 +245,67 @@ export function generateContactPageSchema() {
     description: `${siteConfig.company.name}へのお問い合わせはこちらから。`,
     url: `${siteConfig.siteUrl}/contact`,
   }
+}
+
+// Interview Schema (ProfilePage + Person + Article) — インタビュー/挑戦者ストーリー用
+export function generateInterviewSchemas(interview: {
+  name: string
+  nameEn: string
+  url: string
+  title: string
+  description: string
+  image: string
+  jobTitle?: string
+  company?: string
+  companyUrl?: string
+  breadcrumbs: { name: string; url: string }[]
+}) {
+  const person = {
+    '@type': 'Person',
+    '@id': `${interview.url}#person`,
+    name: interview.name,
+    alternateName: interview.nameEn,
+    image: interview.image,
+    ...(interview.jobTitle && { jobTitle: interview.jobTitle }),
+    worksFor: {
+      '@type': 'Organization',
+      name: interview.company || siteConfig.company.name,
+      ...(interview.companyUrl && { url: interview.companyUrl }),
+      parentOrganization: {
+        '@type': 'Organization',
+        name: siteConfig.company.name,
+        url: siteConfig.siteUrl,
+      },
+    },
+  }
+
+  return [
+    generateBreadcrumbSchema(interview.breadcrumbs),
+    {
+      '@context': 'https://schema.org',
+      '@type': 'ProfilePage',
+      name: interview.title,
+      description: interview.description,
+      url: interview.url,
+      inLanguage: 'ja',
+      mainEntity: person,
+    },
+    {
+      '@context': 'https://schema.org',
+      '@type': 'Article',
+      headline: interview.title,
+      description: interview.description,
+      url: interview.url,
+      image: interview.image,
+      inLanguage: 'ja',
+      about: { '@id': `${interview.url}#person` },
+      author: { '@type': 'Organization', name: siteConfig.company.name },
+      publisher: {
+        '@type': 'Organization',
+        name: siteConfig.company.name,
+        logo: { '@type': 'ImageObject', url: `${siteConfig.siteUrl}/singhdlogo512.png` },
+      },
+      mainEntityOfPage: { '@type': 'WebPage', '@id': interview.url },
+    },
+  ]
 }

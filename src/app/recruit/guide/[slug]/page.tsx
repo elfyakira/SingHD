@@ -26,6 +26,18 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     title: `${article.title} | 冒険者ガイド | Sing RECRUIT`,
     description: article.excerpt,
     openGraph: {
+      type: 'article',
+      title: article.title,
+      description: article.excerpt,
+      url: `/recruit/guide/${slug}`,
+      images: [article.image],
+      publishedTime: article.date,
+      modifiedTime: article.updated || article.date,
+      section: article.category,
+      tags: article.tags,
+    },
+    twitter: {
+      card: 'summary_large_image',
       title: article.title,
       description: article.excerpt,
       images: [article.image],
@@ -46,6 +58,7 @@ export default async function GuideArticlePage({ params }: Props) {
   const schemas = [
     generateBreadcrumbSchema([
       { name: 'ホーム', url: siteConfig.siteUrl },
+      { name: '採用サイト', url: `${siteConfig.siteUrl}/recruit` },
       { name: '冒険者ガイド', url: `${siteConfig.siteUrl}/recruit/guide` },
       { name: article.title, url: `${siteConfig.siteUrl}/recruit/guide/${slug}` },
     ]),
@@ -54,6 +67,10 @@ export default async function GuideArticlePage({ params }: Props) {
       description: article.excerpt,
       url: `${siteConfig.siteUrl}/recruit/guide/${slug}`,
       datePublished: article.date,
+      dateModified: article.updated || article.date,
+      type: 'BlogPosting',
+      keywords: article.tags,
+      section: article.category,
       image: `${siteConfig.siteUrl}${article.image}`,
     }),
   ]

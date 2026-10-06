@@ -4,6 +4,16 @@ import { ArrowLeft } from 'lucide-react'
 import Header from '@/components/layout/Header'
 import Footer from '@/components/layout/Footer'
 import { getNewsBySlug, getAllSlugs } from '@/lib/news'
+import StructuredData from '@/components/StructuredData'
+import { generateArticleSchema, generateBreadcrumbSchema } from '@/lib/structured-data'
+import { siteConfig } from '@/config/seo'
+
+/** 本文HTMLから先頭120文字程度を抜き出してdescriptionに使う */
+function toDescription(html: string, fallback: string) {
+  const text = html.replace(/<[^>]+>/g, '').replace(/\s+/g, ' ').trim()
+  if (!text) return fallback
+  return text.length > 120 ? `${text.slice(0, 120)}…` : text
+}
 
 export async function generateStaticParams() {
   return getAllSlugs().map((slug) => ({ slug }))
@@ -19,9 +29,23 @@ export async function generateMetadata({
   const { slug } = await params
   const article = await getNewsBySlug(slug)
   if (!article) return { title: 'ニュース' }
+  const description = toDescription(
+    article.contentHtml,
+    `${article.title} - Singホールディングスからのお知らせ`
+  )
   return {
     title: article.title,
-    description: `${article.title} - Singホールディングスからのお知らせ`,
+    description,
+    alternates: {
+      canonical: `/news/${slug}`,
+    },
+    openGraph: {
+      type: 'article',
+      title: article.title,
+      description,
+      url: `/news/${slug}`,
+      publishedTime: article.date,
+    },
   }
 }
 
@@ -35,8 +59,25 @@ export default async function NewsDetailPage({
 
   if (!article) notFound()
 
+  const url = `${siteConfig.siteUrl}/news/${slug}`
+  const schemas = [
+    generateBreadcrumbSchema([
+      { name: 'ホーム', url: siteConfig.siteUrl },
+      { name: 'ニュース', url: `${siteConfig.siteUrl}/news` },
+      { name: article.title, url },
+    ]),
+    generateArticleSchema({
+      title: article.title,
+      description: toDescription(article.contentHtml, article.title),
+      url,
+      datePublished: article.date,
+      section: article.category,
+    }),
+  ]
+
   return (
     <>
+      <StructuredData data={schemas} />
       <Header />
 
       <main className="pt-20">

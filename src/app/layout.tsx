@@ -68,6 +68,9 @@ export const metadata: Metadata = {
   manifest: '/site.webmanifest',
   verification: {
     google: siteConfig.analytics.googleSearchConsoleId,
+    ...(siteConfig.analytics.bingWebmasterId && {
+      other: { 'msvalidate.01': siteConfig.analytics.bingWebmasterId },
+    }),
   },
 }
 

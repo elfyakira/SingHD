@@ -1,16 +1,34 @@
 import { MetadataRoute } from 'next'
 import { siteConfig } from '@/config/seo'
-import { getAllGuideSlugs } from '@/lib/guide-loader'
+import { getAllGuideArticles } from '@/lib/guide-loader'
+import { getAllNews } from '@/lib/news'
+import { supportMembers } from '@/data/support-members'
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = siteConfig.siteUrl || 'https://example.com'
 
   // 冒険者ガイドの動的ページ
-  const guideSlugs = getAllGuideSlugs()
-  const guideEntries: MetadataRoute.Sitemap = guideSlugs.map((slug) => ({
-    url: `${baseUrl}/recruit/guide/${slug}`,
-    lastModified: new Date(),
+  // lastModified は記事の実際の更新日（updated → date）を使う
+  const guideEntries: MetadataRoute.Sitemap = getAllGuideArticles().map((article) => ({
+    url: `${baseUrl}/recruit/guide/${article.slug}`,
+    lastModified: new Date(article.updated || article.date),
     changeFrequency: 'monthly' as const,
+    priority: 0.7,
+  }))
+
+  // ニュース記事
+  const newsEntries: MetadataRoute.Sitemap = getAllNews().map((article) => ({
+    url: `${baseUrl}/news/${article.slug}`,
+    lastModified: new Date(article.date),
+    changeFrequency: 'yearly' as const,
+    priority: 0.6,
+  }))
+
+  // サポートメンバーインタビュー
+  const supportEntries: MetadataRoute.Sitemap = supportMembers.map((member) => ({
+    url: `${baseUrl}/recruit/stories/${member.slug}`,
+    lastModified: new Date(),
+    changeFrequency: 'yearly' as const,
     priority: 0.7,
   }))
 
@@ -27,6 +45,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'weekly',
       priority: 0.8,
     },
+    ...newsEntries,
     {
       url: `${baseUrl}/concept`,
       lastModified: new Date(),
@@ -157,6 +176,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'yearly',
       priority: 0.7,
     },
+    ...supportEntries,
     {
       url: `${baseUrl}/recruit/entry`,
       lastModified: new Date(),
