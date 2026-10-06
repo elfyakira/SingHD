@@ -1,6 +1,6 @@
 import { Metadata } from 'next'
 import { notFound } from 'next/navigation'
-import { getGuideArticle, getAllGuideSlugs, renderMarkdown } from '@/lib/guide-loader'
+import { getGuideArticle, getAllGuideSlugs, getAllGuideArticles, renderMarkdown } from '@/lib/guide-loader'
 import GuideArticleContent from './GuideArticleContent'
 import StructuredData from '@/components/StructuredData'
 import {
@@ -15,6 +15,16 @@ interface Props {
 
 export async function generateStaticParams() {
   return getAllGuideSlugs().map((slug) => ({ slug }))
+}
+
+/** 関連記事: 同カテゴリを優先し、足りなければ新しい順で補って最大3件 */
+function getRelatedArticles(slug: string, category: string) {
+  const others = getAllGuideArticles().filter((a) => a.slug !== slug)
+  const sameCategory = others.filter((a) => a.category === category)
+  const rest = others.filter((a) => a.category !== category)
+  return [...sameCategory, ...rest]
+    .slice(0, 3)
+    .map(({ slug, title, category }) => ({ slug, title, category }))
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
@@ -86,6 +96,7 @@ export default async function GuideArticlePage({ params }: Props) {
         readingTime={article.readingTime}
         image={article.image}
         htmlContent={htmlContent}
+        related={getRelatedArticles(slug, article.category)}
       />
     </>
   )

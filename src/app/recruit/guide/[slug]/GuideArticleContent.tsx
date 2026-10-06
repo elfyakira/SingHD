@@ -15,6 +15,7 @@ interface Props {
   readingTime: string
   image: string
   htmlContent: string
+  related: { slug: string; title: string; category: string }[]
 }
 
 export default function GuideArticleContent({
@@ -25,6 +26,7 @@ export default function GuideArticleContent({
   readingTime,
   image,
   htmlContent,
+  related,
 }: Props) {
   return (
     <>
@@ -100,8 +102,30 @@ export default function GuideArticleContent({
               </FadeInUp>
             </div>
 
+            {/* Related Articles */}
+            {related.length > 0 && (
+              <nav aria-label="関連記事" className="mt-16 border-t border-gray-200 pt-8">
+                <h2 className="text-sm font-bold text-[#1C2A44] mb-4">あわせて読みたい</h2>
+                <ul className="space-y-3">
+                  {related.map((item) => (
+                    <li key={item.slug}>
+                      <Link
+                        href={`/recruit/guide/${item.slug}`}
+                        className="group inline-flex items-baseline gap-2 text-sm text-gray-600 hover:text-[#2563EB] transition-colors"
+                      >
+                        <span className="text-[10px] font-bold tracking-wider text-[#2563EB] shrink-0">
+                          {item.category}
+                        </span>
+                        <span className="group-hover:underline">{item.title}</span>
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </nav>
+            )}
+
             {/* Navigation */}
-            <div className="mt-16">
+            <div className={related.length > 0 ? 'mt-8' : 'mt-16'}>
               <div className="flex flex-col sm:flex-row gap-4 justify-center items-center border-t border-gray-200 pt-8">
                 <Link
                   href="/recruit/guide"

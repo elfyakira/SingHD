@@ -7,10 +7,23 @@ import TestimonialsSection from '@/components/katsuyaku/TestimonialsSection'
 import PricingSection from '@/components/katsuyaku/PricingSection'
 import FaqSection from '@/components/katsuyaku/FaqSection'
 import ContactSection from '@/components/katsuyaku/ContactSection'
+import StructuredData from '@/components/StructuredData'
+import { faqs } from '@/data/katsuyaku-faqs'
+import { generateFAQSchema, generateBreadcrumbSchema } from '@/lib/structured-data'
+import { siteConfig } from '@/config/seo'
+
+const schemas = [
+  generateBreadcrumbSchema([
+    { name: 'ホーム', url: siteConfig.siteUrl },
+    { name: 'カツヤク', url: `${siteConfig.siteUrl}/katsuyaku` },
+  ]),
+  generateFAQSchema(faqs.map((faq) => ({ question: faq.q, answer: faq.a }))),
+]
 
 export default function KatsuyakuPage() {
   return (
     <main>
+      <StructuredData data={schemas} />
       <HeroSection />
       <ProblemSection />
       <SolutionSection />
