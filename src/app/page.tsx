@@ -483,6 +483,30 @@ export default function HomePage() {
         </section>
 
         {/* ========================================
+            ゆめスタパートナーズ 応援バナー（代表メッセージの下）
+           ======================================== */}
+        <div className="bg-white pt-6">
+          <div className="container mx-auto px-4 lg:px-8">
+            <a
+              href="https://yumesuta-partners.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block"
+              aria-label="一般社団法人ゆめスタパートナーズを応援しています"
+            >
+              <img
+                src="/img/yumesuta-support-banner.webp"
+                alt="一般社団法人ゆめスタパートナーズを応援しています。"
+                width={1200}
+                height={373}
+                loading="lazy"
+                className="block h-auto w-[300px] max-w-full md:w-[490px] rounded-[10px]"
+              />
+            </a>
+          </div>
+        </div>
+
+        {/* ========================================
             6. 無料相談CTAセクション
            ======================================== */}
         <section className="py-20 lg:py-32 bg-white">
