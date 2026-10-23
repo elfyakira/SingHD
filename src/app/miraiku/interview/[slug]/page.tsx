@@ -162,9 +162,11 @@ export default function InterviewDetailPage() {
                 >
                   {interview.name}
                 </p>
-                <p className="text-sm text-gray-500 tracking-wider mt-1">
-                  {interview.nameEn}
-                </p>
+                {interview.nameEn && (
+                  <p className="text-sm text-gray-500 tracking-wider mt-1">
+                    {interview.nameEn}
+                  </p>
+                )}
               </div>
             </div>
           </HeroBackground>
@@ -427,9 +429,11 @@ export default function InterviewDetailPage() {
                     >
                       {interview.name}
                     </p>
-                    <p className="text-sm text-gray-400 tracking-wider">
-                      {interview.nameEn}
-                    </p>
+                    {interview.nameEn && (
+                      <p className="text-sm text-gray-400 tracking-wider">
+                        {interview.nameEn}
+                      </p>
+                    )}
                   </div>
                   <p className="text-sm text-gray-600 leading-[2.2]">
                     {interview.profile}
@@ -560,9 +564,11 @@ export default function InterviewDetailPage() {
                   >
                     {r.name}
                   </p>
-                  <p className="text-xs text-gray-500 tracking-wider mt-0.5">
-                    {r.nameEn}
-                  </p>
+                  {r.nameEn && (
+                    <p className="text-xs text-gray-500 tracking-wider mt-0.5">
+                      {r.nameEn}
+                    </p>
+                  )}
                 </Link>
               ))}
             </StaggerContainer>

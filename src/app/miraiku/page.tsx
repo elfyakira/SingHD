@@ -68,6 +68,24 @@ const partnerData = [
     imagePosition: 'center 20%',
     tagline: '自分の意思で未来を選び続ける',
   },
+  {
+    slug: 'yamanaka',
+    name: '山中 信人',
+    nameEn: '',
+    company: '株式会社Vital core',
+    image: '/img/miraiku/partner-yamanaka.jpg',
+    imagePosition: 'center 15%',
+    tagline: '壊れる前の職場に、入っていく',
+  },
+  {
+    slug: 'kasamoto-bizrea',
+    name: '笠本 政満',
+    nameEn: '',
+    company: 'Bizreaメディア',
+    image: '/img/miraiku/partner-kasamoto-bizrea.jpg',
+    imagePosition: 'center 5%',
+    tagline: '仲間がいるから、挑戦できる',
+  },
 ]
 
 const pillarData = [
@@ -303,7 +321,7 @@ export default function MiraikuPage() {
             <StaggerContainer staggerDelay={150} className="grid grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
               {partnerData.map((partner) => (
                 <Link
-                  key={partner.nameEn}
+                  key={partner.slug}
                   href={`/miraiku/interview/${partner.slug}`}
                   className="group"
                 >
@@ -338,9 +356,11 @@ export default function MiraikuPage() {
                   <div className="w-full h-px bg-white/20 mb-3" />
                   <p className="text-xs text-gray-400 mb-1">{partner.company}</p>
                   <p className="text-lg font-bold">{partner.name}</p>
-                  <p className="text-xs text-gray-500 tracking-wider mt-0.5">
-                    {partner.nameEn}
-                  </p>
+                  {partner.nameEn && (
+                    <p className="text-xs text-gray-500 tracking-wider mt-0.5">
+                      {partner.nameEn}
+                    </p>
+                  )}
                 </Link>
               ))}
             </StaggerContainer>
@@ -484,7 +504,7 @@ export default function MiraikuPage() {
             <StaggerContainer staggerDelay={150} className="grid grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
               {partnerData.map((partner) => (
                 <Link
-                  key={partner.nameEn + '-grid'}
+                  key={partner.slug + '-grid'}
                   href={`/miraiku/interview/${partner.slug}`}
                   className="group"
                 >
@@ -517,9 +537,11 @@ export default function MiraikuPage() {
                     {partner.tagline}
                   </p>
                   <p className="text-base font-bold">{partner.name}</p>
-                  <p className="text-xs text-gray-500 tracking-wider mt-0.5">
-                    {partner.nameEn}
-                  </p>
+                  {partner.nameEn && (
+                    <p className="text-xs text-gray-500 tracking-wider mt-0.5">
+                      {partner.nameEn}
+                    </p>
+                  )}
                 </Link>
               ))}
             </StaggerContainer>
