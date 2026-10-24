@@ -71,7 +71,7 @@ const partnerData = [
   {
     slug: 'yamanaka',
     name: '山中 信人',
-    nameEn: '',
+    nameEn: 'Akito Yamanaka',
     company: '株式会社Vital core',
     image: '/img/miraiku/partner-yamanaka.jpg',
     imagePosition: 'center 15%',
@@ -80,7 +80,7 @@ const partnerData = [
   {
     slug: 'kasamoto-bizrea',
     name: '笠本 政満',
-    nameEn: '',
+    nameEn: 'Masamichi Kasamoto',
     company: 'Bizreaメディア',
     image: '/img/miraiku/partner-kasamoto-bizrea.jpg',
     imagePosition: 'center 5%',
