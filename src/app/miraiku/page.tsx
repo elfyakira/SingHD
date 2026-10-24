@@ -81,7 +81,7 @@ const partnerData = [
     slug: 'kasamoto-bizrea',
     name: '笠本 政満',
     nameEn: 'Masamichi Kasamoto',
-    company: 'Bizreaメディア',
+    company: '株式会社Bizreaメディア',
     image: '/img/miraiku/partner-kasamoto-bizrea.jpg',
     imagePosition: 'center 5%',
     tagline: '仲間がいるから、挑戦できる',
