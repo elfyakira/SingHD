@@ -707,7 +707,7 @@ export const interviews: Interview[] = [
     profileImage: '/img/miraiku/partner-kasamoto-bizrea.jpg',
     profilePosition: 'center 10%',
     wideImage: '/img/miraiku/kasamoto-bizrea-wide.jpg',
-    wideImagePosition: 'center 20%',
+    wideImagePosition: 'center center',
     tagline: '仲間がいるから、挑戦できる',
     company: '株式会社Bizreaメディア',
     role: '代表取締役',
