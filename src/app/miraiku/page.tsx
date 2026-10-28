@@ -44,7 +44,7 @@ interface ContactFormData {
 const partnerData = [
   {
     slug: 'yagi',
-    name: '屋宜 勝正',
+    name: '屋冝 勝正',
     nameEn: 'Katsumasa Yagi',
     company: '株式会社フライトップ',
     image: '/img/miraiku/partner-yagi.jpg',

@@ -40,7 +40,7 @@ export interface Interview {
 export const interviews: Interview[] = [
   {
     slug: 'yagi',
-    name: '屋宜 勝正',
+    name: '屋冝 勝正',
     nameEn: 'Katsumasa Yagi',
     subtitle: '起業前のあなた × 出会い × 不安 × 未来',
     image: '/img/miraiku/partner-yagi.jpg',
@@ -51,7 +51,7 @@ export const interviews: Interview[] = [
     company: '株式会社フライトップ',
     role: '代表取締役',
     overview:
-      '会社員として責任ある立場にいながら、「自分の人生を生きている実感が持てない」という違和感を抱え続けていた屋宜勝正さん。退職し将来が見えない中、一本の連絡が人生を変えた。Singとの出会いから、覚悟が生まれるまでの軌跡を聞きました。',
+      '会社員として責任ある立場にいながら、「自分の人生を生きている実感が持てない」という違和感を抱え続けていた屋冝勝正さん。退職し将来が見えない中、一本の連絡が人生を変えた。Singとの出会いから、覚悟が生まれるまでの軌跡を聞きました。',
     chapters: [
       {
         number: '01',
