@@ -483,26 +483,44 @@ export default function HomePage() {
         </section>
 
         {/* ========================================
-            ゆめスタパートナーズ 応援バナー（代表メッセージの下）
+            応援バナー（代表メッセージの下）：ゆめスタパートナーズ／P-Loco
            ======================================== */}
         <div className="bg-white pt-6">
           <div className="container mx-auto px-4 lg:px-8">
-            <a
-              href="https://yumesuta-partners.com/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-block"
-              aria-label="一般社団法人ゆめスタパートナーズを応援しています"
-            >
-              <img
-                src="/img/yumesuta-support-banner.webp"
-                alt="一般社団法人ゆめスタパートナーズを応援しています。"
-                width={1200}
-                height={373}
-                loading="lazy"
-                className="block h-auto w-[300px] max-w-full md:w-[490px] rounded-[10px]"
-              />
-            </a>
+            <div className="flex flex-wrap gap-4">
+              <a
+                href="https://yumesuta-partners.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block w-[300px] max-w-full md:w-[min(400px,calc(50%_-_8px))]"
+                aria-label="一般社団法人ゆめスタパートナーズを応援しています"
+              >
+                <img
+                  src="/img/yumesuta-support-banner.webp"
+                  alt="一般社団法人ゆめスタパートナーズを応援しています。"
+                  width={1200}
+                  height={373}
+                  loading="lazy"
+                  className="block h-auto w-full rounded-[10px]"
+                />
+              </a>
+              <a
+                href="https://p-loco.jp/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block w-[300px] max-w-full md:w-[min(400px,calc(50%_-_8px))]"
+                aria-label="株式会社SingはP-Locoを応援しています"
+              >
+                <img
+                  src="/img/ploco-support-banner.webp"
+                  alt="株式会社SingはP-Locoを応援しています。"
+                  width={1200}
+                  height={373}
+                  loading="lazy"
+                  className="block h-auto w-full rounded-[10px]"
+                />
+              </a>
+            </div>
           </div>
         </div>
 
