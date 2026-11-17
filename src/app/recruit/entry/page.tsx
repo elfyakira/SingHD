@@ -736,7 +736,7 @@ export default function EntryPage() {
                           className="w-4 h-4 accent-[#F59E0B]"
                         />
                         <span className="text-sm text-gray-700">
-                          プライバシーポリシーに同意の上、送信します。
+                          <a href="/privacy" target="_blank" rel="noopener noreferrer" className="underline hover:opacity-70">プライバシーポリシー</a>に同意の上、送信します。
                         </span>
                       </label>
                       {errors.privacy && <p className="text-red-500 text-xs mt-1">{errors.privacy}</p>}

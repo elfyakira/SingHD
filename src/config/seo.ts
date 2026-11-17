@@ -231,6 +231,11 @@ export const pageSeo = {
     description:
       '株式会社Singホールディングス（SingHD）の会社概要、代表挨拶、所在地情報。愛知県春日井市・名古屋を拠点に起業支援・人財コンサルティング事業を展開しています。',
   },
+  privacy: {
+    title: 'プライバシーポリシー',
+    description:
+      '株式会社Singホールディングスのプライバシーポリシー（個人情報保護方針）。お客様からお預かりした個人情報の取り扱いについてご説明します。',
+  },
   contact: {
     title: 'お問い合わせ',
     description:

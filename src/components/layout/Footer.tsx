@@ -13,6 +13,7 @@ const footerLinks = {
     { name: 'ニュース', href: '/news' },
     { name: 'お問い合わせ', href: '/contact' },
     { name: '採用サイト', href: '/recruit' },
+    { name: 'プライバシーポリシー', href: '/privacy' },
   ],
   group: [
     { name: '株式会社Sing', href: 'https://www.singgroup.biz/' },

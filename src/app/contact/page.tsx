@@ -396,7 +396,7 @@ export default function ContactPage() {
                           className="w-5 h-5 border-gray-300 text-[#1C2A44] focus:ring-[#1C2A44]"
                         />
                         <span className="text-sm md:text-base">
-                          プライバシーポリシーに同意の上、送信します。
+                          <a href="/privacy" target="_blank" rel="noopener noreferrer" className="underline hover:opacity-70">プライバシーポリシー</a>に同意の上、送信します。
                         </span>
                       </label>
                       {errors.privacy && (
