@@ -99,7 +99,7 @@ const DOMAIN_COLORS: Record<'blue' | 'green' | 'purple', DomainColor> = {
   },
 }
 
-// Singグループ 3領域 × 9社・法人
+// Sing共創パートナー 3領域 × 9社・法人
 // 正式URL・ロゴが確認できない会社・法人は、推測せずリンク/ロゴなしで掲載
 const domains: Domain[] = [
   {
@@ -321,7 +321,7 @@ const domains: Domain[] = [
 export default function ProjectPage() {
   const breadcrumbSchema = generateBreadcrumbSchema([
     { name: 'ホーム', url: siteConfig.siteUrl || '/' },
-    { name: 'Singグループ紹介', url: `${siteConfig.siteUrl}/project` },
+    { name: '共創パートナー', url: `${siteConfig.siteUrl}/project` },
   ])
 
   const handleDomainNavClick = (
@@ -346,13 +346,13 @@ export default function ProjectPage() {
             SECTION 1：ページタイトル
            ======================================== */}
         <LowPageHero
-          titleEn="SING GROUP"
-          titleJa="Singグループ紹介"
+          titleEn="CO-CREATION PARTNERS"
+          titleJa="共創パートナー"
           imageSrc="/img/project/group-hero.jpg"
         />
 
         {/* ========================================
-            SECTION 2：グループ理念・導入
+            SECTION 2：共創パートナー理念・導入
            ======================================== */}
         <section className="relative py-20 lg:py-28 bg-white overflow-hidden">
           <div className="absolute inset-0 opacity-20" aria-hidden="true">
@@ -380,7 +380,7 @@ export default function ProjectPage() {
               <p className="text-lg text-gray-600 leading-relaxed mb-6">
                 採用・組織づくり・ブランディング・健康経営・次世代育成まで。
                 <br />
-                Singグループは、
+                Sing共創パートナーは、
                 <mark className="bg-[#FFF3B0] text-[#1A1A1A] px-1">
                   企業と地域の成長を多面的に支援します。
                 </mark>
@@ -557,7 +557,7 @@ export default function ProjectPage() {
         ))}
 
         {/* ========================================
-            SECTION 5：グループシナジー
+            SECTION 5：共創パートナーのシナジー
            ======================================== */}
         <section className="relative py-20 lg:py-28 bg-white border-t border-gray-100 overflow-hidden">
           <div className="absolute inset-0 opacity-[0.12]" aria-hidden="true">
@@ -577,15 +577,15 @@ export default function ProjectPage() {
                 地域共創・次世代育成まで。
               </h2>
               <p className="text-gray-600 leading-relaxed">
-                Singグループは、企業ごとに独立したサービスを提供するだけではありません。
+                Sing共創パートナーは、企業ごとに独立したサービスを提供するだけではありません。
                 <br className="hidden md:block" />
-                採用、人材、組織、ブランディング、健康経営、教育、地域支援の専門性をつなぎ、お客様の課題に対してグループ全体で最適な支援を組み立てます。
+                採用、人材、組織、ブランディング、健康経営、教育、地域支援の専門性をつなぎ、お客様の課題に対して共創パートナー全体で最適な支援を組み立てます。
               </p>
             </SectionTitleEntrance>
 
             <FadeInUp className="text-center mb-14">
               <span className="inline-block bg-[#FFF3B0] text-[#1A1A1A] font-bold text-lg md:text-xl px-6 py-3">
-                Singグループが、一気通貫でサポートします。
+                Sing共創パートナーが、一気通貫でサポートします。
               </span>
             </FadeInUp>
 
@@ -642,10 +642,10 @@ export default function ProjectPage() {
               <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold leading-snug mb-6">
                 どの会社に相談すればよいか分からなくても、
                 <br />
-                まずはSingグループへご相談ください。
+                まずはSing共創パートナーへご相談ください。
               </h2>
               <p className="text-gray-300 leading-relaxed mb-10 max-w-2xl mx-auto">
-                現在のお悩みを伺い、グループの中から最適な会社・サービスをご案内します。
+                現在のお悩みを伺い、共創パートナーの中から最適な会社・サービスをご案内します。
               </p>
               <Link
                 href="/contact"

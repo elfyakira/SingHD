@@ -8,7 +8,7 @@ import { Menu, X } from 'lucide-react'
 const navigation = [
   { name: 'MIRAIKU', href: '/miraiku' },
   { name: '会社概要', href: '/company' },
-  { name: 'Singグループ', href: '/project' },
+  { name: '共創パートナー', href: '/project' },
   { name: 'ニュース', href: '/news' },
   { name: 'お問い合わせ', href: '/contact' },
   { name: '採用サイト', href: '/recruit' },
